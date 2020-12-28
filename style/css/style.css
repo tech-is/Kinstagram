@@ -1,0 +1,6 @@
+/* application/public/style.css*/
+/* cssやjsを外部リンクで読みだす時にはcodeigniterの直下にフォルダを作成しそこにファイルを格納する */
+    body{
+        background-color: black;
+        color:#CFCFCF;
+    }
