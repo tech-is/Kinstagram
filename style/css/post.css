@@ -1,0 +1,31 @@
+/* application/public/post.css*/
+/* cssやjsを外部リンクで読みだす時にはcodeigniterの直下にフォルダを作成しそこにファイルを格納する */
+
+.new-primary{
+    background-color: #02A5EB;
+    color:#CFCFCF;
+}
+
+.bg-black{
+    background-color: black;
+    color:#CFCFCF;
+}
+
+.bg-gray{
+    background-color: #A0A09F;
+}
+
+.border-gray{
+    border-color: #CFCFCF;
+}
+
+ .modal{
+    text-align: center;
+}
+.modal-dialog{
+    display: inline-block;
+    width: 50%;
+}
+.post-img{
+    max-height: calc(100vh - 350px);
+} 

@@ -1,0 +1,36 @@
+/* application/public/indevidual_img.css*/
+/* cssやjsを外部リンクで読みだす時にはcodeigniterの直下にフォルダを作成しそこにファイルを格納する */
+
+.new-primary{
+    background-color: #02A5EB;
+    color:#CFCFCF;
+}
+
+.bg-black{
+    background-color: black;
+    color:#CFCFCF;
+}
+
+.bg-gray{
+    background-color: #A0A09F;
+}
+
+.border-gray{
+    border-color: #CFCFCF;
+}
+
+ .modal{
+    text-align: center;
+}
+
+ .modal-max{
+    max-width: inherit;
+    width:80%;
+}
+
+img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
