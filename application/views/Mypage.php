@@ -2,7 +2,6 @@
 <?php $this->load->view('/common/header');?>
 
 <link rel = "stylesheet" href="<?php echo base_url('/style/css/mypage.css');?>">
-
     <body class="body">
         <form>
             <div class="profile">
