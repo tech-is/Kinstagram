@@ -34,8 +34,20 @@ class Kinsta extends CI_Controller
 		$this->load->view('Individual_img');
 	}
 
-	public function top()
+	public function lp()
 	{
-		$this->load->view('kin_top.php');
+		$this->login();
+	}
+
+	public function login()
+	{
+		$this->load->view('kin_top');
+	}
+
+	public function validation()
+	{
+		$this->load->library("form_validation");
+		$this->form_validation->set_rules("email", "メール", "required");
+		$this->form_validation->set_rules("password", "パスワード", "required|md5");
 	}
 }
