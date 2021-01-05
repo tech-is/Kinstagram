@@ -121,7 +121,7 @@
     </footer>
 
     <!-- Modal -->
-    <form action="#" method="POST">
+    <form action="kinsta/validation" method="POST">
         <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -132,8 +132,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <input type="text" name="mail" placeholder="メールアドレス">
-                        <input type="text" name="mail" placeholder="電話番号">
+                        <input type="text" name="email" placeholder="メールアドレス">
                         <input type="text" name="mail" placeholder="ユーザ名">
                         <input type="text" name="mail" placeholder="パスワード">
                         <input type="text" name="mail" placeholder="パスワード確認">
