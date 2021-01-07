@@ -133,6 +133,7 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array();
 
-// $autoload['model'] = array('task_model');
+
+
 $autoload['libraries'] = array('database', 'session', 'email', 'form_validation');
 $autoload['helper'] = array('form', 'url');

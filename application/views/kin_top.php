@@ -94,6 +94,7 @@
                 </button>
             </div>
         </div>
+        <?php echo validation_errors(); ?>
     </div>
 
     <footer>
@@ -121,51 +122,56 @@
     </footer>
 
     <!-- Modal -->
-    <form action="kinsta/validation" method="POST">
-        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">新規会員登録</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" name="email" placeholder="メールアドレス">
-                        <input type="text" name="mail" placeholder="ユーザ名">
-                        <input type="text" name="mail" placeholder="パスワード">
-                        <input type="text" name="mail" placeholder="パスワード確認">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                        <button type="button" class="btn btn-primary">送信する</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">K-instagramログイン</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" name="mail" placeholder="メールアドレス">
-                        <input type="text" name="mail" placeholder="パスワード">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                        <button type="button" class="btn btn-primary">ログイン</button>
-                    </div>
+    <?php echo form_open("kinsta/registration_validation"); ?>
+
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">新規会員登録</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" name="email" placeholder="メールアドレス">
+                    <input type="text" name="user_name" placeholder="ユーザ名">
+                    <input type=" text" name="password" placeholder="パスワード">
+                    <input type="password_check" name="mail" placeholder="パスワード確認">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                    <button type="button" class="btn btn-primary">送信する</button>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
+    <?php echo form_close(); ?>
+
+    <?php form_open("main/login_validation"); ?>
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">K-instagramログイン</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" name="email" placeholder="メールアドレス">
+                    <input type="text" name="password" placeholder="パスワード">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                    <button type="button" class="btn btn-primary">ログイン</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php echo form_close(); ?>
 
 
     <!-- Optional JavaScript -->
