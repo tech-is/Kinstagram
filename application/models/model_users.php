@@ -22,6 +22,7 @@ class Model_users extends CI_Model
         //add_temp_usersのモデルの実行時に、以下のデータを取得して、$dataと紐づける
         $data = array(
             "email" => $this->input->post("email"),
+            "username" => $this->input->post("username"),
             "password" =>
             md5($this->input->post("password")),
             "key" => $key
@@ -61,6 +62,7 @@ class Model_users extends CI_Model
 
             $data = array(    //$rowで取得した値のうち、必要な情報のみを取得する
                 "email" => $row->email,
+                "username" => $row->username,
                 "password" => $row->password
             );
 
@@ -70,8 +72,7 @@ class Model_users extends CI_Model
         if ($did_add_user) {        //did_add_userが成功したら以下を実行
             $this->db->where("key", $key);
             $this->db->delete("temp_users");
-
-            return $data["email"];     //emailの値を返す
+            return true;
         }
         return false;
     }

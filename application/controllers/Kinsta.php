@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+
 class Kinsta extends CI_Controller
 {
 
@@ -33,21 +34,33 @@ class Kinsta extends CI_Controller
 
 	public function mypage()
 	{
-		$this->load->view('Mypage');
+		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+			$this->load->view("Mypage");
+		} else {									//ログインしていない場合の処理
+			redirect("main/lp");
+		}
 	}
 
 	public function post()
 	{
-		$this->load->view('Post_scr');
+		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+			$this->load->view('Post_scr');
+		} else {									//ログインしていない場合の処理
+			redirect("main/lp");
+		}
 	}
 
 	public function individual()
 	{
-		$this->load->view('Individual_img');
+		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+			$this->load->view('Individual_img');
+		} else {									//ログインしていない場合の処理
+			redirect("main/lp");
+		}
 	}
 
 
-	////山下担当　lp,ログイン,会員登録,ログアウト,その他 /////
+	////山下担当  lp,ログイン,会員登録,ログアウト,その他 /////
 	public function lp()
 	{
 		$this->login();
@@ -60,42 +73,47 @@ class Kinsta extends CI_Controller
 
 	public function registration_validation()
 	{
-		$this->load->library("form_validation");
-		$this->form_validation->set_rules("email", "メール", "required|trim|valid_email|is_unique[users.email]");
-		$this->form_validation->set_rules("user_name", "ユーザ名", "required|trim|");
+		$this->form_validation->set_rules("email", "メールアドレス", "required|trim|valid_email|is_unique[users.email]");
+		$this->form_validation->set_rules("username", "ユーザ名", "required|trim");
 		$this->form_validation->set_rules("password", "パスワード", "required|trim");
 		$this->form_validation->set_rules("password_check", "パスワード確認", "required|trim|matches[password]");
 
 		$this->form_validation->set_message("is_unique", "入力したメールアドレスはすでに登録されています");
-		//必要であれば、ユーザ名もユニーク設定する。
+		// 必要であれば、ユーザ名もユニーク設定する。
 
 		if ($this->form_validation->run()) {
 			//ランダムキーを生成する
 			$key = md5(uniqid());
-			//Emailライブラリとモデルを読み込む。
-			$this->load->library("email", array("mailtype" => "html"));
+
 			$this->load->model("model_users");
-			//送信元の情報
-			$this->email->from("shono.yamashita@gmail.com", "送信元");
-			//送信先の設定
-			$this->email->to($this->input->post("email"));
-			//タイトルの設定
-			$this->email->subject("仮の会員登録が完了しました。");
+			$this->load->helper('phpmailer');
+
 			//メッセージの本文
-			$message = "会員登録ありがとうございます。";
-			// 各ユーザーにランダムキーをパーマリンクに含むURLを送信する
+			$message = "会員登録ありがとうございます。http://localhost2/kinsta/resister_user/$key";
+
+			//各ユーザーにランダムキーをパーマリンクに含むURLを送信する
 			$message .= "こちらをクリックして、会員登録を完了してください。";
 
-			$this->email->message($message);
+			$result = phpmailer_send(
+				$this->input->post('email'),
+				'キンスタ',
+				'kinstagram111@gmail.com',
+				'仮会員登録が完了しました。',
+				"$message"
+			);
 
 			//ユーザーに確認メールを送信できた場合、ユーザーを temp_users DBに追加する
-			if ($this->model_users->add_temp_users($key)) {
-				if ($this->email->send()) {
-					echo "Message has been sent.";
-				} else echo "Coulsn't send the message.";
-			} else echo "problem adding to database";
+			if ($result) {
+				if ($this->model_users->add_temp_users($key)) {
+					echo "仮登録完了メールを送信しました。";
+				} else {
+					echo "会員登録に失敗しました。（データベースエラー）";
+				}
+			} else {
+				echo "メッセージの送信に失敗しました。メールアドレスを確認してください。";
+			}
 		} else {
-			echo "You can't pass,,,";
+			echo "新規会員登録に失敗しました。";
 			$this->load->view("kin_top");
 		}
 	}
@@ -103,7 +121,7 @@ class Kinsta extends CI_Controller
 	public function login_validation()
 	{
 		$this->load->library("form_validation");
-		$this->form_validation->set_rules("email", "メール", "required|trim|xss_clean|callback_validate_credentials");
+		$this->form_validation->set_rules("email", "メールアドレス", "required|trim|valid_email|callback_validate_credentials");
 		$this->form_validation->set_rules("password", "パスワード", "required|md5|trim");
 
 		if ($this->form_validation->run()) {	//バリデーションエラーがなかった場合の処理
@@ -115,6 +133,18 @@ class Kinsta extends CI_Controller
 			redirect("kinsta/mypage");
 		} else {							//バリデーションエラーがあった場合の処理
 			$this->load->view("kin_top.php");
+		}
+	}
+
+	public function validate_credentials()
+	{		//Email情報がPOSTされたときに呼び出されるコールバック機能
+		$this->load->model("model_users");
+
+		if ($this->model_users->can_log_in()) {	//ユーザーがログインできたあとに実行する処理
+			return true;
+		} else {					//ユーザーがログインできなかったときに実行する処理
+			$this->form_validation->set_message("validate_credentials", "ユーザー名かパスワードが異なります。");
+			return false;
 		}
 	}
 
@@ -130,14 +160,8 @@ class Kinsta extends CI_Controller
 		$this->load->model("model_users");
 
 		if ($this->model_users->is_valid_key($key)) {	//キーが正しい場合は、以下を実行
-			if ($new_email = $this->model_users->add_user($key)) {	//add_usersがTrueを返したら以下を実行
-				$data = array(
-					"email" => $new_email,
-					"is_logged_in" => 1
-				);
-
-				$this->sessinon->set_userdata($data);
-				redirect("kinsta/mypage");
+			if ($this->model_users->add_user($key)) {	//add_usersがTrueを返したら以下を実行
+				echo "success";
 			} else echo "fail to add user. please try again";
 		} else echo "invalid key";
 	}
