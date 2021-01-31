@@ -8,7 +8,6 @@
     <title>Kinstagram|mypage</title>
     <?php $this->load->view('/common/header'); ?>
     <link rel="stylesheet" href="/style/css/mypage.css">
-    <link rel="stylesheet" href="/style/css/mypage_responsive.css">
 </head>
 
 <body class="body">
@@ -20,11 +19,13 @@
                     <div class="profile-img">
                         <img src="/img/89862_s.jpg">
                     </div>
-                    <div>
-                        <p class="user_name text-center" name="user_name">
+                    <div class="user_name text-center" name="user_name">
+                        <p>
                             <?php echo $value['user_name'] ?>
                         </p>
-                        <!-- Button trigger modal -->
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="text-center">
                         <button type="button" class="btn new-primary" name="profile_image" data-toggle="modal" data-target="#exampleModal">
                             プロフィール編集
                         </button>
@@ -39,7 +40,7 @@
             <div class="modal-dialog" role="document">
                 <?php if (!empty($array_user)) : ?>
                     <?php foreach ($array_user as $value) : ?>
-                        <div class="modal-content bg-black">
+                        <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">プロフィール編集</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -95,13 +96,13 @@
 
         <!-- Modal -->
         <!-- 写真一覧 -->
-        <div class="img-list">
-            <img  src="/img/45196_s.jpg" alt="usename.1">
-            <img  src="/img/45198_s.jpg" alt="usename.2">
-            <img  src="/img/45204_s.jpg" alt="usename.3">
-            <img  src="/img/45211_s.jpg" alt="usename.4">
-            <img  src="/img/45212_s.jpg" alt="usename.5">
-            <img  src="/img/45217_s.jpg" alt="usename.6">
+        <div class="mypage">
+            <img class="mypage-img" src="/img/45196_s.jpg" alt="usename.1">
+            <img class="mypage-img" src="/img/45198_s.jpg" alt="usename.2">
+            <img class="mypage-img" src="/img/45204_s.jpg" alt="usename.3">
+            <img class="mypage-img" src="/img/45211_s.jpg" alt="usename.4">
+            <img class="mypage-img" src="/img/45212_s.jpg" alt="usename.5">
+            <img class="mypage-img" src="/img/45217_s.jpg" alt="usename.6">
         </div>
         <!-- 写真一覧 -->
     </form>

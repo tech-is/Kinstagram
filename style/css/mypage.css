@@ -6,50 +6,19 @@
     }
 
     .profile-inline{
-        width:20%;
-        margin: 10px;
+        width:100%;
+        height:auto;
         margin: 0 auto; /*中央寄せ*/
+        text-align: center;
     }
 
-    .profile-img{
-        width: 100%;
-        padding-top: 100%;
-        border-radius: 50%;
-    }
-
-    .mypage{
-        padding-top: 10px;
+    .profile-img img{
+        width: 170px;
+        height: 170px;
+        object-fit: cover;
+        border-radius: 5%;
     }
   
-  .mypage{
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .mypage-img{
-    float: left;
-    position: relative;
-    width: 30%;
-  }
-  .mypage-img:before{
-    content: "";
-    display: block;
-    padding-top: 100%;
-  }
-  
-  img{
-    position: absolute;
-    width: 20%;
-    height: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    object-fit: cover;
-    margin: 10px;
-  }
-
     .user_name > p {
         font-size: 18px;
         color: #CFCFCF;
@@ -61,4 +30,20 @@
         color:#CFCFCF;
     }
 
+    .bg-black{
+      background-color: black;
+      color:#CFCFCF;
+  }
 
+  .img-list {
+    width: 100%;
+    height:auto;
+    margin:auto;
+  }
+
+  .img-list img {
+    padding:4px 0 4px 4px;
+    width:300px;
+    height:300px;
+    object-fit: cover;
+  }

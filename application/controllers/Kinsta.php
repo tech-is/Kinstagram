@@ -31,9 +31,14 @@ class Kinsta extends CI_Controller
 	// }
 
 
+	////藤田担当　マイページ,マイページ編集ページ,投稿ページ/////
 	public function mypage()
 	{
-		$this->load->view('Mypage');
+		$data = null;
+		$this->load->model('Model_mypage');
+		$data['array_user'] = $this->Model_mypage->mypage_get();
+		//  $dataを第二引数に入れてviewに送る
+		$this->load->view('Mypage', $data);  //ここ確認
 	}
 
 	public function post()
@@ -45,6 +50,7 @@ class Kinsta extends CI_Controller
 	{
 		$this->load->view('Individual_img');
 	}
+	///// 藤田担当　ここまで ////////
 
 
 	////山下担当　lp,ログイン,会員登録,ログアウト,その他 /////
