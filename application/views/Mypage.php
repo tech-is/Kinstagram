@@ -18,7 +18,7 @@
             <div class="profile">
                 <div class="profile-inline">
                     <div class="profile-img">
-                        <img src="/img/89862_s.jpg">
+                        <img src="/img/142135.png">
                     </div>
                     <div>
                         <p class="user_name text-center" name="user_name">
@@ -96,12 +96,12 @@
         <!-- Modal -->
         <!-- 写真一覧 -->
         <div class="img-list">
-            <img  src="/img/45196_s.jpg" alt="usename.1">
-            <img  src="/img/45198_s.jpg" alt="usename.2">
-            <img  src="/img/45204_s.jpg" alt="usename.3">
-            <img  src="/img/45211_s.jpg" alt="usename.4">
-            <img  src="/img/45212_s.jpg" alt="usename.5">
-            <img  src="/img/45217_s.jpg" alt="usename.6">
+            <img  src="/img/list_img_userid_1/45196_s.jpg" alt="usename.1">
+            <img  src="/img/list_img_userid_1/45198_s.jpg" alt="usename.2">
+            <img  src="/img/list_img_userid_1/45204_s.jpg" alt="usename.3">
+            <img  src="/img/list_img_userid_1/45211_s.jpg" alt="usename.4">
+            <img  src="/img/list_img_userid_1/45212_s.jpg" alt="usename.5">
+            <img  src="/img/list_img_userid_1/45217_s.jpg" alt="usename.6">
         </div>
         <!-- 写真一覧 -->
     </form>

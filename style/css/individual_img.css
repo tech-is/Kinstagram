@@ -34,3 +34,14 @@ img{
     align-items: center;
     max-width: 100%;
 }
+img.good {
+    width:50px;
+    height:40px;
+    object-fit: cover;
+    float: left;
+}
+
+.form-group button {
+    display: inline-block;
+    margin:5px;
+}
