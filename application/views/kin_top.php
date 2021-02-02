@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <?php echo validation_errors(); ?>
     <header>
         <div class="header-in">
             <img src="<?php echo base_url(); ?>img/kinstalogo.png" height="80" width="300">
@@ -94,7 +95,6 @@
                 </button>
             </div>
         </div>
-        <?php echo validation_errors(); ?>
     </div>
 
     <footer>
@@ -135,21 +135,25 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" name="email" placeholder="メールアドレス">
-                    <input type="text" name="user_name" placeholder="ユーザ名">
-                    <input type=" text" name="password" placeholder="パスワード">
-                    <input type="password_check" name="mail" placeholder="パスワード確認">
+                    <label for="email">メールアドレス</label><br>
+                    <input type="text" name="email" id="email" placeholder="メールアドレスを入力"><br>
+                    <label for="username">ユーザ名</label><br>
+                    <input type="text" name="username" id="username" placeholder="半角英数字で入力"><br>
+                    <label for="password">パスワード</label><br>
+                    <input type="text" name="password" id="password" placeholder="半角英数字で入力"><br>
+                    <label for="password_check">パスワード確認</label><br>
+                    <input type="text" name="password_check" placeholder="パスワード確認" id="password_check">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                    <button type="button" class="btn btn-primary">送信する</button>
+                    <button type="submit" class="btn btn-primary">送信する</button>
                 </div>
             </div>
         </div>
     </div>
     <?php echo form_close(); ?>
 
-    <?php form_open("main/login_validation"); ?>
+    <?php echo form_open("kinsta/login_validation"); ?>
 
     <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -161,12 +165,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" name="email" placeholder="メールアドレス">
-                    <input type="text" name="password" placeholder="パスワード">
+                    <label for="email">メールアドレス</label><br>
+                    <input type="text" name="email" id="email" placeholder="メールアドレスを入力"><br>
+                    <label for="password">パスワード</label><br>
+                    <input type="text" name="password" id="password" placeholder="半角英数字で入力"><br>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                    <button type="button" class="btn btn-primary">ログイン</button>
+                    <button type="submit" class="btn btn-primary">ログイン</button>
                 </div>
             </div>
         </div>
