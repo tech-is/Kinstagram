@@ -32,13 +32,22 @@ class Kinsta extends CI_Controller
 	// }
 
 
+	////藤田担当　マイページ,マイページ編集ページ,投稿ページ/////
 	public function mypage()
 	{
-		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+
+		$data = null;
+		$this->load->model('Model_mypage');
+		$data['array_user'] = $this->Model_mypage->mypage_get();
+		//  $dataを第二引数に入れてviewに送る
+		$this->load->view('Mypage', $data);  //ここ確認
+
+    if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
 			$this->load->view("Mypage");
 		} else {									//ログインしていない場合の処理
 			redirect("main/lp");
 		}
+
 	}
 
 	public function post()
@@ -58,6 +67,7 @@ class Kinsta extends CI_Controller
 			redirect("main/lp");
 		}
 	}
+	///// 藤田担当　ここまで ////////
 
 
 	////山下担当  lp,ログイン,会員登録,ログアウト,その他 /////
