@@ -17,8 +17,9 @@
         height: 170px;
         object-fit: cover;
         border-radius: 5%;
+        background-color: #CFCFCF;
     }
-  
+
     .user_name > p {
         font-size: 18px;
         color: #CFCFCF;
@@ -31,19 +32,20 @@
     }
 
     .bg-black{
-      background-color: black;
-      color:#CFCFCF;
-  }
+    background-color: black;
+    color:#CFCFCF;
+}
 
-  .img-list {
+.img-list {
     width: 100%;
     height:auto;
     margin:auto;
-  }
+}
 
-  .img-list img {
+.img-list img {
     padding:4px 0 4px 4px;
-    width:300px;
-    height:300px;
+    box-sizing: border-box;
+    width:33%;
+    height: 320px;
     object-fit: cover;
-  }
+}

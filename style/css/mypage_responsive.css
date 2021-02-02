@@ -1,8 +1,8 @@
 /* タブレット向けレイアウト */
 @media all and (max-width: 1000px) {
     .img-list img {
-        width:250px;
-        height:250px;
+        width: 32.9%;
+        height:260px;
     }
 
     .profile-img img{
@@ -11,14 +11,11 @@
     }
 }
 
-
-
-
 /* スマホ向けレイアウト */
 @media all and (max-width: 670px) {
     .img-list img {
-        width:170px;
-        height:170px;
+        width:48.9%;
+        height:250px;
     }
 
     .profile-img img{
