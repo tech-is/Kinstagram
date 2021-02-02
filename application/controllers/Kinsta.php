@@ -42,30 +42,32 @@ class Kinsta extends CI_Controller
 		//  $dataを第二引数に入れてviewに送る
 		$this->load->view('Mypage', $data);  //ここ確認
 
-    if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-			$this->load->view("Mypage");
-		} else {									//ログインしていない場合の処理
-			redirect("main/lp");
-		}
+    //if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+			//$this->load->view("Mypage");
+		//} else {									//ログインしていない場合の処理
+		//	redirect("main/lp");
+		//}
 
 	}
 
 	public function post()
 	{
-		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-			$this->load->view('Post_scr');
-		} else {									//ログインしていない場合の処理
-			redirect("main/lp");
-		}
+		$this->load->view('Post_scr');
+//		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+//			$this->load->view('Post_scr');
+//		} else {									//ログインしていない場合の処理
+//			redirect("main/lp");
+//		}
 	}
 
 	public function individual()
 	{
-		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-			$this->load->view('Individual_img');
-		} else {									//ログインしていない場合の処理
-			redirect("main/lp");
-		}
+		$this->load->view('Individual_img');
+//		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+//			$this->load->view('Individual_img');
+//		} else {									//ログインしていない場合の処理
+//			redirect("main/lp");
+//		}
 	}
 	///// 藤田担当　ここまで ////////
 
