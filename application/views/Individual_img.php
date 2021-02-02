@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="/style/css/individual_img.css">
 </head>
 
-
-
-
 <body>
     <form>
         <!-- 投稿ボタン -->
