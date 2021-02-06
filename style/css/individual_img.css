@@ -1,6 +1,31 @@
 /* application/public/indevidual_img.css*/
 /* cssやjsを外部リンクで読みだす時にはcodeigniterの直下にフォルダを作成しそこにファイルを格納する */
 
+.modal-header img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5%;
+    background-color: #CFCFCF;
+    margin-right: 10px;
+}
+
+.btn-gradient-radius {
+    width:115px;
+    height:30px;
+    border-radius: 25px;
+    text-decoration: none;
+    color:#FFF;
+    background-image: linear-gradient(45deg,#7ed6fcda 0%,#02A5EB 100%);
+    transition: .4s;
+    margin-top: auto;
+}
+
+.modal-header h5 {
+    margin-top: auto;
+    margin-right: 10px;
+}
+
 .new-primary{
     background-color: #02A5EB;
     color:#CFCFCF;
@@ -28,7 +53,7 @@
     width:80%;
 }
 
-img{
+.form-group img{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,3 +70,20 @@ img.good {
     display: inline-block;
     margin:5px;
 }
+
+.good-button {
+    width:64px;
+    height:32px;
+}
+
+.good-button img {
+    width:32px;
+    margin: 5px 0;
+}
+
+.good-button p {
+    font-size: 11px;
+    color: #CFCFCF;
+    text-align: center;
+}
+

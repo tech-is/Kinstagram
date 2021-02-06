@@ -22,7 +22,14 @@
             <div class="modal-dialog modal-max" role="document">
                 <div class="modal-content border border-gray">
                     <div class="modal-header bg-black">
-                        <h5 class="modal-title bg-black" id="postModalLabel">タンクトッパー</h5>
+                        <?php foreach ($array_user as $value) : ?>
+                            <img src="/img/142135.png">
+                            <h5 class="modal-title bg-black" id="postModalLabel">
+                                <?php echo $value['user_name'] ?>
+                            </h5>
+                        <?php endforeach; ?>
+                        <input type="button" class="btn-gradient-radius" value="フォローする">
+                        <input type="button" class="btn-gradient-radius" value="フォロー中">
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -47,11 +54,12 @@
                                         <label class="control-label">マイトレーニング</label>
                                         <input class="form-control bg-gray" type="text">
 
-                                        <button type="button" class="btn good-btn bg-gray"><img class="good" src="/img/174076.png" alt="胸good"></button>
-                                        <button type="button" class="btn good-btn bg-gray"><img class="good" src="/img/174076.png" alt="腕good"></button>
-                                        <button type="button" class="btn good-btn bg-gray"><img class="good" src="/img/174076.png" alt="肩good"></button>
-                                        <button type="button" class="btn good-btn bg-gray"><img class="good" src="/img/174076.png" alt="腹good"></button>
-                                        <button type="button" class="btn good-btn bg-gray"><img class="good" src="/img/174076.png" alt="足good"></button>
+                                        <div class="good-button">
+                                            <div>
+                                                <img src="/img/hart-good.png">
+                                            </div>
+                                            <p>5</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
