@@ -28,11 +28,12 @@
                         </button>
                     </div>
                     <div class="modal-body bg-black">
+                        <!-- 参考URLhttps://blog.ver001.com/javascript_preview_canvas/ -->
+                        <canvas id="preview" style="max-width:200px;"></canvas>
+                        <input type="file" accept='image/*' onchange="previewImage(this);">
 
-                        <img class='post-img' src="/img/list_img_userid_1/45217_s.jpg" alt="1">
-
-                        <input type="file" name="upfile">
-
+                        <!-- upload_top.phpを参考にpostからディレクトリ作成、保存までをコーディング -->
+                        <!-- パスをDBに格納する。 -->
 
                         <div class="form-group">
                             <label class="control-label">メッセージ</label>
@@ -60,6 +61,23 @@
         </div>
         <!-- Modal -->
     </form>
+    <script>
+        function previewImage(obj) {
+            var fileReader = new FileReader();
+            fileReader.onload = (function() {
+                var canvas = document.getElementById('preview');
+                var ctx = canvas.getContext('2d');
+                var image = new Image();
+                image.src = fileReader.result;
+                image.onload = (function() {
+                    canvas.width = image.width;
+                    canvas.height = image.height;
+                    ctx.drawImage(image, 0, 0);
+                });
+            });
+            fileReader.readAsDataURL(obj.files[0]);
+        }
+    </script>
 </body>
 
 </html>

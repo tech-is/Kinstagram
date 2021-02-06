@@ -62,7 +62,13 @@ class Kinsta extends CI_Controller
 
 	public function individual()
 	{
-		$this->load->view('Individual_img');
+		$data = null;
+		$this->load->model('Model_mypage');
+		$data['array_user'] = $this->Model_mypage->mypage_get();
+		//  $dataを第二引数に入れてviewに送る
+		$this->load->view('Individual_img',$data);
+
+		
 //		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
 //			$this->load->view('Individual_img');
 //		} else {									//ログインしていない場合の処理
