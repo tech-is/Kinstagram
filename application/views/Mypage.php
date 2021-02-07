@@ -49,11 +49,11 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label class="control-label">肉ネーム</label>
-                                    <input class="form-control" type="text" value="<?php echo $value['user_name'] ?>">
+                                    <input class="form-control  bg-gray" type="text" value="<?php echo $value['user_name'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">紹介文</label>
-                                    <input class="form-control" type="text" value="<?php echo $value['introduction'] ?>">
+                                    <input class="form-control  bg-gray" type="text" value="<?php echo $value['introduction'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マッチョ区分</label>
@@ -76,11 +76,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">ID</label>
-                                    <input class="form-control" type="text" value="<?php echo $value['E-mail'] ?>">
+                                    <input class="form-control bg-gray" type="text" value="<?php echo $value['E-mail'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
-                                    <input class="form-control" type="text" value="<?php echo $value['password'] ?>">
+                                    <input class="form-control bg-gray" type="text" value="<?php echo $value['password'] ?>">
                                 </div>
                             </div>
                             <div class="modal-footer">

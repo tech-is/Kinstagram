@@ -19,13 +19,15 @@
     border-color: #CFCFCF;
 }
 
- .modal{
+.modal{
     text-align: center;
 }
+
 .modal-dialog{
     display: inline-block;
     width: 50%;
 }
+
 .post-img{
     max-height: calc(100vh - 350px);
 } 

@@ -1,4 +1,3 @@
-<!-- 背景など全ページに共有するcssやBootstrapを使用する場合は以下のコード記述 -->
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -28,8 +27,13 @@
                                 <?php echo $value['user_name'] ?>
                             </h5>
                         <?php endforeach; ?>
-                        <input type="button" class="btn-gradient-radius" value="フォローする">
-                        <input type="button" class="btn-gradient-radius" value="フォロー中">
+
+                        <?php $follow = 0; ?> <!--フォロー判定　DBから読み込み -->
+                        <?php if ($follow == 0) : ?>
+                            <input type="button" class="btn-gradient-radius" value="フォローする">
+                        <?php else : ?>
+                            <input type="button" class="btn-gradient-radius" value="フォロー中">
+                        <?php endif; ?>
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -42,25 +46,50 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">メッセージ</label>
-                                        <input class="form-control bg-gray" type="text">
+                                            <?php foreach ($array_post as $value2) : ?>
+                                                <label class="control-label">メッセージ</label>
+                                                <input class="form-control bg-gray" type="text" value="<?php echo $value2['post_message'] ?>">
 
-                                        <label class="control-label">＃キーワード</label>
-                                        <input class="form-control bg-gray" type="text">
+                                                <label class="control-label">＃キーワード</label>
+                                                <input class="form-control bg-gray" type="text" value="<?php echo $value2['hash_id'] ?>">
 
-                                        <label class="control-label">マイメニュー</label>
-                                        <input class="form-control bg-gray" type="text">
+                                                <label class="control-label">マイメニュー</label>
+                                                <input class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu'] ?>">
 
-                                        <label class="control-label">マイトレーニング</label>
-                                        <input class="form-control bg-gray" type="text">
+                                                <label class="control-label">マイトレーニング</label>
+                                                <input class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining'] ?>">
+                                            <?php endforeach; ?>
 
-                                        <div class="good-button">
-                                            <div>
-                                                <img src="/img/hart-good.png">
+                                        <!-- いいねボタン -->
+                                        <div class="good-btn-container">
+                                            <div class="good-btn-icon">
+                                                <image src="/img/button/ude.png" alt="腕">
+                                                    <div class="good-btn-text">腕キレてるね</div>
+                                                    <div class="good-count">326</div>
                                             </div>
-                                            <p>5</p>
+                                            <div class="good-btn-icon">
+                                                <img src="/img/button/mune.jpg" alt="胸">
+                                                <div class="good-btn-text">胸キレてるね</div>
+                                                <div class="good-count">481</div>
+                                            </div>
+                                            <div class="good-btn-icon">
+                                                <img src="/img/button/kata.png" alt="肩">
+                                                <div class="good-btn-text">肩キレてるね</div>
+                                                <div class="good-count">1000</div>
+                                            </div>
+                                            <div class="good-btn-icon">
+                                                <img src="/img/button/hara.png" alt="腹">
+                                                <div class="good-btn-text">腹キレてるね</div>
+                                                <div class="good-count">5</div>
+                                            </div>
+                                            <div class="good-btn-icon">
+                                                <img src="/img/button/ashi.png" alt="足">
+                                                <div class="good-btn-text">足キレてるね</div>
+                                                <div class="good-count">0</div>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
