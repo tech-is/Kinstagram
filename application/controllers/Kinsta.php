@@ -35,7 +35,6 @@ class Kinsta extends CI_Controller
 	////藤田担当　マイページ,マイページ編集ページ,投稿ページ/////
 	public function mypage()
 	{
-
 		$data = null;
 		$this->load->model('Model_mypage');
 		$data['array_user'] = $this->Model_mypage->mypage_get();
@@ -62,12 +61,12 @@ class Kinsta extends CI_Controller
 
 	public function individual()
 	{
-		$data = null;
+		$post_data = null;
 		$this->load->model('Model_mypage');
-		$data['array_user'] = $this->Model_mypage->mypage_get();
+		$post_data['array_post'] = $this->Model_mypage->individual_get();
+		$post_data['array_user'] = $this->Model_mypage->mypage_get();
 		//  $dataを第二引数に入れてviewに送る
-		$this->load->view('Individual_img',$data);
-
+		$this->load->view('Individual_img',$post_data);
 		
 //		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
 //			$this->load->view('Individual_img');

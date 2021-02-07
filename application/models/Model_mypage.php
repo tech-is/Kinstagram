@@ -15,7 +15,17 @@ class Model_mypage extends CI_Model
         $this->db->where('user_id',1);
          //dbのusersテーブルから取得
         $query = $this->db->get('users');
-         //配列に入れてあげる
+         //配列に入れる
         return $query->result_array();
-    }          
+    }
+
+    public function individual_get()
+    {
+        //自らの投稿の情報を取り出す　※　自分の投稿判定
+        $this->db->where('post_id',1);
+        //dbのpostsテーブルから取得
+        $query = $this->db->get('posts');
+        //配列に入れる
+        return $query->result_array();
+    }
 }

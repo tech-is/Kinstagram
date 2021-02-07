@@ -36,6 +36,10 @@
     color:#CFCFCF;
 }
 
+.bg-gray {
+    background-color: #A0A09F;
+}
+
 .img-list {
     width: 100%;
     height:auto;
