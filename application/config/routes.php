@@ -52,3 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Kinsta';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// 画像投稿用の設定
+$route['upload-image'] = 'imageuploadcontroller';
+$route['add-image'] = 'imageuploadcontroller / add';

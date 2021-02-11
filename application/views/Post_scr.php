@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <form>
+    <form action="/kinsta/add" method="post" enctype="multipart/form-data">
         <!-- 投稿ボタン -->
         <button type="button" class="btn new-primary" data-toggle="modal" data-target="#postModal">投稿></button>
         <!-- 投稿ボタン -->
@@ -30,31 +30,33 @@
                     <div class="modal-body bg-black">
                         <!-- 参考URLhttps://blog.ver001.com/javascript_preview_canvas/ -->
                         <canvas id="preview" style="max-width:200px;"></canvas>
-                        <input type="file" accept='image/*' onchange="previewImage(this);">
-
-                        <!-- upload_top.phpを参考にpostからディレクトリ作成、保存までをコーディング -->
-                        <!-- パスをDBに格納する。 -->
+                        <?php
+                        if (isset($error)) {
+                            echo $error;
+                        }
+                        ?>
+                        <input name="list_image" type="file" accept='image/*' onchange="previewImage(this);">
 
                         <div class="form-group">
-                            <label class="control-label">メッセージ</label>
-                            <input class="form-control bg-gray" type="text">
+                            <labelclass="control-label">メッセージ</label>
+                                <input name="post_message" class="form-control bg-gray" type="text">
                         </div>
                         <div class="form-group">
                             <label class="control-label">＃キーワード</label>
-                            <input class="form-control bg-gray" type="text">
+                            <input name="hash_id" class="form-control bg-gray" type="text">
                         </div>
                         <div class="form-group">
                             <label class="control-label">マイメニュー</label>
-                            <input class="form-control bg-gray" type="text">
+                            <input name="mymenu" class="form-control bg-gray" type="text">
                         </div>
                         <div class="form-group">
                             <label class="control-label">マイトレーニング</label>
-                            <input class="form-control bg-gray" type="text">
+                            <input name="mytraining" class="form-control bg-gray" type="text">
                         </div>
                     </div>
                     <div class="modal-footer bg-black">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                        <button type="button" class="btn new-primary">投稿</button>
+                        <button type="submit" class="btn new-primary">投稿</button>
                     </div>
                 </div>
             </div>

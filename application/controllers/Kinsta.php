@@ -33,6 +33,12 @@ class Kinsta extends CI_Controller
 
 
 	////藤田担当　マイページ,マイページ編集ページ,投稿ページ/////
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('url','form');
+	}
+
 	public function mypage()
 	{
 		$data = null;
@@ -49,6 +55,50 @@ class Kinsta extends CI_Controller
 
 	}
 
+	public function add()
+	{
+		$this->load->model('Model_mypage');
+		
+		//画像を投稿する
+		$config['upload_path'] = './img/list_img_userid_1';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size'] = 2000;
+		$config['max_width'] = 1500;
+		$config['max_hight'] = 1500;
+
+		$this->load->library('upload',$config);
+
+		if(!$this->upload->do_upload('list_image')) {
+			$error = array('error' => $this->upload->display_errors());
+
+			$this->load->view('Post_scr',$error);
+		} else {
+			$data = array('image_metadata' => $this->upload->data());
+			$this->load->view('files/upload_result',$data);
+		}
+	
+
+
+		//Model_mypageのpost_addメソッドにアクセスしpost情報を渡す
+		// post情報を変数定義
+		$user_id = 0;
+        $list_image = $this->input->post('$config["upload_path"]'); //パスがDBに格納出来ていない
+		$post_message = $this->input->post('post_message');
+		$mymenu = $this->input->post('mymenu');
+		$mytraining = $this->input->post('mytraining');
+		//変数を配列に格納
+		$post = [
+			'user_id' => $user_id,
+			'list_image' => $list_image,
+			'post_message' => $post_message,
+			'mymenu' => $mymenu,
+			'mytraining' => $mytraining
+		];
+		//Model_mypageに送る
+		$this->Model_mypage->post_add($post);
+		redirect("/Kinsta/mypage");
+	}
+	
 	public function post()
 	{
 		$this->load->view('Post_scr');
