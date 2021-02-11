@@ -9,6 +9,11 @@ class Model_mypage extends CI_Model
         $this->load->database();
     }
 
+    public function post_add($post)
+    {
+        $this->db->insert('posts',$post);
+    }
+
     public function mypage_get()
     {
          //自らのプロフィール情報を取り出す ※ 自分判定
