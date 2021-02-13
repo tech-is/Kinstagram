@@ -80,12 +80,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
-                                    <input id="password" class="form-control bg-gray" type="text" value="<?php echo $value['password'] ?>">
+                                    <input id="password" class="form-control bg-gray" type="text" value="<?php echo str_repeat("筋",mb_strlen($value['password'],"UTF8")); ?>">
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                                <button type="button" class="btn new-primary">保存</button>
+                                <button type="submit" class="btn new-primary">保存</button>
                             </div>
                         </div>
             </div>
