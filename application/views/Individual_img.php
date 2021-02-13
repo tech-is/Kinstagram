@@ -28,12 +28,7 @@
                             </h5>
                         <?php endforeach; ?>
 
-                        <?php $follow = 0; ?> <!--フォロー判定　DBから読み込み -->
-                        <?php if ($follow == 0) : ?>
-                            <input type="button" class="btn-gradient-radius" value="フォローする">
-                        <?php else : ?>
-                            <input type="button" class="btn-gradient-radius" value="フォロー中">
-                        <?php endif; ?>
+                        <input type="button" id="follow" class="btn-gradient-radius" value="フォローする">
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -46,19 +41,19 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                            <?php foreach ($array_post as $value2) : ?>
-                                                <label class="control-label">メッセージ</label>
-                                                <input class="form-control bg-gray" type="text" value="<?php echo $value2['post_message'] ?>">
+                                        <?php foreach ($array_post as $value2) : ?>
+                                            <label class="control-label">メッセージ</label>
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['post_message'] ?>">
 
-                                                <label class="control-label">＃キーワード</label>
-                                                <input class="form-control bg-gray" type="text" value="<?php echo $value2['hash_id'] ?>">
+                                            <label class="control-label">＃キーワード</label>
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['hash_id'] ?>">
 
-                                                <label class="control-label">マイメニュー</label>
-                                                <input class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu'] ?>">
+                                            <label class="control-label">マイメニュー</label>
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu'] ?>">
 
-                                                <label class="control-label">マイトレーニング</label>
-                                                <input class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining'] ?>">
-                                            <?php endforeach; ?>
+                                            <label class="control-label">マイトレーニング</label>
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining'] ?>">
+                                        <?php endforeach; ?>
 
                                         <!-- いいねボタン -->
                                         <div class="good-btn-container">
@@ -98,8 +93,12 @@
             </div>
         </div>
         <!-- Modal -->
-
     </form>
+    <script>
+    document.getElementById("follow").onclick = function() {
+    document.getElementById("value").innerHTML = "フォロー中";
+    };
+    </script>
 </body>
 
 </html>

@@ -74,6 +74,7 @@
 }
 
 .good-btn-icon img {
+    background-color: gold;
     width: 30px;
     height:30px;
     float: left;
