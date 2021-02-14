@@ -39,11 +39,7 @@
 
                         <div class="form-group">
                             <labelclass="control-label">メッセージ</label>
-                                <input name="post_message" class="form-control bg-gray" type="text">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">＃キーワード</label>
-                            <input name="hash_id" class="form-control bg-gray" type="text">
+                                <textarea name="post_message" class="form-control bg-gray" cols="30" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="control-label">マイメニュー</label>

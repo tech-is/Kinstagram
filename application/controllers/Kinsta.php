@@ -70,19 +70,16 @@ class Kinsta extends CI_Controller
 
 		if(!$this->upload->do_upload('list_image')) {
 			$error = array('error' => $this->upload->display_errors());
-
 			$this->load->view('Post_scr',$error);
 		} else {
 			$data = array('image_metadata' => $this->upload->data());
 			$this->load->view('files/upload_result',$data);
 		}
-	
-
-
+		
 		//Model_mypageのpost_addメソッドにアクセスしpost情報を渡す
 		// post情報を変数定義
 		$user_id = 0;
-        $list_image = $this->input->post('$config["upload_path"]'); //パスがDBに格納出来ていない
+		$list_image = $this->upload->data('file_name');
 		$post_message = $this->input->post('post_message');
 		$mymenu = $this->input->post('mymenu');
 		$mytraining = $this->input->post('mytraining');
