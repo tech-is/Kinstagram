@@ -11,7 +11,7 @@
 <body>
     <header class="header_font_border">
         <li class="title_logo">Kinstagram</li>
-        <li class="sub_title">筋肉達との出会いがここに・・・</li>
+        <li class="sub_title">筋肉達との出会いがここに・・</li>
         <li class="search_window"><input type="text" class="window_color" placeholder="検索"></li>
         <li class="upload">upload</li>
         <li class="login">login</li>
