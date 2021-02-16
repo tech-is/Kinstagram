@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinstagram|Individual</title>
+    <title>Kinstagram | Individual</title>
     <?php $this->load->view('/common/header'); ?>
 
     <link rel="stylesheet" href="/style/css/individual_img.css">
@@ -28,7 +28,7 @@
                             </h5>
                         <?php endforeach; ?>
 
-                        <input type="button" id="follow" class="btn-gradient-radius" value="フォローする">
+                        <input type="button" id="follow" class="btn-gradient-radius" value="フォローする" onclick="change()">
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -43,16 +43,13 @@
                                     <div class="form-group">
                                         <?php foreach ($array_post as $value2) : ?>
                                             <label class="control-label">メッセージ</label>
-                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['post_message'] ?>">
-
-                                            <label class="control-label">＃キーワード</label>
-                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['hash_id'] ?>">
+                                            <textarea class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message'] ?></textarea>
 
                                             <label class="control-label">マイメニュー</label>
-                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu'] ?>">
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu'] ?>" readonly>
 
                                             <label class="control-label">マイトレーニング</label>
-                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining'] ?>">
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining'] ?>" readonly>
                                         <?php endforeach; ?>
 
                                         <!-- いいねボタン -->
@@ -95,9 +92,17 @@
         <!-- Modal -->
     </form>
     <script>
-    document.getElementById("follow").onclick = function() {
-    document.getElementById("value").innerHTML = "フォロー中";
-    };
+        document.getElementById("follow").addEventListener(
+            "click",
+            function(event) {
+                if (event.target.value === "フォロー中") {
+                    event.target.value = "フォローする";
+                } else {
+                    event.target.value = "フォロー中";
+                }
+            },
+            false
+        );
     </script>
 </body>
 
