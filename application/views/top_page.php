@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet">
-    <?php echo link_tag("/assets/kinsta_css/top_style.css"); ?>
+    <link rel="stylesheet" href="/style/css/top_style.css">
     <title>Kinstagram</title>
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -171,15 +171,15 @@
             <div class="divMainAsaid">
             <main id="mainPicture">
                 <ul class="scroll" data-max="29" data-lastnum="9">
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/assets/kinsta_img/1.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/assets/kinsta_img/2.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/assets/kinsta_img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/assets/kinsta_img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/assets/kinsta_img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/assets/kinsta_img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/assets/kinsta_img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/assets/kinsta_img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/assets/kinsta_img/3.jpg");?>"/></li>
+                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/1.jpg");?>"/></li>
+                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/2.jpg");?>"/></li>
+                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
+                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
+                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
+                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
+                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
+                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
+                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
 
 
 
@@ -197,7 +197,7 @@
                     <li class="followToreni">おすすめトレーニー</li>
                     <hr class="follow_border">
                     <li class="asideIcon">
-                        <a href="#" class="icon"><img id="icon1" src="<?php echo ("/assets/kinsta_img/try_kinniku30px.png");?>"/></a>
+                        <a href="#" class="icon"><img id="icon1" src="<?php echo ("/img/try_kinniku30px.png");?>"/></a>
                     </li>
                     <li class="name">
                         <div>
@@ -205,20 +205,19 @@
                             <a href="#" class="massule_member">マッスルメンバーに追加</a>
                         </div>
                         <section id="modalMember1" class="hidden">
-                            <p>プロテイン</p>
-                            <p>投稿10件</p>
+                            <ul class="memberPostFollowPicture">
+                                
+                            </ul>
+                            <!-- <p>投稿10件</p>
                             <p>マッスルメンバー10人</p>
                             <p>写真</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>マッスルメンバーに追加</p>
+                            <p>写真</p> -->
                         </section>
                     </li>
                     
                     <li class="asideIcon">
                         <a href="#">
-                            <img id="icon2" src="<?php echo ("/assets/kinsta_img/try_kinniku30px.png");?>"/>
+                            <img id="icon2" src="<?php echo ("/img/try_kinniku30px.png");?>"/>
                         </a>
                     </li>
                     <li class="name">
@@ -238,7 +237,7 @@
                         </section>
                     </li>
                     <li class="asideIcon">
-                        <a href="#"><img id="icon3" src="<?php echo ("/assets/kinsta_img/try_kinniku30px.png");?>"/></a>
+                        <a href="#"><img id="icon3" src="<?php echo ("/img/try_kinniku30px.png");?>"/></a>
                     </li>
                     <li class="name">
                     <div>
@@ -257,7 +256,7 @@
                         </section>
                     </li>
                     <li class="asideIcon">
-                        <a href="#"><img id="icon4" src="<?php echo ("/assets/kinsta_img/try_kinniku_kadomaru.png");?>"/></a>
+                        <a href="#"><img id="icon4" src="<?php echo ("/img/try_kinniku_kadomaru.png");?>"/></a>
                     </li>
                     <li class="name">
                     <div>
@@ -276,7 +275,7 @@
                         </section>
                     </li>
                     <li class="asideIcon">
-                        <a href="#"><img id="icon5" src="<?php echo ("/assets/kinsta_img/try_kinniku_kadomaru.png");?>"/></a>
+                        <a href="#"><img id="icon5" src="<?php echo ("/img/try_kinniku_kadomaru.png");?>"/></a>
                     </li>
                     <li class="name">
                         <div>
@@ -301,7 +300,7 @@
                 </ul>
             </aside>
             </div>
-            <script type="text/javascript" src="<?php echo ("/assets/kinsta_js/toppage.js"); ?>"></script>
+            <script type="text/javascript" src="<?php echo ("/style/js/toppage.js"); ?>"></script>
         
     </body>
 </html>
