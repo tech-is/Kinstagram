@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
-                                    <input id="password" class="form-control bg-gray" type="text" value="<?php echo str_repeat("筋",mb_strlen($value['password'],"UTF8")); ?>">
+                                    <input id="password" class="form-control bg-gray" type="text" value="<?php echo str_repeat("筋", mb_strlen($value['password'], "UTF8")); ?>">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -94,14 +94,23 @@
         </div>
 
         <!-- Modal -->
-        <!-- 写真一覧 -->
+        <!-- 写真一覧ループ処理 -->
         <div class="img-list">
-            <img src="/img/list_img_userid_1/45196_s.jpg" alt="usename.1">
-            <img src="/img/list_img_userid_1/45198_s.jpg" alt="usename.2">
-            <img src="/img/list_img_userid_1/45204_s.jpg" alt="usename.3">
-            <img src="/img/list_img_userid_1/45211_s.jpg" alt="usename.4">
-            <img src="/img/list_img_userid_1/45212_s.jpg" alt="usename.5">
-            <img src="/img/list_img_userid_1/45217_s.jpg" alt="usename.6">
+            <?php
+            //ディレクトリを取得
+            $img_fld = '/img/list_img_userid_1/';  //後で$_REQUESTにする
+            //ディレクトリ内の一覧を取得する
+            $img_list = glob('.' . $img_fld . '*');
+            // var_dump($img_list);
+            //画像の枚数を取得
+            $count = count($img_list);
+            //  画像を表示
+            for ($i = 0; $i < $count; $i++) {
+                $file = pathinfo($img_list[$i]);
+                $file_name = $file["basename"];
+                echo '<img src="' . $img_fld . $file_name . '">';
+            }
+            ?>
         </div>
         <!-- 写真一覧 -->
     </form>

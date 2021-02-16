@@ -1,0 +1,199 @@
+body{
+}
+main{
+    grid-area: div;
+    /* margin: 0 auto; */
+    display: grid;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display:grid;
+    grid-template:
+        "title       title      title"          5%
+        "name_no1    name_no1     name_no1"       5%
+        "picture1    picture1     message  "      21%
+        "picture1    picture1      mytraning "     25%
+        "kiretemasu_no1  kiretemasu_no1   kiretemasu_no1" 5%
+        "name_no2    .....       name_no3"       5%
+        "picture2        .....  picture3"       35%
+        "kiretemasu_no2  .....  kiretemasu_no3" 1%
+    /45%           5%       45%;
+}
+.title,.name_no1,.picture1,.message,.mytraning,.kiretemasu_no1,.name_no2,.name_no3,.picture2,.picture3,.kiretemasu_no2,.kiretemasu_no3{
+    color:#E8E6E6;
+}
+.picture1,.message,.mytraning,.picture2,.picture3{
+    border: solid 1px #0246F2;
+}
+li.title{
+    grid-area: title;
+    font-size: 100%;
+    /* margin: 0 5%; */
+    width: 100%;
+}
+li.name_no1{
+    grid-area:name_no1;
+    /* margin: 70px auto 0px 0px; */
+    
+}
+li.picture1{
+    grid-area: picture1;
+}
+li.message{
+    grid-area: message;
+}
+li.mytraning{
+    grid-area: mytraning;
+}
+li.kiretemasu_no1{
+    grid-area: kiretemasu_no1;
+
+}
+li.name_no2{
+    grid-area:name_no2;
+    
+}
+li.name_no3{
+    grid-area:name_no3;
+    
+}
+li.picture2{
+    grid-area:picture2;
+}
+li.picture3{
+    grid-area:picture3;
+}
+li.kiretemasu_no2{
+    grid-area:kiretemasu_no2;
+}
+li.kiretemasu_no3{
+    grid-area:kiretemasu_no3;
+}
+div.contents{
+    opacity: 0;
+}
+div.accordion div.is-open{
+    opacity: 1;
+}
+#underTab2 div.centerLine {
+    display: flex;
+    align-items: center;
+    height: 29px;
+}
+.underNav ul.underTab li a {
+    text-decoration-line: none;
+    color: #cccccc;
+    width: 100%;
+    display: block;
+    font-size: 15px;
+    line-height: 100%;
+}
+.underNav ul.underTab li {
+    box-sizing: border-box;
+    width: 100%;
+    /* margin: 3px 0; */
+    height: 29px;
+    position: relative;
+}
+@media (max-width: 900px){
+    nav.underNav {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        grid-area: nav;
+        border: solid #9E9E9E;
+        border-width: 0.1px 0px 0.1px 0px;
+        z-index: 100;
+        height: 40px;
+        background: black;
+    }
+    .underNav ul.underTab {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 90%;
+        height: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+        list-style: none;
+        font-size: 100%;
+        padding: 0;
+    }
+    .underNav ul.underTab li {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+    }
+    #underTab2 div.centerLine {
+        /* display: flex; */
+        /* align-items: center; */
+        height: 42px;
+        /* text-align: center; */
+    }
+    .underNav ul.underTab li a {
+        text-decoration-line: none;
+        color: #cccccc;
+        width: 100%;
+        text-align: center;
+        /* font-size: 100%; */
+    }
+    div .rankCenter {
+        /* text-align: center; */
+        display: block;
+        margin: auto;
+        /* color: #ae1750; */
+    }
+    ul.underTab div.accordion div.isOpenRankUnder {
+        /* line-height: normal; */
+        /* height: auto; */
+        opacity: 1;
+        /* position: fixed; */
+        /* z-index: 0; */
+        background: black;
+        top: -24px;
+        left: 35%;
+        width: 30%;
+        /* position: absolute; */
+        /* text-align: center; */
+    }
+    .contents {
+        position: absolute;
+    }
+    div.isOpenRankUnderTwo {
+        opacity: 1;
+        position: absolute;
+        background: black;
+        top: -42px;
+        left: 35%;
+        width: 30%;
+        color: #cccccc;
+        text-align: center;
+    }
+    .isOpenRankUnderThree {
+        background: black;
+    
+        position: relative;
+        
+        height: 20%;
+        width: 100%;
+        color: white;
+        opacity: 1;
+    }
+    div ul.detailContentsList {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        top: -195px;
+    }
+    .underNav ul.underTab li a {
+        text-decoration-line: none;
+        color: #cccccc;
+        width: 100%;
+        text-align: center;
+        /* font-size: 100%; */
+    }
+    ul.detailContentList .detailContents {
+        z-index: 100;
+    }
+}
