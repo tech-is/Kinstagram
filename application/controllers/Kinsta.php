@@ -37,6 +37,7 @@ class Kinsta extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper('url','form');
+		$this->load->helper('html'); 
 	}
 
 	public function mypage()
@@ -230,4 +231,50 @@ class Kinsta extends CI_Controller
 		} else echo "invalid key";
 	}
 	///// 山下担当　ここまで ////////
+	/////////////////////////////////////////二宮//////////////////////////////////////////////////////
+	public function top()
+	{
+		// $data = null;
+		// $data['data_array'] = $this -> Kinsta_model -> fetch_all_rows();
+		
+		$this->load->view('top_page');
+
+	}
+	public function select()
+	{
+		$this->load->view('header_page');
+		$this->load->view('select_page');
+	}
+	public function rank()
+    {
+        $this->load->view('header_page');
+        $this->load->view('rank_page');
+	}
+	public function armRank()
+	{
+		$this->load->view('header_page');
+        $this->load->view('arm_rank_page');
+	}
+	public function breastRank()
+    {
+        $this->load->view('header_page');
+        $this->load->view('breast_rank_page');
+	}
+	public function shoulderRank()
+    {
+        $this->load->view('header_page');
+        $this->load->view('shoulder_rank_page');
+	}
+	public function absRank()
+    {
+        $this->load->view('header_page');
+        $this->load->view('abs_rank_page');
+	}
+	public function footRank()
+    {
+        $this->load->view('header_page');
+        $this->load->view('foot_rank_page');
+	}
 }
+///////////////////////////////////二宮///////////////////////////////////////////////////////////////
+

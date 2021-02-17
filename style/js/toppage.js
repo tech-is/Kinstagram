@@ -5,16 +5,16 @@
     let toreni = {
         list:{
             toreni:[
-                { name:"肩筋厚夫", follower:'9トレーニー', follow:'9トレーニー' ,post:'10件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"胸筋厚夫", follower:'8トレーニー', follow:'8トレーニー' ,post:'9件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"腹筋厚子", follower:'7トレーニー', follow:'7トレーニー' ,post:'8件',images:[{image:'/assets/kinsta_img/kintore3.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"腕筋厚子", follower:'6トレーニー', follow:'6トレーニー' ,post:'7件',images:[{image:'/assets/kinsta_img/kintore4.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"足筋厚子", follower:'5トレーニー', follow:'5トレーニー' ,post:'6件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"肩筋厚夫", follower:'4トレーニー', follow:'4トレーニー' ,post:'5件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"胸筋厚夫", follower:'3トレーニー', follow:'3トレーニー' ,post:'4件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"腹筋厚子", follower:'2トレーニー', follow:'2トレーニー' ,post:'3件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"腕筋厚子", follower:'1トレーニー', follow:'1トレーニー' ,post:'2件',images:[{image:'/assets/kinsta_img/kintore4.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"足筋厚子", follower:'0トレーニー', follow:'0トレーニー' ,post:'1件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+                { name:"肩筋厚夫", follower:'9トレーニー', follow:'9トレーニー' ,post:'10件',images:[{image:'/img/kintore1.png'},{image2:'/img/kintore1.png'}]},
+                { name:"胸筋厚夫", follower:'8トレーニー', follow:'8トレーニー' ,post:'9件',images:[{image:'/img/kintore2.png'},{image2:'/img/kintore1.png'}]},
+                { name:"腹筋厚子", follower:'7トレーニー', follow:'7トレーニー' ,post:'8件',images:[{image:'/img/kintore3.png'},{image2:'/img/kintore1.png'}]},
+                { name:"腕筋厚子", follower:'6トレーニー', follow:'6トレーニー' ,post:'7件',images:[{image:'/img/kintore4.png'},{image2:'/img/kintore1.png'}]},
+                { name:"足筋厚子", follower:'5トレーニー', follow:'5トレーニー' ,post:'6件',images:[{image:'/img/kintore1.png'},{image2:'/img/kintore1.png'}]},
+                { name:"肩筋厚夫", follower:'4トレーニー', follow:'4トレーニー' ,post:'5件',images:[{image:'/img/kintore1.png'},{image2:'/img/kintore1.png'}]},
+                { name:"胸筋厚夫", follower:'3トレーニー', follow:'3トレーニー' ,post:'4件',images:[{image:'/img/kintore2.png'},{image2:'/img/kintore1.png'}]},
+                { name:"腹筋厚子", follower:'2トレーニー', follow:'2トレーニー' ,post:'3件',images:[{image:'/img/kintore2.png'},{image2:'/img/kintore1.png'}]},
+                { name:"腕筋厚子", follower:'1トレーニー', follow:'1トレーニー' ,post:'2件',images:[{image:'/img/kintore4.png'},{image2:'/img/kintore1.png'}]},
+                { name:"足筋厚子", follower:'0トレーニー', follow:'0トレーニー' ,post:'1件',images:[{image:'/img/kintore1.png'},{image2:'/img/kintore1.png'}]},
             ],
         },
     };
@@ -351,7 +351,7 @@ if(innerWidth <= 500){
                     let img = document.createElement('img');
                     // console.log(img);
 
-                    img.src = "/assets/kinsta_img/" + [elm.dataset.lastnum] +'.jpg';
+                    img.src = "/img/" + [elm.dataset.lastnum] +'.jpg';
                     // console.log(img.src);
                     elm.appendChild(img);
                 
