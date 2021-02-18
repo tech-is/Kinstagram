@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOP|k-instagram</title>
     <?php $this->load->view('/common/header'); ?>
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url(); ?>style/css/kinsta_style.css">
 
 </head>
@@ -17,6 +18,15 @@
             <img src="<?php echo base_url(); ?>img/kinstalogo.png" height="80" width="300">
         </div>
     </header>
+
+    <div class="popup" id="js-popup">
+        <div class="popup-inner">
+            <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
+            <a href="#"><img src="<?php echo base_url(); ?>img/check.jpg" alt="仮会員登録"></a>
+        </div>
+        <div class="black-background" id="js-black-bg"></div>
+    </div>
+
     <div class="kinsta-top">
         <div class="top-icon">
             <img src="<?php echo base_url(); ?>img/muscle.png">
@@ -185,6 +195,26 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            var popup = document.getElementById('js-popup');
+            if (!popup) return;
+            popup.classList.add('is-show');
+
+            var blackBg = document.getElementById('js-black-bg');
+            var closeBtn = document.getElementById('js-close-btn');
+
+            closePopUp(blackBg);
+            closePopUp(closeBtn);
+
+            function closePopUp(elem) {
+                if (!elem) return;
+                elem.addEventListener('click', function() {
+                    popup.classList.remove('is-show');
+                })
+            }
+        }
+    </script>
 </body>
 
 </html>
