@@ -145,10 +145,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label for="email">メールアドレス</label><br>
-                    <input type="text" name="email" id="email" placeholder="メールアドレスを入力"><br>
-                    <label for="username">ユーザ名</label><br>
-                    <input type="text" name="username" id="username" placeholder="半角英数字で入力"><br>
+                    <label for="E-mail">メールアドレス</label><br>
+                    <input type="text" name="E-mail" id="E-mail" placeholder="メールアドレスを入力"><br>
+                    <label for="user_name">ユーザ名</label><br>
+                    <input type="text" name="user_name" id="user_name" placeholder="12文字以内で入力"><br>
                     <label for="password">パスワード</label><br>
                     <input type="password" name="password" id="password" placeholder="半角英数字(8～16文字で入力)"><br>
                     <label for="password_check">パスワード確認</label><br>
@@ -175,8 +175,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label for="email">メールアドレス</label><br>
-                    <input type="text" name="email" id="email" placeholder="メールアドレスを入力"><br>
+                    <label for="E-mail">メールアドレス</label><br>
+                    <input type="text" name="E-mail" id="email" placeholder="メールアドレスを入力"><br>
                     <label for="password">パスワード</label><br>
                     <input type="password" name="password" id="password" placeholder="半角英数字(8～16文字で入力)"><br>
                 </div>

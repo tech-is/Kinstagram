@@ -138,8 +138,8 @@ class Kinsta extends CI_Controller
 
 	public function registration_validation()
 	{
-		$this->form_validation->set_rules("email", "メールアドレス", "required|trim|valid_email|is_unique[users.email]");
-		$this->form_validation->set_rules("username", "ユーザ名", "required|trim");
+		$this->form_validation->set_rules("E-mail", "メールアドレス", "required|trim|valid_email|is_unique[users.E-mail]");
+		$this->form_validation->set_rules("user_name", "ユーザ名", "required|trim");
 		$this->form_validation->set_rules("password", "パスワード", "required|trim|min_length[8]|max_length[16]");
 		$this->form_validation->set_rules("password_check", "パスワード確認", "required|trim|matches[password]");
 
@@ -161,7 +161,7 @@ class Kinsta extends CI_Controller
 			";
 
 			$result = phpmailer_send(
-				$this->input->post('email'),
+				$this->input->post('E-mail'),
 				'Kinstagram',
 				'kinstagram111@gmail.com',
 				'Welcome to Muscle World!!!',
@@ -187,12 +187,12 @@ class Kinsta extends CI_Controller
 	public function login_validation()
 	{
 		$this->load->library("form_validation");
-		$this->form_validation->set_rules("email", "メールアドレス", "required|trim|valid_email|callback_validate_credentials");
+		$this->form_validation->set_rules("E-mail", "メールアドレス", "required|trim|valid_email|callback_validate_credentials");
 		$this->form_validation->set_rules("password", "パスワード", "required|md5|trim");
 
 		if ($this->form_validation->run()) {	//バリデーションエラーがなかった場合の処理
 			$data = array(
-				"email" => $this->input->post("email"),
+				"E-mail" => $this->input->post("E-mail"),
 				"is_logged_in" => 1
 			);
 			$this->session->set_userdata($data);

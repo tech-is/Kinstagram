@@ -5,7 +5,7 @@ class Model_users extends CI_Model
     public function can_log_in()
     {
 
-        $this->db->where("email", $this->input->post("email"));    //POSTされたemailデータとDB情報を照合する
+        $this->db->where("E-mail", $this->input->post("E-mail"));    //POSTされたemailデータとDB情報を照合する
         $this->db->where("password", md5($this->input->post("password")));    //POSTされたパスワードデータとDB情報を照合する
         $query = $this->db->get("users");
 
@@ -21,8 +21,8 @@ class Model_users extends CI_Model
 
         //add_temp_usersのモデルの実行時に、以下のデータを取得して、$dataと紐づける
         $data = array(
-            "email" => $this->input->post("email"),
-            "username" => $this->input->post("username"),
+            "E-mail" => $this->input->post("E-mail"),
+            "user_name" => $this->input->post("user_name"),
             "password" =>
             md5($this->input->post("password")),
             "key" => $key
@@ -61,8 +61,8 @@ class Model_users extends CI_Model
             $row = $temp_user->row();
 
             $data = array(    //$rowで取得した値のうち、必要な情報のみを取得する
-                "email" => $row->email,
-                "username" => $row->username,
+                "E-mail" => $row->{'E-mail'},
+                "user_name" => $row->user_name,
                 "password" => $row->password
             );
 
