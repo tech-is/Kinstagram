@@ -1,0 +1,21 @@
+/* タブレット向けレイアウト */
+@media all and (max-width: 1000px) {
+    h1 {
+        font-size: 25px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+}
+
+/* スマホ向けレイアウト */
+@media all and (max-width: 670px) {
+    h1 {
+        font-size: 17px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+}

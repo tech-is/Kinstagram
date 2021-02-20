@@ -48,12 +48,22 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
+                                    <label class="control-label">アイコン画像</label>
+                                    <canvas id="preview" style="max-width:200px;"></canvas>
+                                    <?php
+                                    if (isset($error)) {
+                                        echo $error;
+                                    }
+                                    ?>
+                                    <input name="profile_image" type="file" accept='image/*' onchange="previewImage(this);">
+                                </div>
+                                <div class="form-group">
                                     <label class="control-label">肉ネーム</label>
-                                    <input id="user_name" class="form-control  bg-gray" type="text" value="<?php echo $value['user_name'] ?>">
+                                    <input name="user_name" class="form-control  bg-gray" type="text" value="<?php echo $value['user_name'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">紹介文</label>
-                                    <input id="introduction" class="form-control  bg-gray" type="text" value="<?php echo $value['introduction'] ?>">
+                                    <input name="introduction" class="form-control  bg-gray" type="text" value="<?php echo $value['introduction'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マッチョ区分</label>
@@ -76,11 +86,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">ID</label>
-                                    <input id="email" class="form-control bg-gray" type="text" value="<?php echo $value['E-mail'] ?>">
+                                    <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $value['E-mail'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
-                                    <input id="password" class="form-control bg-gray" type="text" value="<?php echo str_repeat("筋", mb_strlen($value['password'], "UTF8")); ?>">
+                                    <input name="password" class="form-control bg-gray" type="text" value="<?php echo str_repeat("筋", mb_strlen($value['password'], "UTF8")); ?>">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -114,6 +124,23 @@
         </div>
         <!-- 写真一覧 -->
     </form>
+    <script>
+        function previewImage(obj) {
+            var fileReader = new FileReader();
+            fileReader.onload = (function() {
+                var canvas = document.getElementById('preview');
+                var ctx = canvas.getContext('2d');
+                var image = new Image();
+                image.src = fileReader.result;
+                image.onload = (function() {
+                    canvas.width = image.width;
+                    canvas.height = image.height;
+                    ctx.drawImage(image, 0, 0);
+                });
+            });
+            fileReader.readAsDataURL(obj.files[0]);
+        }
+    </script>
 </body>
 
 </html>

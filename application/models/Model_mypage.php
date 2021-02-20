@@ -24,6 +24,11 @@ class Model_mypage extends CI_Model
         return $query->result_array();
     }
 
+    public function mypage_update($user)
+    {
+        $this->db->update('users',$user);
+    }
+
     public function individual_get()
     {
         //自らの投稿の情報を取り出す　※　自分の投稿判定
