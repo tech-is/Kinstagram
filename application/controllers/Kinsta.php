@@ -36,8 +36,8 @@ class Kinsta extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('url','form');
-		$this->load->helper('html'); 
+		$this->load->helper('url', 'form');
+		$this->load->helper('html');
 	}
 
 	public function mypage()
@@ -91,8 +91,8 @@ class Kinsta extends CI_Controller
 		$this->Model_mypage->mypage_update($user);
 		// redirect("/Kinsta/mypage");
 
-    //if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-			//$this->load->view("Mypage");
+		//if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+		//$this->load->view("Mypage");
 		//} else {									//ログインしていない場合の処理
 		//	redirect("main/lp");
 		//}
@@ -102,7 +102,7 @@ class Kinsta extends CI_Controller
 	public function add()
 	{
 		$this->load->model('Model_mypage');
-		
+
 		//画像を投稿する
 		$config['upload_path'] = './img/list_img_userid_1';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -110,17 +110,17 @@ class Kinsta extends CI_Controller
 		$config['max_width'] = 1500;
 		$config['max_hight'] = 1500;
 
-		$this->load->library('upload',$config);
+		$this->load->library('upload', $config);
 
-		if(!$this->upload->do_upload('list_image')) {
+		if (!$this->upload->do_upload('list_image')) {
 			$error = array('error' => $this->upload->display_errors());
-			$this->load->view('Post_scr',$error);
+			$this->load->view('Post_scr', $error);
 		} else {
 			$data = array('image_metadata' => $this->upload->data());
-			$this->load->view('files/upload_result',$data);
 			//投稿が成功したら成功ページへ推移
+			$this->load->view('files/upload_result', $data);
 		}
-		
+
 		//Model_mypageのpost_addメソッドにアクセスしpost情報を渡す
 		// post情報を変数定義
 		$user_id = 0;
@@ -140,15 +140,15 @@ class Kinsta extends CI_Controller
 		$this->Model_mypage->post_add($post);
 		// redirect("/Kinsta/mypage");
 	}
-	
+
 	public function post()
 	{
 		$this->load->view('Post_scr');
-//		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-//			$this->load->view('Post_scr');
-//		} else {									//ログインしていない場合の処理
-//			redirect("main/lp");
-//		}
+		//		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+		//			$this->load->view('Post_scr');
+		//		} else {									//ログインしていない場合の処理
+		//			redirect("main/lp");
+		//		}
 	}
 
 	public function individual()
@@ -158,13 +158,13 @@ class Kinsta extends CI_Controller
 		$post_data['array_post'] = $this->Model_mypage->individual_get();
 		$post_data['array_user'] = $this->Model_mypage->mypage_get();
 		//  $dataを第二引数に入れてviewに送る
-		$this->load->view('Individual_img',$post_data);
-		
-//		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-//			$this->load->view('Individual_img');
-//		} else {									//ログインしていない場合の処理
-//			redirect("main/lp");
-//		}
+		$this->load->view('Individual_img', $post_data);
+
+		//		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+		//			$this->load->view('Individual_img');
+		//		} else {									//ログインしていない場合の処理
+		//			redirect("main/lp");
+		//		}
 	}
 	///// 藤田担当　ここまで ////////
 
@@ -182,9 +182,9 @@ class Kinsta extends CI_Controller
 
 	public function registration_validation()
 	{
-		$this->form_validation->set_rules("email", "メールアドレス", "required|trim|valid_email|is_unique[users.email]");
-		$this->form_validation->set_rules("username", "ユーザ名", "required|trim");
-		$this->form_validation->set_rules("password", "パスワード", "required|trim");
+		$this->form_validation->set_rules("E-mail", "メールアドレス", "required|trim|valid_email|is_unique[users.E-mail]");
+		$this->form_validation->set_rules("user_name", "ユーザ名", "required|trim");
+		$this->form_validation->set_rules("password", "パスワード", "required|trim|min_length[8]|max_length[16]");
 		$this->form_validation->set_rules("password_check", "パスワード確認", "required|trim|matches[password]");
 
 		$this->form_validation->set_message("is_unique", "入力したメールアドレスはすでに登録されています");
@@ -198,23 +198,24 @@ class Kinsta extends CI_Controller
 			$this->load->helper('phpmailer');
 
 			//メッセージの本文
-			$message = "会員登録ありがとうございます。http://localhost2/kinsta/resister_user/$key";
+			$message = "会員登録ありがとうございます。\n\n http://localhost2/kinsta/resister_user/$key";
 
 			//各ユーザーにランダムキーをパーマリンクに含むURLを送信する
-			$message .= "こちらをクリックして、会員登録を完了してください。";
+			$message .= "\nこちらをクリックして、会員登録を完了してください。\n あなたに、素晴らしい筋肉たちとの出会いがあらんことを...!\n\n 注意:\n\n※本メールは送信専用です。ご返信いただいてもお答えできませんのでご了承ください。\n※本メールは、Kinstagramの会員登録に入力いただいたメールアドレス宛に送信しております。\nメールにお心当たりがない場合は、当サービス、サポート窓口までご連絡をお願いいたします。
+			";
 
 			$result = phpmailer_send(
-				$this->input->post('email'),
-				'キンスタ',
+				$this->input->post('E-mail'),
+				'Kinstagram',
 				'kinstagram111@gmail.com',
-				'仮会員登録が完了しました。',
+				'Welcome to Muscle World!!!',
 				"$message"
 			);
 
 			//ユーザーに確認メールを送信できた場合、ユーザーを temp_users DBに追加する
 			if ($result) {
 				if ($this->model_users->add_temp_users($key)) {
-					echo "仮登録完了メールを送信しました。";
+					$this->load->view('kin_top2');
 				} else {
 					echo "会員登録に失敗しました。（データベースエラー）";
 				}
@@ -230,12 +231,12 @@ class Kinsta extends CI_Controller
 	public function login_validation()
 	{
 		$this->load->library("form_validation");
-		$this->form_validation->set_rules("email", "メールアドレス", "required|trim|valid_email|callback_validate_credentials");
+		$this->form_validation->set_rules("E-mail", "メールアドレス", "required|trim|valid_email|callback_validate_credentials");
 		$this->form_validation->set_rules("password", "パスワード", "required|md5|trim");
 
 		if ($this->form_validation->run()) {	//バリデーションエラーがなかった場合の処理
 			$data = array(
-				"email" => $this->input->post("email"),
+				"E-mail" => $this->input->post("E-mail"),
 				"is_logged_in" => 1
 			);
 			$this->session->set_userdata($data);
@@ -270,9 +271,10 @@ class Kinsta extends CI_Controller
 
 		if ($this->model_users->is_valid_key($key)) {	//キーが正しい場合は、以下を実行
 			if ($this->model_users->add_user($key)) {	//add_usersがTrueを返したら以下を実行
-				echo "success";
+				echo "新規会員登録に成功しました。下記フォームよりログインしてください。";
+				$this->load->view('kin_top');
 			} else echo "fail to add user. please try again";
-		} else echo "invalid key";
+		} else echo "有効期限切れのURLです。";
 	}
 	///// 山下担当　ここまで ////////
 	/////////////////////////////////////////二宮//////////////////////////////////////////////////////
@@ -280,9 +282,8 @@ class Kinsta extends CI_Controller
 	{
 		// $data = null;
 		// $data['data_array'] = $this -> Kinsta_model -> fetch_all_rows();
-		
-		$this->load->view('top_page');
 
+		$this->load->view('top_page');
 	}
 	public function select()
 	{
@@ -290,35 +291,34 @@ class Kinsta extends CI_Controller
 		$this->load->view('select_page');
 	}
 	public function rank()
-    {
-        $this->load->view('header_page');
-        $this->load->view('rank_page');
+	{
+		$this->load->view('header_page');
+		$this->load->view('rank_page');
 	}
 	public function armRank()
 	{
 		$this->load->view('header_page');
-        $this->load->view('arm_rank_page');
+		$this->load->view('arm_rank_page');
 	}
 	public function breastRank()
-    {
-        $this->load->view('header_page');
-        $this->load->view('breast_rank_page');
+	{
+		$this->load->view('header_page');
+		$this->load->view('breast_rank_page');
 	}
 	public function shoulderRank()
-    {
-        $this->load->view('header_page');
-        $this->load->view('shoulder_rank_page');
+	{
+		$this->load->view('header_page');
+		$this->load->view('shoulder_rank_page');
 	}
 	public function absRank()
-    {
-        $this->load->view('header_page');
-        $this->load->view('abs_rank_page');
+	{
+		$this->load->view('header_page');
+		$this->load->view('abs_rank_page');
 	}
 	public function footRank()
-    {
-        $this->load->view('header_page');
-        $this->load->view('foot_rank_page');
+	{
+		$this->load->view('header_page');
+		$this->load->view('foot_rank_page');
 	}
 }
 ///////////////////////////////////二宮///////////////////////////////////////////////////////////////
-
