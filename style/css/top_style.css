@@ -1493,5 +1493,7 @@ div.is-open {
                 height: calc(100% / 3);
                 text-align: left;
             }
-            
+            .uploadup{
+                display: none;
+            }
         }

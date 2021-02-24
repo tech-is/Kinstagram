@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet">
+    <link rel="stylesheet" href="/style/css/post.css">
     <link rel="stylesheet" href="/style/css/top_style.css">
     <title>Kinstagram</title>
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
@@ -11,40 +11,71 @@
       rel="stylesheet">
 </head>
     <body>
-        
-            <header class="header_font_border">
-                <li class="titleLogo"><a href="#" class="titleLogoReroad">Kinstagram</a></li>
-                <li class="sub_title">筋肉達との出会いがここに・・・</li>
-                <li class="search_window"><input type="text" class="window_color" placeholder="検索"></li>
-                <li class="uploadup"><a href="#"><span class="material-icons">cloud_upload</span></a></li>
-                <li class="login">
-                    <a href="#" class="btn-square-shadow">ログイン</a>
-                    <a href="#" class="btn-square-shadow">マイページ</a>
+
+        <header class="header_font_border">
+            <li class="titleLogo"><form method="get" action="/kinsta/top" name="topButton"><a href="javascript:document.topButton.submit()" class="titleLogoReroad">Kinstagram</a></form></li>
+            <li class="sub_title">筋肉達との出会いがここに・・・</li>
+            <li class="search_window"><input type="text" class="window_color" placeholder="検索"></li>
+            <li class="uploadup"><span class="material-icons">cloud_upload</span></li>
+            <li class="login">
+                <form method="get" action="/kinsta/login">
+                    <input type="submit" class="btn-square-shadow" value="ログイン">
+                </form>
+                <form method="get" action="/kinsta/mypage">
+                    <input type="submit" class="btn-square-shadow" value="マイページ">
+                </form>
+            </li>
+            <div class="hambarger">
+                <li class="menuIcon">
+                    <input id="menu" type="checkbox">
+                    <label for="menu" class="open"><span class="material-icons">dehaze</span></label>
+                    <label for="menu" class="back"></label>
+                    <nav class="hambargerNav">
+                        <ul class="hambargerUl">
+                            <li><form method="get" action="/kinsta/mypage" name="mypageButton"><a href="javascript:document.mypageButton.submit()" class="textNone">マイページ</a></form></li>
+                            <li><form method="get" action="/kinsta/post" name="uploadButton"><a href="javascript:document.uploadButton.submit()" class="textNone">アップロード</a></form></li>
+                            <li><form method="get" action="/kinsta/login" name="loginButton"><a href="javascript:document.loginButton.submit()" class="textNone">ログイン</a></form></li>
+                            <li><form method="get" action="/kinsta/logout" name="logoutButton"><a href="javascript:document.logoutButton.submit()" class="textNone">ログアウト</a></form></li>
+                            <li class="cancelButton"><label for="menu" class="close">×</label></li>
+                        </ul>
+                    </nav>
                 </li>
-                <div class="hambarger">
-                    <li class="menuIcon">
-                        <input id="menu" type="checkbox">
-                        <label for="menu" class="open"><span class="material-icons">dehaze</span></label>
-                        <label for="menu" class="back"></label>
-                        <nav class="hambargerNav">
-                            <ul class="hambargerUl">
-                                <li>マイページ</li>
-                                <li>アップロード</li>
-                                <li>ログイン</li>
-                                <li>ログアウト</li>
-                                <li class="cancelButton"><label for="menu" class="close">×</label></li>
-                            </ul>
-                        </nav>
-                    </li>
-                </div>
+            </div>
 
 
-                
-            </header>
-
-            <hr class="header_border">
             
-            <nav class="underNav">
+        </header>
+
+        <hr class="header_border">
+        
+        
+    <!-- <script>
+        document.getElementsByClassName('btn')[0].onclick=function postClick(){
+            if(document.getElementById('postModal').style.display=="block"){
+                document.getElementById('postModal').style.display="none";
+            }else{
+            document.getElementById('postModal').style.display="block";
+            document.getElementById('formModal').style.right="2%";
+
+            }
+        };
+        function previewImage(obj) {
+            var fileReader = new FileReader();
+            fileReader.onload = (function() {
+                var canvas = document.getElementById('preview');
+                var ctx = canvas.getContext('2d');
+                var image = new Image();
+                image.src = fileReader.result;
+                image.onload = (function() {
+                    canvas.width = image.width;
+                    canvas.height = image.height;
+                    ctx.drawImage(image, 0, 0);
+                });
+            });
+            fileReader.readAsDataURL(obj.files[0]);
+        }   
+    </script> -->
+        <nav class="underNav">
                 <ul class="underTab" id="underTab2">
                     <li class="new">
                         <div class="centerLine">
@@ -77,93 +108,24 @@
                             <label for="followUnder" class="closeUnderFollow"></label>
                             <nav class="followUnderNav">
                                 <ul class="ul500">
-                                    <li class="followMember1">
-                                        <div class="iconDiv5001"><img class="icon5001"/>
-                                            <ul class="followerFollowUl">
-                                                <li class="nameFollowFollower"></li>
-                                                <li class="followerNumber"></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="followMember2">
-                                        <div class="iconDiv5001"><img class="icon5001"/>
-                                            <ul class="followerFollowUl">
-                                                <li class="nameFollowFollower"></li>
-                                                <li class="followerNumber"></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="followMember3">
-                                        <div class="iconDiv5001"><img class="icon5001"/>
-                                            <ul class="followerFollowUl">
-                                                <li class="nameFollowFollower"></li>
-                                                <li class="followerNumber"></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="followMember4">
-                                        <div class="iconDiv5001"><img class="icon5001"/>
-                                            <ul class="followerFollowUl">
-                                                <li class="nameFollowFollower"></li>
-                                                <li class="followerNumber"></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="followMember5">
-                                        <div class="iconDiv5001"><img class="icon5001"/>
-                                            <ul class="followerFollowUl">
-                                                <li class="nameFollowFollower"></li>
-                                                <li class="followerNumber"></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="followMember6">
-                                        <div class="iconDiv5001"><img class="icon5001"/>
-                                            <ul class="followerFollowUl">
-                                                <li class="nameFollowFollower"></li>
-                                                <li class="followerNumber"></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="followMember7">
-                                        <div class="iconDiv5001"><img class="icon5001"/>
-                                            <ul class="followerFollowUl">
-                                                <li class="nameFollowFollower"></li>
-                                                <li class="followerNumber"></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="followMember8">
-                                        <div class="iconDiv5001"><img class="icon5001"/>
-                                            <ul class="followerFollowUl">
-                                                <li class="nameFollowFollower"></li>
-                                                <li class="followerNumber"></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="followMember9">
-                                        <div class="iconDiv5001"><img class="icon5001"/>
-                                            <ul class="followerFollowUl">
-                                                <li class="nameFollowFollower"></li>
-                                                <li class="followerNumber"></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="followMember10">
-                                        <div class="iconDiv5001"><img class="icon5001"/>
-                                            <ul class="followerFollowUl">
-                                                <li class="nameFollowFollower"></li>
-                                                <li class="followerNumber">2</li>
-                                            </ul>
-                                        </div>
-                                    </li>
+                                    <?php if (!empty($data_array)) : ?>
+                                    <?php foreach ($data_array as $value) : ?>
+                                        <li class="followMember1">
+                                            <div class="iconDiv5001"><img class="icon5001" src="/img/<?php echo $value["list_image"]?>">
+                                                <ul class="followerFollowUl">
+                                                    <li class="nameFollowFollower"><?php echo $value["user_name"]?></li>
+                                                    <li class="followerNumber">マッスルメンバー数<?php echo $value["follower_number"]?></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </ul>
                             </nav>
                         </a>
                     </li>
                 </ul>
             </nav>
-            <!-- <nav class = "followUnderNav"></nav> -->
             
                   
 
@@ -171,128 +133,56 @@
             <div class="divMainAsaid">
             <main id="mainPicture">
                 <ul class="scroll" data-max="29" data-lastnum="9">
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/1.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/2.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
-                    <li class="sizePicture"><img class="picture" data-src="<?php echo ("/img/3.jpg");?>"/></li>
-
-
-
-                   
-                    
-                    
-                    
-                    
-                    
-                    
+                    <div class="imgList">
+                        <?php //$img_full= '/img/';?>
+                        <?php //foreach (glob('img/*') as $value) : ?> -->
+                        <?php if (!empty($all_posts)) : ?>
+                        <?php foreach ($all_posts as $value) : ?>
+                            <form method="post" action="/kinsta/mypage">
+                                <li class="sizePicture">
+                                    <input type="image" class="p" src="/img/<?php echo $value["list_image"]?>">
+                                    <input type="hidden" name="user_id" value="<?php echo $value['user_id']?>">
+                                </li>
+                               
+                                    <!-- <li class="sizePicture"><img class="picture" data-src="/img/<?php //echo $value["list_image"]?>"></li> -->
+                                
+                                <!-- <a href="/kinsta/mypage?user_id=<?php //echo $value['user_id'];?>"><li class="sizePicture"><img class="picture" data-src="/img/<?php //echo $value["list_image"]?>"></li></a>
+                                <form method="get" action="/kinsta/logout" name="logoutButton"><a href="javascript:document.logoutButton.submit()" class="textNone">ログアウト</a></form> -->
+                            </form>
+                        <?php endforeach; ?> 
+                        <?php //endforeach; ?> 
+                        <?php endif;?>
+                    </div>
                 </ul>
             </main>
             <aside class="asideToreni asideToreni2">
                 <ul class="asideUl">
                     <li class="followToreni">おすすめトレーニー</li>
                     <hr class="follow_border">
-                    <li class="asideIcon">
-                        <a href="#" class="icon"><img id="icon1" src="<?php echo ("/img/try_kinniku30px.png");?>"/></a>
-                    </li>
-                    <li class="name">
-                        <div>
-                            <a href="#" class="a_name" id="openMember1">プロテイン君</a>
-                            <a href="#" class="massule_member">マッスルメンバーに追加</a>
-                        </div>
-                        <section id="modalMember1" class="hidden">
-                            <ul class="memberPostFollowPicture">
-                                
-                            </ul>
-                            <!-- <p>投稿10件</p>
-                            <p>マッスルメンバー10人</p>
-                            <p>写真</p>
-                            <p>写真</p> -->
-                        </section>
-                    </li>
-                    
-                    <li class="asideIcon">
-                        <a href="#">
-                            <img id="icon2" src="<?php echo ("/img/try_kinniku30px.png");?>"/>
-                        </a>
-                    </li>
-                    <li class="name">
-                    <div>
-                        <a href="#" class="a_name" id="openMember2">きんに君</a>
-                        <a href="#" class="massule_member">マッスルメンバーに追加</a>
-                    </div>
-                        <section id="modalMember2" class="hidden">
-                            <p>きんに君</p>
-                            <p>投稿10件</p>
-                            <p>マッスルメンバー10人</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>マッスルメンバーに追加</p>
-                        </section>
-                    </li>
-                    <li class="asideIcon">
-                        <a href="#"><img id="icon3" src="<?php echo ("/img/try_kinniku30px.png");?>"/></a>
-                    </li>
-                    <li class="name">
-                    <div>
-                        <a href="#" class="a_name" id="openMember3">油は大敵君</a>
-                        <a href="#" class="massule_member">マッスルメンバーに追加</a>
-                    </div>
-                        <section id="modalMember3" class="hidden">
-                            <p>油は大敵君</p>
-                            <p>投稿10件</p>
-                            <p>マッスルメンバー10人</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>マッスルメンバーに追加</p>
-                        </section>
-                    </li>
-                    <li class="asideIcon">
-                        <a href="#"><img id="icon4" src="<?php echo ("/img/try_kinniku_kadomaru.png");?>"/></a>
-                    </li>
-                    <li class="name">
-                    <div>
-                        <a href="#" class="a_name" id="openMember4">ムキムキ君</a>
-                        <a href="#" class="massule_member">マッスルメンバーに追加</a>
-                    </div>
-                        <section id="modalMember4" class="hidden">
-                            <p>ムキムキ君</p>
-                            <p>投稿10件</p>
-                            <p>マッスルメンバー10人</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>マッスルメンバーに追加</p>
-                        </section>
-                    </li>
-                    <li class="asideIcon">
-                        <a href="#"><img id="icon5" src="<?php echo ("/img/try_kinniku_kadomaru.png");?>"/></a>
-                    </li>
-                    <li class="name">
-                        <div>
-                            <a href="#" class="a_name" id="openMember5">バキバキ君</a>
-                            <a href="#" class="massule_member">マッスルメンバーに追加</a>
-                        </div>
-                        <section id="modalMember5" class="hidden">
-                            <p>バキバキ君</p>
-                            <p>投稿10件</p>
-                            <p>マッスルメンバー10人</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>写真</p>
-                            <p>マッスルメンバーに追加</p>
-                        </section>
-                    </li>
+                    <?php if (!empty($five_data)) : ?>
+                        <?php foreach ($five_data as $value) : ?>
+                            <li class="asideIcon">
+                            <a href="#" class="icon"><img id="icon1" src="/img/<?php echo $value["list_image"]?>"></a>
+                            </li>
+                            <li class="name">
+                                <div>
+                                    <a href="#" class="a_name" id="openMember1"><?php echo $value["user_name"]?></a>
+                                    <a href="#" class="massule_member">マッスルメンバーに追加</a>
+                                </div>
+                                <section id="modalMember1" class="hidden">
+                                    <ul class="memberPostFollowPicture">
+                                        <p><?php echo $value["user_name"]?></p>
+                                        <p>投稿10件</p>
+                                        <p>マッスルメンバー10人</p>
+                                        <p>写真</p>
+                                        <p>マッスルメンバーに追加</p>
+                                    </ul>
+                                </section>
+                            </li>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+            
+             
                     <hr class="other_border">
                     <li class="otherMember">
                         <a href="#" class="aOtherMember" id="otherMemberIrekae">その他のメンバーを見る</a>
@@ -300,7 +190,7 @@
                 </ul>
             </aside>
             </div>
-            <script type="text/javascript" src="<?php echo ("/style/js/toppage.js"); ?>"></script>
+        <script type="text/javascript" src="<?php echo ("/style/js/toppage.js"); ?>"></script>
         
     </body>
 </html>

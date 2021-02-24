@@ -14,8 +14,7 @@
 <body>
     <form action="/kinsta/add" method="post" enctype="multipart/form-data">
         <!-- 投稿ボタン -->
-        <button type="button" class="btn new-primary" data-toggle="modal" data-target="#postModal">投稿></button>
-        <!-- 投稿ボタン -->
+       
 
         <!-- Modal -->
         <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
@@ -60,6 +59,7 @@
         <!-- Modal -->
     </form>
     <script>
+        
         function previewImage(obj) {
             var fileReader = new FileReader();
             fileReader.onload = (function() {

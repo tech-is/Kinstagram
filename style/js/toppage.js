@@ -5,21 +5,37 @@
     let toreni = {
         list:{
             toreni:[
-                { name:"肩筋厚夫", follower:'9トレーニー', follow:'9トレーニー' ,post:'10件',images:[{image:'/img/kintore1.png'},{image2:'/img/kintore1.png'}]},
-                { name:"胸筋厚夫", follower:'8トレーニー', follow:'8トレーニー' ,post:'9件',images:[{image:'/img/kintore2.png'},{image2:'/img/kintore1.png'}]},
-                { name:"腹筋厚子", follower:'7トレーニー', follow:'7トレーニー' ,post:'8件',images:[{image:'/img/kintore3.png'},{image2:'/img/kintore1.png'}]},
-                { name:"腕筋厚子", follower:'6トレーニー', follow:'6トレーニー' ,post:'7件',images:[{image:'/img/kintore4.png'},{image2:'/img/kintore1.png'}]},
-                { name:"足筋厚子", follower:'5トレーニー', follow:'5トレーニー' ,post:'6件',images:[{image:'/img/kintore1.png'},{image2:'/img/kintore1.png'}]},
-                { name:"肩筋厚夫", follower:'4トレーニー', follow:'4トレーニー' ,post:'5件',images:[{image:'/img/kintore1.png'},{image2:'/img/kintore1.png'}]},
-                { name:"胸筋厚夫", follower:'3トレーニー', follow:'3トレーニー' ,post:'4件',images:[{image:'/img/kintore2.png'},{image2:'/img/kintore1.png'}]},
-                { name:"腹筋厚子", follower:'2トレーニー', follow:'2トレーニー' ,post:'3件',images:[{image:'/img/kintore2.png'},{image2:'/img/kintore1.png'}]},
-                { name:"腕筋厚子", follower:'1トレーニー', follow:'1トレーニー' ,post:'2件',images:[{image:'/img/kintore4.png'},{image2:'/img/kintore1.png'}]},
-                { name:"足筋厚子", follower:'0トレーニー', follow:'0トレーニー' ,post:'1件',images:[{image:'/img/kintore1.png'},{image2:'/img/kintore1.png'}]},
+                { name:"肩筋厚夫", follower:'9トレーニー', follow:'9トレーニー' ,post:'10件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+                { name:"胸筋厚夫", follower:'8トレーニー', follow:'8トレーニー' ,post:'9件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+                { name:"腹筋厚子", follower:'7トレーニー', follow:'7トレーニー' ,post:'8件',images:[{image:'/assets/kinsta_img/kintore3.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+                { name:"腕筋厚子", follower:'6トレーニー', follow:'6トレーニー' ,post:'7件',images:[{image:'/assets/kinsta_img/kintore4.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+                { name:"足筋厚子", follower:'5トレーニー', follow:'5トレーニー' ,post:'6件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+                { name:"肩筋厚夫", follower:'4トレーニー', follow:'4トレーニー' ,post:'5件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+                { name:"胸筋厚夫", follower:'3トレーニー', follow:'3トレーニー' ,post:'4件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+                { name:"腹筋厚子", follower:'2トレーニー', follow:'2トレーニー' ,post:'3件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+                { name:"腕筋厚子", follower:'1トレーニー', follow:'1トレーニー' ,post:'2件',images:[{image:'/assets/kinsta_img/kintore4.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+                { name:"足筋厚子", follower:'0トレーニー', follow:'0トレーニー' ,post:'1件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
             ],
         },
     };
 
-
+    
+        // let toreni = {
+        //     list:{
+        //         toreni:[
+        //             {follower:'9トレーニー', follow:'9トレーニー' ,post:'10件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+        //             {follower:'8トレーニー', follow:'8トレーニー' ,post:'9件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+        //             {follower:'7トレーニー', follow:'7トレーニー' ,post:'8件',images:[{image:'/assets/kinsta_img/kintore3.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+        //             {follower:'6トレーニー', follow:'6トレーニー' ,post:'7件',images:[{image:'/assets/kinsta_img/kintore4.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+        //             {follower:'5トレーニー', follow:'5トレーニー' ,post:'6件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+        //             {follower:'4トレーニー', follow:'4トレーニー' ,post:'5件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+        //             {follower:'3トレーニー', follow:'3トレーニー' ,post:'4件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+        //             {follower:'2トレーニー', follow:'2トレーニー' ,post:'3件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+        //             {follower:'1トレーニー', follow:'1トレーニー' ,post:'2件',images:[{image:'/assets/kinsta_img/kintore4.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+        //             {follower:'0トレーニー', follow:'0トレーニー' ,post:'1件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
+        //         ],
+        //     },
+        // };
 
 
 
@@ -67,9 +83,10 @@
         modalMember1.classList.add('hidden');
     });
 }
+
 {
-    const openMember2 = document.getElementById('openMember2');
-    const modalMember2 = document.getElementById('modalMember2');
+    const openMember2 = document.getElementById('openMember1');
+    const modalMember2 = document.getElementById('modalMember1 ');
 
     openMember2.addEventListener('mouseenter',()=>{
         modalMember2.classList.remove('hidden');
@@ -80,8 +97,8 @@
     });
 }
 {
-    const openMember3 = document.getElementById('openMember3');
-    const modalMember3 = document.getElementById('modalMember3');
+    const openMember3 = document.getElementById('openMember1');
+    const modalMember3 = document.getElementById('modalMember1');
 
     openMember3.addEventListener('mouseenter',()=>{
         modalMember3.classList.remove('hidden');
@@ -92,8 +109,8 @@
     });
 }
 {
-    const openMember4 = document.getElementById('openMember4');
-    const modalMember4 = document.getElementById('modalMember4');
+    const openMember4 = document.getElementById('openMember1');
+    const modalMember4 = document.getElementById('modalMember1');
 
     openMember4.addEventListener('mouseenter',()=>{
         modalMember4.classList.remove('hidden');
@@ -104,8 +121,8 @@
     });
 }
 {
-    const openMember5 = document.getElementById('openMember5');
-    const modalMember5 = document.getElementById('modalMember5');
+    const openMember5 = document.getElementById('openMember1');
+    const modalMember5 = document.getElementById('modalMember1');
 
     openMember5.addEventListener('mouseenter',()=>{
         modalMember5.classList.remove('hidden');
@@ -288,23 +305,23 @@ if(innerWidth <= 500){
             const nameUnderroad500 = document.getElementsByClassName("nameFollowFollower");
             const followerUnderroad500 = document.getElementsByClassName("followerNumber");
             for(let i = 0; i < 10 ; i++){
-                iconUnderRoad500[i].src = toreni.list.toreni[i].images[0].image;
-                nameUnderroad500[i].innerHTML = toreni.list.toreni[i].name;
-                followerUnderroad500[i].innerHTML = toreni.list.toreni[i].follower; 
+                // iconUnderRoad500[i].src = toreni.list.toreni[i].images[0].image;
+                // nameUnderroad500[i].innerHTML = toreni.list.toreni[i].name;
+                // followerUnderroad500[i].innerHTML = toreni.list.toreni[i].follower; 
             }
         }
-            if(innerWidth > 500){
-                // 下タブ除去
-                const underTab = document.getElementsByClassName("underTab");
-                let lastList = underTab[0].lastElementChild;
-                let lastLastList = lastList.lastElementChild;
-            if(lastList.classList.contains("newFollow500")){
-                lastLastList.remove();
-                lastList.remove();
-                console.log(lastList);
-            }
+        //     if(innerWidth > 500){
+        //         下タブ除去
+        //         const underTab = document.getElementsByClassName("underTab");
+        //         let lastList = underTab[0].lastElementChild;
+        //         let lastLastList = lastList.lastElementChild;
+        //     if(lastList.classList.contains("newFollow500")){
+        //         lastLastList.remove();
+        //         lastList.remove();
+        //         console.log(lastList);
+        //     }
 
-        }
+        // }
     });
 
 
@@ -437,139 +454,139 @@ if(innerWidth <= 500){
             let lastList = underTab[0].lastElementChild;
             // console.log(lastList.classList.contains("last"));
 
-            if(!lastList.classList.contains("newFollow500")){
+            // if(!lastList.classList.contains("newFollow500")){
             
         
             
-            const followToreni = document.getElementsByClassName("followToreni");
+            // const followToreni = document.getElementsByClassName("followToreni");
 
             
             
             
-            let alist = document.createElement('a');
-            let inputList = document.createElement('input');
+            // let alist = document.createElement('a');
+            // let inputList = document.createElement('input');
             
-            let navList = document.createElement('nav');
-            let ulList = document.createElement('ul');
-            navList.classList.add('followUnderNav');
-            ulList.classList.add('ul500');
-            navList.appendChild(ulList);
-            let a = 0;
-            for(let i=1;i<11;i++){
-                let listi = document.createElement('li');
+            // let navList = document.createElement('nav');
+            // let ulList = document.createElement('ul');
+            // navList.classList.add('followUnderNav');
+            // ulList.classList.add('ul500');
+            // navList.appendChild(ulList);
+            // let a = 0;
+            // for(let i=1;i<11;i++){
+            //     let listi = document.createElement('li');
                 
-                listi.classList.add(`followMember${i}`)
-                ulList.appendChild(listi);
-                console.log(i);
+            //     listi.classList.add(`followMember${i}`)
+            //     ulList.appendChild(listi);
+            //     console.log(i);
                 
-                for(let j=1; j<5;j++){
+            //     for(let j=1; j<5;j++){
                     
-                    switch(j){
-                        case 1:
-                            let divListj = document.createElement('div');
-                            listi.appendChild(divListj);
-                            divListj.classList.add(`iconDiv500${j}`);
-                            let imgList1 = document.createElement('img');
-                            imgList1.classList.add(`icon500${j}`);
-                            imgList1.src = toreni.list.toreni[a].images[0].image;
-                            divListj.appendChild(imgList1);
-                            let ulList1 = document.createElement('ul');
-                            divListj.appendChild(ulList1);
-                            ulList1.classList.add('followerFollowUl');
-                        for(let p=0;p<2;p++){
-                                let listp = document.createElement('li');
-                                ulList1.appendChild(listp);
-                                switch(p){
-                                    case 0:
-                                        listp.classList.add('nameFollowFollower');
-                                        break;
-                                    case 1:
-                                        listp.classList.add('followerNumber');
-                                        break;
-                                }
-                            }
-                            break;
-                        case 2:
-                            // divListj.classList.add('followerFollow500');
-                            // divListj.appendChild(ulList1);
+            //         switch(j){
+            //             case 1:
+            //                 let divListj = document.createElement('div');
+            //                 listi.appendChild(divListj);
+            //                 divListj.classList.add(`iconDiv500${j}`);
+            //                 let imgList1 = document.createElement('img');
+            //                 imgList1.classList.add(`icon500${j}`);
+            //                 imgList1.src = toreni.list.toreni[a].images[0].image;
+            //                 divListj.appendChild(imgList1);
+            //                 let ulList1 = document.createElement('ul');
+            //                 divListj.appendChild(ulList1);
+            //                 ulList1.classList.add('followerFollowUl');
+            //             for(let p=0;p<2;p++){
+            //                     let listp = document.createElement('li');
+            //                     ulList1.appendChild(listp);
+            //                     switch(p){
+            //                         case 0:
+            //                             listp.classList.add('nameFollowFollower');
+            //                             break;
+            //                         case 1:
+            //                             listp.classList.add('followerNumber');
+            //                             break;
+            //                     }
+            //                 }
+            //                 break;
+            //             case 2:
+            //                 // divListj.classList.add('followerFollow500');
+            //                 // divListj.appendChild(ulList1);
                             
-                            break;
-                        case 3:
-                            // divListj.classList.add('myPicture1');
-                            break;
-                        case 4:
-                            // divListj.classList.add('myPicture2');
-                            break;
-                    }
-                }
-                a++;
-            }
+            //                 break;
+            //             case 3:
+            //                 // divListj.classList.add('myPicture1');
+            //                 break;
+            //             case 4:
+            //                 // divListj.classList.add('myPicture2');
+            //                 break;
+            //         }
+            //     }
+            //     a++;
+            // }
             
             
             
             
             
-            inputList.type = 'checkbox';
-            inputList.id = 'followUnder';
-            let labelList = document.createElement('label');
-            // let labelList2 = document.createElement('label');
-            let labelList3 = document.createElement('label');
-            labelList.htmlFor = "followUnder";
-            // labelList2.htmlFor = "followUnder";
-            labelList3.htmlFor = "followUnder";
-            labelList.classList.add('openUnderFollow');
+            // inputList.type = 'checkbox';
+            // inputList.id = 'followUnder';
+            // let labelList = document.createElement('label');
+            // // let labelList2 = document.createElement('label');
+            // let labelList3 = document.createElement('label');
+            // labelList.htmlFor = "followUnder";
+            // // labelList2.htmlFor = "followUnder";
+            // labelList3.htmlFor = "followUnder";
             // labelList.classList.add('openUnderFollow');
-            labelList3.classList.add('closeUnderFollow');
+            // // labelList.classList.add('openUnderFollow');
+            // labelList3.classList.add('closeUnderFollow');
             
             
             
             
-            console.log(inputList);
-            labelList.innerHTML = "おすすめトレーニー";
+            // console.log(inputList);
+            // labelList.innerHTML = "おすすめトレーニー";
             
             
             
             
-            alist.classList.add('aNewFollow500');
-            alist.appendChild(inputList);
-            alist.appendChild(labelList);
-            alist.appendChild(labelList3);
-            alist.appendChild(navList);
-            let list2 = document.createElement('li');
-            list2.appendChild(alist);
-            list2.classList.add('newFollow500');
-            console.log(list2);
-            underTab[0].appendChild(list2);
+            // alist.classList.add('aNewFollow500');
+            // alist.appendChild(inputList);
+            // alist.appendChild(labelList);
+            // alist.appendChild(labelList3);
+            // alist.appendChild(navList);
+            // let list2 = document.createElement('li');
+            // list2.appendChild(alist);
+            // list2.classList.add('newFollow500');
+            // console.log(list2);
+            // underTab[0].appendChild(list2);
             
-            let nameFollowFollower = document.getElementsByClassName("nameFollowFollower");
-            // let followNumber = document.getElementsByClassName("followNumber");
-            let followerNumber = document.getElementsByClassName("followerNumber");
-            for(let o =0; o < nameFollowFollower.length; o++){
-                nameFollowFollower[o].innerHTML = toreni.list.toreni[o].name;
-                followerNumber[o].innerHTML = "マッスルメンバー数:"+toreni.list.toreni[o].follower;
+            // let nameFollowFollower = document.getElementsByClassName("nameFollowFollower");
+            // // let followNumber = document.getElementsByClassName("followNumber");
+            // let followerNumber = document.getElementsByClassName("followerNumber");
+            // for(let o =0; o < nameFollowFollower.length; o++){
+            //     nameFollowFollower[o].innerHTML = toreni.list.toreni[o].name;
+            //     followerNumber[o].innerHTML = "マッスルメンバー数:"+toreni.list.toreni[o].follower;
                 
 
-            }
+            // }
             
 
             
-            }
+            // }
         }
             
-            if(innerWidth >= 501){
+            // if(innerWidth >= 501){
 
-                const underTab = document.getElementsByClassName("underTab");
-                let lastList = underTab[0].lastElementChild;
-                let lastLastList = lastList.lastElementChild;
-            if(lastList.classList.contains("newFollow500")){
-                lastLastList.remove();
-                lastList.remove();
-                console.log(lastList);
-            }
+            //     const underTab = document.getElementsByClassName("underTab");
+            //     let lastList = underTab[0].lastElementChild;
+            //     let lastLastList = lastList.lastElementChild;
+            // if(lastList.classList.contains("newFollow500")){
+            //     lastLastList.remove();
+            //     lastList.remove();
+            //     console.log(lastList);
+            // }
                 
             
 
-            }
+            // }
 
     });
 

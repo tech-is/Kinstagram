@@ -37,8 +37,8 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <?php if (!empty($array_user)) : ?>
-                    <?php foreach ($array_user as $value) : ?>
+                    <?php if (!empty($array_user)) : ?>
+                        <?php foreach ($array_user as $value) : ?>
                         <div class="modal-content bg-black">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">プロフィール編集</h5>
@@ -92,24 +92,34 @@
         <?php endforeach; ?>
     <?php endif; ?>
         </div>
+        
 
         <!-- Modal -->
         <!-- 写真一覧ループ処理 -->
         <div class="img-list">
+        >
+
+        <?php if (!empty($myposts_data)) : ?>
+        <?php foreach ($myposts_data as $value) : ?>
+           <?php// var_dump($value['list_image']);?> 
+            <img src="/img/<?php echo $value["list_image"]?>">
+        <?php endforeach; ?>
+        <?php endif; ?>
             <?php
+
             //ディレクトリを取得
-            $img_fld = '/img/list_img_userid_1/';  //後で$_REQUESTにする
+            // $img_fld = '/img/list_img_userid_1/';  //後で$_REQUESTにする
             //ディレクトリ内の一覧を取得する
-            $img_list = glob('.' . $img_fld . '*');
+            // $img_list = glob('.' . $img_fld . '*');
             // var_dump($img_list);
             //画像の枚数を取得
-            $count = count($img_list);
+            // $count = count($img_list);
             //  画像を表示
-            for ($i = 0; $i < $count; $i++) {
-                $file = pathinfo($img_list[$i]);
-                $file_name = $file["basename"];
-                echo '<img src="' . $img_fld . $file_name . '">';
-            }
+            // for ($i = 0; $i < $count; $i++) {
+            //     $file = pathinfo($img_list[$i]);
+            //     $file_name = $file["basename"];
+            //     echo '<img src="' . $img_fld . $file_name . '">';
+            // }
             ?>
         </div>
         <!-- 写真一覧 -->
