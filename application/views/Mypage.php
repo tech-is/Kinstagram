@@ -37,8 +37,8 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                    <?php if (!empty($array_user)) : ?>
-                        <?php foreach ($array_user as $value) : ?>
+                <?php if (!empty($array_user)) : ?>
+                    <?php foreach ($array_user as $value) : ?>
                         <div class="modal-content bg-black">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">プロフィール編集</h5>
@@ -48,12 +48,22 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
+                                    <label class="control-label">アイコン画像</label>
+                                    <canvas id="preview" style="max-width:200px;"></canvas>
+                                    <?php
+                                    if (isset($error)) {
+                                        echo $error;
+                                    }
+                                    ?>
+                                    <input name="profile_image" type="file" accept='image/*' onchange="previewImage(this);">
+                                </div>
+                                <div class="form-group">
                                     <label class="control-label">肉ネーム</label>
-                                    <input id="user_name" class="form-control  bg-gray" type="text" value="<?php echo $value['user_name'] ?>">
+                                    <input name="user_name" class="form-control  bg-gray" type="text" value="<?php echo $value['user_name'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">紹介文</label>
-                                    <input id="introduction" class="form-control  bg-gray" type="text" value="<?php echo $value['introduction'] ?>">
+                                    <input name="introduction" class="form-control  bg-gray" type="text" value="<?php echo $value['introduction'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マッチョ区分</label>
@@ -76,11 +86,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">ID</label>
-                                    <input id="email" class="form-control bg-gray" type="text" value="<?php echo $value['E-mail'] ?>">
+                                    <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $value['E-mail'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
-                                    <input id="password" class="form-control bg-gray" type="text" value="<?php echo str_repeat("筋", mb_strlen($value['password'], "UTF8")); ?>">
+                                    <input name="password" class="form-control bg-gray" type="text" value="<?php echo str_repeat("筋", mb_strlen($value['password'], "UTF8")); ?>">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -92,38 +102,45 @@
         <?php endforeach; ?>
     <?php endif; ?>
         </div>
-        
 
         <!-- Modal -->
         <!-- 写真一覧ループ処理 -->
         <div class="img-list">
-        >
-
-        <?php if (!empty($myposts_data)) : ?>
-        <?php foreach ($myposts_data as $value) : ?>
-           <?php// var_dump($value['list_image']);?> 
-            <img src="/img/<?php echo $value["list_image"]?>">
-        <?php endforeach; ?>
-        <?php endif; ?>
             <?php
-
             //ディレクトリを取得
-            // $img_fld = '/img/list_img_userid_1/';  //後で$_REQUESTにする
+            $img_fld = '/img/list_img_userid_1/';  //後で$_REQUESTにする
             //ディレクトリ内の一覧を取得する
-            // $img_list = glob('.' . $img_fld . '*');
+            $img_list = glob('.' . $img_fld . '*');
             // var_dump($img_list);
             //画像の枚数を取得
-            // $count = count($img_list);
+            $count = count($img_list);
             //  画像を表示
-            // for ($i = 0; $i < $count; $i++) {
-            //     $file = pathinfo($img_list[$i]);
-            //     $file_name = $file["basename"];
-            //     echo '<img src="' . $img_fld . $file_name . '">';
-            // }
+            for ($i = 0; $i < $count; $i++) {
+                $file = pathinfo($img_list[$i]);
+                $file_name = $file["basename"];
+                echo '<img src="' . $img_fld . $file_name . '">';
+            }
             ?>
         </div>
         <!-- 写真一覧 -->
     </form>
+    <script>
+        function previewImage(obj) {
+            var fileReader = new FileReader();
+            fileReader.onload = (function() {
+                var canvas = document.getElementById('preview');
+                var ctx = canvas.getContext('2d');
+                var image = new Image();
+                image.src = fileReader.result;
+                image.onload = (function() {
+                    canvas.width = image.width;
+                    canvas.height = image.height;
+                    ctx.drawImage(image, 0, 0);
+                });
+            });
+            fileReader.readAsDataURL(obj.files[0]);
+        }
+    </script>
 </body>
 
 </html>
