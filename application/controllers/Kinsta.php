@@ -45,9 +45,8 @@ class Kinsta extends CI_Controller
 		$data = null;
 		$this->load->model('Model_mypage');
 		$data['array_user'] = $this->Model_mypage->mypage_get();
-		//  $dataを第二引数に入れてviewに送る
-		$this->load->view('Mypage', $data);
-
+		$data['array_post'] = $this->Model_mypage->individual_get();
+		
 		//アイコン画像を変更する
 		$config['upload_path'] = './img/profile_img_userid_1';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -57,15 +56,15 @@ class Kinsta extends CI_Controller
 
 		$this->load->library('upload',$config);
 
-		if(!$this->upload->do_upload('profile_img')) {
-			$error = array('error' => $this->upload->display_errors());
-			$this->load->view('Mypage',$error);
-			//更新に失敗したら失敗をモーダルで通知し、Mypageに遷移させたい
-		} else {
-			$img = array('image_metadata' => $this->upload->data());
-			$this->load->view('Mypage',$img);
-			//更新が成功したら成功をモーダルで通知し、Mypageに遷移させたい
-		}
+		// if(!$this->upload->do_upload('profile_img')) {
+		// 	$error = array('error' => $this->upload->display_errors());
+		// 	$this->load->view('Mypage',$error);
+		// 	//更新に失敗したら失敗をモーダルで通知し、Mypageに遷移させたい
+		// } else {
+		// 	$img = array('image_metadata' => $this->upload->data());
+		// 	$this->load->view('Mypage',$img);
+		// 	//更新が成功したら成功をモーダルで通知し、Mypageに遷移させたい
+		// }
 		
 		//Model_mypageのmypage_updateメソッドにアクセスし更新情報を渡す
 		// 更新情報を変数定義
@@ -89,13 +88,15 @@ class Kinsta extends CI_Controller
 
 		//Model_mypageに送る
 		$this->Model_mypage->mypage_update($user);
-		// redirect("/Kinsta/mypage");
 
 		//if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
 		//$this->load->view("Mypage");
 		//} else {									//ログインしていない場合の処理
-		//	redirect("main/lp");
+		//	redirect("Kinsta/lp");
 		//}
+
+		//  $dataを第二引数に入れてviewに送る
+		$this->load->view('Mypage', $data);
 
 	}
 
@@ -138,21 +139,27 @@ class Kinsta extends CI_Controller
 		];
 		//Model_mypageに送る
 		$this->Model_mypage->post_add($post);
-		// redirect("/Kinsta/mypage");
 	}
 
 	public function post()
 	{
+		//if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+		//	$this->load->view('Post_scr');
+		//} else {									//ログインしていない場合の処理
+		//	redirect("Kinsta/lp");
+		//}
+		
 		$this->load->view('Post_scr');
-		//		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-		//			$this->load->view('Post_scr');
-		//		} else {									//ログインしていない場合の処理
-		//			redirect("main/lp");
-		//		}
 	}
 
 	public function individual()
 	{
+		//if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+		//	$this->load->view('Individual_img');
+		//} else {									//ログインしていない場合の処理
+		//	redirect("Kinsta/lp");
+		//}
+		
 		$post_data = null;
 		$this->load->model('Model_mypage');
 		$post_data['array_post'] = $this->Model_mypage->individual_get();
@@ -160,11 +167,6 @@ class Kinsta extends CI_Controller
 		//  $dataを第二引数に入れてviewに送る
 		$this->load->view('Individual_img', $post_data);
 
-		//		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-		//			$this->load->view('Individual_img');
-		//		} else {									//ログインしていない場合の処理
-		//			redirect("main/lp");
-		//		}
 	}
 	///// 藤田担当　ここまで ////////
 
