@@ -280,10 +280,42 @@ class Kinsta extends CI_Controller
 	/////////////////////////////////////////二宮//////////////////////////////////////////////////////
 	public function top()
 	{
-		// $data = null;
-		// $data['data_array'] = $this -> Kinsta_model -> fetch_all_rows();
+		$this->load->model('Kinsta_model');
+		$data = null;
+		// $data['data_array'] = $this->Kinsta_model->fetch_all_rows();
+		$data['data_array'] = $this->Kinsta_model->random_member_ten();
+		// var_dump($data);
+		$data['five_data'] = $this->Kinsta_model->random_member_five();
+		// $data['all_data'] = $this->kinsta_model->all_member();
+		$data['all_posts'] = $this->Kinsta_model->all_post();
+		// var_dump($data['all_posts']);
+		$this->load->view('top_page',$data,);
 
-		$this->load->view('top_page');
+	}
+	public function  imagelist()
+	{
+		$id = $this->input->post('user_id') ?: null;
+		if(!empty($id) && is_numeric($id)){
+			$this->load->model('Kinsta_model');
+			$this->load->model('Model_mypage');
+			$data['myposts_data'] = $this->Kinsta_model->images_get($id);
+			$data['myicon_data'] = $this->Kinsta_model->icon_get($id);
+			$this->load->view('header_page');
+			$this->load->view('image_listpage', $data); 
+		}else{
+		$data = null;
+		$this->load->model('Model_mypage');
+		$data['array_user'] = $this->Model_mypage->mypage_get();
+		//  $dataを第二引数に入れてviewに送る
+		var_dump($data['myposts_data']);
+		$this->load->view('image_listpage', $data);  //ここ確認
+
+    //if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+			//$this->load->view("Mypage");
+		//} else {									//ログインしていない場合の処理
+		//	redirect("main/lp");
+		//}
+		}
 	}
 	public function select()
 	{
