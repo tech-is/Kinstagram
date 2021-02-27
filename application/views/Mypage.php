@@ -13,7 +13,7 @@
 </head>
 
 <body class="body">
-    <form action="/Kinsta/mypage" method="post">
+    <form action="/Kinsta/mypage_update" method="post">
         <!-- <?php if (!empty($array_user)) : ?> -->
         <?php foreach ($array_user as $value) : ?>
             <div class="profile">
@@ -23,7 +23,7 @@
                     </div>
                     <div>
                         <p class="user_name text-center" name="user_name">
-                            <?php echo $value['user_name'] ?>
+                            <?php echo $value['user_name']; ?>
                         </p>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn new-primary" name="profile_image" data-toggle="modal" data-target="#exampleModal">
@@ -60,11 +60,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">肉ネーム</label>
-                                    <input name="user_name" class="form-control  bg-gray" type="text" value="<?php echo $value['user_name'] ?>">
+                                    <?php echo form_error('username'); ?>
+                                    <input name="user_name" class="form-control  bg-gray" type="text" value="<?php echo $value['user_name']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">紹介文</label>
-                                    <input name="introduction" class="form-control  bg-gray" type="text" value="<?php echo $value['introduction'] ?>">
+                                    <input name="introduction" class="form-control  bg-gray" type="text" value="<?php echo $value['introduction']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マッチョ区分</label>
@@ -87,11 +88,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">ID</label>
-                                    <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $value['E-mail'] ?>">
+                                    <?php echo form_error('E-mail'); ?>
+                                    <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $value['E-mail']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
-                                    <input name="password" class="form-control bg-gray" type="text" value="<?php echo str_repeat("筋", mb_strlen($value['password'], "UTF8")); ?>">
+                                    <?php echo form_error('password'); ?>
+                                    <input name="password" class="form-control bg-gray" type="text" value="<?php echo $value['password']; ?>">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -132,7 +135,7 @@
                         <?php foreach ($array_user as $value) : ?>
                             <img src="/img/142135.png">
                             <h5 class="modal-title bg-black" id="postModalLabel">
-                                <?php echo $value['user_name'] ?>
+                                <?php echo $value['user_name']; ?>
                             </h5>
                         <?php endforeach; ?>
 
@@ -151,13 +154,13 @@
                                     <div class="form-group">
                                         <?php foreach ($array_post as $value2) : ?>
                                             <label class="control-label">メッセージ</label>
-                                            <textarea class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message'] ?></textarea>
+                                            <textarea class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
 
                                             <label class="control-label">マイメニュー</label>
-                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu'] ?>" readonly>
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu']; ?>" readonly>
 
                                             <label class="control-label">マイトレーニング</label>
-                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining'] ?>" readonly>
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining']; ?>" readonly>
                                         <?php endforeach; ?>
 
                                         <!-- いいねボタン -->

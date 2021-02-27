@@ -36,6 +36,8 @@ class Kinsta extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->database();
+		$this->load->model('Model_mypage');
 		$this->load->helper('url', 'form');
 		$this->load->helper('html');
 	}
@@ -43,10 +45,18 @@ class Kinsta extends CI_Controller
 	public function mypage()
 	{
 		$data = null;
-		$this->load->model('Model_mypage');
 		$data['array_user'] = $this->Model_mypage->mypage_get();
 		$data['array_post'] = $this->Model_mypage->individual_get();
-		
+		$this->load->view('Mypage',$data);
+	}
+
+	public function mypage_update()
+	{
+		//バリデーション
+		$this->form_validation->set_rules("E-mail", "メールアドレス", "required|trim|valid_email|is_unique[users.E-mail]");
+		$this->form_validation->set_rules("user_name", "ユーザ名", "required|trim");
+		$this->form_validation->set_rules("password", "パスワード", "required|trim|min_length[8]|max_length[16]");
+
 		//アイコン画像を変更する
 		$config['upload_path'] = './img/profile_img_userid_1';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -55,16 +65,6 @@ class Kinsta extends CI_Controller
 		$config['max_hight'] = 1500;
 
 		$this->load->library('upload',$config);
-
-		// if(!$this->upload->do_upload('profile_img')) {
-		// 	$error = array('error' => $this->upload->display_errors());
-		// 	$this->load->view('Mypage',$error);
-		// 	//更新に失敗したら失敗をモーダルで通知し、Mypageに遷移させたい
-		// } else {
-		// 	$img = array('image_metadata' => $this->upload->data());
-		// 	$this->load->view('Mypage',$img);
-		// 	//更新が成功したら成功をモーダルで通知し、Mypageに遷移させたい
-		// }
 		
 		//Model_mypageのmypage_updateメソッドにアクセスし更新情報を渡す
 		// 更新情報を変数定義
@@ -75,6 +75,7 @@ class Kinsta extends CI_Controller
 		$my_category = $this->input->post('my_category');
 		$email = $this->input->post('E-mail');
 		$password = $this->input->post('password');
+				
 		//変数を配列に格納
 		$user = [
 			'user_id' => $user_id,
@@ -96,8 +97,7 @@ class Kinsta extends CI_Controller
 		//}
 
 		//  $dataを第二引数に入れてviewに送る
-		$this->load->view('Mypage', $data);
-
+		redirect('Kinsta/Mypage');
 	}
 
 	public function add()
@@ -148,7 +148,6 @@ class Kinsta extends CI_Controller
 		//} else {									//ログインしていない場合の処理
 		//	redirect("Kinsta/lp");
 		//}
-		
 		$this->load->view('Post_scr');
 	}
 
@@ -159,14 +158,12 @@ class Kinsta extends CI_Controller
 		//} else {									//ログインしていない場合の処理
 		//	redirect("Kinsta/lp");
 		//}
-		
 		$post_data = null;
 		$this->load->model('Model_mypage');
 		$post_data['array_post'] = $this->Model_mypage->individual_get();
 		$post_data['array_user'] = $this->Model_mypage->mypage_get();
 		//  $dataを第二引数に入れてviewに送る
 		$this->load->view('Individual_img', $post_data);
-
 	}
 	///// 藤田担当　ここまで ////////
 
@@ -291,32 +288,31 @@ class Kinsta extends CI_Controller
 		// $data['all_data'] = $this->kinsta_model->all_member();
 		$data['all_posts'] = $this->Kinsta_model->all_post();
 		// var_dump($data['all_posts']);
-		$this->load->view('top_page',$data,);
-
+		$this->load->view('top_page', $data,);
 	}
 	public function  imagelist()
 	{
 		$id = $this->input->post('user_id') ?: null;
-		if(!empty($id) && is_numeric($id)){
+		if (!empty($id) && is_numeric($id)) {
 			$this->load->model('Kinsta_model');
 			$this->load->model('Model_mypage');
 			$data['myposts_data'] = $this->Kinsta_model->images_get($id);
 			$data['myicon_data'] = $this->Kinsta_model->icon_get($id);
 			$this->load->view('header_page');
-			$this->load->view('image_listpage', $data); 
-		}else{
-		$data = null;
-		$this->load->model('Model_mypage');
-		$data['array_user'] = $this->Model_mypage->mypage_get();
-		//  $dataを第二引数に入れてviewに送る
-		var_dump($data['myposts_data']);
-		$this->load->view('image_listpage', $data);  //ここ確認
+			$this->load->view('image_listpage', $data);
+		} else {
+			$data = null;
+			$this->load->model('Model_mypage');
+			$data['array_user'] = $this->Model_mypage->mypage_get();
+			//  $dataを第二引数に入れてviewに送る
+			var_dump($data['myposts_data']);
+			$this->load->view('image_listpage', $data);  //ここ確認
 
-    //if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+			//if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
 			//$this->load->view("Mypage");
-		//} else {									//ログインしていない場合の処理
-		//	redirect("main/lp");
-		//}
+			//} else {									//ログインしていない場合の処理
+			//	redirect("main/lp");
+			//}
 		}
 	}
 	public function select()
