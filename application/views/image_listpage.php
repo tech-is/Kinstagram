@@ -32,7 +32,7 @@
         <!-- Modal -->
         <!-- 写真一覧ループ処理 -->
         <div class="img-list">
-        >
+        
 
         <?php if (!empty($myposts_data)) : ?>
         <?php foreach ($myposts_data as $value) : ?>

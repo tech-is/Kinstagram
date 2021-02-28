@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <link rel="stylesheet">
-    <?php echo link_tag("/assets/kinsta_css/breastRank_style.css"); ?>
+    <?php echo link_tag("/style/css/breastRank_style.css"); ?>
 </head>
 <body>
 <nav class="underNav">
