@@ -124,7 +124,7 @@ class Kinsta extends CI_Controller
 
 		//Model_mypageのpost_addメソッドにアクセスしpost情報を渡す
 		// post情報を変数定義
-		$user_id = 0;
+		$user_id = 1;
 		$list_image = $this->upload->data('file_name');
 		$post_message = $this->input->post('post_message');
 		$mymenu = $this->input->post('mymenu');
