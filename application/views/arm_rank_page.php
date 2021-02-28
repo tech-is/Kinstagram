@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <link rel="stylesheet">
-    <?php echo link_tag("/style/css/shoulderRank_style.css"); ?>
+    <?php echo link_tag("/style/css/armRank_style.css"); ?>
 </head>
 <body>
 <nav class="underNav">
@@ -25,7 +25,7 @@
             </nav>
     <main>
         <ul>
-            <li class="title">今週の"素敵な肩マッチョ"達</li>
+            <li class="title">今週の"素敵な腕マッチョ"達</li>
             <li class="name_no1">No1.アイコン 筋トレsamurai</li>
             <li class="picture1"><img class="picture" src="<?php echo ("/assets/kinsta_img/1.jpg");?>"/></li>
             <li class="message">メッセージ</li>
@@ -39,6 +39,6 @@
             <li class="kiretemasu_no3">キレてますアイコン+50</li>
         </ul>
     </main>
-    <script type="text/javascript" src="<?php echo ("/assets/shoulder.js/rankpage.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo ("/assets/kinsta_js/armRankPage.js"); ?>"></script>
 </body>
 </html>

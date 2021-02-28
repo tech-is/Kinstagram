@@ -290,7 +290,7 @@ class Kinsta extends CI_Controller
 		// var_dump($data['all_posts']);
 		$this->load->view('top_page', $data,);
 	}
-	public function  imagelist()
+	public function imagelist()
 	{
 		$id = $this->input->post('user_id') ?: null;
 		if (!empty($id) && is_numeric($id)) {
@@ -322,8 +322,11 @@ class Kinsta extends CI_Controller
 	}
 	public function rank()
 	{
+		// $this->load->model('Kinsta_model');
+		// $data['total_rank'] = $this->Kinsta_model->totalrank;
+		// var_dump($data['total_rank']);
 		$this->load->view('header_page');
-		$this->load->view('rank_page');
+		$this->load->view('rank_page',$data);
 	}
 	public function armRank()
 	{

@@ -27,7 +27,7 @@ class Kinsta_model extends CI_Model
     }
     public function random_member_five()
     {
-        return $this->db->query('SELECT user_name,follower_number,list_image  FROM users INNER JOIN followers ON users.user_id = followers.user_id INNER JOIN posts ON users.user_id = posts.user_id LIMIT 5')
+        return $this->db->query('SELECT users.user_id,user_name,follower_number,profile_image  FROM users INNER JOIN followers ON users.user_id = followers.user_id INNER JOIN posts ON users.user_id = posts.user_id ORDER BY RAND() LIMIT 5')
                         ->result_array();
     }
     public function all_post()
@@ -44,6 +44,13 @@ class Kinsta_model extends CI_Model
         ->result_array();
     }
     public function icon_get($id)
+    {
+        return $this->db->where('user_id',$id)
+        ->select('user_id,profile_image')
+        ->get('users')
+        ->result_array();
+    }
+    public function totalrank()
     {
         return $this->db->where('user_id',$id)
         ->select('user_id,profile_image')
