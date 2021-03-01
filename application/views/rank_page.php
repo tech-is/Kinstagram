@@ -25,14 +25,14 @@
             </nav>
     <main>
         <ul>
-            <?php //if (!empty($total_rank)) : ?>
-            <?php //foreach ($total_rank as $value) : ?>
+            <?php if (!empty($total_rank)) : ?>
+            <?php foreach ($total_rank as $value) : ?>
             <li class="title">今週の"素敵なゴリマッチョ"達</li>
-            <li class="name_no1"><?php echo $value["user_name"]?></li>
+            <li class="name_no1"><?php echo ($value["user_name"])?></li>
             <li class="followerNumber">マッスルメンバー数<?php echo $value["follower_number"]?></li>
             <li class="picture1"><img class="picture" src="<?php echo $value["list_image"];?>"/></li>
-            <?php// endforeach; ?>
-            <?php //endif; ?>
+            <?php endforeach; ?>
+            <?php endif; ?>
 
             
             <li class="message">メッセージ</li>

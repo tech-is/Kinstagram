@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/style/css/post.css">
-    <link rel="stylesheet" href="/style/css/top_style.css">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/style/css/header.css">
     <title>Kinstagram</title>
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -16,11 +16,19 @@
             <li class="titleLogo"><form method="get" action="/kinsta/top" name="topButton"><a href="javascript:document.topButton.submit()" class="titleLogoReroad">Kinstagram</a></form></li>
             <li class="sub_title">筋肉達との出会いがここに・・・</li>
             <li class="search_window"><input type="text" class="window_color" placeholder="検索"></li>
-            <li class="uploadup"><span class="material-icons">cloud_upload</span></li>
+            <li class="uploadup">
+                <form action="/kinsta/post" method="post" name="pcUploadButton">
+                    <a href="javascript:document.pcUploadButton.submit()">
+                        <span class="material-icons">cloud_upload</span>
+                    </a>
+                </form>
+            </li>
             <li class="login">
                 <form method="get" action="/kinsta/login">
                     <input type="submit" class="btn-square-shadow" value="ログイン">
                 </form>
+            </li>
+            <li class="mypage">
                 <form method="get" action="/kinsta/mypage">
                     <input type="submit" class="btn-square-shadow" value="マイページ">
                 </form>
