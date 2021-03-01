@@ -79,7 +79,7 @@ header{
     grid-template:
         "title    search upload login mypage" 50%
         "subtitle search upload login mypage" 50%
-        /35%      1fr    20%    20%;
+        /35%      1fr    20%    10% 10%;
     margin: 0 5%;
 }
 header li a span.material-icons{

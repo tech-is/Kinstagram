@@ -1,0 +1,319 @@
+body{
+    overflow-x: hidden;
+    /* overflow-y: scroll; */
+    box-sizing: border-box;
+    font-family: sans-serif;
+    /* width: 1300px; */
+    margin: auto;
+    background-color:black;
+    min-height: 100vh;
+    display:grid;
+    grid-template:
+        "header header" 50px
+        "hr     hr"     1.8px
+        "nav    nav " 30px
+        "div    div" 1fr
+        /70%   30%;
+}
+header li{
+    list-style: none;
+}
+.header_border{
+    grid-area: hr;
+    border:  solid #cccccc;   /* 線色 */
+    margin: 0px;
+    border-width: 0 0 0.1px 0;
+}
+.underNav{
+    grid-area:nav;
+    /* padding: 2px 0; */
+    border: solid #9E9E9E;
+    border-width: 0 0.5;
+    border-width: 0px 0px 0.1px 0px;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+}
+header{
+    margin: auto;
+    background-color: black;
+    box-sizing: border-box;
+    grid-area: header;
+    display: grid;
+    grid-template:
+        "title    search upload login mypage" 50%
+        "subtitle search upload login mypage" 50%
+        /35%      1fr    5%    15% ;
+    margin: 0 5%;
+}
+header li a span.material-icons{
+    color:#cccccc;
+    margin:11px auto auto 5px;
+    font-size: 30px;
+}
+.titleLogoReroad{
+    text-decoration-line:none;
+    color:#cccccc;
+}
+.header_font_border{
+    color: #cccccc;
+    /* margin: 0px 8%; */
+}
+.nav_font{
+    /* color:#cccccc; */
+    width: 10;
+}
+.window_color{
+    color: #cccccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+.titleLogo{
+    font-family: 'Damion', cursive;
+    grid-area:title;
+    margin: 2% 0px 0px 0px;
+    justify-self: left;
+    align-self: center;
+    font-size: 25px;
+}
+.uploadLogo{
+    text-decoration: none;
+}
+.material-icons{
+    margin: 10px auto auto 5px;
+    font-size: 30px;
+}
+.sub_title{
+    grid-area:subtitle;
+    margin: 1% auto auto 0;
+    font-size: 8px;
+}
+.search_window{
+    grid-area:search;
+    margin: auto 0 ;
+    /* align-self: center; */
+}
+.upload{
+    grid-area: upload;
+    margin:auto auto auto 10px;
+}
+.login{
+    grid-area: login;
+    margin: auto 2% auto auto;
+}
+.mypage{
+    grid-area: mypage;
+    margin: auto auto auto auto;
+}
+.hambarger{
+    display: none;
+}
+followToreniOpen{
+    display: none;
+}
+main ul li{
+    list-style: none;
+    /* position: relative; */
+    /* z-index: 1; */
+    width: 100%;
+}
+div ul.detailContentsList{
+    display: block;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+}
+.underNav ul.underTab{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* flex-direction:row;
+    justify-content: space-around; */
+    /* width: 90%; */
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0 5%;
+    list-style: none;
+    padding: 0;
+    /* text-align: center; */
+}
+.underNav ul.underTab li{
+    box-sizing: border-box;
+    width: 100%;
+    /* margin: 3px 0; */
+    position: relative;
+}
+.underNav ul.underTab li a{
+    text-decoration-line:none;
+    color:#cccccc;
+    width: 100%;
+    display: block;
+    font-size: 15px;
+    line-height: 100%;
+}
+.a_new{
+    /* padding: 0px; */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* margin: 3px 0; */
+}
+.a_select{
+    /* padding: 1px 0 0 0px; */
+    /* margin: 0 0 0 70px; */
+    width: 100%;
+}
+li.newFollow500{
+    display: none;
+}
+.underNav ul.underTab li a:hover{
+    /* color:#02a5eb; */
+}
+.btn-square-shadow {
+    display: inline-block;
+    padding: 0.1em 0.1em;
+    text-decoration: none;
+    background: #252727;
+    color: #FFF;
+    border-bottom: solid 2px #919294;
+    border-right: solid 2px #919294;
+    border-radius: 3px;
+    font-size: 70%;
+}
+@media(max-width: 600px){
+    header{
+        margin: auto;
+        background-color: black;
+        box-sizing: border-box;
+        grid-area: header;
+        display: grid;
+        grid-template:
+            "title    search upload login " 50%
+            "subtitle search upload mypage" 50%
+            /35%      1fr        10%;
+        margin: 0 5%;
+    }
+    .titleLogo{
+        font-size: 20px;
+    }
+    .login{
+        margin:0;
+        text-align: right;
+    }
+    .mypage{
+        margin: 0;
+        text-align: right;
+    }
+    .btn-square-shadow{
+        width: 62px;
+    }
+}
+    @media(max-width: 500px){
+        body{
+            overflow-x: hidden;
+            /* overflow-y: scroll; */
+            box-sizing: border-box;
+            font-family: sans-serif;
+            /* width: 1300px; */
+            margin: auto;
+            background-color:black;
+            min-height: 100vh;
+            display:grid;
+            grid-template:
+                "header header" 30px
+                "hr     hr"     1.8px
+                "nav    nav " 30px
+                "div    div" 1fr
+                /70%   30%;
+        }
+        header{
+            margin: auto;
+            background-color: black;
+            box-sizing: border-box;
+            grid-area: header;
+            display: grid;
+            grid-template:
+                "title    search  login " 100%
+                /35%      1fr       20%;
+            margin: 0 5%;
+        }
+        .titleLogo{
+            font-size: 110%;
+            margin: 0;
+            justify-self: left;
+            align-self: center;
+        }
+        li.menuIcon{
+            text-align:right;
+        }
+        .hambarger
+        {
+            display: block;
+        }
+        .uploadup{
+            display: none;
+        }
+        .login{
+            display: none;
+        }
+        .mypage{
+            display: none;
+        }
+        input[id="menu"] {
+            position: absolute;
+            top: -30px;
+        }
+        div.hambarger li label.open {
+            position: relative;
+            right: 0%;
+        }
+        input[id="menu"]:checked ~ label.back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            transition: all 0.8s;
+        }
+        input[id="menu"]:checked ~ nav.hambargerNav {
+            top: 0%;
+            position: absolute;
+            z-index: 1000;
+            transition: all 0.1s;
+            width: 40%;
+        }
+        div.hambarger li nav.hambargerNav {
+            margin: 0;
+            padding: 0;
+            right: 0%;
+            top: -40%;
+            position: absolute;
+            background: white;
+            /* height: 100%; */
+            transition: all 0.2s;
+        }
+        nav.hambargerNav ul.hambargerUl {
+            padding: 0;
+            margin: 10% 5% 0;
+        }
+        nav.hambargerNav ul.hambargerUl li {
+            color: black;
+            text-align: center;
+            font-size: 15px;
+        }
+        nav.hambargerNav ul.hambargerUl li.cancelButton {
+            text-align: right;
+        }
+        nav.hambargerNav ul.hambargerUl li {
+            color: black;
+            text-align: center;
+            font-size: 15px;
+        }
+        .sub_title{
+            display: none;
+        }
+        label span.material-icons{
+            margin-top: 4px;
+        }
+    }
