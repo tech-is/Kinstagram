@@ -52,7 +52,7 @@ class Kinsta_model extends CI_Model
     }
     public function total_rank()
     {
-        return $this->db->query('SELECT users.user_id,user_name,follower_number,list_image FROM users INNER JOIN followers ON users.user_id = followers.user_id INNER JOIN posts ON users.user_id = posts.user_id ORDER BY follower_number DESC LIMIT 3')
+        return $this->db->query('SELECT users.user_id,user_name,follower_number,list_image,post_message,mytraining,mymenu FROM users INNER JOIN followers ON users.user_id = followers.user_id INNER JOIN posts ON users.user_id = posts.user_id ORDER BY follower_number DESC LIMIT 3')
                         ->result_array();
     }
 }

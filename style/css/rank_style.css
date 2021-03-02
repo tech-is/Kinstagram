@@ -2,41 +2,35 @@ body{
 }
 main{
     grid-area: div;
-    /* margin: 0 auto; */
+    margin: 3% 5% 0 ;
+}
+.wrapper{
     display: grid;
-}
-ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display:grid;
+    color: white;
     grid-template:
-        "title       title      title"          5%
-        "name_no1    name_no1     name_no1"       5%
-        "picture1    picture1     message  "      21%
-        "picture1    picture1      mytraning "     25%
-        "kiretemasu_no1  kiretemasu_no1   kiretemasu_no1" 5%
-        "name_no2    .....       name_no3"       5%
-        "picture2        .....  picture3"       35%
-        "kiretemasu_no2  .....  kiretemasu_no3" 1%
-    /45%           5%       45%;
+        "weekTitle weekTitle" 10vh
+        "name_no1  name_no1"  3vh
+        "picture1  message" 30vh
+        "picture1  myTraning" 15vh
+        "picture1  myFood"    15vh
+    /   50%        50%;
+    padding: 0;
 }
-.title,.name_no1,.picture1,.message,.mytraning,.kiretemasu_no1,.name_no2,.name_no3,.picture2,.picture3,.kiretemasu_no2,.kiretemasu_no3{
+.weekTitle,.name_no1,.picture1,.message,.mytraning,.kiretemasu_no1,.name_no2,.name_no3,.picture2,.picture3,.kiretemasu_no2,.kiretemasu_no3{
     color:#E8E6E6;
 }
 .picture1,.message,.mytraning,.picture2,.picture3{
     border: solid 1px #0246F2;
 }
-li.title{
-    grid-area: title;
+.weekTitle{
+    grid-area:weekTitle;
     font-size: 100%;
     /* margin: 0 5%; */
-    width: 100%;
+    /* width: 100%; */
 }
-li.name_no1{
+.name_no1{
     grid-area:name_no1;
     /* margin: 70px auto 0px 0px; */
-    
 }
 li.picture1{
     grid-area: picture1;
@@ -44,8 +38,18 @@ li.picture1{
 li.message{
     grid-area: message;
 }
-li.mytraning{
-    grid-area: mytraning;
+li.myTraning{
+    grid-area: myTraning;
+    
+}
+li.myFood{
+    grid-area: myFood;
+}
+element.style {
+}
+img.picture {
+    width: 100%;
+    height: 100%;
 }
 li.kiretemasu_no1{
     grid-area: kiretemasu_no1;
@@ -96,6 +100,48 @@ div.accordion div.is-open{
     /* margin: 3px 0; */
     height: 29px;
     position: relative;
+}
+div.is-open {
+    line-height: normal;
+    height: auto;
+    opacity: 1;
+    position: relative;
+    z-index: 100;
+    background: black;
+    color: #cccccc;
+    font-size: 15px;
+}
+.detailContents {
+    line-height: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition-duration: 0.2s;
+}
+.detailContents.is-open {
+    /* border: 1px solid black; */
+    /* padding: 0 0 0 12px; */
+    line-height: normal;
+    height: auto;
+    opacity: 1;
+    position: relative;
+    z-index: 100;
+    background: black;
+    width: 100%;
+    margin: 0 0 0 0px;
+    padding: 0 5% 0;
+}
+.underNav ul.underTab div div a {
+    color: #cccccc;
+    text-decoration: none;
+    /* position: absolute; */
+    /* top: -250px; */
+}
+nav ul div li.menu {
+    width: 100%;
+    color: #cccccc;
+    height: 29px;
+    /* margin: 0 0 0 -9%; */
 }
 @media (max-width: 900px){
     nav.underNav {

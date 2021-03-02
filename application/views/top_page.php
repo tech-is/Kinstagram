@@ -86,7 +86,6 @@
                     <li class="new">
                         <div class="centerLine">
                             <form method="post" action="/kinsta/top" name="newButton"><a href="javascript:document.newButton.submit()" class="a_new">新&nbsp;着</a></form>
-                            <!-- <a href="#" class="a_new">新&nbsp;着</a> -->
                         </div>
                     </li>
                     <div class="accordion">

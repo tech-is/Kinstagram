@@ -88,13 +88,13 @@ class Kinsta extends CI_Controller
 		];
 
 		//Model_mypageに送る
-		$this->Model_mypage->mypage_update($user);
+		// $this->Model_mypage->mypage_update($user);
 
-		if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-		$this->load->view("Mypage");
-		} else {									//ログインしていない場合の処理
-			redirect("Kinsta/lp");
-		}
+		// if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+		// $this->load->view("Mypage");
+		// } else {									//ログインしていない場合の処理
+		// 	redirect("Kinsta/lp");
+		// }
 
 		//  $dataを第二引数に入れてviewに送る
 		redirect('Kinsta/Mypage');
