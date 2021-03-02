@@ -10,9 +10,104 @@
     <link rel="stylesheet" href="/style/css/mypage.css">
     <link rel="stylesheet" href="/style/css/mypage_responsive.css">
     <link rel="stylesheet" href="/style/css/individual_img.css">
+    <link rel="stylesheet" href="/style/css/header_mypage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body class="body">
+    <header class="header_font_border">
+        <li class="titleLogo">
+            <form method="post" action="/kinsta/top" name="topButton"><a href="javascript:document.topButton.submit()" class="titleLogoReroad">Kinstagram</a></form>
+        </li>
+        <li class="sub_title">筋肉達との出会いがここに・・・</li>
+        <li class="search_window"><input type="text" class="window_color" placeholder="検索"></li>
+        <li class="uploadup">
+            <form action="/kinsta/add" method="post" enctype="multipart/form-data">
+                <a href="javascript:document.pcUploadButton.submit()" data-toggle="modal" data-target="#postModal">
+                    <span class="material-icons">cloud_upload</span>
+                </a>
+                <!-- 投稿Modal -->
+                <form action="/kinsta/add" method="post" enctype="multipart/form-data">
+                    <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content  border border-gray">
+                                <div class="modal-header bg-black">
+                                    <h5 class="modal-title bg-black" id="postModalLabel">New post</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body bg-black">
+                                    <!-- 参考URLhttps://blog.ver001.com/javascript_preview_canvas/ -->
+                                    <canvas id="preview" style="max-width:200px;"></canvas>
+                                    <?php
+                                    if (isset($error)) {
+                                        echo $error;
+                                    }
+                                    ?>
+                                    <input name="list_image" type="file" accept='image/*' onchange="previewImage(this);">
+
+                                    <div class="form-group">
+                                        <labelclass="control-label">メッセージ</label>
+                                            <textarea name="post_message" class="form-control bg-gray" cols="30" rows="5"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">マイメニュー</label>
+                                        <input name="mymenu" class="form-control bg-gray" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">マイトレーニング</label>
+                                        <input name="mytraining" class="form-control bg-gray" type="text">
+                                    </div>
+                                </div>
+                                <div class="modal-footer bg-black">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                                    <button type="submit" class="btn new-primary">投稿</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- Modal -->
+            </form>
+        </li>
+
+        <li class="login">
+            <form method="get" action="/kinsta/login">
+                <input type="submit" class="btn-square-shadow" value="ログイン">
+            </form>
+            <form method="get" action="/kinsta/mypage">
+                <input type="submit" class="btn-square-shadow" value="マイページ">
+            </form>
+        </li>
+        <div class="hambarger">
+            <li class="menuIcon">
+                <input id="menu" type="checkbox">
+                <label for="menu" class="open"><span class="material-icons">dehaze</span></label>
+                <label for="menu" class="back"></label>
+                <nav class="hambargerNav">
+                    <ul class="hambargerUl">
+                        <li>
+                            <form method="get" action="/kinsta/mypage" name="mypageButton"><a href="javascript:document.mypageButton.submit()" class="textNone">マイページ</a></form>
+                        </li>
+                        <li>
+                            <form method="get" action="/kinsta/post" name="uploadButton"><a href="javascript:document.uploadButton.submit()" class="textNone">アップロード</a></form>
+                        </li>
+                        <li>
+                            <form method="get" action="/kinsta/login" name="loginButton"><a href="javascript:document.loginButton.submit()" class="textNone">ログイン</a></form>
+                        </li>
+                        <li>
+                            <form method="get" action="/kinsta/logout" name="logoutButton"><a href="javascript:document.logoutButton.submit()" class="textNone">ログアウト</a></form>
+                        </li>
+                        <li class="cancelButton"><label for="menu" class="close">×</label></li>
+                    </ul>
+                </nav>
+            </li>
+        </div>
+    </header>
+    <!-- ヘッダーここまで -->
+
     <form action="/Kinsta/mypage_update" method="post">
         <!-- <?php if (!empty($array_user)) : ?> -->
         <?php foreach ($array_user as $value) : ?>
@@ -35,7 +130,7 @@
         <?php endforeach; ?>
         <!-- <?php endif; ?> -->
 
-        <!-- Modal -->
+        <!-- マイページ編集用のModal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <?php if (!empty($array_user)) : ?>
@@ -106,8 +201,8 @@
         <?php endforeach; ?>
     <?php endif; ?>
         </div>
-
         <!-- Modal -->
+
         <!-- 写真一覧ループ処理 -->
         <div id="individual_img" class="img-list">
             <?php
@@ -127,7 +222,8 @@
             ?>
         </div>
         <!-- 写真一覧 -->
-        <!-- 写真モーダル -->
+
+        <!-- 個別ページ用のモーダル -->
         <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-max" role="document">
                 <div class="modal-content border border-gray">
@@ -202,6 +298,7 @@
         </div>
         <!-- 写真モーダル -->
     </form>
+    
     <script>
         // プロフィール画像変更時にイメージを表示する
         function previewImage(obj) {
@@ -233,10 +330,22 @@
             false
         );
 
-        // 画像一覧から選択した画像を個別表示する
-        $(document).ready(function(){
-            
-        })
+        //投稿用のモーダル
+        function previewImage(obj) {
+            var fileReader = new FileReader();
+            fileReader.onload = (function() {
+                var canvas = document.getElementById('preview');
+                var ctx = canvas.getContext('2d');
+                var image = new Image();
+                image.src = fileReader.result;
+                image.onload = (function() {
+                    canvas.width = image.width;
+                    canvas.height = image.height;
+                    ctx.drawImage(image, 0, 0);
+                });
+            });
+            fileReader.readAsDataURL(obj.files[0]);
+        }
     </script>
 </body>
 
