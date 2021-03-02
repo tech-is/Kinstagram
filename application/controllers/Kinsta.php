@@ -45,9 +45,9 @@ class Kinsta extends CI_Controller
 	public function mypage()
 	{
 		$data = null;
-		// $data['array_user'] = $this->Model_mypage->mypage_get();
-		// $data['array_post'] = $this->Model_mypage->individual_get();
-		$this->load->view('Mypage');
+		$data['array_user'] = $this->Model_mypage->mypage_get();
+		$data['array_post'] = $this->Model_mypage->individual_get();
+		$this->load->view('Mypage',$data);
 	}
 
 	public function mypage_update()
@@ -93,7 +93,7 @@ class Kinsta extends CI_Controller
 		// if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
 		// $this->load->view("Mypage");
 		// } else {									//ログインしていない場合の処理
-		// 	redirect("Kinsta/lp");
+	// redirect("Kinsta/lp");>>> main
 		// }
 
 		//  $dataを第二引数に入れてviewに送る
