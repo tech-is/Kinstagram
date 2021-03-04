@@ -67,6 +67,7 @@
     border-radius: 25px;
     cursor: pointer;
     margin: 10px auto;
+    display: flex;
 }
 
 .good-btn-icon:hover {
@@ -89,4 +90,16 @@
 
 .good-count {
     float:right;
+}
+
+.iframe {
+    position: relative;
+    bottom:20px;
+    width:100px;
+    height:100px;
+}
+
+iframe.iineiframe {
+border: none;
+padding: 10px;
 }

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kinstagram | Individual</title>
     <?php $this->load->view('/common/header'); ?>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="/iine_app/iine.css">
     <link rel="stylesheet" href="/style/css/individual_img.css">
 </head>
 
@@ -57,27 +58,37 @@
                                             <div class="good-btn-icon">
                                                 <image src="/img/button/ude.png" alt="腕">
                                                     <div class="good-btn-text">腕キレてるね</div>
-                                                    <div class="good-count">326</div>
+                                                    <div class="iframe">
+                                                        <iframe src="/iine/iine1.html" class="iineiframe"></iframe>
+                                                    </div>
                                             </div>
                                             <div class="good-btn-icon">
                                                 <img src="/img/button/mune.jpg" alt="胸">
                                                 <div class="good-btn-text">胸キレてるね</div>
-                                                <div class="good-count">481</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine2.html" class="iineiframe"></iframe>
+                                                </div>
                                             </div>
                                             <div class="good-btn-icon">
                                                 <img src="/img/button/kata.png" alt="肩">
                                                 <div class="good-btn-text">肩キレてるね</div>
-                                                <div class="good-count">1000</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine3.html" class="iineiframe"></iframe>
+                                                </div>
                                             </div>
                                             <div class="good-btn-icon">
                                                 <img src="/img/button/hara.png" alt="腹">
                                                 <div class="good-btn-text">腹キレてるね</div>
-                                                <div class="good-count">5</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine4.html" class="iineiframe"></iframe>
+                                                </div>
                                             </div>
                                             <div class="good-btn-icon">
                                                 <img src="/img/button/ashi.png" alt="足">
                                                 <div class="good-btn-text">足キレてるね</div>
-                                                <div class="good-count">0</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine5.html" class="iineiframe"></iframe>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -104,6 +115,7 @@
             false
         );
     </script>
-</body>
 
-</html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/iine_app/iine.js"></script>
+</body>
