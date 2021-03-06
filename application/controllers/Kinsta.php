@@ -324,34 +324,56 @@ class Kinsta extends CI_Controller
 	{
 		$this->load->model('Kinsta_model');
 		$data['total_rank'] = $this->Kinsta_model->total_rank();
-		// var_dump($data);
+		$data['message_rank'] = $this->Kinsta_model->message_rank();
+		$data['favorite'] = $this->Kinsta_model->favorite_rank();
+		
+		
+		// $data['follow_N'] = $this->Kinsta_model->follow_N();
+		
+		// print_r($data['favorite']);
+		// var_dump($data['get_image']);
+		// var_dump($data['total_rank']);
+		// var_dump($data['message_rank']);
 		$this->load->view('header_page');
 		$this->load->view('rank_page',$data);
 	}
+	public function shoulderRank()
+	{
+		$this->load->model('Kinsta_model');
+		$data['favorite_shoulder_rank'] = $this->Kinsta_model->favorite_shoulder_rank();
+		var_dump($data['favorite_shoulder_rank']);
+		$this->load->view('header_page');
+		$this->load->view('shoulder_rank_page',$data);
+	}
 	public function armRank()
 	{
+		$this->load->model('Kinsta_model');
+		$data['favorite_arm_rank'] = $this->Kinsta_model->favorite_arm_rank();
+		var_dump($data['favorite_arm_rank']);
 		$this->load->view('header_page');
-		$this->load->view('arm_rank_page');
+		$this->load->view('arm_rank_page',$data);
 	}
 	public function breastRank()
 	{
+		$this->load->model('Kinsta_model');
+		$data['favorite_breast_rank'] = $this->Kinsta_model->favorite_breast_rank();
 		$this->load->view('header_page');
-		$this->load->view('breast_rank_page');
+		$this->load->view('breast_rank_page',$data);
 	}
-	public function shoulderRank()
-	{
-		$this->load->view('header_page');
-		$this->load->view('shoulder_rank_page');
-	}
+	
 	public function absRank()
 	{
+		$this->load->model('Kinsta_model');
+		$data['favorite_abs_rank'] = $this->Kinsta_model->favorite_abs_rank();
 		$this->load->view('header_page');
-		$this->load->view('abs_rank_page');
+		$this->load->view('abs_rank_page',$data);
 	}
 	public function footRank()
 	{
+		$this->load->model('Kinsta_model');
+		$data['favorite_foot_rank'] = $this->Kinsta_model->favorite_foot_rank();
 		$this->load->view('header_page');
-		$this->load->view('foot_rank_page');
+		$this->load->view('foot_rank_page',$data);
 	}
 }
 ///////////////////////////////////二宮///////////////////////////////////////////////////////////////

@@ -162,7 +162,7 @@
                             <form method="post" action="/kinsta/imagelist">
                                 <li class="asideIcon">
                                     <a href="#" class="icon">
-                                        <input type="image" id="icon1" src="/img/<?php echo $value["profile_image"]?>">
+                                        <input type="image" class="icon1" src="/img/<?php echo $value["profile_image"]?>">
                                         <input type="hidden" name="user_id" value="<?php echo $value['user_id']?>">
                                     </a>
                                 </li>

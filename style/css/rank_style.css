@@ -2,24 +2,27 @@ body{
 }
 main{
     grid-area: div;
-    margin: 3% 5% 0 ;
+    margin: 0 5% 0;
 }
 .wrapper{
     display: grid;
     color: white;
     grid-template:
-        "weekTitle weekTitle" 10vh
-        "name_no1  name_no1"  3vh
-        "picture1  message" 30vh
-        "picture1  myTraning" 15vh
-        "picture1  myFood"    15vh
-    /   50%        50%;
+        "weekTitle weekTitle weekTitle" 10vh
+        "name_no1 name_no1 name_no1"  3vh
+        "picture1 picture1 message" 30vh
+        "picture1 picture1 myTraning" 15vh
+        "picture1 picture1 myFood"    15vh
+        "-------   ------  --------"  8vh
+        "name_no2 ------ name_no3" 3vh
+        "picture2 ------ picture3" 40vh
+    /   40%      10%  40%;
     padding: 0;
 }
 .weekTitle,.name_no1,.picture1,.message,.mytraning,.kiretemasu_no1,.name_no2,.name_no3,.picture2,.picture3,.kiretemasu_no2,.kiretemasu_no3{
     color:#E8E6E6;
 }
-.picture1,.message,.mytraning,.picture2,.picture3{
+.picture1, .message, .myTraning, .myFood, .picture2, .picture3{
     border: solid 1px #0246F2;
 }
 .weekTitle{
@@ -32,8 +35,29 @@ main{
     grid-area:name_no1;
     /* margin: 70px auto 0px 0px; */
 }
+img.kiretemasu{
+    width:20px;
+    color:white;
+}
 li.picture1{
     grid-area: picture1;
+    position:relative;
+}
+li.picture1 p{
+    position: absolute;
+    color:black;
+    top:-15px;
+    left:0;
+}
+li.picture2 p{
+    position: absolute;
+    color:black;
+    top:96vh;
+}
+li.picture3 p{
+    position: absolute;
+    color:black;
+    top:96vh;
 }
 li.message{
     grid-area: message;
@@ -48,8 +72,10 @@ li.myFood{
 element.style {
 }
 img.picture {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
 }
 li.kiretemasu_no1{
     grid-area: kiretemasu_no1;
