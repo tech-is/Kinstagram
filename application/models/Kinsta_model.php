@@ -52,7 +52,126 @@ class Kinsta_model extends CI_Model
     }
     public function total_rank()
     {
-        return $this->db->query('SELECT users.user_id,user_name,follower_number,list_image,post_message,mytraining,mymenu FROM users INNER JOIN followers ON users.user_id = followers.user_id INNER JOIN posts ON users.user_id = posts.user_id ORDER BY follower_number DESC LIMIT 3')
-                        ->result_array();
+        // return $this->db->limit(3)
+        //     ->order_by('follower_number','DESC')
+        //     ->join('users', 'users.user_id = followers.user_id')
+        //     ->select('users.user_id,follower_number,users.user_name')
+        //     ->get('followers')
+        //     ->result_array();
+    }
+    public function message_rank()
+    {
+        return $this->db
+                ->select('comments.user_id,comments.text_group')
+                ->get('comments')
+                ->result_array(); 
+    }
+    public function favorite_rank()
+    {
+        return $this->db
+        // ->limit(3)
+        ->order_by('count','DESC')
+        ->group_by('comments.comment_id')
+        ->group_by('posts.post_id')
+        ->where('favorite_pattern','1')
+        ->join('posts', 'favorites.post_id=posts.post_id', 'left')
+        ->join('users as test','test.user_id=posts.user_id','left')
+        ->join('followers','followers.user_id=posts.user_id','left')
+        ->join('comments','comments.post_id=posts.post_id ','left')
+        ->join('users as comment_user','comments.comment_user_id=comment_user.user_id','left')
+        ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+                    comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
+        ->get('favorites')
+        ->result_array();
+    }
+    public function favorite_arm_rank()
+    {
+        return $this->db
+        // ->limit(3)
+        ->order_by('count','DESC')
+        ->group_by('comments.comment_id')
+        ->group_by('posts.post_id')
+        ->where('favorite_pattern','2')
+        ->join('posts', 'favorites.post_id=posts.post_id', 'left')
+        ->join('users as test','test.user_id=posts.user_id','left')
+        ->join('followers','followers.user_id=posts.user_id','left')
+        ->join('comments','comments.post_id=posts.post_id ','left')
+        ->join('users as comment_user','comments.comment_user_id=comment_user.user_id','left')
+        ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+                    comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
+        ->get('favorites')
+        ->result_array();
+    }
+    public function favorite_shoulder_rank()
+    {
+        return $this->db
+        // ->limit(3)
+        ->order_by('count','DESC')
+        ->group_by('comments.comment_id')
+        ->group_by('posts.post_id')
+        ->where('favorite_pattern','3')
+        ->join('posts', 'favorites.post_id=posts.post_id', 'left')
+        ->join('users as test','test.user_id=posts.user_id','left')
+        ->join('followers','followers.user_id=posts.user_id','left')
+        ->join('comments','comments.post_id=posts.post_id ','left')
+        ->join('users as comment_user','comments.comment_user_id=comment_user.user_id','left')
+        ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+                    comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
+        ->get('favorites')
+        ->result_array();
+    }
+    public function favorite_breast_rank()
+    {
+        return $this->db
+        // ->limit(3)
+        ->order_by('count','DESC')
+        ->group_by('comments.comment_id')
+        ->group_by('posts.post_id')
+        ->where('favorite_pattern','4')
+        ->join('posts', 'favorites.post_id=posts.post_id', 'left')
+        ->join('users as test','test.user_id=posts.user_id','left')
+        ->join('followers','followers.user_id=posts.user_id','left')
+        ->join('comments','comments.post_id=posts.post_id ','left')
+        ->join('users as comment_user','comments.comment_user_id=comment_user.user_id','left')
+        ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+                    comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
+        ->get('favorites')
+        ->result_array();
+    }
+    public function favorite_abs_rank()
+    {
+        return $this->db
+        // ->limit(3)
+        ->order_by('count','DESC')
+        ->group_by('comments.comment_id')
+        ->group_by('posts.post_id')
+        ->where('favorite_pattern','5')
+        ->join('posts', 'favorites.post_id=posts.post_id', 'left')
+        ->join('users as test','test.user_id=posts.user_id','left')
+        ->join('followers','followers.user_id=posts.user_id','left')
+        ->join('comments','comments.post_id=posts.post_id ','left')
+        ->join('users as comment_user','comments.comment_user_id=comment_user.user_id','left')
+        ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+                    comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
+        ->get('favorites')
+        ->result_array();
+    }
+    public function favorite_foot_rank()
+    {
+        return $this->db
+        // ->limit(3)
+        ->order_by('count','DESC')
+        ->group_by('comments.comment_id')
+        ->group_by('posts.post_id')
+        ->where('favorite_pattern','6')
+        ->join('posts', 'favorites.post_id=posts.post_id', 'left')
+        ->join('users as test','test.user_id=posts.user_id','left')
+        ->join('followers','followers.user_id=posts.user_id','left')
+        ->join('comments','comments.post_id=posts.post_id ','left')
+        ->join('users as comment_user','comments.comment_user_id=comment_user.user_id','left')
+        ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+                    comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
+        ->get('favorites')
+        ->result_array();
     }
 }

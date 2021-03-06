@@ -12,6 +12,7 @@ body{
         "header header" 50px
         "hr     hr"     1.8px
         "nav    nav " 30px
+        "div    div"  1fr
         /70%   30%;
 }
 header li{

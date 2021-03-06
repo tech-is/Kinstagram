@@ -1447,7 +1447,7 @@ div.is-open {
             nav.underNav ul.underTab li.newFollow500 a.aNewFollow500 nav.followUnderNav ul.ul500{
                 /* text-align: left; */
             }
-            img#icon1, img#icon2, img#icon3, img#icon4, img#icon5{
+            img.icon1{
                 height: 30%;
             }
             li.newFollow500 a.aNewFollow500 nav.followUnderNav ul.ul500 li{
