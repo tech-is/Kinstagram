@@ -217,20 +217,20 @@
             for ($i = 0; $i < $count; $i++) {
                 $file = pathinfo($img_list[$i]);
                 $file_name = $file["basename"];
-                echo '<img src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#postModal">';
+                echo '<img src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#individualModal">';
             }
             ?>
         </div>
         <!-- 写真一覧 -->
 
         <!-- 個別ページ用のモーダル -->
-        <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+        <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-max" role="document">
                 <div class="modal-content border border-gray">
                     <div class="modal-header bg-black">
                         <?php foreach ($array_user as $value) : ?>
                             <img src="/img/142135.png">
-                            <h5 class="modal-title bg-black" id="postModalLabel">
+                            <h5 class="modal-title bg-black" id="individualModalLabel">
                                 <?php echo $value['user_name']; ?>
                             </h5>
                         <?php endforeach; ?>
