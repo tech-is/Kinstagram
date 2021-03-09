@@ -29,7 +29,7 @@ header li{
     /* padding: 2px 0; */
     border: solid #9E9E9E;
     border-width: 0 0.5;
-    border-width: 0px 0px 0.1px 0px;
+    /* border-width: 0px 0px 0.1px 0px; */
     /* display: grid; */
     /* grid-template-columns: 1fr 1fr 1fr; */
 }
@@ -42,7 +42,7 @@ header{
     grid-template:
         "title    search upload login mypage" 50%
         "subtitle search upload login mypage" 50%
-        /35%      1fr    5%    15% ;
+        /35%      1fr    5%    15%;
     margin: 0 5%;
 }
 header li a span.material-icons{

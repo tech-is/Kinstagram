@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/style/css/post.css">
     <link rel="stylesheet" href="/style/css/top_style.css">
     <title>Kinstagram</title>
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
@@ -15,7 +14,24 @@
         <header class="header_font_border">
             <li class="titleLogo"><form method="post" action="/kinsta/top" name="topButton"><a href="javascript:document.topButton.submit()" class="titleLogoReroad">Kinstagram</a></form></li>
             <li class="sub_title">筋肉達との出会いがここに・・・</li>
-            <li class="search_window"><input type="text" class="window_color" placeholder="検索"></li>
+            <li class="search_window">
+                <!-- <form action="/kinsta/serch" id="serchBox" method="post"> -->
+                    <!-- <label for="SearchTxt" class="hide-label">キーワード検索</label> -->
+                    <input id="keyword" type="text" value="" name="serchText" class="window_color" placeholder="検索" autocmpleteo="off">
+                <!-- </form> -->
+                <!-- <button type="button" class="icon-menu">ナビゲーションメニューを開く</button> -->
+                <!-- <div class="hiddenSerch"></div> -->
+                <!-- <label for="SearchTxt" class="hide-label">キーワード検索</label>
+                <input id="SearchTxt" type="search" placeholder="検索キーワードを入力"> -->
+                <!-- <input id="InputBox" type="search" placeholder="キーワード" class="search-txt">
+                <button type="reset" class="reset-btn" aria-label="削除する">x</button> -->
+                
+                <!-- <span>絞り込み検索：</span><input type="text" value="" id="serch_text" oninput="serch_name(this.value)">
+                <div id="serch_result2">
+                </div> -->
+            </li>
+            <ul class = "list" >
+                </ul>
             <li class="uploadup">
                 <form action="/kinsta/post" method="post" name="pcUploadButton">
                     <a href="javascript:document.pcUploadButton.submit()">
@@ -24,9 +40,11 @@
                 </form>
             </li>
             <li class="login">
-                <form method="get" action="/kinsta/login">
-                    <input type="submit" class="btn-square-shadow" value="ログイン">
+                <form method="get" action="/kinsta/logout">
+                    <input type="submit" class="btn-square-shadow" value="ログアウト">
                 </form>
+            </li>
+            <li class="mypage">
                 <form method="get" action="/kinsta/mypage">
                     <input type="submit" class="btn-square-shadow" value="マイページ">
                 </form>
@@ -38,10 +56,10 @@
                     <label for="menu" class="back"></label>
                     <nav class="hambargerNav">
                         <ul class="hambargerUl">
-                            <li><form method="get" action="/kinsta/mypage" name="mypageButton"><a href="javascript:document.mypageButton.submit()" class="textNone">マイページ</a></form></li>
-                            <li><form method="get" action="/kinsta/post" name="uploadButton"><a href="javascript:document.uploadButton.submit()" class="textNone">アップロード</a></form></li>
-                            <li><form method="get" action="/kinsta/login" name="loginButton"><a href="javascript:document.loginButton.submit()" class="textNone">ログイン</a></form></li>
-                            <li><form method="get" action="/kinsta/logout" name="logoutButton"><a href="javascript:document.logoutButton.submit()" class="textNone">ログアウト</a></form></li>
+                            <li><a href="/kinsta/mypage" class="textNone">マイページ</a></li>
+                            <li><a href="/kinsta/post" class="textNone">アップロード</a></li>
+                            <li><a href="/kinsta/login" class="textNone">ログイン</a></li>
+                            <li><a href="/kinsta/logout" class="textNone">ログアウト</a></li>
                             <li class="cancelButton"><label for="menu" class="close">×</label></li>
                         </ul>
                     </nav>
@@ -55,37 +73,12 @@
         <hr class="header_border">
         
         
-    <!-- <script>
-        document.getElementsByClassName('btn')[0].onclick=function postClick(){
-            if(document.getElementById('postModal').style.display=="block"){
-                document.getElementById('postModal').style.display="none";
-            }else{
-            document.getElementById('postModal').style.display="block";
-            document.getElementById('formModal').style.right="2%";
-
-            }
-        };
-        function previewImage(obj) {
-            var fileReader = new FileReader();
-            fileReader.onload = (function() {
-                var canvas = document.getElementById('preview');
-                var ctx = canvas.getContext('2d');
-                var image = new Image();
-                image.src = fileReader.result;
-                image.onload = (function() {
-                    canvas.width = image.width;
-                    canvas.height = image.height;
-                    ctx.drawImage(image, 0, 0);
-                });
-            });
-            fileReader.readAsDataURL(obj.files[0]);
-        }   
-    </script> -->
+   
         <nav class="underNav">
                 <ul class="underTab" id="underTab2">
                     <li class="new">
                         <div class="centerLine">
-                            <form method="post" action="/kinsta/top" name="newButton"><a href="javascript:document.newButton.submit()" class="a_new">新&nbsp;着</a></form>
+                            <a href="/kinsta/top" class="a_new">新&nbsp;着</a>
                         </div>
                     </li>
                     <div class="accordion">
@@ -114,13 +107,18 @@
                             <label for="followUnder" class="closeUnderFollow"></label>
                             <nav class="followUnderNav">
                                 <ul class="ul500">
-                                    <?php if (!empty($data_array)) : ?>
-                                    <?php foreach ($data_array as $value) : ?>
+                                    <?php if (!empty($ten_data)) : ?>
+                                    <?php foreach ($ten_data as $value) : ?>
                                         <li class="followMember1">
-                                            <div class="iconDiv5001"><img class="icon5001" src="/img/<?php echo $value["list_image"]?>">
+                                            <div class="iconDiv5001"><img class="icon5001" src="/img/<?php echo $value["profile_image"]?>">
                                                 <ul class="followerFollowUl">
                                                     <li class="nameFollowFollower"><?php echo $value["user_name"]?></li>
-                                                    <li class="followerNumber">マッスルメンバー数<?php echo $value["follower_number"]?></li>
+                                                    <li class="followerNumber">マッスルメンバー数
+                                                        <?php if(!empty($value["follower_number"])):?> 
+                                                        <?php echo $value["follower_number"].'人'?></li>
+                                                        <?php else:?>
+                                                            <?php echo '0人'?></li>
+                                                        <?php endif;?>
                                                 </ul>
                                             </div>
                                         </li>
@@ -137,63 +135,64 @@
 
             
             <div class="divMainAsaid">
-            <main id="mainPicture">
-                <ul class="scroll" data-max="29" data-lastnum="9">
-                    <div class="imgList">
+                <main id="mainPicture">
+                    <!-- <ul class="scroll" data-max="29" data-lastnum="9"> -->
+                   
+                    <ul class="scroll">
                         <?php if (!empty($all_posts)) : ?>
                         <?php foreach ($all_posts as $value) : ?>
-                            <form method="post" action="/kinsta/imagelist">
-                                <li class="sizePicture">
-                                    <input type="image" class="p" src="/img/<?php echo $value["list_image"]?>">
-                                    <input type="hidden" name="user_id" value="<?php echo $value['user_id']?>">
-                                </li>
-                            </form>
+                            <li class="sizePicture">
+                                <img src="/img/<?php echo $value["list_image"]?>" alt="" class="allPhotos">
+                            </li>
                         <?php endforeach; ?> 
                         <?php endif;?>
-                    </div>
-                </ul>
-            </main>
-            <aside class="asideToreni asideToreni2">
-                <ul class="asideUl">
-                    <li class="followToreni">おすすめトレーニー</li>
-                    <hr class="follow_border">
-                    <?php if (!empty($five_data)) : ?>
-                        <?php foreach ($five_data as $value) : ?>
-                            <form method="post" action="/kinsta/imagelist">
-                                <li class="asideIcon">
-                                    <a href="#" class="icon">
-                                        <input type="image" class="icon1" src="/img/<?php echo $value["profile_image"]?>">
-                                        <input type="hidden" name="user_id" value="<?php echo $value['user_id']?>">
-                                    </a>
-                                </li>
-                                <li class="name">
-                                    <div>
-                                        <a href="#" class="a_name" id="openMember1"><?php echo $value["user_name"]?></a>
-                                        <a href="#" class="massule_member">マッスルメンバーに追加</a>
-                                    </div>
-                                    <section id="modalMember1" class="hidden">
-                                        <ul class="memberPostFollowPicture">
-                                            <p><?php echo $value["user_name"]?></p>
-                                            <p>投稿10件</p>
-                                            <p>マッスルメンバー10人</p>
-                                            <p>写真</p>
-                                            <p>マッスルメンバーに追加</p>
-                                        </ul>
-                                    </section>
-                                </li>
-                            </form>
-                            <?php endforeach; ?>
-                            <?php endif; ?>
-            
-             
-                    <hr class="other_border">
-                    <li class="otherMember">
-                        <a href="#" class="aOtherMember" id="otherMemberIrekae">その他のメンバーを見る</a>
-                    </li>
-                </ul>
-            </aside>
+                    </ul>
+                    
+                </main>
+                <aside class="asideToreni asideToreni2">
+                    <ul class="asideUl">
+                        <li class="followToreni">おすすめトレーニー</li>
+                        <hr class="follow_border">
+                        <?php if (!empty($five_data)) : ?>
+                            <?php foreach ($five_data as $value) : ?>
+                                <!-- <form method="post" action="/kinsta/imagelist"> -->
+                                    <li class="asideIcon">
+                                        <a href="#" class="icon">
+                                             <form action="/kinsta/mypage">
+                                                <img src="/img/<?php echo $value["profile_image"]?>" alt="" class="recommended">
+                                                <!-- <input type="image" class="icon1" src="/img/<?php //echo $value["profile_image"]?>"> -->
+                                                <input type="hidden" name="user_id" value="<?php echo $value['user_id']?>">
+                                            </form>
+                                        </a>
+                                    </li>
+                                    <li class="name">
+                                        <div>
+                                            <a href="#" class="a_name" id="openMember1"><?php echo $value["user_name"]?></a>
+                                            <a href="#" class="massule_member">マッスルメンバーに追加</a>
+                                        </div>
+                                        <section id="modalMember1" class="hidden">
+                                            <ul class="memberPostFollowPicture">
+                                                <p><?php echo $value["user_name"]?></p>
+                                                <p>投稿10件</p>
+                                                <p>マッスルメンバー10人</p>
+                                                <p>写真</p>
+                                                <p>マッスルメンバーに追加</p>
+                                            </ul>
+                                        </section>
+                                    </li>
+                                <!-- </form> -->
+                                <?php endforeach; ?>
+                                <?php endif; ?>
+                
+                
+                        <hr class="other_border">
+                        <li class="otherMember">
+                            <a href="#" class="aOtherMember" id="otherMemberIrekae">その他のメンバーを見る</a>
+                        </li>
+                    </ul>
+                </aside>
             </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="<?php echo ("/style/js/toppage.js"); ?>"></script>
-        
     </body>
 </html>

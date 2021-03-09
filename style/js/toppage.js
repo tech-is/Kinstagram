@@ -1,41 +1,138 @@
 'use strict';
 
-//仮想db
-{
-    let toreni = {
-        list:{
-            toreni:[
-                { name:"肩筋厚夫", follower:'9トレーニー', follow:'9トレーニー' ,post:'10件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"胸筋厚夫", follower:'8トレーニー', follow:'8トレーニー' ,post:'9件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"腹筋厚子", follower:'7トレーニー', follow:'7トレーニー' ,post:'8件',images:[{image:'/assets/kinsta_img/kintore3.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"腕筋厚子", follower:'6トレーニー', follow:'6トレーニー' ,post:'7件',images:[{image:'/assets/kinsta_img/kintore4.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"足筋厚子", follower:'5トレーニー', follow:'5トレーニー' ,post:'6件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"肩筋厚夫", follower:'4トレーニー', follow:'4トレーニー' ,post:'5件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"胸筋厚夫", follower:'3トレーニー', follow:'3トレーニー' ,post:'4件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"腹筋厚子", follower:'2トレーニー', follow:'2トレーニー' ,post:'3件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"腕筋厚子", follower:'1トレーニー', follow:'1トレーニー' ,post:'2件',images:[{image:'/assets/kinsta_img/kintore4.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-                { name:"足筋厚子", follower:'0トレーニー', follow:'0トレーニー' ,post:'1件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-            ],
-        },
-    };
 
-    
-        // let toreni = {
-        //     list:{
-        //         toreni:[
-        //             {follower:'9トレーニー', follow:'9トレーニー' ,post:'10件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-        //             {follower:'8トレーニー', follow:'8トレーニー' ,post:'9件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-        //             {follower:'7トレーニー', follow:'7トレーニー' ,post:'8件',images:[{image:'/assets/kinsta_img/kintore3.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-        //             {follower:'6トレーニー', follow:'6トレーニー' ,post:'7件',images:[{image:'/assets/kinsta_img/kintore4.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-        //             {follower:'5トレーニー', follow:'5トレーニー' ,post:'6件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-        //             {follower:'4トレーニー', follow:'4トレーニー' ,post:'5件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-        //             {follower:'3トレーニー', follow:'3トレーニー' ,post:'4件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-        //             {follower:'2トレーニー', follow:'2トレーニー' ,post:'3件',images:[{image:'/assets/kinsta_img/kintore2.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-        //             {follower:'1トレーニー', follow:'1トレーニー' ,post:'2件',images:[{image:'/assets/kinsta_img/kintore4.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-        //             {follower:'0トレーニー', follow:'0トレーニー' ,post:'1件',images:[{image:'/assets/kinsta_img/kintore1.png'},{image2:'/assets/kinsta_img/kintore1.png'}]},
-        //         ],
-        //     },
-        // };
+// $(function() {
+//     $("#serchBox").on("submit", function(){
+  
+//       var input = $(".serchBox").val();
+  
+//       $.ajax({
+//         type: 'GET',
+//         url: '/kinsta/serch',
+//         data: { 
+//             keyword: input },
+//         dataType: 'json'
+//       }).done(
+//           function(data) {
+//         $("#serchText").empty();
+//         if (data.length !==0) {
+//           $("#serchText").append("インクリメンタルサーチの結果を表示させる記述");
+//         }
+//         else {
+//           $("#serchText").append("検索結果がない");
+//         }
+//       }).fail(
+//           function(){
+//         alert('映画検索に失敗しました');
+//       })
+// });
+
+$("#keyword").on('keyup', function() {
+    var input = $("#keyword").val();
+    $.ajax({
+                type: 'GET',
+                url: '/kinsta/serch',
+                data: { 
+                    'keyword':input },
+                dataType: 'json'
+              })
+              .done(
+                function(data) {
+                $(".list").empty();
+                if (data.length !==0) {
+                    $(".list").append("あり");
+                  }
+                  else {
+                    $(".list").append("無し");
+                  }
+                }).fail(
+                function() {
+                    alert('検索に失敗しました');
+                })
+});
+
+
+// function serch_name(value){
+ 
+// 	var send_value1=value;
+// 	var url="/kinsta/top";
+// 	var httpobj =new XMLHttpRequest();
+// 	httpobj.onreadystatechange = function() {
+//   		if (httpobj.readyState == 4) {
+//   			var result_value=httpobj.responseXML;
+//   			serch_output2(result_value);
+//   			}
+// 			};
+
+// 		httpobj.open("POST",url);
+// 		httpobj.setRequestHeader('Pragma', 'no-cache');
+// 		httpobj.setRequestHeader('Cache-Control', 'no-cache');
+// 		httpobj.setRequestHeader('If-Modified-Since', 'Thu, 01 Jun 1970 00:00:00 GMT');
+// 		httpobj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+// 		httpobj.send("send_value="+send_value1);
+// }
+
+// function serch_output2(xmldate){
+
+// var div_serch_result=document.getElementById("serch_result2");
+
+// if(div_serch_result.hasChildNodes){
+// 		// div_serch_result.removeChild(div_serch_result.firstChild);
+// }
+// var table=document.createElement("table");
+// var tbody=document.createElement("tbody");
+
+// var nodelist=xmldate.getElementsByTagName('list');
+
+// 	for(var i=0;i<nodelist.length;i++){
+// 	var row=document.createElement("tr");
+	
+// // ＤＢ取得データをテーブルobjに流し込む処理
+// 		for(var k=0;k<4;k++){
+// 			var cell=document.createElement("td");
+// 			cell.innerHTML=nodelist[i].childNodes[k].childNodes[0].nodeValue;
+// 			row.appendChild(cell);
+// 		}
+// 		tbody.appendChild(row);
+// 	}
+// 	table.appendChild(tbody);
+// 	table.border=1;
+// 	document.getElementById("serch_result2").appendChild(table);
+// }
+
+
+
+
+
+
+
+// document.getElementById('serchBox').addEventListener('submit',function(e){
+//     e.preventDefault();
+//     let input = document.getElementById('serchText');
+//     $.ajax({
+//         url:'/kinsta/serch',
+//         type: 'POST',
+//         data: {
+//             'keyword':input,
+//         },
+//         datatype: 'json'
+//     }).done(
+//         function(data) {
+//             document.getElementById('serchText').empty();
+//             if(data.length !==0){
+//                 document.getElementById('serchText').insertAdjacentHTML('afterend',insertHTML);
+//             }else{
+//                 alert("無し");
+//             }
+//             alert(data.message);
+            // var dataobj = JSON.parse(data);
+            // console.log(dataobj.message);
+            // console.log(obj.message);
+//         }).fail(
+//         function(){
+//             alert('失敗しました');
+//         })
+// });
 
 
 
@@ -322,6 +419,7 @@ if(innerWidth <= 500){
         //     }
 
         // }
+        
     });
 
 
@@ -673,4 +771,4 @@ if(innerWidth <= 500){
 
     }
 
-}
+    

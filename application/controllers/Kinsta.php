@@ -28,7 +28,7 @@ class Kinsta extends CI_Controller
 	// if ($this->session->userdata("is_logged_in")) {
 	// 	$this->load->view("あああ");
 	// } else {
-	// 	redirect("kinsta/lp");
+		// redirect("kinsta/lp");
 	// }
 
 
@@ -176,6 +176,7 @@ class Kinsta extends CI_Controller
 
 	public function login()
 	{
+
 		$this->load->view('kin_top');
 	}
 
@@ -239,7 +240,7 @@ class Kinsta extends CI_Controller
 				"is_logged_in" => 1
 			);
 			$this->session->set_userdata($data);
-			redirect("kinsta/mypage");
+			redirect("kinsta/top");
 		} else {							//バリデーションエラーがあった場合の処理
 			$this->load->view("kin_top.php");
 		}
@@ -281,15 +282,28 @@ class Kinsta extends CI_Controller
 	{
 		$this->load->model('Kinsta_model');
 		$data = null;
-		// $data['data_array'] = $this->Kinsta_model->fetch_all_rows();
-		$data['data_array'] = $this->Kinsta_model->random_member_ten();
-		// var_dump($data);
+		$data['ten_data'] = $this->Kinsta_model->random_member_ten();
+		
 		$data['five_data'] = $this->Kinsta_model->random_member_five();
-		// $data['all_data'] = $this->kinsta_model->all_member();
 		$data['all_posts'] = $this->Kinsta_model->all_post();
-		// var_dump($data['all_posts']);
-		$this->load->view('top_page', $data,);
+		// if ($this->session->userdata("is_logged_in")) {
+			$this->load->view('top_page', $data,);
+		// } else {
+		// 		redirect("kinsta/lp");
+		// }
+		
 	}
+	public function serch()
+	{
+		header("Content-Type: application/json; charset=utf-8");
+		
+		$keyword = $this->input->post('keyword', true);
+		$this->load->model('Kinsta_model');
+		$data['match_data'] = $this->Kinsta_model->serch_for($keyword);
+		// $this->load->view('top_page');
+		$this->load->view('top_page', $data);
+	}
+
 	public function imagelist()
 	{
 		$id = $this->input->post('user_id') ?: null;
@@ -334,6 +348,11 @@ class Kinsta extends CI_Controller
 		// var_dump($data['get_image']);
 		// var_dump($data['total_rank']);
 		// var_dump($data['message_rank']);
+		// if ($this->session->userdata("is_logged_in")) {
+		// 	$this->load->view('rank_page', $data,);
+		// } else {
+		// 		redirect("kinsta/lp");
+		// }
 		$this->load->view('header_page');
 		$this->load->view('rank_page',$data);
 	}
@@ -342,6 +361,11 @@ class Kinsta extends CI_Controller
 		$this->load->model('Kinsta_model');
 		$data['favorite_shoulder_rank'] = $this->Kinsta_model->favorite_shoulder_rank();
 		var_dump($data['favorite_shoulder_rank']);
+		if ($this->session->userdata("is_logged_in")) {
+			$this->load->view('top_page', $data,);
+		} else {
+				redirect("kinsta/lp");
+		}
 		$this->load->view('header_page');
 		$this->load->view('shoulder_rank_page',$data);
 	}
@@ -350,6 +374,11 @@ class Kinsta extends CI_Controller
 		$this->load->model('Kinsta_model');
 		$data['favorite_arm_rank'] = $this->Kinsta_model->favorite_arm_rank();
 		var_dump($data['favorite_arm_rank']);
+		if ($this->session->userdata("is_logged_in")) {
+			$this->load->view('top_page', $data,);
+		} else {
+				redirect("kinsta/lp");
+		}
 		$this->load->view('header_page');
 		$this->load->view('arm_rank_page',$data);
 	}
@@ -357,6 +386,11 @@ class Kinsta extends CI_Controller
 	{
 		$this->load->model('Kinsta_model');
 		$data['favorite_breast_rank'] = $this->Kinsta_model->favorite_breast_rank();
+		if ($this->session->userdata("is_logged_in")) {
+			$this->load->view('top_page', $data,);
+		} else {
+				redirect("kinsta/lp");
+		}
 		$this->load->view('header_page');
 		$this->load->view('breast_rank_page',$data);
 	}
@@ -365,6 +399,11 @@ class Kinsta extends CI_Controller
 	{
 		$this->load->model('Kinsta_model');
 		$data['favorite_abs_rank'] = $this->Kinsta_model->favorite_abs_rank();
+		if ($this->session->userdata("is_logged_in")) {
+			$this->load->view('top_page', $data,);
+		} else {
+				redirect("kinsta/lp");
+		}
 		$this->load->view('header_page');
 		$this->load->view('abs_rank_page',$data);
 	}
@@ -372,6 +411,11 @@ class Kinsta extends CI_Controller
 	{
 		$this->load->model('Kinsta_model');
 		$data['favorite_foot_rank'] = $this->Kinsta_model->favorite_foot_rank();
+		if ($this->session->userdata("is_logged_in")) {
+			$this->load->view('top_page', $data,);
+		} else {
+				redirect("kinsta/lp");
+		}
 		$this->load->view('header_page');
 		$this->load->view('foot_rank_page',$data);
 	}

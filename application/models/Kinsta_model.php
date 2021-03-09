@@ -8,27 +8,25 @@ class Kinsta_model extends CI_Model
         $this->load->database();
     }
 
-    public function fetch_all_rows($limit = null)
-    {
-        !empty($limit) ? $this->db->limit($limit) : false;
-        $data = $this->db->get('users')
-                        ->result_array();
-        
-
-        // return $this->db->
-    }
     public function random_member_ten()
     {
-        // return $this->db->query('SELECT * FROM users ORDER BY RAND() LIMIT 1')
-        // return $this->db->query('SELECT * FROM users JOIN followers ON users.user_id = followers.user_id ORDER BY RAND() LIMIT 1')
-        return $this->db->query('SELECT user_name,follower_number,list_image  FROM users INNER JOIN followers ON users.user_id = followers.user_id INNER JOIN posts ON users.user_id = posts.user_id')
-                        ->result_array();
-                        // ->order_by('user_id','random');
+        return $this->db
+        ->order_by(10, 'RANDOM')
+        ->join('followers', 'users.user_id = followers.user_id','left')
+        ->distinct()
+        ->select('users.user_name,followers.follower_number,users.profile_image')
+        ->get('users')
+        ->result_array();
     }
     public function random_member_five()
     {
-        return $this->db->query('SELECT users.user_id,user_name,follower_number,profile_image  FROM users INNER JOIN followers ON users.user_id = followers.user_id INNER JOIN posts ON users.user_id = posts.user_id ORDER BY RAND() LIMIT 5')
-                        ->result_array();
+        return $this->db
+        ->order_by(5, 'RANDOM')
+        ->join('followers', 'users.user_id = followers.user_id','left')
+        ->distinct()
+        ->select('users.user_name,users.user_id,followers.follower_number,users.profile_image')
+        ->get('users')
+        ->result_array();
     }
     public function all_post()
     {
@@ -49,15 +47,6 @@ class Kinsta_model extends CI_Model
         ->select('user_id,profile_image')
         ->get('users')
         ->result_array();
-    }
-    public function total_rank()
-    {
-        // return $this->db->limit(3)
-        //     ->order_by('follower_number','DESC')
-        //     ->join('users', 'users.user_id = followers.user_id')
-        //     ->select('users.user_id,follower_number,users.user_name')
-        //     ->get('followers')
-        //     ->result_array();
     }
     public function message_rank()
     {
@@ -172,6 +161,27 @@ class Kinsta_model extends CI_Model
         ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
                     comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
         ->get('favorites')
+        ->result_array();
+    }
+    public function serch_for($keyword)
+    {
+        // return $serchWord;
+        
+        return $this->db
+        ->distinct()
+        ->like('users.user_name',$keyword,'after')
+        ->or_like('comments.text_group', $keyword,'both')
+        ->or_like('posts.post_message',$keyword,'both')
+        ->or_like('followers.follower_number',$keyword,'both')
+
+        // ->join('favorites','favorites.post_id = posts.post_id','left')
+        ->join('followers','followers.user_id = comments.user_id','right')
+        ->join('posts', 'posts.user_id = comments.user_id','right')
+        ->join('users', 'users.user_id = comments.user_id','right')
+        // ->join('comments', 'comments.user_id = users.user_id','left')
+        // ->select('users.user_name,followers.follower_number,users.profile_image')
+        ->select('users.user_name,posts.post_id,followers.follower_number')
+        ->get('comments')
         ->result_array();
     }
 }
