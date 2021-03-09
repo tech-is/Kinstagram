@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+<?php var_dump($_SESSION)?>
 <head>
     <link rel="stylesheet">
     <?php echo link_tag("/style/css/rank_style.css"); ?>
