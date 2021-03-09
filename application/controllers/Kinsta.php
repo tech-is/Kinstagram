@@ -68,7 +68,7 @@ class Kinsta extends CI_Controller
 		
 		//Model_mypageのmypage_updateメソッドにアクセスし更新情報を渡す
 		// 更新情報を変数定義
-		$user_id = 1;
+		$user_id = 48;
 		$profile_image = $this->upload->data('file_name');
 		$user_name = $this->input->post('user_name');
 		$introduction = $this->input->post('introduction');
@@ -88,7 +88,7 @@ class Kinsta extends CI_Controller
 		];
 
 		//Model_mypageに送る
-		// $this->Model_mypage->mypage_update($user);
+		$this->Model_mypage->mypage_update($user);
 
 		// if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
 		// $this->load->view("Mypage");
@@ -124,7 +124,7 @@ class Kinsta extends CI_Controller
 
 		//Model_mypageのpost_addメソッドにアクセスしpost情報を渡す
 		// post情報を変数定義
-		$user_id = 1;
+		$user_id = 48;
 		$list_image = $this->upload->data('file_name');
 		$post_message = $this->input->post('post_message');
 		$mymenu = $this->input->post('mymenu');
