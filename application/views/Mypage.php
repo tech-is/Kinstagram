@@ -245,16 +245,17 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <img class='post-img'
-                                    src=<?php
-                                    echo $bigimg;
-                                    $bigimg = <<<EOM
-                                    <script type="text/javascript">
-                                    $function changeIt() {
-                                    var name = document.getElementById("myImage").src;
-                                    console.log(name);
-                                    }
-                                    </script>
-                                    EOM;
+                                    src=
+                                    <?php
+                                    //echo $bigimg;
+                                    //$bigimg = <<<EOM
+                                    //<script type="text/javascript">
+                                    //$function changeIt() {
+                                    //var name = document.getElementById("myImage").src;
+                                    //console.log(name);
+                                    //}
+                                    //</script>
+                                    //EOM;
                                     ?>
                                     alt="1">
                                 </div>

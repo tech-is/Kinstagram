@@ -26,13 +26,14 @@ class Model_mypage extends CI_Model
 
     public function mypage_update($user)
     {
+        $this->db->where('user_id',48);
         $this->db->update('users',$user);
     }
 
     public function individual_get()
     {
         //自らの投稿の情報を取り出す　※　自分の投稿判定
-        $this->db->where('post_id', 48);
+        $this->db->where('post_id', 1);
         //dbのpostsテーブルから取得
         $query = $this->db->get('posts');
         //配列に入れる
