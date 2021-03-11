@@ -217,7 +217,7 @@
             for ($i = 0; $i < $count; $i++) {
                 $file = pathinfo($img_list[$i]);
                 $file_name = $file["basename"];
-                echo '<img id="myImage" onclick="changeIt()" src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#individualModal">';
+                echo '<img class="myImage" src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#individualModal">';
             }
             ?>
         </div>
@@ -244,8 +244,8 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img class='post-img'
-                                    src=
+                                    <img id="post-img" class='post-img'
+                                    src=""
                                     <?php
                                     //echo $bigimg;
                                     //$bigimg = <<<EOM
@@ -359,6 +359,15 @@
             });
             fileReader.readAsDataURL(obj.files[0]);
         }
+
+        //一覧画像をクリックするとモーダル表示
+    //     $('#myImage').click(function(){
+    //     var myImg = $('#myImage').attr('src');
+    //     alert(myImg);
+    // })
+        $('.myImage').on('click', function(){
+            $('#post-img').prop('src',this.src);
+        });
     </script>
 </body>
 </html>
