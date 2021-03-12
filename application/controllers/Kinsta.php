@@ -165,6 +165,21 @@ class Kinsta extends CI_Controller
 		//  $dataを第二引数に入れてviewに送る
 		$this->load->view('Individual_img', $post_data);
 	}
+
+	public function individual_top()
+	{
+		//if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
+		//	$this->load->view('Individual_img');
+		//} else {									//ログインしていない場合の処理
+		//	redirect("Kinsta/lp");
+		//}
+		$post_data = null;
+		$this->load->model('Model_mypage');
+		$post_data['array_post'] = $this->Model_mypage->individual_get();
+		$post_data['array_user'] = $this->Model_mypage->mypage_get();
+		//  $dataを第二引数に入れてviewに送る
+		$this->load->view('top_page', $post_data);
+	}
 	///// 藤田担当　ここまで ////////
 
 

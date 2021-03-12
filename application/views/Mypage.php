@@ -244,17 +244,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img id="post-img" class='post-img' src="" <?php
-                                                                                //echo $bigimg;
-                                                                                //$bigimg = <<<EOM
-                                                                                //<script type="text/javascript">
-                                                                                //$function changeIt() {
-                                                                                //var name = document.getElementById("myImage").src;
-                                                                                //console.log(name);
-                                                                                //}
-                                                                                //</script>
-                                                                                //EOM;
-                                                                                ?> alt="1">
+                                    <img id="post-img" class='post-img' src="" alt="1">
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -358,14 +348,10 @@
         }
 
         //一覧画像をクリックするとモーダル表示
-        //     $('#myImage').click(function(){
-        //     var myImg = $('#myImage').attr('src');
-        //     alert(myImg);
-        // })
+        //https://stackoverflow.com/questions/26377231/jquery-how-to-change-img-src-path-onclick
         $('.myImage').on('click', function() {
             $('#post-img').prop('src', this.src);
         });
     </script>
 </body>
-
 </html>
