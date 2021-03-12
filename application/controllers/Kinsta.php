@@ -28,7 +28,7 @@ class Kinsta extends CI_Controller
 	// if ($this->session->userdata("is_logged_in")) {
 	// 	$this->load->view("あああ");
 	// } else {
-		// redirect("kinsta/lp");
+	// redirect("kinsta/lp");
 	// }
 
 
@@ -47,7 +47,7 @@ class Kinsta extends CI_Controller
 		$data = null;
 		$data['array_user'] = $this->Model_mypage->mypage_get();
 		$data['array_post'] = $this->Model_mypage->individual_get();
-		$this->load->view('Mypage',$data);
+		$this->load->view('Mypage', $data);
 	}
 
 	public function mypage_update()
@@ -55,7 +55,7 @@ class Kinsta extends CI_Controller
 		//バリデーション
 		$this->form_validation->set_rules("E-mail", "メールアドレス", "required|trim|valid_email|is_unique[users.E-mail]");
 		$this->form_validation->set_rules("user_name", "ユーザ名", "required|trim");
-		$this->form_validation->set_rules("password", "パスワード", "required|trim|min_length[8]|max_length[16]");
+		$this->form_validation->set_rules("password", "パスワード", "required|trim|min_length[8]|max_length[16]|md5");
 
 		//アイコン画像を変更する
 		$config['upload_path'] = './img/profile_img_userid_1';
@@ -64,8 +64,8 @@ class Kinsta extends CI_Controller
 		$config['max_width'] = 1500;
 		$config['max_hight'] = 1500;
 
-		$this->load->library('upload',$config);
-		
+		$this->load->library('upload', $config);
+
 		//Model_mypageのmypage_updateメソッドにアクセスし更新情報を渡す
 		// 更新情報を変数定義
 		$user_id = 48;
@@ -75,7 +75,7 @@ class Kinsta extends CI_Controller
 		$my_category = $this->input->post('my_category');
 		$email = $this->input->post('E-mail');
 		$password = $this->input->post('password');
-				
+
 		//変数を配列に格納
 		$user = [
 			'user_id' => $user_id,
@@ -93,7 +93,7 @@ class Kinsta extends CI_Controller
 		// if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
 		// $this->load->view("Mypage");
 		// } else {									//ログインしていない場合の処理
-	// redirect("Kinsta/lp");>>> main
+		// redirect("Kinsta/lp");>>> main
 		// }
 
 		//  $dataを第二引数に入れてviewに送る
@@ -298,20 +298,20 @@ class Kinsta extends CI_Controller
 		$this->load->model('Kinsta_model');
 		$data = null;
 		$data['ten_data'] = $this->Kinsta_model->random_member_ten();
-		
+
 		$data['five_data'] = $this->Kinsta_model->random_member_five();
 		$data['all_posts'] = $this->Kinsta_model->all_post();
 		// if ($this->session->userdata("is_logged_in")) {
-			$this->load->view('top_page', $data,);
+		$this->load->view('top_page', $data,);
 		// } else {
 		// 		redirect("kinsta/lp");
 		// }
-		
+
 	}
 	public function serch()
 	{
 		header("Content-Type: application/json; charset=utf-8");
-		
+
 		$keyword = $this->input->post('keyword', true);
 		$this->load->model('Kinsta_model');
 		$data['match_data'] = $this->Kinsta_model->serch_for($keyword);
@@ -355,10 +355,10 @@ class Kinsta extends CI_Controller
 		$data['total_rank'] = $this->Kinsta_model->total_rank();
 		$data['message_rank'] = $this->Kinsta_model->message_rank();
 		$data['favorite'] = $this->Kinsta_model->favorite_rank();
-		
-		
+
+
 		// $data['follow_N'] = $this->Kinsta_model->follow_N();
-		
+
 		// print_r($data['favorite']);
 		// var_dump($data['get_image']);
 		// var_dump($data['total_rank']);
@@ -369,7 +369,7 @@ class Kinsta extends CI_Controller
 		// 		redirect("kinsta/lp");
 		// }
 		$this->load->view('header_page');
-		$this->load->view('rank_page',$data);
+		$this->load->view('rank_page', $data);
 	}
 	public function shoulderRank()
 	{
@@ -379,10 +379,10 @@ class Kinsta extends CI_Controller
 		if ($this->session->userdata("is_logged_in")) {
 			$this->load->view('top_page', $data,);
 		} else {
-				redirect("kinsta/lp");
+			redirect("kinsta/lp");
 		}
 		$this->load->view('header_page');
-		$this->load->view('shoulder_rank_page',$data);
+		$this->load->view('shoulder_rank_page', $data);
 	}
 	public function armRank()
 	{
@@ -392,10 +392,10 @@ class Kinsta extends CI_Controller
 		if ($this->session->userdata("is_logged_in")) {
 			$this->load->view('top_page', $data,);
 		} else {
-				redirect("kinsta/lp");
+			redirect("kinsta/lp");
 		}
 		$this->load->view('header_page');
-		$this->load->view('arm_rank_page',$data);
+		$this->load->view('arm_rank_page', $data);
 	}
 	public function breastRank()
 	{
@@ -404,12 +404,12 @@ class Kinsta extends CI_Controller
 		if ($this->session->userdata("is_logged_in")) {
 			$this->load->view('top_page', $data,);
 		} else {
-				redirect("kinsta/lp");
+			redirect("kinsta/lp");
 		}
 		$this->load->view('header_page');
-		$this->load->view('breast_rank_page',$data);
+		$this->load->view('breast_rank_page', $data);
 	}
-	
+
 	public function absRank()
 	{
 		$this->load->model('Kinsta_model');
@@ -417,10 +417,10 @@ class Kinsta extends CI_Controller
 		if ($this->session->userdata("is_logged_in")) {
 			$this->load->view('top_page', $data,);
 		} else {
-				redirect("kinsta/lp");
+			redirect("kinsta/lp");
 		}
 		$this->load->view('header_page');
-		$this->load->view('abs_rank_page',$data);
+		$this->load->view('abs_rank_page', $data);
 	}
 	public function footRank()
 	{
@@ -429,10 +429,10 @@ class Kinsta extends CI_Controller
 		if ($this->session->userdata("is_logged_in")) {
 			$this->load->view('top_page', $data,);
 		} else {
-				redirect("kinsta/lp");
+			redirect("kinsta/lp");
 		}
 		$this->load->view('header_page');
-		$this->load->view('foot_rank_page',$data);
+		$this->load->view('foot_rank_page', $data);
 	}
 }
 ///////////////////////////////////二宮///////////////////////////////////////////////////////////////

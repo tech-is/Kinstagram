@@ -156,11 +156,11 @@
                                 <div class="form-group">
                                     <label class="control-label">肉ネーム</label>
                                     <?php echo form_error('username'); ?>
-                                    <input name="user_name" class="form-control  bg-gray" type="text" value="<?php echo $value['user_name']; ?>">
+                                    <input name="user_name" class="form-control  bg-gray" type="text" placeholder="<?php echo $value['user_name']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">紹介文</label>
-                                    <input name="introduction" class="form-control  bg-gray" type="text" value="<?php echo $value['introduction']; ?>">
+                                    <input name="introduction" class="form-control  bg-gray" type="text" placeholder="<?php echo $value['introduction']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マッチョ区分</label>
@@ -184,12 +184,12 @@
                                 <div class="form-group">
                                     <label class="control-label">ID</label>
                                     <?php echo form_error('E-mail'); ?>
-                                    <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $value['E-mail']; ?>">
+                                    <input name="E-mail" class="form-control bg-gray" type="text" placeholder="<?php echo $value['E-mail']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
                                     <?php echo form_error('password'); ?>
-                                    <input name="password" class="form-control bg-gray" type="text" value="<?php echo $value['password']; ?>">
+                                    <input name="password" class="form-control bg-gray" type="text">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -354,5 +354,4 @@
         });
     </script>
 </body>
-
 </html>
