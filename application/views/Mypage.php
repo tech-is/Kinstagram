@@ -156,11 +156,11 @@
                                 <div class="form-group">
                                     <label class="control-label">肉ネーム</label>
                                     <?php echo form_error('username'); ?>
-                                    <input name="user_name" class="form-control  bg-gray" type="text" value="<?php echo $value['user_name']; ?>">
+                                    <input name="user_name" class="form-control  bg-gray" type="text" placeholder="<?php echo $value['user_name']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">紹介文</label>
-                                    <input name="introduction" class="form-control  bg-gray" type="text" value="<?php echo $value['introduction']; ?>">
+                                    <input name="introduction" class="form-control  bg-gray" type="text" placeholder="<?php echo $value['introduction']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マッチョ区分</label>
@@ -184,12 +184,12 @@
                                 <div class="form-group">
                                     <label class="control-label">ID</label>
                                     <?php echo form_error('E-mail'); ?>
-                                    <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $value['E-mail']; ?>">
+                                    <input name="E-mail" class="form-control bg-gray" type="text" placeholder="<?php echo $value['E-mail']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
                                     <?php echo form_error('password'); ?>
-                                    <input name="password" class="form-control bg-gray" type="text" value="<?php echo $value['password']; ?>">
+                                    <input name="password" class="form-control bg-gray" type="text">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -244,20 +244,17 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img id="post-img" class='post-img'
-                                    src=""
-                                    <?php
-                                    //echo $bigimg;
-                                    //$bigimg = <<<EOM
-                                    //<script type="text/javascript">
-                                    //$function changeIt() {
-                                    //var name = document.getElementById("myImage").src;
-                                    //console.log(name);
-                                    //}
-                                    //</script>
-                                    //EOM;
-                                    ?>
-                                    alt="1">
+                                    <img id="post-img" class='post-img' src="" <?php
+                                                                                //echo $bigimg;
+                                                                                //$bigimg = <<<EOM
+                                                                                //<script type="text/javascript">
+                                                                                //$function changeIt() {
+                                                                                //var name = document.getElementById("myImage").src;
+                                                                                //console.log(name);
+                                                                                //}
+                                                                                //</script>
+                                                                                //EOM;
+                                                                                ?> alt="1">
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -361,13 +358,14 @@
         }
 
         //一覧画像をクリックするとモーダル表示
-    //     $('#myImage').click(function(){
-    //     var myImg = $('#myImage').attr('src');
-    //     alert(myImg);
-    // })
-        $('.myImage').on('click', function(){
-            $('#post-img').prop('src',this.src);
+        //     $('#myImage').click(function(){
+        //     var myImg = $('#myImage').attr('src');
+        //     alert(myImg);
+        // })
+        $('.myImage').on('click', function() {
+            $('#post-img').prop('src', this.src);
         });
     </script>
 </body>
+
 </html>

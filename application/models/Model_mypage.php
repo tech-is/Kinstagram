@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Model_mypage extends CI_Model
@@ -11,23 +11,23 @@ class Model_mypage extends CI_Model
 
     public function post_add($post)
     {
-        $this->db->insert('posts',$post);
+        $this->db->insert('posts', $post);
     }
 
     public function mypage_get()
     {
-         //自らのプロフィール情報を取り出す ※ 自分判定
-        $this->db->where('user_id',48);
-         //dbのusersテーブルから取得
+        //自らのプロフィール情報を取り出す ※ 自分判定
+        $this->db->where('E-mail', $_SESSION['E-mail']);
+        //dbのusersテーブルから取得
         $query = $this->db->get('users');
-         //配列に入れる
+        //配列に入れる
         return $query->result_array();
     }
 
     public function mypage_update($user)
     {
-        $this->db->where('user_id',48);
-        $this->db->update('users',$user);
+        $this->db->where('user_id', $_SESSION['E-mail']);
+        $this->db->update('users', $user);
     }
 
     public function individual_get()
