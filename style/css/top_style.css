@@ -15,21 +15,52 @@ body{
         "div    div" 1fr
         /70%   30%;
 }
-/* .hiddenSerch{
-    display:none;
-} */
-/* .hide-label {
+.serchBox{
+    position: absolute;
+    top: 38px;
+    left: 32%;
+    z-index: 100;
+    background: rgba(var(--d87,255,255,255),1);
+    border-radius: 6px;
+    overflow: scroll;
+    width: 300px;
+    height: 300px;
+    overflow-x: hidden;
+}
+.hiddenSerch{
+    display: none;
+}
+.aInner{
+    width: 100%;
     display: block;
-    width: 0;
-    height: 0;
-    overflow: hidden; 
-  } */
-  /* .search-txt:placeholder-shown + .reset-btn {
-    display: none;
-  }
-  is_empty + .reset-btn {
-    display: none;
-  } */
+    position: relative;
+}
+div a.innerName{
+    width: 1500%;
+    cursor: pointer;
+    margin: 5px;
+}
+img.serchIconProfile{
+    object-fit: cover;
+    height: 35px;
+    width: 35px;
+    border-radius: 150%;
+}
+div.serchiconBox{
+    display: inline-block;
+}
+div.serchnameBox{
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: 20%;
+    margin: 0 0 0 5px;
+}
+.iconNameBox{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
 .divMainAsaid{
     grid-area: div;
     display: grid;
@@ -287,12 +318,12 @@ aside ul li a.a_name{
     border-width: 0.1px 0px 0px 0px;
     margin: 5px 0px 0px 0px;
 }
-.massule_member{
+.addMassuleMember{
     color: #02a5eb;
     /* font-size: 1%; */
     margin: 0 3%;
 }
-.massule_member:hover{
+.addMassuleMember:hover{
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-color: #02a5eb;
@@ -650,9 +681,6 @@ div.is-open {
         .asideToreni {
             box-sizing: border-box;
             top: 52px;
-        }
-        .asideToreni ul{
-            border: solid 1px #0246F2;
         }
         aside ul li a{
             width:100%;

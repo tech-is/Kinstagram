@@ -30,7 +30,7 @@
             <li class="name_no1">
                 🏆NO.1<?php echo ($favorite_abs_rank[0]['user_name'])?>
                 <img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
-                <?php echo ($favorite_abs_rank[0]['follower_number'].'マッスルメンバー')?>
+                <?php //echo ($favorite_abs_rank[0]['follower_number'].'マッスルメンバー')?>
 
             <li class="picture1">
                 <img class="picture" src="/img/<?php echo ($favorite_abs_rank[0]["list_image"]);?>"/>
@@ -70,7 +70,7 @@
                 }
                 ?>
                 <img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
-                <?php echo ($favorite_abs_rank[$num1]['follower_number'].'マッスルメンバー')?>
+                <?php //echo ($favorite_abs_rank[$num1]['follower_number'].'マッスルメンバー')?>
             </li>
             <li class="picture2"><img class="picture" src="/img/<?php echo ($favorite_abs_rank[$num1]["list_image"]);?>"/>
                 <p><img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
@@ -93,7 +93,7 @@
                 
                 
                 <img src="/img/<?php echo '142136.png'?>" class="kiretemasu">
-                <?= ($favorite_abs_rank[$num2]['follower_number'].'マッスルメンバー')?>
+                <?= //($favorite_abs_rank[$num2]['follower_number'].'マッスルメンバー')?>
                
             </li> 
             <li class="picture3">

@@ -207,7 +207,7 @@
         <div id="individual_img" class="img-list">
             <?php
             //ディレクトリを取得
-            $img_fld = '/img/list_img_userid_1/';  //後で$_REQUESTにする
+            $img_fld = '/img/list_img_userid_1/ ';  //後で$_REQUESTにする
             //ディレクトリ内の一覧を取得する
             $img_list = glob('.' . $img_fld . '*');
             // var_dump($img_list);
@@ -217,7 +217,7 @@
             for ($i = 0; $i < $count; $i++) {
                 $file = pathinfo($img_list[$i]);
                 $file_name = $file["basename"];
-                echo '<img src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#individualModal">';
+                echo '<img id="myImage" onclick="changeIt()" src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#individualModal">';
             }
             ?>
         </div>
@@ -244,7 +244,19 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img class='post-img' src="/img/list_img_userid_1/45211_s.jpg" alt="1">
+                                    <img class='post-img'
+                                    src=<?php
+                                    echo $bigimg;
+                                    $bigimg = <<<EOM
+                                    <script type="text/javascript">
+                                    $function changeIt() {
+                                    var name = document.getElementById("myImage").src;
+                                    console.log(name);
+                                    }
+                                    </script>
+                                    EOM;
+                                    ?>
+                                    alt="1">
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -298,7 +310,7 @@
         </div>
         <!-- 写真モーダル -->
     </form>
-    
+
     <script>
         // プロフィール画像変更時にイメージを表示する
         function previewImage(obj) {
@@ -348,5 +360,4 @@
         }
     </script>
 </body>
-
 </html>

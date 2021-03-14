@@ -10,28 +10,14 @@
       rel="stylesheet">
 </head>
     <body>
-
         <header class="header_font_border">
             <li class="titleLogo"><form method="post" action="/kinsta/top" name="topButton"><a href="javascript:document.topButton.submit()" class="titleLogoReroad">Kinstagram</a></form></li>
             <li class="sub_title">筋肉達との出会いがここに・・・</li>
             <li class="search_window">
-                <!-- <form action="/kinsta/serch" id="serchBox" method="post"> -->
-                    <!-- <label for="SearchTxt" class="hide-label">キーワード検索</label> -->
-                    <input id="keyword" type="text" value="" name="serchText" class="window_color" placeholder="検索" autocmpleteo="off">
-                <!-- </form> -->
-                <!-- <button type="button" class="icon-menu">ナビゲーションメニューを開く</button> -->
-                <!-- <div class="hiddenSerch"></div> -->
-                <!-- <label for="SearchTxt" class="hide-label">キーワード検索</label>
-                <input id="SearchTxt" type="search" placeholder="検索キーワードを入力"> -->
-                <!-- <input id="InputBox" type="search" placeholder="キーワード" class="search-txt">
-                <button type="reset" class="reset-btn" aria-label="削除する">x</button> -->
-                
-                <!-- <span>絞り込み検索：</span><input type="text" value="" id="serch_text" oninput="serch_name(this.value)">
-                <div id="serch_result2">
-                </div> -->
+                <input id="keyword" type="text" value="" name="serchText" class="window_color" placeholder="検索" autocomplete="off">
             </li>
-            <ul class = "list" >
-                </ul>
+            <div id="serchResult" aria-hidden="true" class="serchBox hiddenSerch"></div>
+            
             <li class="uploadup">
                 <form action="/kinsta/post" method="post" name="pcUploadButton">
                     <a href="javascript:document.pcUploadButton.submit()">
@@ -153,41 +139,37 @@
                     <ul class="asideUl">
                         <li class="followToreni">おすすめトレーニー</li>
                         <hr class="follow_border">
+                        <?php $i = 0;?>
                         <?php if (!empty($five_data)) : ?>
                             <?php foreach ($five_data as $value) : ?>
-                                <!-- <form method="post" action="/kinsta/imagelist"> -->
-                                    <li class="asideIcon">
-                                        <a href="#" class="icon">
-                                             <form action="/kinsta/mypage">
-                                                <img src="/img/<?php echo $value["profile_image"]?>" alt="" class="recommended">
-                                                <!-- <input type="image" class="icon1" src="/img/<?php //echo $value["profile_image"]?>"> -->
-                                                <input type="hidden" name="user_id" value="<?php echo $value['user_id']?>">
-                                            </form>
-                                        </a>
-                                    </li>
-                                    <li class="name">
-                                        <div>
-                                            <a href="#" class="a_name" id="openMember1"><?php echo $value["user_name"]?></a>
-                                            <a href="#" class="massule_member">マッスルメンバーに追加</a>
-                                        </div>
-                                        <section id="modalMember1" class="hidden">
-                                            <ul class="memberPostFollowPicture">
-                                                <p><?php echo $value["user_name"]?></p>
-                                                <p>投稿10件</p>
-                                                <p>マッスルメンバー10人</p>
-                                                <p>写真</p>
-                                                <p>マッスルメンバーに追加</p>
-                                            </ul>
-                                        </section>
-                                    </li>
-                                <!-- </form> -->
-                                <?php endforeach; ?>
-                                <?php endif; ?>
+                                <li class="asideIcon">
+                                    <a href="/kinsta/onlyMypage?userId=<?php echo $value['user_id'];?>" class="icon">
+                                        <img src="/img/<?php echo $value["profile_image"]?>" alt="" class="recommended">
+                                    </a>
+                                </li>
+                                <li class="name">
+                                    <div>
+                                        <a href="/kinsta/onlyMypage?userId=<?php echo $value['user_id'];?>" class="a_name"><?php echo $value["user_name"]?></a>
+                                        <a href="#" class="addMassuleMember" id="openMember<?php echo $i ?>" data-myid="<?php echo $login_userid[0]['user_id']?>" data-value="<?php echo $value['user_id']?>">マッスルメンバーに追加</a>
+                                    </div>
+                                    <section id="modalMember1" class="hidden">
+                                        <ul class="memberPostFollowPicture">
+                                            <p><?php echo $value["user_name"]?></p>
+                                            <p>投稿10件</p>
+                                            <p>マッスルメンバー10人</p>
+                                            <p>写真</p>
+                                            <p>マッスルメンバーに追加</p>
+                                        </ul>
+                                    </section>
+                                </li>
+                                <?php $i++ ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                 
                 
                         <hr class="other_border">
                         <li class="otherMember">
-                            <a href="#" class="aOtherMember" id="otherMemberIrekae">その他のメンバーを見る</a>
+                            <a href="#" class="aOtherMember" id="otherMemberChange">その他のメンバーを見る</a>
                         </li>
                     </ul>
                 </aside>
