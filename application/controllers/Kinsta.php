@@ -57,6 +57,8 @@ class Kinsta extends CI_Controller
 		$this->form_validation->set_rules("user_name", "ユーザ名", "required|trim");
 		$this->form_validation->set_rules("password", "パスワード", "required|trim|min_length[8]|max_length[16]|md5");
 
+		$this->load->model('Model_mypage');
+
 		//アイコン画像を変更する
 		$config['upload_path'] = './img/profile_img_userid_1';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -66,9 +68,14 @@ class Kinsta extends CI_Controller
 
 		$this->load->library('upload', $config);
 
+		//プロフィール画像の更新とpathのdb保存が出来ていない
+		if ($this->upload->do_upload('profile_image')) {
+			array('image_metadata' => $this->upload->data());
+		}
+
 		//Model_mypageのmypage_updateメソッドにアクセスし更新情報を渡す
 		// 更新情報を変数定義
-		$user_id = 48;
+		// $user_id = 48;
 		$profile_image = $this->upload->data('file_name');
 		$user_name = $this->input->post('user_name');
 		$introduction = $this->input->post('introduction');
@@ -78,7 +85,7 @@ class Kinsta extends CI_Controller
 
 		//変数を配列に格納
 		$user = [
-			'user_id' => $user_id,
+			// 'user_id' => $user_id,
 			'profile_image' => $profile_image,
 			'user_name' => $user_name,
 			'introduction' => $introduction,
@@ -86,7 +93,6 @@ class Kinsta extends CI_Controller
 			'E-mail' => $email,
 			'password' => $password,
 		];
-
 		//Model_mypageに送る
 		$this->Model_mypage->mypage_update($user);
 
@@ -124,14 +130,14 @@ class Kinsta extends CI_Controller
 
 		//Model_mypageのpost_addメソッドにアクセスしpost情報を渡す
 		// post情報を変数定義
-		$user_id = 48;
+		// $user_id = 48;
 		$list_image = $this->upload->data('file_name');
 		$post_message = $this->input->post('post_message');
 		$mymenu = $this->input->post('mymenu');
 		$mytraining = $this->input->post('mytraining');
 		//変数を配列に格納
 		$post = [
-			'user_id' => $user_id,
+			// 'user_id' => $user_id,
 			'list_image' => $list_image,
 			'post_message' => $post_message,
 			'mymenu' => $mymenu,

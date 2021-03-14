@@ -18,7 +18,6 @@ class Model_mypage extends CI_Model
     {
         //自らのプロフィール情報を取り出す ※ 自分判定
         $this->db->where('E-mail', $_SESSION['E-mail']);
-        // $this->db->where('user_id', 48);
         //dbのusersテーブルから取得
         $query = $this->db->get('users');
         //配列に入れる
@@ -27,7 +26,7 @@ class Model_mypage extends CI_Model
 
     public function mypage_update($user)
     {
-        $this->db->where('user_id', $_SESSION['E-mail']);
+        $this->db->where('E-mail', $_SESSION['E-mail']);
         $this->db->update('users', $user);
     }
 
