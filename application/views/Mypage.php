@@ -23,12 +23,12 @@
         <li class="sub_title">筋肉達との出会いがここに・・・</li>
         <li class="search_window"><input type="text" class="window_color" placeholder="検索"></li>
         <li class="uploadup">
-            <form action="/kinsta/add" method="post" enctype="multipart/form-data">
+        <form action="/kinsta/add" method="post" enctype="multipart/form-data">
                 <a href="javascript:document.pcUploadButton.submit()" data-toggle="modal" data-target="#postModal">
                     <span class="material-icons">cloud_upload</span>
                 </a>
                 <!-- 投稿Modal -->
-                <form action="/kinsta/add" method="post" enctype="multipart/form-data">
+                
                     <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content  border border-gray">
@@ -70,7 +70,7 @@
                     </div>
                 </form>
                 <!-- Modal -->
-            </form>
+    
         </li>
 
         <li class="login">
@@ -108,6 +108,7 @@
     </header>
     <!-- ヘッダーここまで -->
 
+    <!-- プロフィール編集 -->
     <form action="/Kinsta/mypage_update" method="post">
         <!-- <?php if (!empty($array_user)) : ?> -->
         <?php foreach ($array_user as $value) : ?>
@@ -156,11 +157,11 @@
                                 <div class="form-group">
                                     <label class="control-label">肉ネーム</label>
                                     <?php echo form_error('username'); ?>
-                                    <input name="user_name" class="form-control  bg-gray" type="text" placeholder="<?php echo $value['user_name']; ?>">
+                                    <input name="user_name" class="form-control  bg-gray" type="text" value="<?php echo $value['user_name']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">紹介文</label>
-                                    <input name="introduction" class="form-control  bg-gray" type="text" placeholder="<?php echo $value['introduction']; ?>">
+                                    <input name="introduction" class="form-control  bg-gray" type="text" value="<?php echo $value['introduction']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マッチョ区分</label>
@@ -182,9 +183,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">ID</label>
+                                    <label class="control-label">ID(E-mail)</label>
                                     <?php echo form_error('E-mail'); ?>
-                                    <input name="E-mail" class="form-control bg-gray" type="text" placeholder="<?php echo $value['E-mail']; ?>">
+                                    <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $value['E-mail']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
@@ -202,6 +203,7 @@
     <?php endif; ?>
         </div>
         <!-- Modal -->
+        </form>
 
         <!-- 写真一覧ループ処理 -->
         <div id="individual_img" class="img-list">
@@ -224,6 +226,7 @@
         <!-- 写真一覧 -->
 
         <!-- 個別ページ用のモーダル -->
+        <form action="/Kinsta/individual" method="post">
         <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-max" role="document">
                 <div class="modal-content border border-gray">
