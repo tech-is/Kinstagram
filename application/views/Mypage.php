@@ -23,12 +23,12 @@
         <li class="sub_title">筋肉達との出会いがここに・・・</li>
         <li class="search_window"><input type="text" class="window_color" placeholder="検索"></li>
         <li class="uploadup">
-            <form action="/kinsta/add" method="post" enctype="multipart/form-data">
+        <form action="/kinsta/add" method="post" enctype="multipart/form-data">
                 <a href="javascript:document.pcUploadButton.submit()" data-toggle="modal" data-target="#postModal">
                     <span class="material-icons">cloud_upload</span>
                 </a>
                 <!-- 投稿Modal -->
-                <form action="/kinsta/add" method="post" enctype="multipart/form-data">
+                
                     <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content  border border-gray">
@@ -70,7 +70,7 @@
                     </div>
                 </form>
                 <!-- Modal -->
-            </form>
+    
         </li>
 
         <li class="login">
@@ -108,6 +108,7 @@
     </header>
     <!-- ヘッダーここまで -->
 
+    <!-- プロフィール編集 -->
     <form action="/Kinsta/mypage_update" method="post">
         <!-- <?php if (!empty($array_user)) : ?> -->
         <?php foreach ($array_user as $value) : ?>
@@ -182,14 +183,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">ID</label>
+                                    <label class="control-label">ID(E-mail)</label>
                                     <?php echo form_error('E-mail'); ?>
                                     <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $value['E-mail']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
                                     <?php echo form_error('password'); ?>
-                                    <input name="password" class="form-control bg-gray" type="text" value="<?php echo $value['password']; ?>">
+                                    <input name="password" class="form-control bg-gray" type="text">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -202,6 +203,7 @@
     <?php endif; ?>
         </div>
         <!-- Modal -->
+        </form>
 
         <!-- 写真一覧ループ処理 -->
         <div id="individual_img" class="img-list">
@@ -217,13 +219,14 @@
             for ($i = 0; $i < $count; $i++) {
                 $file = pathinfo($img_list[$i]);
                 $file_name = $file["basename"];
-                echo '<img id="myImage" onclick="changeIt()" src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#individualModal">';
+                echo '<img class="myImage" src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#individualModal">';
             }
             ?>
         </div>
         <!-- 写真一覧 -->
 
         <!-- 個別ページ用のモーダル -->
+        <form action="/Kinsta/individual" method="post">
         <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-max" role="document">
                 <div class="modal-content border border-gray">
@@ -244,19 +247,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img class='post-img'
-                                    src=<?php
-                                    echo $bigimg;
-                                    $bigimg = <<<EOM
-                                    <script type="text/javascript">
-                                    $function changeIt() {
-                                    var name = document.getElementById("myImage").src;
-                                    console.log(name);
-                                    }
-                                    </script>
-                                    EOM;
-                                    ?>
-                                    alt="1">
+                                    <img id="post-img" class='post-img' src="" alt="1">
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -358,6 +349,13 @@
             });
             fileReader.readAsDataURL(obj.files[0]);
         }
+
+        //一覧画像をクリックするとモーダル表示
+        //https://stackoverflow.com/questions/26377231/jquery-how-to-change-img-src-path-onclick
+        $('.myImage').on('click', function() {
+            $('#post-img').prop('src', this.src);
+        });
     </script>
 </body>
 </html>
+
