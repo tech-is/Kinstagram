@@ -163,7 +163,7 @@ class Kinsta extends CI_Controller
 		$post_data['array_post'] = $this->Model_mypage->individual_get();
 		$post_data['array_user'] = $this->Model_mypage->mypage_get();
 		//  $dataを第二引数に入れてviewに送る
-		$this->load->view('Individual_img', $post_data);
+		$this->load->view('Mypage', $post_data);
 	}
 
 	public function individual_top()

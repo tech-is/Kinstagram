@@ -35,54 +35,9 @@
                 </div> -->
         </li>
         <li class="uploadup">
-            <form action="/kinsta/add" method="post" enctype="multipart/form-data">
                 <a href="javascript:document.pcUploadButton.submit()" data-toggle="modal" data-target="#postModal">
                     <span class="material-icons">cloud_upload</span>
                 </a>
-                <!-- 投稿Modal -->
-                <form action="/kinsta/add" method="post" enctype="multipart/form-data">
-                    <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content  border border-gray">
-                                <div class="modal-header bg-black">
-                                    <h5 class="modal-title bg-black" id="postModalLabel">New post</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body bg-black">
-                                    <!-- 参考URLhttps://blog.ver001.com/javascript_preview_canvas/ -->
-                                    <canvas id="preview" style="max-width:200px;"></canvas>
-                                    <?php
-                                    if (isset($error)) {
-                                        echo $error;
-                                    }
-                                    ?>
-                                    <input name="list_image" type="file" accept='image/*' onchange="previewImage(this);">
-
-                                    <div class="form-group">
-                                        <labelclass="control-label">メッセージ</label>
-                                            <textarea name="post_message" class="form-control bg-gray" cols="30" rows="5"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">マイメニュー</label>
-                                        <input name="mymenu" class="form-control bg-gray" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">マイトレーニング</label>
-                                        <input name="mytraining" class="form-control bg-gray" type="text">
-                                    </div>
-                                </div>
-                                <div class="modal-footer bg-black">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                                    <button type="submit" class="btn new-primary">投稿</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <!-- Modal -->
-            </form>
         </li>
 
         <li class="login">
@@ -254,24 +209,6 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="<?php echo ("/style/js/toppage.js"); ?>"></script>
-    <script>
-        //投稿用のモーダル
-        function previewImage(obj) {
-            var fileReader = new FileReader();
-            fileReader.onload = (function() {
-                var canvas = document.getElementById('preview');
-                var ctx = canvas.getContext('2d');
-                var image = new Image();
-                image.src = fileReader.result;
-                image.onload = (function() {
-                    canvas.width = image.width;
-                    canvas.height = image.height;
-                    ctx.drawImage(image, 0, 0);
-                });
-            });
-            fileReader.readAsDataURL(obj.files[0]);
-        }
-    </script>
 </body>
 
 </html>

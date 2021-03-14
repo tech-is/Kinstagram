@@ -71,7 +71,7 @@ class Model_users extends CI_Model
 
         if ($did_add_user) {        //did_add_userが成功したら以下を実行
             $this->db->where("key", $key);
-            $this->db->delete("temp_users");
+            //$this->db->delete("temp_users");
             return true;
         }
         return false;
