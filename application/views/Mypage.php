@@ -209,7 +209,7 @@
         <div id="individual_img" class="img-list">
             <?php
             //ディレクトリを取得
-            $img_fld = '/img/list_img_userid_1/';  //後で$_REQUESTにする
+            $img_fld = '/img/list_img_userid_1/ ';  //後で$_REQUESTにする
             //ディレクトリ内の一覧を取得する
             $img_list = glob('.' . $img_fld . '*');
             // var_dump($img_list);
@@ -358,3 +358,4 @@
     </script>
 </body>
 </html>
+

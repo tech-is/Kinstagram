@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="/style/css/header.css">
+    <link rel="stylesheet" href="/style/css/headerRankPage.css">
     <title>Kinstagram</title>
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"

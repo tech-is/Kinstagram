@@ -11,6 +11,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+    <body>
+        <header class="header_font_border">
+            <li class="titleLogo"><form method="post" action="/kinsta/top" name="topButton"><a href="javascript:document.topButton.submit()" class="titleLogoReroad">Kinstagram</a></form></li>
+            <li class="sub_title">筋肉達との出会いがここに・・・</li>
+            <li class="search_window">
+                <input id="keyword" type="text" value="" name="serchText" class="window_color" placeholder="検索" autocomplete="off">
+            </li>
+            <div id="serchResult" aria-hidden="true" class="serchBox hiddenSerch"></div>
+            
+            <li class="uploadup">
+                <form action="/kinsta/post" method="post" name="pcUploadButton">
+                    <a href="javascript:document.pcUploadButton.submit()">
+                        <span class="material-icons">cloud_upload</span>
+                    </a>
+                </form>
+            </li>
+            <li class="login">
+                <form method="get" action="/kinsta/logout">
+                    <input type="submit" class="btn-square-shadow" value="ログアウト">
+                </form>
+            </li>
+            <li class="mypage">
+                <form method="get" action="/kinsta/mypage">
+                    <input type="submit" class="btn-square-shadow" value="マイページ">
 
 <body>
     <header class="header_font_border">
@@ -154,6 +178,61 @@
                         <form method="get" action="/kinsta/footRank" name="footRankButton"><a href="javascript:document.footRankButton.submit()">足筋</a></form>
                     </li>
                 </ul>
+            </nav>
+            
+                  
+
+            
+            <div class="divMainAsaid">
+                <main id="mainPicture">
+                    <!-- <ul class="scroll" data-max="29" data-lastnum="9"> -->
+                   
+                    <ul class="scroll">
+                        <?php if (!empty($all_posts)) : ?>
+                        <?php foreach ($all_posts as $value) : ?>
+                            <li class="sizePicture">
+                                <img src="/img/<?php echo $value["list_image"]?>" alt="" class="allPhotos">
+                            </li>
+                        <?php endforeach; ?> 
+                        <?php endif;?>
+                    </ul>
+                    
+                </main>
+                <aside class="asideToreni asideToreni2">
+                    <ul class="asideUl">
+                        <li class="followToreni">おすすめトレーニー</li>
+                        <hr class="follow_border">
+                        <?php $i = 0;?>
+                        <?php if (!empty($five_data)) : ?>
+                            <?php foreach ($five_data as $value) : ?>
+                                <li class="asideIcon">
+                                    <a href="/kinsta/onlyMypage?userId=<?php echo $value['user_id'];?>" class="icon">
+                                        <img src="/img/<?php echo $value["profile_image"]?>" alt="" class="recommended">
+                                    </a>
+                                </li>
+                                <li class="name">
+                                    <div>
+                                        <a href="/kinsta/onlyMypage?userId=<?php echo $value['user_id'];?>" class="a_name"><?php echo $value["user_name"]?></a>
+                                        <a href="#" class="addMassuleMember" id="openMember<?php echo $i ?>" data-myid="<?php echo $login_userid[0]['user_id']?>" data-value="<?php echo $value['user_id']?>">マッスルメンバーに追加</a>
+                                    </div>
+                                    <section id="modalMember1" class="hidden">
+                                        <ul class="memberPostFollowPicture">
+                                            <p><?php echo $value["user_name"]?></p>
+                                            <p>投稿10件</p>
+                                            <p>マッスルメンバー10人</p>
+                                            <p>写真</p>
+                                            <p>マッスルメンバーに追加</p>
+                                        </ul>
+                                    </section>
+                                </li>
+                                <?php $i++ ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                
+                
+                        <hr class="other_border">
+                        <li class="otherMember">
+                            <a href="#" class="aOtherMember" id="otherMemberChange">その他のメンバーを見る</a>
             </div>
             <li class="select">
                 <div class="centerLine"><a href="#" class="a_select">セレクト</a></div>
