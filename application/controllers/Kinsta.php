@@ -296,7 +296,9 @@ class Kinsta extends CI_Controller
 	public function top()
 	{
 		$this->load->model('Kinsta_model');
+		$email = ($_SESSION["E-mail"]);
 		$data = null;
+		$data['login_userid']= $this->Kinsta_model->get_userid($email);
 		$data['ten_data'] = $this->Kinsta_model->random_member_ten();
 
 		$data['five_data'] = $this->Kinsta_model->random_member_five();
@@ -308,16 +310,51 @@ class Kinsta extends CI_Controller
 		// }
 
 	}
+	
 	public function serch()
 	{
+		
 		header("Content-Type: application/json; charset=utf-8");
 
-		$keyword = $this->input->post('keyword', true);
+		
+		$keyword = $this->input->post('serchText', true);
 		$this->load->model('Kinsta_model');
 		$data['match_data'] = $this->Kinsta_model->serch_for($keyword);
-		// $this->load->view('top_page');
-		$this->load->view('top_page', $data);
+		// var_dump($data);
+
+
+		echo json_encode(['message' => $data['match_data']]);
+		exit();
+		// var_dump($data['match_data'][0]['user_name']);
+		// echo json_encode(['message' => "$data['match_data'][0]['user_name']"]);
 	}
+
+
+
+
+	public function addMember()
+	{
+		header("Content-Type: application/json; charset=utf-8");
+		// header("Content-Type: application/x-www-form-urlencoded");
+		$data['uI'] = $this->input->post('uI', true);
+		$data['mU'] = $this->input->post('mU', true);
+
+		// log_message('debug', $keyword);
+		$this->load->model('Kinsta_model');
+
+		if ($this->Kinsta_model->addMember($data)){
+			echo json_encode(['message' => "メンバー追加しました"], JSON_UNESCAPED_UNICODE);
+		} else {
+			echo json_encode(['message' => "既に追加済みです"], JSON_UNESCAPED_UNICODE);
+		}
+			
+		exit();
+		
+	}
+
+
+
+
 
 	public function imagelist()
 	{
@@ -344,15 +381,35 @@ class Kinsta extends CI_Controller
 			//}
 		}
 	}
+	public function onlyMypage()
+	{
+		$id = $_GET['userId'] ?: null;
+		if (!empty($id) && is_numeric($id)) {
+			$this->load->model('Kinsta_model');
+			$data['myData'] = $this->Kinsta_model->mydata_get($id);
+			$this->load->view('header_page');
+			$this->load->view('only_mypage',$data);
+		}else{
+
+		}	
+	}
+	public function memberChange()
+	{
+		$this->load->model('Kinsta_model');
+		$data['five_Change']= $this->Kinsta_model->random_member_five();
+		echo json_encode(['message' => $data['five_Change']]);
+		exit();
+	}
 	public function select()
 	{
 		$this->load->view('header_page');
 		// $this->load->view('select_page');
 	}
+	
 	public function rank()
 	{
 		$this->load->model('Kinsta_model');
-		$data['total_rank'] = $this->Kinsta_model->total_rank();
+		// $data['total_rank'] = $this->Kinsta_model->total_rank();
 		$data['message_rank'] = $this->Kinsta_model->message_rank();
 		$data['favorite'] = $this->Kinsta_model->favorite_rank();
 
@@ -435,4 +492,5 @@ class Kinsta extends CI_Controller
 		$this->load->view('foot_rank_page', $data);
 	}
 }
+
 ///////////////////////////////////二宮///////////////////////////////////////////////////////////////

@@ -1,234 +1,269 @@
 'use strict';
-
-
-// $(function() {
-//     $("#serchBox").on("submit", function(){
   
-//       var input = $(".serchBox").val();
-  
-//       $.ajax({
-//         type: 'GET',
-//         url: '/kinsta/serch',
-//         data: { 
-//             keyword: input },
-//         dataType: 'json'
-//       }).done(
-//           function(data) {
-//         $("#serchText").empty();
-//         if (data.length !==0) {
-//           $("#serchText").append("インクリメンタルサーチの結果を表示させる記述");
-//         }
-//         else {
-//           $("#serchText").append("検索結果がない");
-//         }
-//       }).fail(
-//           function(){
-//         alert('映画検索に失敗しました');
-//       })
-// });
-
-$("#keyword").on('keyup', function() {
-    var input = $("#keyword").val();
+$("#keyword").on('keyup', () => {
+    let input = $("#keyword").val();
     $.ajax({
-                type: 'GET',
-                url: '/kinsta/serch',
-                data: { 
-                    'keyword':input },
-                dataType: 'json'
-              })
-              .done(
-                function(data) {
-                $(".list").empty();
-                if (data.length !==0) {
-                    $(".list").append("あり");
-                  }
-                  else {
-                    $(".list").append("無し");
-                  }
-                }).fail(
-                function() {
-                    alert('検索に失敗しました');
-                })
+            type: 'POST',
+            url: '/kinsta/serch',
+            data: {serchText:input},
+            dataType: 'json'
+            })
+            .done(
+            function(data) {
+            $(".serchBox").empty();
+            if (data.length !==0) {
+                console.log()
+                if(!input.trim()){
+                        let serchBox = document.getElementById('serchResult');
+                        serchBox.classList.add('hiddenSerch');
+                    }else{
+                        let serchBox = document.getElementById('serchResult');
+                        serchBox.classList.remove('hiddenSerch');
+                    
+                var html = "";
+                for(let n = 0; n< data.message.length; n++){
+                    html +="<div class=iconNameBox>";
+                    html +=`<a href="/kinsta/onlyMypage?userId=${data.message[n].user_id}" class="aInner">`
+                    html +="<div class='serchiconBox'><span class='innerName'><img class='serchIconProfile' src=/img/" + data.message[n].profile_image + "></span></div>";
+                    html += "<div class=serchnameBox>" + data.message[n].user_name + "</div>";
+                    // html +=`<form method='post' action='/kinsta/onlyMypage' name='iconNameButton'><input type='hidden' name='userId' value="${data.message[n].user_id}
+                    
+                    // html += "<div class='serchnameBox'><input type='submit' class='innerName' value='" + data.message[n].user_name + "'></div></form>";
+                    html +="</a></div>"
+                }
+                $('#serchResult').get(0).innerHTML = html;
+            }
+                }
+                else {
+                $(".list").append("無し");
+                }
+            }).fail(
+            function() {
+                alert('検索に失敗しました');
+            })
+    }
+);
+
+
+document.getElementById('otherMemberChange').addEventListener('click',()=>{
+    fetch("/kinsta/memberChange")
+    .then(function (res){
+        return res.json();
+    })
+    .then(function(users){
+        let dome = "/img/"
+        for(let i = 0; i < 5; i++ ){
+            document.getElementsByClassName('recommended')[i].src = dome + users.message[i].profile_image;
+            document.getElementsByClassName('a_name')[i].innerHTML = users.message[i].user_name;
+        }
+    });
+
 });
 
 
-// function serch_name(value){
- 
-// 	var send_value1=value;
-// 	var url="/kinsta/top";
-// 	var httpobj =new XMLHttpRequest();
-// 	httpobj.onreadystatechange = function() {
-//   		if (httpobj.readyState == 4) {
-//   			var result_value=httpobj.responseXML;
-//   			serch_output2(result_value);
-//   			}
-// 			};
-
-// 		httpobj.open("POST",url);
-// 		httpobj.setRequestHeader('Pragma', 'no-cache');
-// 		httpobj.setRequestHeader('Cache-Control', 'no-cache');
-// 		httpobj.setRequestHeader('If-Modified-Since', 'Thu, 01 Jun 1970 00:00:00 GMT');
-// 		httpobj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-// 		httpobj.send("send_value="+send_value1);
-// }
-
-// function serch_output2(xmldate){
-
-// var div_serch_result=document.getElementById("serch_result2");
-
-// if(div_serch_result.hasChildNodes){
-// 		// div_serch_result.removeChild(div_serch_result.firstChild);
-// }
-// var table=document.createElement("table");
-// var tbody=document.createElement("tbody");
-
-// var nodelist=xmldate.getElementsByTagName('list');
-
-// 	for(var i=0;i<nodelist.length;i++){
-// 	var row=document.createElement("tr");
-	
-// // ＤＢ取得データをテーブルobjに流し込む処理
-// 		for(var k=0;k<4;k++){
-// 			var cell=document.createElement("td");
-// 			cell.innerHTML=nodelist[i].childNodes[k].childNodes[0].nodeValue;
-// 			row.appendChild(cell);
-// 		}
-// 		tbody.appendChild(row);
-// 	}
-// 	table.appendChild(tbody);
-// 	table.border=1;
-// 	document.getElementById("serch_result2").appendChild(table);
-// }
 
 
 
 
-
-
-
-// document.getElementById('serchBox').addEventListener('submit',function(e){
-//     e.preventDefault();
-//     let input = document.getElementById('serchText');
-//     $.ajax({
-//         url:'/kinsta/serch',
-//         type: 'POST',
-//         data: {
-//             'keyword':input,
-//         },
-//         datatype: 'json'
-//     }).done(
-//         function(data) {
-//             document.getElementById('serchText').empty();
-//             if(data.length !==0){
-//                 document.getElementById('serchText').insertAdjacentHTML('afterend',insertHTML);
-//             }else{
-//                 alert("無し");
+// const onMussleMember = document.querySelectorAll('.addMassuleMember');
+// for(let i = 0; i < onMussleMember.length; i++){
+//     onMussleMember[i].addEventListener('click',()=>{
+        
+//         var d = onMussleMember[i].getAttribute('data-value');
+//         async (d)=>{
+//             const settings = {
+//                 method: 'POST',
+//                 headers: {
+//                     Accept: 'application/json',
+//                     'Content-Type': 'application/json',
+//                 },
+//                 body:JSON.stringify(d)
 //             }
+//             const fetchResponse = await fetch('kinsta/addMember', settings);
+//             try {
+//                 const data = await fetchResponse.json();
+//                 alert(data.message);
+//                 // return data;
+//             } catch (e) {
+//                 return e;
+//             }    
+//         }
+//     });
+// } 
+//         (url='/kinsta/addMember',data={data:1}){
+//             const response = await fetch(url,{
+//                 method:'POST',
+//                 headers:{
+//                     'Content-Type': 'application/json',
+//                 },
+//                 body: data
+//             });
+//             return response.json();
+        
+//         }
+//         pD()
+//         .then(data => {
 //             alert(data.message);
-            // var dataobj = JSON.parse(data);
-            // console.log(dataobj.message);
-            // console.log(obj.message);
-//         }).fail(
-//         function(){
-//             alert('失敗しました');
-//         })
-// });
+//         });
+//     });
+// }
+    
+
+
+// const onMussleMember = document.querySelectorAll('.addMassuleMember');
+// for(let i = 0; i < onMussleMember.length; i++){
+    // onMussleMember[0].addEventListener('click',()=>{
+    //     let s = onMussleMember[0].getAttribute('data-value');
+    //     var formData = new FormData();
+    //     formData.append('key', 2);
+    // fetch('/kinsta/addMember',{
+    //     method:'POST',
+    //     body:formData,
+    //     headers: {
+            // 'Content-Type': 'application/json',
+    
+            // "Content-Type": "application/x-www-form-urlencoded"
+    //       },
+        
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //     // console.log(data.message);
+    //     alert(data.message);
+    //   })
+    //   .catch((error) => {
+    //     alert('Error:', error);
+    //   });
+    
+    
+    // });
+// }
+//マッスルメンバ追加
+const onMussleMember = document.querySelectorAll('.addMassuleMember');
+for(let i = 0; i < onMussleMember.length; i++){
+        onMussleMember[i].addEventListener('click',()=>{
+            let userId = onMussleMember[i].getAttribute('data-value');
+            let loginUserId = onMussleMember[i].getAttribute('data-myid');
+            // console.log(loginUserId);
+            $.ajax({
+                type: 'POST',
+                url: '/kinsta/addMember',
+                data: {
+                    uI:userId,
+                    mU:loginUserId
+                },
+                dataType: 'json'
+                })
+            .done(
+            function(data) {
+                alert(data.message);
+        }).fail(
+        function() {
+            alert('検索に失敗しました');
+        });
+    });
+}
+
+
+
+
+
 
 
 
 
 
 //６００以上の時モーダル
-{
-    const openMember1 = document.getElementById('openMember1');
-    const modalMember1 = document.getElementById('modalMember1');
-    const memberPostFollowPicture = document.getElementsByClassName('memberPostFollowPicture');
+// {
+//     const openMember1 = document.getElementById('openMember1');
+//     const modalMember1 = document.getElementById('modalMember1');
+//     const memberPostFollowPicture = document.getElementsByClassName('memberPostFollowPicture');
     
     
     
 
-    openMember1.addEventListener('mouseenter',()=>{
-        modalMember1.classList.remove('hidden');
-            for(let i = 0; i < 5 ; i++){
-                let listi = document.createElement('li');
-                memberPostFollowPicture[0].appendChild(listi);
-                switch(i){
-                    case 0:
-                        listi.innerHTML = toreni.list.toreni[0].post;
-                        break;
-                    case 1:
-                        listi.innerHTML = toreni.list.toreni[0].follower;
-                        break;
-                    case 2:
-                        listi.innerHTML = toreni.list.toreni[0].follow;
-                        break;
-                    case 3:
-                        let imgi = document.createElement('img');
-                        imgi.classList.add('followMemberPicture21');
-                        imgi.src = toreni.list.toreni[0].images[0].image;
-                        listi.appendChild(imgi);
-                        break;
-                    case 4:
-                        listi.innerHTML = toreni.list.toreni[0].images[1].image2;
-                        break;
-                }
-            }
+//     openMember1.addEventListener('mouseenter',()=>{
+//         modalMember1.classList.remove('hidden');
+//             for(let i = 0; i < 5 ; i++){
+//                 let listi = document.createElement('li');
+//                 memberPostFollowPicture[0].appendChild(listi);
+//                 switch(i){
+//                     case 0:
+//                         listi.innerHTML = toreni.list.toreni[0].post;
+//                         break;
+//                     case 1:
+//                         listi.innerHTML = toreni.list.toreni[0].follower;
+//                         break;
+//                     case 2:
+//                         listi.innerHTML = toreni.list.toreni[0].follow;
+//                         break;
+//                     case 3:
+//                         let imgi = document.createElement('img');
+//                         imgi.classList.add('followMemberPicture21');
+//                         imgi.src = toreni.list.toreni[0].images[0].image;
+//                         listi.appendChild(imgi);
+//                         break;
+//                     case 4:
+//                         listi.innerHTML = toreni.list.toreni[0].images[1].image2;
+//                         break;
+//                 }
+//             }
 
-    });
+//     });
 
-    openMember1.addEventListener('mouseleave',()=>{
-        modalMember1.classList.add('hidden');
-    });
-}
+//     openMember1.addEventListener('mouseleave',()=>{
+//         modalMember1.classList.add('hidden');
+//     });
+// }
 
-{
-    const openMember2 = document.getElementById('openMember1');
-    const modalMember2 = document.getElementById('modalMember1 ');
+// {
+//     const openMember2 = document.getElementById('openMember1');
+//     const modalMember2 = document.getElementById('modalMember1 ');
 
-    openMember2.addEventListener('mouseenter',()=>{
-        modalMember2.classList.remove('hidden');
-    });
+//     openMember2.addEventListener('mouseenter',()=>{
+//         modalMember2.classList.remove('hidden');
+//     });
 
-    openMember2.addEventListener('mouseleave',()=>{
-        modalMember2.classList.add('hidden');
-    });
-}
-{
-    const openMember3 = document.getElementById('openMember1');
-    const modalMember3 = document.getElementById('modalMember1');
+//     openMember2.addEventListener('mouseleave',()=>{
+//         // modalMember2.classList.add('hidden');
+//     });
+// }
+// {
+//     const openMember3 = document.getElementById('openMember1');
+//     const modalMember3 = document.getElementById('modalMember1');
 
-    openMember3.addEventListener('mouseenter',()=>{
-        modalMember3.classList.remove('hidden');
-    });
+//     openMember3.addEventListener('mouseenter',()=>{
+//         modalMember3.classList.remove('hidden');
+//     });
 
-    openMember3.addEventListener('mouseleave',()=>{
-        modalMember3.classList.add('hidden');
-    });
-}
-{
-    const openMember4 = document.getElementById('openMember1');
-    const modalMember4 = document.getElementById('modalMember1');
+//     openMember3.addEventListener('mouseleave',()=>{
+//         modalMember3.classList.add('hidden');
+//     });
+// }
+// {
+//     const openMember4 = document.getElementById('openMember1');
+//     const modalMember4 = document.getElementById('modalMember1');
 
-    openMember4.addEventListener('mouseenter',()=>{
-        modalMember4.classList.remove('hidden');
-    });
+//     openMember4.addEventListener('mouseenter',()=>{
+//         modalMember4.classList.remove('hidden');
+//     });
 
-    openMember4.addEventListener('mouseleave',()=>{
-        modalMember4.classList.add('hidden');
-    });
-}
-{
-    const openMember5 = document.getElementById('openMember1');
-    const modalMember5 = document.getElementById('modalMember1');
+//     openMember4.addEventListener('mouseleave',()=>{
+//         modalMember4.classList.add('hidden');
+//     });
+// }
+// {
+//     const openMember5 = document.getElementById('openMember1');
+//     const modalMember5 = document.getElementById('modalMember1');
 
-    openMember5.addEventListener('mouseenter',()=>{
-        modalMember5.classList.remove('hidden');
-    });
+//     openMember5.addEventListener('mouseenter',()=>{
+//         modalMember5.classList.remove('hidden');
+//     });
 
-    openMember5.addEventListener('mouseleave',()=>{
-        modalMember5.classList.add('hidden');
-    });
-}
+//     openMember5.addEventListener('mouseleave',()=>{
+//         modalMember5.classList.add('hidden');
+//     });
+// }
 
 
 
@@ -243,35 +278,35 @@ $("#keyword").on('keyup', function() {
 
 
     //おすすめトレーニー入れ替え
-    let otherMemberIrekae = document.getElementById("otherMemberIrekae");
-    otherMemberIrekae.addEventListener('click',() => {
+    // let otherMemberChange = document.getElementById("otherMemberChange");
+    // otherMemberChange.addEventListener('click',() => {
 
        
-        const iconNew1 = document.getElementById('icon1');
-        iconNew1.src = toreni.list.toreni[0].images[0].image;
-        const openMember1 = document.getElementById('openMember1');
-        openMember1.textContent = toreni.list.toreni[0].name;
+    //     const iconNew1 = document.getElementById('icon1');
+    //     iconNew1.src = toreni.list.toreni[0].images[0].image;
+    //     const openMember1 = document.getElementById('openMember1');
+    //     openMember1.textContent = toreni.list.toreni[0].name;
         
-        const iconNew2 = document.getElementById('icon2');
-        iconNew2.src = images[1];
-        const openMember2 = document.getElementById('openMember2');
-        openMember2.textContent = names[1];
+    //     const iconNew2 = document.getElementById('icon2');
+    //     iconNew2.src = images[1];
+    //     const openMember2 = document.getElementById('openMember2');
+    //     openMember2.textContent = names[1];
         
-        const iconNew3 = document.getElementById('icon3');
-        iconNew3.src = images[2];
-        const openMember3 = document.getElementById('openMember3');
-        openMember3.textContent = names[2];
+    //     const iconNew3 = document.getElementById('icon3');
+    //     iconNew3.src = images[2];
+    //     const openMember3 = document.getElementById('openMember3');
+    //     openMember3.textContent = names[2];
 
-        const iconNew4 = document.getElementById('icon4');
-        iconNew4.src = images[3];
-        const openMember4 = document.getElementById('openMember4');
-        openMember4.textContent = names[3];
+    //     const iconNew4 = document.getElementById('icon4');
+    //     iconNew4.src = images[3];
+    //     const openMember4 = document.getElementById('openMember4');
+    //     openMember4.textContent = names[3];
 
-        const iconNew5 = document.getElementById('icon5');
-        iconNew5.src = images[4];
-        const openMember5 = document.getElementById('openMember5');
-        openMember5.textContent = names[4];
-    });
+    //     const iconNew5 = document.getElementById('icon5');
+    //     iconNew5.src = images[4];
+    //     const openMember5 = document.getElementById('openMember5');
+    //     openMember5.textContent = names[4];
+    // });
 
 
 
