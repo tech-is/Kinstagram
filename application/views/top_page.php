@@ -116,10 +116,6 @@
                     </li>
                 </ul>
             </nav>
-            
-                  
-
-            
             <div class="divMainAsaid">
                 <main id="mainPicture">
                     <!-- <ul class="scroll" data-max="29" data-lastnum="9"> -->
