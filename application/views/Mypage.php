@@ -18,59 +18,59 @@
 <body class="body">
     <header class="header_font_border">
         <li class="titleLogo">
-            <form method="post" action="/kinsta/top" name="topButton"><a href="javascript:document.topButton.submit()" class="titleLogoReroad">Kinstagram</a></form>
+            <form method="post" action="/kinsta/top" name="topButton">
+                <a href="javascript:document.topButton.submit()" class="titleLogoReroad">Kinstagram</a>
+            </form>
         </li>
         <li class="sub_title">筋肉達との出会いがここに・・・</li>
         <li class="search_window"><input type="text" class="window_color" placeholder="検索"></li>
         <li class="uploadup">
+            <a href="javascript:document.pcUploadButton.submit()" data-toggle="modal" data-target="#postModal">
+                <span class="material-icons">cloud_upload</span>
+            </a>
+            <!-- 投稿Modal -->
             <form action="/kinsta/add" method="post" enctype="multipart/form-data">
-                <a href="javascript:document.pcUploadButton.submit()" data-toggle="modal" data-target="#postModal">
-                    <span class="material-icons">cloud_upload</span>
-                </a>
-                <!-- 投稿Modal -->
-                <form action="/kinsta/add" method="post" enctype="multipart/form-data">
-                    <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content  border border-gray">
-                                <div class="modal-header bg-black">
-                                    <h5 class="modal-title bg-black" id="postModalLabel">New post</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body bg-black">
-                                    <!-- 参考URLhttps://blog.ver001.com/javascript_preview_canvas/ -->
-                                    <canvas id="preview" style="max-width:200px;"></canvas>
-                                    <?php
-                                    if (isset($error)) {
-                                        echo $error;
-                                    }
-                                    ?>
-                                    <input name="list_image" type="file" accept='image/*' onchange="previewImage(this);">
+                <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content  border border-gray">
+                            <div class="modal-header bg-black">
+                                <h5 class="modal-title bg-black" id="postModalLabel">New post</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body bg-black">
+                                <!-- 参考URLhttps://blog.ver001.com/javascript_preview_canvas/ -->
+                                <canvas id="preview" style="max-width:200px;"></canvas>
+                                <?php
+                                if (isset($error)) {
+                                    echo $error;
+                                }
+                                ?>
+                                <input name="list_image" type="file" accept='image/*' onchange="previewImage(this);">
 
-                                    <div class="form-group">
-                                        <labelclass="control-label">メッセージ</label>
-                                            <textarea name="post_message" class="form-control bg-gray" cols="30" rows="5"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">マイメニュー</label>
-                                        <input name="mymenu" class="form-control bg-gray" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">マイトレーニング</label>
-                                        <input name="mytraining" class="form-control bg-gray" type="text">
-                                    </div>
+                                <div class="form-group">
+                                    <labelclass="control-label">メッセージ</label>
+                                        <textarea name="post_message" class="form-control bg-gray" cols="30" rows="5"></textarea>
                                 </div>
-                                <div class="modal-footer bg-black">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                                    <button type="submit" class="btn new-primary">投稿</button>
+                                <div class="form-group">
+                                    <label class="control-label">マイメニュー</label>
+                                    <input name="mymenu" class="form-control bg-gray" type="text">
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label">マイトレーニング</label>
+                                    <input name="mytraining" class="form-control bg-gray" type="text">
+                                </div>
+                            </div>
+                            <div class="modal-footer bg-black">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                                <button type="submit" class="btn new-primary">投稿</button>
                             </div>
                         </div>
                     </div>
-                </form>
-                <!-- Modal -->
+                </div>
             </form>
+            <!-- Modal -->
         </li>
 
         <li class="login">
@@ -108,29 +108,29 @@
     </header>
     <!-- ヘッダーここまで -->
 
-    <form action="/Kinsta/mypage_update" method="post">
-        <!-- <?php if (!empty($array_user)) : ?> -->
-        <?php foreach ($array_user as $value) : ?>
-            <div class="profile">
-                <div class="profile-inline">
-                    <div class="profile-img">
-                        <img src="/img/142135.png">
-                    </div>
-                    <div>
-                        <p class="user_name text-center" name="user_name">
-                            <?php echo $value['user_name']; ?>
-                        </p>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn new-primary" name="profile_image" data-toggle="modal" data-target="#exampleModal">
-                            プロフィール編集
-                        </button>
-                    </div>
+    <!-- <?php if (!empty($array_user)) : ?> -->
+    <?php foreach ($array_user as $value) : ?>
+        <div class="profile">
+            <div class="profile-inline">
+                <div class="profile-img">
+                    <img src="/img/142135.png">
+                </div>
+                <div>
+                    <p class="user_name text-center" name="user_name">
+                        <?php echo $value['user_name']; ?>
+                    </p>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn new-primary" name="profile_image" data-toggle="modal" data-target="#exampleModal">
+                        プロフィール編集
+                    </button>
                 </div>
             </div>
-        <?php endforeach; ?>
-        <!-- <?php endif; ?> -->
+        </div>
+    <?php endforeach; ?>
+    <!-- <?php endif; ?> -->
 
-        <!-- マイページ編集用のModal -->
+    <!-- マイページ編集用のModal -->
+    <form action="/Kinsta/mypage_update" method="post">
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <?php if (!empty($array_user)) : ?>
@@ -189,7 +189,7 @@
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
                                     <?php echo form_error('password'); ?>
-                                    <input name="password" class="form-control bg-gray" type="text" value="<?php echo $value['password']; ?>">
+                                    <input name="password" class="form-control bg-gray" type="text">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -201,35 +201,37 @@
         <?php endforeach; ?>
     <?php endif; ?>
         </div>
-        <!-- Modal -->
+    </form>
+    <!-- Modal -->
 
-        <!-- 写真一覧ループ処理 -->
-        <div id="individual_img" class="img-list">
-            <?php
-            //ディレクトリを取得
-            $img_fld = '/img/list_img_userid_1/ ';  //後で$_REQUESTにする
-            //ディレクトリ内の一覧を取得する
-            $img_list = glob('.' . $img_fld . '*');
-            // var_dump($img_list);
-            //画像の枚数を取得
-            $count = count($img_list);
-            //  画像を表示
-            for ($i = 0; $i < $count; $i++) {
-                $file = pathinfo($img_list[$i]);
-                $file_name = $file["basename"];
-                echo '<img id="myImage" onclick="changeIt()" src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#individualModal">';
-            }
-            ?>
-        </div>
-        <!-- 写真一覧 -->
+    <!-- 写真一覧ループ処理 -->
+    <div id="individual_img" class="img-list">
+        <?php
+        //ディレクトリを取得
+        $img_fld = '/img/list_img_userid_1/';  //後で$_REQUESTにする
+        //ディレクトリ内の一覧を取得する
+        $img_list = glob('.' . $img_fld . '*');
+        // var_dump($img_list);
+        //画像の枚数を取得
+        $count = count($img_list);
+        //  画像を表示
+        for ($i = 0; $i < $count; $i++) {
+            $file = pathinfo($img_list[$i]);
+            $file_name = $file["basename"];
+            echo '<img class="myImage" src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#individualModal">';
+        }
+        ?>
+    </div>
+    <!-- 写真一覧 -->
 
-        <!-- 個別ページ用のモーダル -->
+    <!-- 個別ページ用のモーダル -->
+    <form action="/Kinsta/individual" method="get">
         <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-max" role="document">
                 <div class="modal-content border border-gray">
                     <div class="modal-header bg-black">
                         <?php foreach ($array_user as $value) : ?>
-                            <img src="/img/142135.png">
+                            <img src="/img/142136.png">
                             <h5 class="modal-title bg-black" id="individualModalLabel">
                                 <?php echo $value['user_name']; ?>
                             </h5>
@@ -244,19 +246,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img class='post-img'
-                                    src=<?php
-                                    echo $bigimg;
-                                    $bigimg = <<<EOM
-                                    <script type="text/javascript">
-                                    $function changeIt() {
-                                    var name = document.getElementById("myImage").src;
-                                    console.log(name);
-                                    }
-                                    </script>
-                                    EOM;
-                                    ?>
-                                    alt="1">
+                                    <img id="post-img" class='post-img' src="" alt="1">
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -358,6 +348,13 @@
             });
             fileReader.readAsDataURL(obj.files[0]);
         }
+
+        //一覧画像をクリックするとモーダル表示
+        //https://stackoverflow.com/questions/26377231/jquery-how-to-change-img-src-path-onclick
+        $('.myImage').on('click', function() {
+            $('#post-img').prop('src', this.src);
+        });
     </script>
 </body>
+
 </html>
