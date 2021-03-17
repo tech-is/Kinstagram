@@ -71,9 +71,24 @@ class Model_users extends CI_Model
 
         if ($did_add_user) {        //did_add_userが成功したら以下を実行
             $this->db->where("key", $key);
-            //$this->db->delete("temp_users");
             return true;
         }
         return false;
+    }
+
+    public function temp_login($key)
+    {
+        $this->db->where("key", $key);
+        $query = $this->db->get('temp_users');
+
+        if ($query) {
+            $row = $query->row();
+            $session_data = array(
+                "E-mail" => $row->{'E-mail'},
+                "is_logged_in" => 1
+            );
+            return $session_data;
+        }
+        return $query->result_array();
     }
 }

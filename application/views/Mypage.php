@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/style/css/header_mypage.css">
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/iine_app/iine.css">
 </head>
 
 
@@ -190,7 +191,7 @@
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
                                     <?php echo form_error('password'); ?>
-                                    <input name="password" class="form-control bg-gray" type="text">
+                                    <input type="password" name="password" class="form-control bg-gray" type="text">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -267,27 +268,37 @@
                                             <div class="good-btn-icon">
                                                 <image src="/img/button/ude.png" alt="腕">
                                                     <div class="good-btn-text">腕キレてるね</div>
-                                                    <div class="good-count">326</div>
+                                                    <div class="iframe">
+                                                        <iframe src="/iine/iine1.html" class="iineiframe"></iframe>
+                                                    </div>
                                             </div>
                                             <div class="good-btn-icon">
                                                 <img src="/img/button/mune.jpg" alt="胸">
                                                 <div class="good-btn-text">胸キレてるね</div>
-                                                <div class="good-count">481</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine2.html" class="iineiframe"></iframe>
+                                                </div>
                                             </div>
                                             <div class="good-btn-icon">
                                                 <img src="/img/button/kata.png" alt="肩">
                                                 <div class="good-btn-text">肩キレてるね</div>
-                                                <div class="good-count">1000</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine3.html" class="iineiframe"></iframe>
+                                                </div>
                                             </div>
                                             <div class="good-btn-icon">
                                                 <img src="/img/button/hara.png" alt="腹">
                                                 <div class="good-btn-text">腹キレてるね</div>
-                                                <div class="good-count">5</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine4.html" class="iineiframe"></iframe>
+                                                </div>
                                             </div>
                                             <div class="good-btn-icon">
                                                 <img src="/img/button/ashi.png" alt="足">
                                                 <div class="good-btn-text">足キレてるね</div>
-                                                <div class="good-count">0</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine5.html" class="iineiframe"></iframe>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -356,6 +367,7 @@
             $('#post-img').prop('src', this.src);
         });
     </script>
+    <script src="/iine_app/iine.js"></script>
 </body>
 
 </html>
