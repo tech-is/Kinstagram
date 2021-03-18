@@ -459,11 +459,11 @@ if(innerWidth <= 500){
 
 
 
-    const scroll = document.querySelectorAll('.scroll')
-    const clientHeight = document.documentElement.clientHeight;
+//     const scroll = document.querySelectorAll('.scroll')
+//     const clientHeight = document.documentElement.clientHeight;
 
     
-    scroll.forEach(elm => {
+//     scroll.forEach(elm => {
        
         // console.log(bodyScroll.scrollTop);
         // console.log(bodyScroll.clientHeight);
@@ -485,9 +485,9 @@ if(innerWidth <= 500){
                 
                     // slideNo++;
                     
-                    if (bodyScroll.scrollTop + bodyScroll.clientHeight >= bodyScroll.scrollHeight*0.8) {
+//                     if (bodyScroll.scrollTop + bodyScroll.clientHeight >= bodyScroll.scrollHeight*0.8) {
                         // スクロールが末尾に達した
-                        ;
+//                         ;
                         // console.log(slides);
                         // if (parseInt(elm.dataset.lastnum) < parseInt(elm.dataset.max)) {
                             // 未ロードの画像がある場合
@@ -497,17 +497,17 @@ if(innerWidth <= 500){
                         // }
                             
                         //  }
-                    elm.dataset.lastnum = parseInt(elm.dataset.lastnum) + 1;
-                    let img = document.createElement('img');
+//                     elm.dataset.lastnum = parseInt(elm.dataset.lastnum) + 1;
+//                     let img = document.createElement('img');
                     // console.log(img);
 
-                    img.src = "/assets/kinsta_img/" + [elm.dataset.lastnum] +'.jpg';
+//                     img.src = "/assets/kinsta_img/" + [elm.dataset.lastnum] +'.jpg';
                     // console.log(img.src);
-                    elm.appendChild(img);
+//                     elm.appendChild(img);
                 
 
                     
-                    }
+//                     }
                 // };
                 const mainP = document.getElementById("mainPicture");
                 const asideToreni = document.getElementsByClassName("asideToreni");
