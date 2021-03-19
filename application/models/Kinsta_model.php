@@ -8,23 +8,53 @@ class Kinsta_model extends CI_Model
         $this->load->database();
     }
 
+    // public function random_member_ten()
+    // {
+    //     return $this->db
+    //     ->limit(10)
+    //     ->order_by('users.user_id', 'RANDOM')
+    //     ->join('followers', 'users.user_id = followers.user_id','left')
+    //     ->distinct()
+    //     ->select('users.user_name,followers.follower_number,users.profile_image')
+    //     ->get('users')
+    //     ->result_array();
+    // }
+    public function get_userid($email)
+    {
+        return $this->db
+                    ->where('users.E-mail',$email)
+                    ->select('users.user_id')
+                    ->get('users')
+                    ->result_array();
+    }
     public function random_member_ten()
     {
         return $this->db
-        ->order_by(10, 'RANDOM')
-        ->join('followers', 'users.user_id = followers.user_id','left')
+        ->limit(10)
+        ->order_by('users.user_id', 'RANDOM')
         ->distinct()
-        ->select('users.user_name,followers.follower_number,users.profile_image')
+        ->select('users.user_name,users.profile_image')
         ->get('users')
         ->result_array();
     }
+    // public function random_member_five()
+    // {
+    //     return $this->db
+    //     ->limit(5)
+    //     ->order_by('users.user_id','RANDOM')
+    //     ->join('followers', 'users.user_id = followers.user_id','left')
+    //     ->distinct()
+    //     ->select('users.user_name,users.user_id,followers.follower_number,users.profile_image')
+    //     ->get('users')
+    //     ->result_array();
+    // }
     public function random_member_five()
     {
         return $this->db
-        ->order_by(5, 'RANDOM')
-        ->join('followers', 'users.user_id = followers.user_id','left')
+        ->limit(5)
+        ->order_by('users.user_id','RANDOM')
         ->distinct()
-        ->select('users.user_name,users.user_id,followers.follower_number,users.profile_image')
+        ->select('users.user_name,users.user_id,users.profile_image')
         ->get('users')
         ->result_array();
     }
@@ -34,19 +64,57 @@ class Kinsta_model extends CI_Model
                         ->result_array();
 
     }
-    public function images_get($id)
+    //マッスルメンバー追加/解除
+    public function addMember($data)
     {
-        return $this->db->where('user_id',$id)
-        ->select('user_id,list_image')
-        ->get('posts')
-        ->result_array();
+        $array = array(
+            'followed_id' => $data['loginId'],
+            'following_id' => $data['memberUserId'],
+        );
+        $dataResult = $this->db->get_where("followers", $array)->row_array();
+       
+        if(!empty($dataResult)){
+            $this->db->delete('followers', $array);
+
+            return false;
+        }
+            $this->db
+            ->insert('followers', $array);
+            return true;
     }
-    public function icon_get($id)
+    //解除/追加
+    public function addOrDelete($data)
     {
-        return $this->db->where('user_id',$id)
-        ->select('user_id,profile_image')
-        ->get('users')
-        ->result_array();
+        if(!empty($data['loginId'])&&($data['memberUserId'])){
+            $add_Rerease = array(
+                'followed_id' => $data['loginId'],
+                'following_id' => $data['memberUserId'],
+            );
+        }else if(!empty($data[0]['loginId']&&$data[0]['memberUserId'])){
+            $memberChange_add_Rerease = array(
+                'followed_id' => $data[0]['loginId'],
+                'following_id' => $data[0]['memberUserId'],
+            );
+        }
+            if(!empty($add_Rerease)){
+                $dataResult = $this->db->get_where("followers", $add_Rerease)->row_array();
+            }else if(!empty($memberChange_add_Rerease)){
+                $dataResult = $this->db->get_where("followers", $memberChange_add_Rerease)->row_array();
+            }
+                if(!empty($dataResult)){
+                    return false;
+                }
+            return true;
+    }
+ 
+    public function mydata_get($id)
+    {
+        return $this->db
+                    ->where('users.user_id',$id)
+                    ->join('posts','posts.user_id=users.user_id','left')
+                    ->select('users.profile_image,users.user_name,posts.list_image')
+                    ->get('users')
+                    ->result_array();
     }
     public function message_rank()
     {
@@ -65,10 +133,10 @@ class Kinsta_model extends CI_Model
         ->where('favorite_pattern','1')
         ->join('posts', 'favorites.post_id=posts.post_id', 'left')
         ->join('users as test','test.user_id=posts.user_id','left')
-        ->join('followers','followers.user_id=posts.user_id','left')
+        // ->join('followers','followers.user_id=posts.user_id','left')
         ->join('comments','comments.post_id=posts.post_id ','left')
         ->join('users as comment_user','comments.comment_user_id=comment_user.user_id','left')
-        ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+        ->select('test.user_name,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
                     comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
         ->get('favorites')
         ->result_array();
@@ -83,7 +151,7 @@ class Kinsta_model extends CI_Model
         ->where('favorite_pattern','2')
         ->join('posts', 'favorites.post_id=posts.post_id', 'left')
         ->join('users as test','test.user_id=posts.user_id','left')
-        ->join('followers','followers.user_id=posts.user_id','left')
+        // ->join('followers','followers.user_id=posts.user_id','left')
         ->join('comments','comments.post_id=posts.post_id ','left')
         ->join('users as comment_user','comments.comment_user_id=comment_user.user_id','left')
         ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
@@ -168,20 +236,21 @@ class Kinsta_model extends CI_Model
         // return $serchWord;
         
         return $this->db
-        ->distinct()
+        ->group_by('users.user_name')
         ->like('users.user_name',$keyword,'after')
         ->or_like('comments.text_group', $keyword,'both')
         ->or_like('posts.post_message',$keyword,'both')
-        ->or_like('followers.follower_number',$keyword,'both')
+        // ->or_like('followers.follower_number',$keyword,'both')
 
         // ->join('favorites','favorites.post_id = posts.post_id','left')
-        ->join('followers','followers.user_id = comments.user_id','right')
+        // ->join('followers','followers.user_id = comments.user_id','right')
         ->join('posts', 'posts.user_id = comments.user_id','right')
         ->join('users', 'users.user_id = comments.user_id','right')
         // ->join('comments', 'comments.user_id = users.user_id','left')
         // ->select('users.user_name,followers.follower_number,users.profile_image')
-        ->select('users.user_name,posts.post_id,followers.follower_number')
+        ->select('users.user_name,users.profile_image,users.user_id,posts.post_id')
         ->get('comments')
+        
         ->result_array();
     }
 }

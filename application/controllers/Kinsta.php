@@ -1,7 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-
+// class Api extends CI_Controller
+//  {}
+// class Kinsta extends CI_Controller
+// class Kinsta extends Api
 class Kinsta extends CI_Controller
 {
 
@@ -296,6 +299,8 @@ class Kinsta extends CI_Controller
 	public function top()
 	{
 		$this->load->model('Kinsta_model');
+		
+		$email = ($_SESSION["E-mail"]);
 		$data = null;
 		$data['ten_data'] = $this->Kinsta_model->random_member_ten();
 
@@ -306,43 +311,101 @@ class Kinsta extends CI_Controller
 		// } else {
 		// 		redirect("kinsta/lp");
 		// }
-
+		
 	}
 	public function serch()
 	{
+		
 		header("Content-Type: application/json; charset=utf-8");
-
-		$keyword = $this->input->post('keyword', true);
+		
+		$keyword = $this->input->post('serchText', true);
+		// var_dump($keyword);
 		$this->load->model('Kinsta_model');
 		$data['match_data'] = $this->Kinsta_model->serch_for($keyword);
-		// $this->load->view('top_page');
-		$this->load->view('top_page', $data);
+		// var_dump($data);
+		
+		
+		echo json_encode(['message' => $data['match_data']]);
+		exit();
+		// var_dump($data['match_data'][0]['user_name']);
+		// echo json_encode(['message' => "$data['match_data'][0]['user_name']"]);
+	}
+	
+	
+	
+
+	public function addMember()
+	{
+		header("Content-Type: application/json; charset=UTF-8");
+		$data = file_get_contents('php://input');
+		$data =json_decode($data,true);
+		$this->load->model('Kinsta_model');
+		if ($this->Kinsta_model->addMember($data)){
+			echo json_encode(['message' => "マッスルメンバー解除"], JSON_UNESCAPED_UNICODE);
+		} else {
+			echo json_encode(['message' => "マッスルメンバー追加"], JSON_UNESCAPED_UNICODE);
+		}
+		exit();
 	}
 
-	public function imagelist()
+	public function addOrDelete()
 	{
-		$id = $this->input->post('user_id') ?: null;
+		header("Content-Type: application/json; charset=UTF-8");
+		
+		$data['memberUserId'] = $this->input->post('memberUserId', true);
+		$data['loginId'] = $this->input->post('loginId', true);
+		// var_dump($data);
+		// $data1 =json_decode($data,true);
+		// file_put_contents('data.txt',$data1);
+		$this->load->model('Kinsta_model');
+		if ($this->Kinsta_model->addOrDelete($data)){
+			echo json_encode(['add' => "マッスルメンバー追加"], JSON_UNESCAPED_UNICODE);
+		} else {
+			echo json_encode(['alreadyAdd' => "マッスルメンバー解除"], JSON_UNESCAPED_UNICODE);
+		}
+		exit();
+	}
+
+	public function memberChange()
+	{
+		header("Content-Type: application/json; charset=UTF-8");
+		$loginId = file_get_contents('php://input');
+		$data[] =json_decode($loginId,true);
+		// var_dump($data);
+		$this->load->model('Kinsta_model');
+		$data['fiveChange']= $this->Kinsta_model->random_member_five();
+		// var_dump($data);
+
+		for($i=0; $i<5; $i++){
+			$data[0]['memberUserId'] = $data['fiveChange'][$i]['user_id'];
+			// var_dump($data[0]['memberUserId']);
+			if ($this->Kinsta_model->addOrDelete($data)){
+				$data['fiveChange'][$i]['mussleMemberAddOrDelete'] = 'マッスルメンバー追加';
+				
+			} else {
+				$data['fiveChange'][$i]['mussleMemberAddOrDelete'] = 'マッスルメンバー解除';
+			}
+		}
+		echo json_encode(['message' => $data['fiveChange']]);
+		exit();
+		// var_dump($data['fiveChange']);
+		// var_dump($data);
+			
+	}
+
+
+
+	public function onlyMypage()
+	{
+		$id = $_GET['userId'] ?: null;
 		if (!empty($id) && is_numeric($id)) {
 			$this->load->model('Kinsta_model');
-			$this->load->model('Model_mypage');
-			$data['myposts_data'] = $this->Kinsta_model->images_get($id);
-			$data['myicon_data'] = $this->Kinsta_model->icon_get($id);
+			$data['myData'] = $this->Kinsta_model->mydata_get($id);
 			$this->load->view('header_page');
-			$this->load->view('image_listpage', $data);
-		} else {
-			$data = null;
-			$this->load->model('Model_mypage');
-			$data['array_user'] = $this->Model_mypage->mypage_get();
-			//  $dataを第二引数に入れてviewに送る
-			var_dump($data['myposts_data']);
-			$this->load->view('image_listpage', $data);  //ここ確認
+			$this->load->view('only_mypage',$data);
+		}else{
 
-			//if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-			//$this->load->view("Mypage");
-			//} else {									//ログインしていない場合の処理
-			//	redirect("main/lp");
-			//}
-		}
+		}	
 	}
 	public function select()
 	{
