@@ -227,7 +227,7 @@
     <!-- 写真一覧 -->
 
     <!-- 個別ページ用のモーダル -->
-    <form action="/Kinsta/individual" method="get">
+    <form action="/Kinsta/individual" method="post">
         <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-max" role="document">
                 <div class="modal-content border border-gray">
@@ -248,6 +248,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
+                                    <!-- JSでsrcのurlがセットされる -->
                                     <img id="post-img" class='post-img' src="" alt="1">
                                 </div>
                                 <div class="col-md-6">
@@ -302,9 +303,11 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
+                        </div>
+                        <div class="modal-footer bg-black">
+                            <button type="submit" class="btn btn-danger">画像削除</button>
                         </div>
                     </div>
                 </div>
