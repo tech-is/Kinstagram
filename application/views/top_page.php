@@ -1,85 +1,14 @@
 <!DOCTYPE html>
 <html id="bodyScroll" lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/style/css/top_style.css">
     <title>Kinstagram</title>
-    <link rel="stylesheet" href="/style/css/header_mypage.css">
-    <link rel="stylesheet" href="/style/css/individual_img.css">
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
-
-<body>
-    <header class="header_font_border">
-        <li class="titleLogo">
-            <form method="post" action="/kinsta/top" name="topButton"><a href="javascript:document.topButton.submit()" class="titleLogoReroad">Kinstagram</a></form>
-        </li>
-        <li class="sub_title">筋肉達との出会いがここに・・・</li>
-        <li class="search_window">
-            <!-- <form action="/kinsta/serch" id="serchBox" method="post"> -->
-            <!-- <label for="SearchTxt" class="hide-label">キーワード検索</label> -->
-            <input id="keyword" type="text" value="" name="serchText" class="window_color" placeholder="検索" autocmpleteo="off">
-            <!-- </form> -->
-            <!-- <button type="button" class="icon-menu">ナビゲーションメニューを開く</button> -->
-            <!-- <div class="hiddenSerch"></div> -->
-            <!-- <label for="SearchTxt" class="hide-label">キーワード検索</label>
-                <input id="SearchTxt" type="search" placeholder="検索キーワードを入力"> -->
-            <!-- <input id="InputBox" type="search" placeholder="キーワード" class="search-txt">
-                <button type="reset" class="reset-btn" aria-label="削除する">x</button> -->
-
-            <!-- <span>絞り込み検索：</span><input type="text" value="" id="serch_text" oninput="serch_name(this.value)">
-                <div id="serch_result2">
-                </div> -->
-        </li>
-        <li class="uploadup">
-            <form action="/kinsta/add" method="post" enctype="multipart/form-data">
-                <a href="javascript:document.pcUploadButton.submit()" data-toggle="modal" data-target="#postModal">
-                    <span class="material-icons">cloud_upload</span>
-                </a>
-                <!-- 投稿Modal -->
-                <form action="/kinsta/add" method="post" enctype="multipart/form-data">
-                    <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content  border border-gray">
-                                <div class="modal-header bg-black">
-                                    <h5 class="modal-title bg-black" id="postModalLabel">New post</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body bg-black">
-                                    <!-- 参考URLhttps://blog.ver001.com/javascript_preview_canvas/ -->
-                                    <canvas id="preview" style="max-width:200px;"></canvas>
-                                    <?php
-                                    if (isset($error)) {
-                                        echo $error;
-                                    }
-                                    ?>
-                                    <input name="list_image" type="file" accept='image/*' onchange="previewImage(this);">
-
-                                    <div class="form-group">
-                                        <labelclass="control-label">メッセージ</label>
-                                            <textarea name="post_message" class="form-control bg-gray" cols="30" rows="5"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">マイメニュー</label>
-                                        <input name="mymenu" class="form-control bg-gray" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">マイトレーニング</label>
-                                        <input name="mytraining" class="form-control bg-gray" type="text">
-                                    </div>
-                                </div>
-                                <div class="modal-footer bg-black">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                                    <button type="submit" class="btn new-primary">投稿</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
     <body>
     <?php var_dump($login_userid);?>
         <header class="header_font_border">
@@ -101,164 +30,88 @@
                 <form method="get" action="/kinsta/logout">
                     <input type="submit" class="btn-square-shadow" value="ログアウト">
                 </form>
-                <!-- Modal -->
-            </form>
-        </li>
-
-        <li class="login">
-            <form method="get" action="/kinsta/logout">
-                <input type="submit" class="btn-square-shadow" value="ログアウト">
-            </form>
-        </li>
-        <li class="mypage">
-            <form method="get" action="/kinsta/mypage">
-                <input type="submit" class="btn-square-shadow" value="マイページ">
-            </form>
-        </li>
-        <div class="hambarger">
-            <li class="menuIcon">
-                <input id="menu" type="checkbox">
-                <label for="menu" class="open"><span class="material-icons">dehaze</span></label>
-                <label for="menu" class="back"></label>
-                <nav class="hambargerNav">
-                    <ul class="hambargerUl">
-                        <li><a href="/kinsta/mypage" class="textNone">マイページ</a></li>
-                        <li><a href="/kinsta/post" class="textNone">アップロード</a></li>
-                        <li><a href="/kinsta/login" class="textNone">ログイン</a></li>
-                        <li><a href="/kinsta/logout" class="textNone">ログアウト</a></li>
-                        <li class="cancelButton"><label for="menu" class="close">×</label></li>
-                    </ul>
-                </nav>
             </li>
-        </div>
-
-
-
-    </header>
-
-    <hr class="header_border">
-
-
-
-    <nav class="underNav">
-        <ul class="underTab" id="underTab2">
-            <li class="new">
-                <div class="centerLine">
-                    <a href="/kinsta/top" class="a_new">新&nbsp;着</a>
-                </div>
+            <li class="mypage">
+                <form method="get" action="/kinsta/mypage">
+                    <input type="submit" class="btn-square-shadow" value="マイページ">
+                </form>
             </li>
-            <div class="accordion">
-                <li class="menu js-menu">
-                    <div class="centerLine">
-                        <span class="rankCenter">ランキング</span>
-                    </div>
-                </li>
-                <div class="contents">
-                    <form method="get" action="/kinsta/rank" name="totalRankButton"><a href="javascript:document.totalRankButton.submit()">総合ランキング</a></form>
-                </div>
-                <div class="contents detailMenu ">部位ランキング</div>
-                <ul class="detailContentsList">
-                    <li class="detailContents">
-                        <form method="get" action="/kinsta/armRank" name="armRankButton"><a href="javascript:document.armRankButton.submit()">腕筋</a></form>
-                    </li>
-                    <li class="detailContents">
-                        <form method="get" action="/kinsta/shoulderRank" name="shoulderRankButton"><a href="javascript:document.shoulderRankButton.submit()">肩筋</a></form>
-                    </li>
-                    <li class="detailContents">
-                        <form method="get" action="/kinsta/breastRank" name="breastRankButton"><a href="javascript:document.breastRankButton.submit()">胸筋</a></form>
-                    </li>
-                    <li class="detailContents">
-                        <form method="get" action="/kinsta/absRank" name="absRankButton"><a href="javascript:document.absRankButton.submit()">腹筋</a></form>
-                    </li>
-                    <li class="detailContents">
-                        <form method="get" action="/kinsta/footRank" name="footRankButton"><a href="javascript:document.footRankButton.submit()">足筋</a></form>
-                    </li>
-                </ul>
-            </div>
-            <li class="select">
-                <div class="centerLine"><a href="#" class="a_select">セレクト</a></div>
-            </li>
-            <li class="newFollow500">
-                <a class="aNewFollow500">
-                    <input type="checkbox" id="followUnder">
-                    <label for="followUnder" class="openUnderFollow">トレーニー１０選</label>
-                    <label for="followUnder" class="closeUnderFollow"></label>
-                    <nav class="followUnderNav">
-                        <ul class="ul500">
-                            <?php if (!empty($ten_data)) : ?>
-                                <?php foreach ($ten_data as $value) : ?>
-                                    <li class="followMember1">
-                                        <div class="iconDiv5001"><img class="icon5001" src="/img/<?php echo $value["profile_image"] ?>">
-                                            <ul class="followerFollowUl">
-                                                <li class="nameFollowFollower"><?php echo $value["user_name"] ?></li>
-                                                <li class="followerNumber">マッスルメンバー数
-                                                    <?php if (!empty($value["follower_number"])) : ?>
-                                                        <?php echo $value["follower_number"] . '人' ?></li>
-                                            <?php else : ?>
-                                                <?php echo '0人' ?>
-                                    </li>
-                                <?php endif; ?>
+            <div class="hambarger">
+                <li class="menuIcon">
+                    <input id="menu" type="checkbox">
+                    <label for="menu" class="open"><span class="material-icons">dehaze</span></label>
+                    <label for="menu" class="back"></label>
+                    <nav class="hambargerNav">
+                        <ul class="hambargerUl">
+                            <li><a href="/kinsta/mypage" class="textNone">マイページ</a></li>
+                            <li><a href="/kinsta/post" class="textNone">アップロード</a></li>
+                            <li><a href="/kinsta/login" class="textNone">ログイン</a></li>
+                            <li><a href="/kinsta/logout" class="textNone">ログアウト</a></li>
+                            <li class="cancelButton"><label for="menu" class="close">×</label></li>
                         </ul>
+                    </nav>
+                </li>
+            </div>
+
+
+            
+        </header>
+
+        <hr class="header_border">
+        
+        
+   
+        <nav class="underNav">
+                <ul class="underTab" id="underTab2">
+                    <li class="new">
+                        <div class="centerLine">
+                            <a href="/kinsta/top" class="a_new">新&nbsp;着</a>
                         </div>
-            </li>
-        <?php endforeach; ?>
-    <?php endif; ?>
-        </ul>
-    </nav>
-    </a>
-    </li>
-    </ul>
-    </nav>
-
-
-
-
-    <div class="divMainAsaid">
-        <main id="mainPicture">
-            <!-- <ul class="scroll" data-max="29" data-lastnum="9"> -->
-
-            <ul class="scroll">
-                <?php if (!empty($all_posts)) : ?>
-                    <?php foreach ($all_posts as $value) : ?>
-                        <li class="sizePicture">
-                            <img src="/img/<?php echo $value["list_image"] ?>" alt="" class="allPhotos">
-                        </li>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </ul>
-
-        </main>
-        <aside class="asideToreni asideToreni2">
-            <ul class="asideUl">
-                <li class="followToreni">おすすめトレーニー</li>
-                <hr class="follow_border">
-                <?php if (!empty($five_data)) : ?>
-                    <?php foreach ($five_data as $value) : ?>
-                        <!-- <form method="post" action="/kinsta/imagelist"> -->
-                        <li class="asideIcon">
-                            <a href="#" class="icon">
-                                <form action="/kinsta/mypage">
-                                    <img src="/img/<?php echo $value["profile_image"] ?>" alt="" class="recommended">
-                                    <!-- <input type="image" class="icon1" src="/img/<?php //echo $value["profile_image"]
-                                                                                        ?>"> -->
-                                    <input type="hidden" name="user_id" value="<?php echo $value['user_id'] ?>">
-                                </form>
-                            </a>
-                        </li>
-                        <li class="name">
-                            <div>
-                                <a href="#" class="a_name" id="openMember1"><?php echo $value["user_name"] ?></a>
-                                <a href="#" class="massule_member">マッスルメンバーに追加</a>
+                    </li>
+                    <div class="accordion">
+                        <li class="menu js-menu">
+                            <div class="centerLine">
+                                <span class="rankCenter">ランキング</span>
                             </div>
-                            <section id="modalMember1" class="hidden">
-                                <ul class="memberPostFollowPicture">
-                                    <p><?php echo $value["user_name"] ?></p>
-                                    <p>投稿10件</p>
-                                    <p>マッスルメンバー10人</p>
-                                    <p>写真</p>
-                                    <p>マッスルメンバーに追加</p>
+                        </li>
+                        <div class="contents"><form method="get" action="/kinsta/rank" name="totalRankButton"><a href="javascript:document.totalRankButton.submit()">総合ランキング</a></form></div>
+                        <div class="contents detailMenu ">部位ランキング</div>
+                            <ul class="detailContentsList">
+                                <li class="detailContents"><form method="get" action="/kinsta/armRank" name="armRankButton"><a href="javascript:document.armRankButton.submit()">腕筋</a></form></li>
+                                <li class="detailContents"><form method="get" action="/kinsta/shoulderRank" name="shoulderRankButton"><a href="javascript:document.shoulderRankButton.submit()">肩筋</a></form></li>
+                                <li class="detailContents"><form method="get" action="/kinsta/breastRank" name="breastRankButton"><a href="javascript:document.breastRankButton.submit()">胸筋</a></form></li>
+                                <li class="detailContents"><form method="get" action="/kinsta/absRank" name="absRankButton"><a href="javascript:document.absRankButton.submit()">腹筋</a></form></li>
+                                <li class="detailContents"><form method="get" action="/kinsta/footRank" name="footRankButton"><a href="javascript:document.footRankButton.submit()">足筋</a></form></li>
+                            </ul>
+                    </div>
+                    <li class="select">
+                        <div class="centerLine"><a href="#" class="a_select">セレクト</a></div>
+                    </li>
+                    <li class="newFollow500">
+                        <a class="aNewFollow500">
+                            <input type="checkbox" id="followUnder">
+                            <label for="followUnder" class="openUnderFollow">トレーニー１０選</label>
+                            <label for="followUnder" class="closeUnderFollow"></label>
+                            <nav class="followUnderNav">
+                                <ul class="ul500">
+                                    <?php if (!empty($ten_data)) : ?>
+                                    <?php foreach ($ten_data as $value) : ?>
+                                        <li class="followMember1">
+                                            <div class="iconDiv5001"><img class="icon5001" src="/img/<?php echo $value["profile_image"]?>">
+                                                <ul class="followerFollowUl">
+                                                    <li class="nameFollowFollower"><?php echo $value["user_name"]?></li>
+                                                    <li class="followerNumber">マッスルメンバー数
+                                                        <?php if(!empty($value["follower_number"])):?> 
+                                                        <?php echo $value["follower_number"].'人'?></li>
+                                                        <?php else:?>
+                                                            <?php echo '0人'?></li>
+                                                        <?php endif;?>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </ul>
-                            </section>
                             </nav>
                         </a>
                     </li>
@@ -315,38 +168,10 @@
                         <li class="otherMember">
                             <a href="#" class="aOtherMember" id="otherMemberChange">その他メンバー</a>
                         </li>
-                        <!-- </form> -->
-                    <?php endforeach; ?>
-                <?php endif; ?>
-
-
-                <hr class="other_border">
-                <li class="otherMember">
-                    <a href="#" class="aOtherMember" id="otherMemberIrekae">その他のメンバーを見る</a>
-                </li>
-            </ul>
-        </aside>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="<?php echo ("/style/js/toppage.js"); ?>"></script>
-    <script>
-        //投稿用のモーダル
-        function previewImage(obj) {
-            var fileReader = new FileReader();
-            fileReader.onload = (function() {
-                var canvas = document.getElementById('preview');
-                var ctx = canvas.getContext('2d');
-                var image = new Image();
-                image.src = fileReader.result;
-                image.onload = (function() {
-                    canvas.width = image.width;
-                    canvas.height = image.height;
-                    ctx.drawImage(image, 0, 0);
-                });
-            });
-            fileReader.readAsDataURL(obj.files[0]);
-        }
-    </script>
-</body>
-
+                    </ul>
+                </aside>
+            </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="<?php echo ("/style/js/toppage.js"); ?>"></script>
+    </body>
 </html>

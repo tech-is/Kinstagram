@@ -413,18 +413,7 @@ class Kinsta extends CI_Controller
 
 
 
-	public function onlyMypage()
-	{
-		$id = $_GET['userId'] ?: null;
-		if (!empty($id) && is_numeric($id)) {
-			$this->load->model('Kinsta_model');
-			$data['myData'] = $this->Kinsta_model->mydata_get($id);
-			$this->load->view('header_page');
-			$this->load->view('only_mypage',$data);
-		}else{
-
-		}	
-	}
+	
 	public function onlyMypage()
 	{
 		$id = $_GET['userId'] ?: null;
@@ -436,13 +425,7 @@ class Kinsta extends CI_Controller
 		} else {
 		}
 	}
-	public function memberChange()
-	{
-		$this->load->model('Kinsta_model');
-		$data['five_Change'] = $this->Kinsta_model->random_member_five();
-		echo json_encode(['message' => $data['five_Change']]);
-		exit();
-	}
+	
 	public function select()
 	{
 		$this->load->view('header_page');
