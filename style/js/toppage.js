@@ -132,8 +132,62 @@ document.getElementById('otherMemberChange').addEventListener('click',()=>{
 //         });
 //     });
 // }
+    
 
 
+// const onMussleMember = document.querySelectorAll('.addMassuleMember');
+// for(let i = 0; i < onMussleMember.length; i++){
+    // onMussleMember[0].addEventListener('click',()=>{
+    //     let s = onMussleMember[0].getAttribute('data-value');
+    //     var formData = new FormData();
+    //     formData.append('key', 2);
+    // fetch('/kinsta/addMember',{
+    //     method:'POST',
+    //     body:formData,
+    //     headers: {
+            // 'Content-Type': 'application/json',
+    
+            // "Content-Type": "application/x-www-form-urlencoded"
+    //       },
+        
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //     // console.log(data.message);
+    //     alert(data.message);
+    //   })
+    //   .catch((error) => {
+    //     alert('Error:', error);
+    //   });
+    
+    
+    // });
+// }
+//マッスルメンバ追加
+const onMussleMember = document.querySelectorAll('.addMassuleMember');
+for(let i = 0; i < onMussleMember.length; i++){
+        onMussleMember[i].addEventListener('click',()=>{
+            let userId = onMussleMember[i].getAttribute('data-value');
+            let loginUserId = onMussleMember[i].getAttribute('data-myid');
+            // console.log(loginUserId);
+            $.ajax({
+                type: 'POST',
+                url: '/kinsta/addMember',
+                data: {
+                    uI:userId,
+                    mU:loginUserId
+                },
+                dataType: 'json'
+                })
+            .done(
+            function(data) {
+                alert(data.message);
+        }).fail(
+        function() {
+            alert('検索に失敗しました');
+        });
+    });
+}
 
 //fetchマッスルメンバー追加
 // const onMussleMember = document.querySelectorAll('.addMassuleMember');
@@ -591,11 +645,11 @@ if(innerWidth <= 500){
 
 
 
-    const scroll = document.querySelectorAll('.scroll')
-    const clientHeight = document.documentElement.clientHeight;
+//     const scroll = document.querySelectorAll('.scroll')
+//     const clientHeight = document.documentElement.clientHeight;
 
     
-    scroll.forEach(elm => {
+//     scroll.forEach(elm => {
        
         // console.log(bodyScroll.scrollTop);
         // console.log(bodyScroll.clientHeight);
@@ -617,9 +671,9 @@ if(innerWidth <= 500){
                 
                     // slideNo++;
                     
-                    if (bodyScroll.scrollTop + bodyScroll.clientHeight >= bodyScroll.scrollHeight*0.8) {
+//                     if (bodyScroll.scrollTop + bodyScroll.clientHeight >= bodyScroll.scrollHeight*0.8) {
                         // スクロールが末尾に達した
-                        ;
+//                         ;
                         // console.log(slides);
                         // if (parseInt(elm.dataset.lastnum) < parseInt(elm.dataset.max)) {
                             // 未ロードの画像がある場合
@@ -629,17 +683,17 @@ if(innerWidth <= 500){
                         // }
                             
                         //  }
-                    elm.dataset.lastnum = parseInt(elm.dataset.lastnum) + 1;
-                    let img = document.createElement('img');
+//                     elm.dataset.lastnum = parseInt(elm.dataset.lastnum) + 1;
+//                     let img = document.createElement('img');
                     // console.log(img);
 
-                    img.src = "/assets/kinsta_img/" + [elm.dataset.lastnum] +'.jpg';
+//                     img.src = "/assets/kinsta_img/" + [elm.dataset.lastnum] +'.jpg';
                     // console.log(img.src);
-                    elm.appendChild(img);
+//                     elm.appendChild(img);
                 
 
                     
-                    }
+//                     }
                 // };
                 const mainP = document.getElementById("mainPicture");
                 const asideToreni = document.getElementsByClassName("asideToreni");

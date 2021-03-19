@@ -26,7 +26,7 @@ class Model_mypage extends CI_Model
 
     public function mypage_update($user)
     {
-        $this->db->where('user_id', $_SESSION['E-mail']);
+        $this->db->where('E-mail', $_SESSION['E-mail']);
         $this->db->update('users', $user);
     }
 

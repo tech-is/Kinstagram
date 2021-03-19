@@ -674,6 +674,7 @@ DEBUG - 2021-03-14 08:10:03 --> Session: "sess_save_path" is empty; using "sessi
 DEBUG - 2021-03-14 08:10:13 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-03-14 08:10:14 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-03-14 08:10:22 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+<<<<<<< HEAD
 DEBUG - 2021-03-14 09:32:15 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-03-14 09:32:22 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-03-14 09:32:23 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
@@ -721,3 +722,5 @@ DEBUG - 2021-03-14 09:33:48 --> Session: "sess_save_path" is empty; using "sessi
 DEBUG - 2021-03-14 09:33:49 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-03-14 09:33:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-03-14 09:34:00 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+=======
+>>>>>>> fe43c3df65ba858f30acb97f534cc8517a1790d1

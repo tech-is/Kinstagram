@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<?php var_dump($_SESSION)?>
 <head>
     <link rel="stylesheet">
-    <?php echo link_tag("/style/css/rank_style.css"); ?>
+    <link rel="stylesheet" href="/style/css/rank_style.css">
 </head>
 <body>
     <nav class="underNav">
@@ -31,7 +30,7 @@
             <li class="name_no1">
                 🏆NO.1<?php echo ($favorite[0]['user_name'])?>
                 <img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
-                <?php echo ($favorite[0]['follower_number']).'マッスルメンバー'?>
+                <?php //echo ($favorite[0]['follower_number']).'マッスルメンバー'?>
             </li>
             <li class="followerNum"></li>
 
@@ -73,7 +72,7 @@
                 }
                 ?>
                 <img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
-                <?php echo ($favorite[$num1]['follower_number'].'マッスルメンバー')?>
+                <?php //echo ($favorite[$num1]['follower_number'].'マッスルメンバー')?>
             </li>
             <li class="picture2"><img class="picture" src="/img/<?php echo ($favorite[$num1]["list_image"]);?>"/>
                 <p><img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
@@ -94,7 +93,7 @@
                 }
                 ?>
                 <img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
-                <?php echo ($favorite[$num2]['follower_number'].'マッスルメンバー')?>
+                <?php //echo ($favorite[$num2]['follower_number'].'マッスルメンバー')?>
             </li> 
             <li class="picture3">
                 <img class="picture" src="/img/<?php echo ($favorite[$num2]['list_image']);?>"/>
