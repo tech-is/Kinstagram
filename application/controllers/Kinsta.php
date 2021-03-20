@@ -78,7 +78,6 @@ class Kinsta extends CI_Controller
 
 		//Model_mypageのmypage_updateメソッドにアクセスし更新情報を渡す
 		// 更新情報を変数定義
-		// $user_id = 48;
 		$profile_image = $this->upload->data('file_name');
 		$user_name = $this->input->post('user_name');
 		$introduction = $this->input->post('introduction');
@@ -88,7 +87,6 @@ class Kinsta extends CI_Controller
 
 		//変数を配列に格納
 		$user = [
-			// 'user_id' => $user_id,
 			'profile_image' => $profile_image,
 			'user_name' => $user_name,
 			'introduction' => $introduction,
@@ -98,13 +96,6 @@ class Kinsta extends CI_Controller
 		];
 		//Model_mypageに送る
 		$this->Model_mypage->mypage_update($user);
-
-		// if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-		// $this->load->view("Mypage");
-		// } else {									//ログインしていない場合の処理
-		// redirect("Kinsta/lp");>>> main
-		// }
-
 		//  $dataを第二引数に入れてviewに送る
 		redirect('Kinsta/Mypage');
 	}
@@ -152,21 +143,17 @@ class Kinsta extends CI_Controller
 
 	public function post()
 	{
-		//if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-		//	$this->load->view('Post_scr');
-		//} else {									//ログインしていない場合の処理
-		//	redirect("Kinsta/lp");
-		//}
 		$this->load->view('Post_scr');
 	}
 
 	public function individual()
 	{
-		//if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-		//	$this->load->view('Individual_img');
-		//} else {									//ログインしていない場合の処理
-		//	redirect("Kinsta/lp");
-		//}
+		$this->load->helper('files');
+		if(delete_files('post-img'))
+		{
+			//削除しました
+		}
+
 		$post_data = null;
 		$this->load->model('Model_mypage');
 		$post_data['array_post'] = $this->Model_mypage->individual_get();
@@ -177,11 +164,7 @@ class Kinsta extends CI_Controller
 
 	public function individual_top()
 	{
-		//if ($this->session->userdata("is_logged_in")) {	//ログインしている場合の処理
-		//	$this->load->view('Individual_img');
-		//} else {									//ログインしていない場合の処理
-		//	redirect("Kinsta/lp");
-		//}
+
 		$post_data = null;
 		$this->load->model('Model_mypage');
 		$post_data['array_post'] = $this->Model_mypage->individual_get();

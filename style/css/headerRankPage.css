@@ -7,7 +7,7 @@ body{
     margin: auto;
     background-color:black;
     min-height: 100vh;
-    display:grid;
+    /* display:grid; */
     grid-template:
         "header header" 50px
         "hr     hr"     1.8px
