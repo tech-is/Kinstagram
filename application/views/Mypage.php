@@ -18,7 +18,6 @@
 
 
 <body class="body">
-<?php var_dump($login_userid)?>
     <header class="header_font_border">
         <li class="titleLogo">
             <form method="post" action="/kinsta/top" name="topButton">
