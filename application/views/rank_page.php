@@ -3,7 +3,12 @@
 
 <head>
     <link rel="stylesheet">
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="/style/css/rank_style.css">
+=======
+    <?php echo link_tag("/style/css/rank_style.css"); ?>
+    <?php $this->load->view('/common/header'); ?>
+>>>>>>> Stashed changes
 </head>
 
 <body>
@@ -30,10 +35,9 @@
             <li class="weekTitle">今週の"素敵なゴリマッチョ"達</li>
 
             <li class="name_no1">
-                🏆NO.1<?php echo ($favorite[0]['user_name']) ?>
-                <img src="/img/<?php echo '142136.png' ?>" class="kiretemasu" alt="">
-                <?php //echo ($favorite[0]['follower_number']).'マッスルメンバー'
-                ?>
+                🏆NO.1<?php echo ($favorite[0]['user_name'])?>
+                <img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
+                <?php //echo ($favorite[0]['follower_number']).'マッスルメンバー'?>
             </li>
             <li class="followerNum"></li>
 
@@ -74,9 +78,8 @@
                     }
                 }
                 ?>
-                <img src="/img/<?php echo '142136.png' ?>" class="kiretemasu" alt="">
-                <?php //echo ($favorite[$num1]['follower_number'].'マッスルメンバー')
-                ?>
+                <img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
+                <?php //echo ($favorite[$num1]['follower_number'].'マッスルメンバー')?>
             </li>
             <li class="picture2"><img class="picture" src="/img/<?php echo ($favorite[$num1]["list_image"]); ?>" />
                 <p><img src="/img/<?php echo '142136.png' ?>" class="kiretemasu" alt="">
@@ -96,10 +99,9 @@
                     }
                 }
                 ?>
-                <img src="/img/<?php echo '142136.png' ?>" class="kiretemasu" alt="">
-                <?php //echo ($favorite[$num2]['follower_number'].'マッスルメンバー')
-                ?>
-            </li>
+                <img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
+                <?php //echo ($favorite[$num2]['follower_number'].'マッスルメンバー')?>
+            </li> 
             <li class="picture3">
                 <img class="picture" src="/img/<?php echo ($favorite[$num2]['list_image']); ?>" />
                 <p><img src="/img/<?php echo '142136.png' ?>" class="kiretemasu" alt="">

@@ -72,7 +72,11 @@
                 }
                 ?>
                 <img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
+<<<<<<< Updated upstream
                 <?php //cho ($favorite_shoulder_rank[$num1]['follower_number'].'マッスルメンバー')?>
+=======
+                <?php //echo ($favorite_shoulder_rank[$num1]['follower_number'].'マッスルメンバー')?>
+>>>>>>> Stashed changes
             </li>
             <li class="picture2"><img class="picture" src="/img/<?php echo ($favorite_shoulder_rank[$num1]["list_image"]);?>"/>
                 <p><img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">

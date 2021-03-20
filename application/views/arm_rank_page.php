@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+<?php var_dump($_SESSION)?>
 <head>
     <link rel="stylesheet">
     <?php echo link_tag("/style/css/rank_style.css"); ?>
@@ -19,7 +20,7 @@
                         <li class="detailContents"><form method="get" action="/kinsta/absRank" name="absRankButton"><a href="javascript:document.absRankButton.submit()">腹筋</a></form></li>
                         <li class="detailContents"><form method="get" action="/kinsta/footRank" name="footRankButton"><a href="javascript:document.footRankButton.submit()">足筋</a></form></li>
                     </ul>
-                </div>
+            </div>
             <li class="select"><a href="#" class="a_select">セレクト</a></li>
         </ul>
     </nav>
@@ -30,14 +31,13 @@
             <li class="name_no1">
                 🏆NO.1<?php echo ($favorite_arm_rank[0]['user_name'])?>
                 <img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
-                <?php// echo ($favorite_arm_rank[0]['follower_number']).'マッスルメンバー'?>
+                <?php //echo ($favorite_arm_rank[0]['follower_number']).'マッスルメンバー'?>
             </li>
             <li class="followerNum"></li>
 
             <li class="picture1">
-                <img class="picture" src="/img/<?php echo ($favorite_arm_rank[0]["list_image"]);?>"/>
-                
-                <p><img src="/img/<?php echo '142136.png'?>" class="kiretemasu"alt="">
+                <img class="picture" src="/img/45222_s.jpg"/>
+                <p><img src="/img/<?php echo '142136.png'?>" class="kiretemasu" alt="">
                 <?php echo ($favorite_arm_rank[0]['count']).'マッスル'?>
                 </p>
             </li>
