@@ -42,13 +42,8 @@ header{
     grid-template:
         "title    search upload login mypage" 50%
         "subtitle search upload login mypage" 50%
-<<<<<<< Updated upstream
-        /35%      1fr    5%    15%;
-    margin: 0 5%;
-=======
         /30%      1fr    5%    10% 10%;
     margin: 0 5%;
->>>>>>> Stashed changes
 }
 header li a span.material-icons{
     color:#cccccc;
@@ -323,11 +318,8 @@ li.newFollow500{
         }
         label span.material-icons{
             margin-top: 4px;
-<<<<<<< Updated upstream
-=======
         }
         .btn-square-shadow {
             display: none;
->>>>>>> Stashed changes
         }
     }
