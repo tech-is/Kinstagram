@@ -93,7 +93,7 @@
                 
                 
                 <img src="/img/<?php echo '142136.png'?>" class="kiretemasu">
-                <?= //($favorite_abs_rank[$num2]['follower_number'].'マッスルメンバー')?>
+                <?php //($favorite_abs_rank[$num2]['follower_number'].'マッスルメンバー')?>
                
             </li> 
             <li class="picture3">
