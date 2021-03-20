@@ -7,19 +7,12 @@ body{
     margin: auto;
     background-color:black;
     min-height: 100vh;
-<<<<<<< Updated upstream
-    display:grid;
-    grid-template:
-        "header header" 50px
-        "hr     hr"     1.8px
-=======
     /* display:grid; */
     grid-template:
         "header header" 50px
         "hr     hr"     1.8px
         "nav    nav " 30px
         "div    div"  1fr
->>>>>>> Stashed changes
         /1fr;
 }
 header li{
