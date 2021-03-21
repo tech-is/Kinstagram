@@ -129,14 +129,12 @@ class Kinsta extends CI_Controller
 
 		//Model_mypageのpost_addメソッドにアクセスしpost情報を渡す
 		// post情報を変数定義
-		// $user_id = 48;
 		$list_image = $this->upload->data('file_name');
 		$post_message = $this->input->post('post_message');
 		$mymenu = $this->input->post('mymenu');
 		$mytraining = $this->input->post('mytraining');
 		//変数を配列に格納
 		$post = [
-			// 'user_id' => $user_id,
 			'list_image' => $list_image,
 			'post_message' => $post_message,
 			'mymenu' => $mymenu,
@@ -169,15 +167,13 @@ class Kinsta extends CI_Controller
 
 	public function individual_top()
 	{
-
-		$post_data = null;
+		$data = null;
 		$this->load->model('Model_mypage');
-		$post_data['array_post'] = $this->Model_mypage->individual_get();
-		$post_data['array_user'] = $this->Model_mypage->mypage_get();
-		//  $dataを第二引数に入れてviewに送る
-		$this->load->view('top_page', $post_data);
+		$data['array_user'] = $this->Model_mypage->postUser_get();
+		$data['array_post'] = $this->Model_mypage->individual_get();
+		$this->load->view('top_page', $data);
 	}
-	///// 藤田担当　ここまで ////////
+	///// 藤田担当 ここまで ////////
 
 
 	////山下担当  lp,ログイン,会員登録,ログアウト,その他 /////

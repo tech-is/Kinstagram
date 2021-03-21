@@ -14,6 +14,16 @@ class Model_mypage extends CI_Model
         $this->db->insert('posts', $post);
     }
 
+    public function postUser_get()
+    {
+        //自らのプロフィール情報を取り出す ※ 投稿者判定
+        $this->db->where('user_id', 48);
+        //dbのusersテーブルから取得
+        $query = $this->db->get('users');
+        //配列に入れる
+        return $query->result_array();
+    }
+
     public function mypage_get()
     {
         //自らのプロフィール情報を取り出す ※ 自分判定
@@ -32,7 +42,7 @@ class Model_mypage extends CI_Model
 
     public function individual_get()
     {
-        //自らの投稿の情報を取り出す　※　自分の投稿判定
+        //自らの投稿の情報を取り出す ※ 自分の投稿判定
         $this->db->where('post_id', 1);
         //dbのpostsテーブルから取得
         $query = $this->db->get('posts');
