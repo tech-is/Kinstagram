@@ -146,6 +146,7 @@ header li a span.material-icons{
 }
 .header_font_border{
     color: #cccccc;
+    display:grid;
     /* margin: 0px 8%; */
 }
 .nav_font{

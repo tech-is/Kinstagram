@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/style/css/top_style.css">
     <link rel="stylesheet" href="/style/css/individual_img.css">
-    <link rel="stylesheet" href="/style/css/header_mypage.css">
     <title>Kinstagram</title>
+    <?php $this->load->view('/common/header'); ?>
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -28,7 +28,45 @@
                 <span class="material-icons">cloud_upload</span>
             </a>
             <form action="/kinsta/add" method="post" enctype="multipart/form-data">
-            <!-- ここにモーダルを入れる             -->
+            <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content  border border-gray">
+                            <div class="modal-header bg-black">
+                                <h5 class="modal-title bg-black" id="postModalLabel">New post</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body bg-black">
+                                <!-- 参考URLhttps://blog.ver001.com/javascript_preview_canvas/ -->
+                                <canvas id="preview" style="max-width:200px;"></canvas>
+                                <?php
+                                if (isset($error)) {
+                                    echo $error;
+                                }
+                                ?>
+                                <input name="list_image" type="file" accept='image/*' onchange="previewImage(this);">
+
+                                <div class="form-group">
+                                    <labelclass="control-label">メッセージ</label>
+                                        <textarea name="post_message" class="form-control bg-gray" cols="30" rows="5"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">マイメニュー</label>
+                                    <input name="mymenu" class="form-control bg-gray" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">マイトレーニング</label>
+                                    <input name="mytraining" class="form-control bg-gray" type="text">
+                                </div>
+                            </div>
+                            <div class="modal-footer bg-black">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                                <button type="submit" class="btn new-primary">投稿</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </li>
         <li class="login">
@@ -143,7 +181,7 @@
                 <?php if (!empty($all_posts)) : ?>
                     <?php foreach ($all_posts as $value) : ?>
                         <li class="sizePicture">
-                            <img src="/img/<?php echo $value["list_image"] ?>" alt="" class="allPhotos">
+                            <img class="listImage allPhotos" src="/img/<?php echo $value["list_image"] ?>" data-toggle="modal" data-target="#individualModal">
                         </li>
                     <?php endforeach; ?>
                 <?php endif; ?>
@@ -189,8 +227,135 @@
             </ul>
         </aside>
     </div>
+
+<!-- 個別ページ用のモーダル -->
+<form action="/Kinsta/individual_top" method="get">
+        <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-max" role="document">
+                <div class="modal-content border border-gray">
+                    <div class="modal-header bg-black">
+                        <?php foreach ($array_user as $value) : ?>
+                            <img src="/img/142136.png">
+                            <h5 class="modal-title bg-black" id="individualModalLabel">
+                                <?php echo $value['user_name']; ?>
+                            </h5>
+                        <?php endforeach; ?>
+
+                        <input type="button" id="follow" class="btn-gradient-radius" value="フォローする" onclick="change()">
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body bg-black">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                <!-- JSでsrcのurlがセットされる -->
+                                    <img id="list-img" class='list-img' src="" alt="1">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <?php foreach ($array_post as $value2) : ?>
+                                            <label class="control-label">メッセージ</label>
+                                            <textarea class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
+
+                                            <label class="control-label">マイメニュー</label>
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu']; ?>" readonly>
+
+                                            <label class="control-label">マイトレーニング</label>
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining']; ?>" readonly>
+                                        <?php endforeach; ?>
+
+                                        <!-- いいねボタン -->
+                                        <div class="good-btn-container">
+                                            <div class="good-btn-icon">
+                                                <image src="/img/button/ude.png" alt="腕">
+                                                    <div class="good-btn-text">腕キレてるね</div>
+                                                    <div class="iframe">
+                                                        <iframe src="/iine/iine1.html" class="iineiframe"></iframe>
+                                                    </div>
+                                            </div>
+                                            <div class="good-btn-icon">
+                                                <img src="/img/button/mune.jpg" alt="胸">
+                                                <div class="good-btn-text">胸キレてるね</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine2.html" class="iineiframe"></iframe>
+                                                </div>
+                                            </div>
+                                            <div class="good-btn-icon">
+                                                <img src="/img/button/kata.png" alt="肩">
+                                                <div class="good-btn-text">肩キレてるね</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine3.html" class="iineiframe"></iframe>
+                                                </div>
+                                            </div>
+                                            <div class="good-btn-icon">
+                                                <img src="/img/button/hara.png" alt="腹">
+                                                <div class="good-btn-text">腹キレてるね</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine4.html" class="iineiframe"></iframe>
+                                                </div>
+                                            </div>
+                                            <div class="good-btn-icon">
+                                                <img src="/img/button/ashi.png" alt="足">
+                                                <div class="good-btn-text">足キレてるね</div>
+                                                <div class="iframe">
+                                                    <iframe src="/iine/iine5.html" class="iineiframe"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 写真モーダル -->
+    </form>
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="<?php echo ("/style/js/toppage.js"); ?>"></script>
+    <script>
+    // クリックで”フォロー”と”フォローする”のテキストが入れ替わる
+        document.getElementById("follow").addEventListener(
+            "click",
+            function(event) {
+                if (event.target.value === "フォロー中") {
+                    event.target.value = "フォローする";
+                } else {
+                    event.target.value = "フォロー中";
+                }
+            },
+            false
+        );
+
+        //投稿用のモーダル
+        function previewImage(obj) {
+            var fileReader = new FileReader();
+            fileReader.onload = (function() {
+                var canvas = document.getElementById('preview');
+                var ctx = canvas.getContext('2d');
+                var image = new Image();
+                image.src = fileReader.result;
+                image.onload = (function() {
+                    canvas.width = image.width;
+                    canvas.height = image.height;
+                    ctx.drawImage(image, 0, 0);
+                });
+            });
+            fileReader.readAsDataURL(obj.files[0]);
+        }
+
+        //一覧画像をクリックするとモーダル表示
+        //https://stackoverflow.com/questions/26377231/jquery-how-to-change-img-src-path-onclick
+        $('.listImage').on('click', function() {
+            $('#list-img').prop('src', this.src);
+        });
+    </script>
+    <script src="/iine_app/iine.js"></script>
 </body>
 
 </html>
