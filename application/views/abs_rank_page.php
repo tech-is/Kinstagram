@@ -93,7 +93,7 @@
                 
                 
                 <img src="/img/<?php echo '142136.png'?>" class="kiretemasu">
-                <?= //($favorite_abs_rank[$num2]['follower_number'].'マッスルメンバー')?>
+                <?php //($favorite_abs_rank[$num2]['follower_number'].'マッスルメンバー')?>
                
             </li> 
             <li class="picture3">
@@ -106,7 +106,7 @@
             </li> 
             <?php else : ?>
             <li class="picture3">
-                <?='ランクイン目指して頑張りマッスル'?>
+                <?='今週の３位は空席。さぁ、ランクイン目指して頑張りマッスル！！'?>
             </li>
             <?php endif;?>
             

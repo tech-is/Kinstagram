@@ -7,10 +7,12 @@ body{
     margin: auto;
     background-color:black;
     min-height: 100vh;
-    display:grid;
+    /* display:grid; */
     grid-template:
         "header header" 50px
         "hr     hr"     1.8px
+        "nav    nav " 30px
+        "div    div"  1fr
         /1fr;
 }
 header li{
@@ -24,10 +26,10 @@ header li{
 }
 .underNav{
     grid-area:nav;
-    /* padding: 2px 0; */
+    padding: 2px 0;
     border: solid #9E9E9E;
     border-width: 0 0.5;
-    /* border-width: 0px 0px 0.1px 0px; */
+    border-width: 0px 0px 0.1px 0px;
     /* display: grid; */
     /* grid-template-columns: 1fr 1fr 1fr; */
 }
@@ -40,7 +42,7 @@ header{
     grid-template:
         "title    search upload login mypage" 50%
         "subtitle search upload login mypage" 50%
-        /35%      1fr    5%    15%;
+        /30%      1fr    5%    10% 10%;
     margin: 0 5%;
 }
 header li a span.material-icons{
@@ -64,6 +66,7 @@ header li a span.material-icons{
     color: #cccccc;
     width: 100%;
     box-sizing: border-box;
+    height: 18px;
 }
 .titleLogo{
     font-family: 'Damion', cursive;
@@ -94,9 +97,10 @@ header li a span.material-icons{
     grid-area: upload;
     margin:auto auto auto 10px;
 }
-.login{
+li.login{
     grid-area: login;
     margin: auto 2% auto auto;
+    display: inline-block;
 }
 .mypage{
     grid-area: mypage;
@@ -174,6 +178,7 @@ li.newFollow500{
     border-right: solid 2px #919294;
     border-radius: 3px;
     font-size: 70%;
+    z-index: 100;
 }
 @media(max-width: 600px){
     header{
@@ -228,7 +233,7 @@ li.newFollow500{
             grid-area: header;
             display: grid;
             grid-template:
-                "title    search  login " 100%
+                "title    search  hambarger " 100%
                 /35%      1fr       20%;
             margin: 0 5%;
         }
@@ -243,7 +248,7 @@ li.newFollow500{
         }
         .hambarger
         {
-            display: block;
+            display: inline-block;
         }
         .uploadup{
             display: none;
@@ -313,5 +318,8 @@ li.newFollow500{
         }
         label span.material-icons{
             margin-top: 4px;
+        }
+        .btn-square-shadow {
+            display: none;
         }
     }

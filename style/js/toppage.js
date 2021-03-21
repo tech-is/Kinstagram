@@ -1,5 +1,7 @@
 'use strict';
-  
+
+
+//検索
 $("#keyword").on('keyup', () => {
     let input = $("#keyword").val();
     $.ajax({
@@ -12,161 +14,221 @@ $("#keyword").on('keyup', () => {
             function(data) {
             $(".serchBox").empty();
             if (data.length !==0) {
-                console.log()
-                if(!input.trim()){
+                    if(!input.trim()){
                         let serchBox = document.getElementById('serchResult');
                         serchBox.classList.add('hiddenSerch');
                     }else{
                         let serchBox = document.getElementById('serchResult');
                         serchBox.classList.remove('hiddenSerch');
                     
-                var html = "";
-                for(let n = 0; n< data.message.length; n++){
-                    html +="<div class=iconNameBox>";
-                    html +=`<a href="/kinsta/onlyMypage?userId=${data.message[n].user_id}" class="aInner">`
-                    html +="<div class='serchiconBox'><span class='innerName'><img class='serchIconProfile' src=/img/" + data.message[n].profile_image + "></span></div>";
-                    html += "<div class=serchnameBox>" + data.message[n].user_name + "</div>";
-                    // html +=`<form method='post' action='/kinsta/onlyMypage' name='iconNameButton'><input type='hidden' name='userId' value="${data.message[n].user_id}
-                    
-                    // html += "<div class='serchnameBox'><input type='submit' class='innerName' value='" + data.message[n].user_name + "'></div></form>";
-                    html +="</a></div>"
-                }
-                $('#serchResult').get(0).innerHTML = html;
-            }
-                }
-                else {
+                        var html = "";
+                        for(let n = 0; n< data.message.length; n++){
+                            html +="<div class=iconNameBox>";
+                            html +=`<a href="/kinsta/onlyMypage?userId=${data.message[n].user_id}" class="aInner">`
+                            html +="<div class='serchiconBox'><span class='innerName'><img class='serchIconProfile' src=/img/" + data.message[n].profile_image + "></span></div>";
+                            html += "<div class=serchnameBox>" + data.message[n].user_name + "</div>";
+                            // html +=`<form method='post' action='/kinsta/onlyMypage' name='iconNameButton'><input type='hidden' name='userId' value="${data.message[n].user_id}
+                            
+                            // html += "<div class='serchnameBox'><input type='submit' class='innerName' value='" + data.message[n].user_name + "'></div></form>";
+                            html +="</a></div>"
+                        }
+                        $('#serchResult').get(0).innerHTML = html;
+                    }
+            }else{
                 $(".list").append("無し");
-                }
+            }
             }).fail(
-            function() {
-                alert('検索に失敗しました');
-            })
-    }
-);
+            function () {
+                    alert('検索に失敗しました');
+                })
+});
 
 
+//メンバーチェンジ
 document.getElementById('otherMemberChange').addEventListener('click',()=>{
-    fetch("/kinsta/memberChange")
-    .then(function (res){
-        return res.json();
-    })
-    .then(function(users){
-        let dome = "/img/"
-        for(let i = 0; i < 5; i++ ){
-            document.getElementsByClassName('recommended')[i].src = dome + users.message[i].profile_image;
-            document.getElementsByClassName('a_name')[i].innerHTML = users.message[i].user_name;
-        }
-    });
+    const onMussleMember = document.querySelectorAll('.addMassuleMember');
+    let loginUserId = onMussleMember[0].getAttribute('data-myid');
+    console.log(loginUserId);
+        const postData = async(url='',data={}) => {
+            await fetch(url,{
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json; charset=UTF-8'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                return response.json()
+            })
+            .then(data =>{
+                    console.log(data.message);
+                let dome = "/img/"
+                for(let i = 0; i < 5; i++ ){
+                   
+                    document.getElementsByClassName('recommended')[i].src = dome + data.message[i].profile_image;
+                    document.getElementsByClassName('a_name')[i].innerHTML = data.message[i].user_name;
+                    document.getElementById(`openMember${i}`).innerHTML =  data.message[i].mussleMemberAddOrDelete;
+                    document.getElementById(`openMember${i}`).dataset.value =  data.message[i].user_id;
 
+                }
+            })
+            .catch(error => {
+                // console.log('Error:', error);
+                return null
+            });
+            // console.log(json);
+        }
+        postData('/kinsta/memberChange',{loginId:loginUserId});
 });
 
 
 
 
 
+    // fetch("/kinsta/memberChange",{
+    //         method:'POST',
+    //         headers:{
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body:JSON.stringify(data),
+    //     })
+    // .then(function (res){
+    //     return res.json();
+    // })
+    // .then(function(users){
+    //     let dome = "/img/"
+    //     for(let i = 0; i < 5; i++ ){
+    //         document.getElementsByClassName('recommended')[i].src = dome + users.message[i].profile_image;
+    //         document.getElementsByClassName('a_name')[i].innerHTML = users.message[i].user_name;
+    //     }
+    // });
 
+
+
+
+
+//マッスルメンバ追加
+// const onMussleMember = document.querySelectorAll('.addMassuleMember');
+// for(let i = 0; i < onMussleMember.length; i++){
+//         onMussleMember[i].addEventListener('click',()=>{
+//             let userId = onMussleMember[i].getAttribute('data-value');
+//             let loginUserId = onMussleMember[i].getAttribute('data-myid');
+//             // console.log(loginUserId);
+//             $.ajax({
+//                 type: 'POST',
+//                 url: '/kinsta/addMember',
+//                 data: {
+//                     uI:userId,
+//                     mU:loginUserId
+//                 },
+//                 dataType: 'json'
+//                 })
+//             .done(
+//             function(data) {
+//                 alert(data.message);
+//         }).fail(
+//         function() {
+//             alert('検索に失敗しました');
+//         });
+//     });
+// }
+
+
+
+//fetchマッスルメンバー追加
 // const onMussleMember = document.querySelectorAll('.addMassuleMember');
 // for(let i = 0; i < onMussleMember.length; i++){
 //     onMussleMember[i].addEventListener('click',()=>{
         
-//         var d = onMussleMember[i].getAttribute('data-value');
-//         async (d)=>{
-//             const settings = {
-//                 method: 'POST',
-//                 headers: {
-//                     Accept: 'application/json',
-//                     'Content-Type': 'application/json',
-//                 },
-//                 body:JSON.stringify(d)
-//             }
-//             const fetchResponse = await fetch('kinsta/addMember', settings);
-//             try {
-//                 const data = await fetchResponse.json();
-//                 alert(data.message);
-//                 // return data;
-//             } catch (e) {
-//                 return e;
-//             }    
-//         }
-//     });
-// } 
-//         (url='/kinsta/addMember',data={data:1}){
-//             const response = await fetch(url,{
-//                 method:'POST',
-//                 headers:{
-//                     'Content-Type': 'application/json',
-//                 },
-//                 body: data
-//             });
-//             return response.json();
-        
-//         }
-//         pD()
-//         .then(data => {
-//             alert(data.message);
-//         });
-//     });
+//         let userId = onMussleMember[i].getAttribute('data-value');
+//         let loginUserId = onMussleMember[i].getAttribute('data-myid');
+
+        // const data = {memberUserId:11};
+        // fetch('/kinsta/addMember',{
+        //     method:'POST',
+        //     headers:{
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body:JSON.stringify(data),
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        // console.log('Success:', data.m);
+        // })
+        // .catch((error) => {
+        // console.error('Error:', error);
+        // })
+//  });
 // }
-    
+
+  
 
 
-// const onMussleMember = document.querySelectorAll('.addMassuleMember');
-// for(let i = 0; i < onMussleMember.length; i++){
-    // onMussleMember[0].addEventListener('click',()=>{
-    //     let s = onMussleMember[0].getAttribute('data-value');
-    //     var formData = new FormData();
-    //     formData.append('key', 2);
-    // fetch('/kinsta/addMember',{
-    //     method:'POST',
-    //     body:formData,
-    //     headers: {
-            // 'Content-Type': 'application/json',
-    
-            // "Content-Type": "application/x-www-form-urlencoded"
-    //       },
-        
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //     // console.log(data.message);
-    //     alert(data.message);
-    //   })
-    //   .catch((error) => {
-    //     alert('Error:', error);
-    //   });
-    
-    
-    // });
-// }
-//マッスルメンバ追加
+
+//マッスルメンバー追加
 const onMussleMember = document.querySelectorAll('.addMassuleMember');
 for(let i = 0; i < onMussleMember.length; i++){
-        onMussleMember[i].addEventListener('click',()=>{
-            let userId = onMussleMember[i].getAttribute('data-value');
-            let loginUserId = onMussleMember[i].getAttribute('data-myid');
-            // console.log(loginUserId);
-            $.ajax({
-                type: 'POST',
-                url: '/kinsta/addMember',
-                data: {
-                    uI:userId,
-                    mU:loginUserId
+    onMussleMember[i].addEventListener('click',()=>{
+        let userId = onMussleMember[i].getAttribute('data-value');
+        let loginUserId = onMussleMember[i].getAttribute('data-myid');
+        const postData = async(url='',data={}) => {
+            await fetch(url,{
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json; charset=UTF-8'
                 },
-                dataType: 'json'
-                })
-            .done(
-            function(data) {
-                alert(data.message);
-        }).fail(
-        function() {
-            alert('検索に失敗しました');
-        });
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                return response.json()
+            })
+            .then(data =>{
+                document.getElementById(`openMember${i}`).innerHTML =  data.message;
+                console.log(data.message);
+            })
+            .catch(error => {
+                // console.log('Error:', error);
+                return null
+            });
+            // console.log(json);
+        }
+        postData('/kinsta/addMember',{memberUserId:userId,loginId:loginUserId});
     });
 }
+        
+// promiseマッスルメンバー追加
+// const onMussleMember = document.querySelectorAll('.addMassuleMember');
+// for(let i = 0; i < onMussleMember.length; i++){
+//     onMussleMember[i].addEventListener('click',()=>{
+//         let userId = onMussleMember[i].getAttribute('data-value');
+//         let loginUserId = onMussleMember[i].getAttribute('data-myid');
 
+//         const getData = (url='',data={}) => {
+//             return new Promise((resolve,reject)=>{
+//                 fetch(url,{
+//                     method:'POST',
+//                             headers:{
+//                                 'Content-Type': 'application/json'
+//                             },
+//                             body: JSON.stringify(data)
+//                 }).then(response =>{
+//                     // console.log(response);
+//                     return response.json();
+//                 }).then(data => {
+//                     // console.log(data.message);
+//                     return resolve(data.message);
+//                 }).catch((error) => {
+//                     console.log('Error:', error);
+//                     return reject(null);
+//                 });
+//             });
+//         }
 
-
-
+//         getData('/kinsta/addMember',{memberUserId:userId,loginId:loginUserId}).then(data=>{
+//             console.log(data);
+//         })
+//     });
+// }
 
 
 
@@ -400,9 +462,79 @@ if(innerWidth <= 500){
 
 
 
-// 
+    
     window.addEventListener('load', function () {
-       
+        
+        
+        
+        
+        //メンバー解除
+            const onMM = document.querySelectorAll('.addMassuleMember');
+        
+                    
+                    for(let i = 0; i < onMM.length; i++){
+                        let userId = onMM[i].getAttribute('data-value');
+                        let loginUserId = onMM[i].getAttribute('data-myid');
+                        // console.log(userId);
+                       
+                        $.ajax({
+                            type: 'POST',
+                            url: '/kinsta/addOrDelete',
+                            data: {memberUserId:userId,loginId:loginUserId},
+                            dataType: 'json'
+                            })
+                            .done(
+                            function(data) {
+                            if(data.alreadyAdd){
+                                console.log(data.alreadyAdd);
+                                document.getElementById(`openMember${i}`).innerHTML = data.alreadyAdd;
+                            }else{
+                                document.getElementById(`openMember${i}`).innerHTML = data.add;
+                            }
+                            }).fail(
+                            function () {
+                                    // alert('検索に失敗しました');
+                                })
+                    
+                    
+                    }
+           
+        
+                    // const postData = async(url='',data={}) => {
+                    //     await fetch(url,{
+                    //         method:'POST',
+                    //         headers:{
+                    //             'Content-Type': 'application/json; charset=UTF-8'
+                    //         },
+                    //         body: JSON.stringify(data)
+                    //     })
+                    //     .then(response => {
+                    //         return response.json()
+                    //     })
+                    //     .then(data =>{
+                    //         console.log(data);
+                    //         if(data.alreadyAdd){
+                    //             document.getElementById(`openMember${i}`).innerHTML = "メンバー解除";
+                    //         }else{
+                    //             console.log(data);
+                    //         }
+                    //     })
+                    //     .catch(error => {
+                    //         // console.log('Error:', error);
+                    //         return null
+                    //     });
+                    //     // console.log(json);
+                    // }
+                    // console.log(userId);
+                    // postData('/kinsta/addOrDelete',{memberUserId:userId,loginId:loginUserId});     
+                
+
+
+
+
+        
+        
+
         
         // data-srcを読み込む
         let picture = document.getElementsByClassName('picture');
@@ -459,11 +591,11 @@ if(innerWidth <= 500){
 
 
 
-//     const scroll = document.querySelectorAll('.scroll')
-//     const clientHeight = document.documentElement.clientHeight;
+    const scroll = document.querySelectorAll('.scroll')
+    const clientHeight = document.documentElement.clientHeight;
 
     
-//     scroll.forEach(elm => {
+    scroll.forEach(elm => {
        
         // console.log(bodyScroll.scrollTop);
         // console.log(bodyScroll.clientHeight);
@@ -485,9 +617,9 @@ if(innerWidth <= 500){
                 
                     // slideNo++;
                     
-//                     if (bodyScroll.scrollTop + bodyScroll.clientHeight >= bodyScroll.scrollHeight*0.8) {
+                    if (bodyScroll.scrollTop + bodyScroll.clientHeight >= bodyScroll.scrollHeight*0.8) {
                         // スクロールが末尾に達した
-//                         ;
+                        ;
                         // console.log(slides);
                         // if (parseInt(elm.dataset.lastnum) < parseInt(elm.dataset.max)) {
                             // 未ロードの画像がある場合
@@ -497,17 +629,17 @@ if(innerWidth <= 500){
                         // }
                             
                         //  }
-//                     elm.dataset.lastnum = parseInt(elm.dataset.lastnum) + 1;
-//                     let img = document.createElement('img');
+                    elm.dataset.lastnum = parseInt(elm.dataset.lastnum) + 1;
+                    let img = document.createElement('img');
                     // console.log(img);
 
-//                     img.src = "/assets/kinsta_img/" + [elm.dataset.lastnum] +'.jpg';
+                    img.src = "/assets/kinsta_img/" + [elm.dataset.lastnum] +'.jpg';
                     // console.log(img.src);
-//                     elm.appendChild(img);
+                    elm.appendChild(img);
                 
 
                     
-//                     }
+                    }
                 // };
                 const mainP = document.getElementById("mainPicture");
                 const asideToreni = document.getElementsByClassName("asideToreni");
@@ -724,7 +856,7 @@ if(innerWidth <= 500){
     });
 
     
-
+    
 
     
 
@@ -806,4 +938,3 @@ if(innerWidth <= 500){
 
     }
 
-    
