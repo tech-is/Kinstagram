@@ -157,6 +157,7 @@ header li a span.material-icons{
     color: #cccccc;
     width: 100%;
     box-sizing: border-box;
+    height: 20px;
 }
 .titleLogo{
     font-family: 'Damion', cursive;
@@ -705,7 +706,7 @@ div.is-open {
             width:100%;
             height: 100%;
             position: relative;
-            top: -195px;
+            top: -190px;
         }
         .underNav ul.underTab{
             display:grid;
@@ -833,7 +834,7 @@ div.is-open {
             border: solid #9E9E9E;
             border-width: 0.1px 0px 0.1px 0px;
             z-index: 100;
-            height: 40px;
+            height: 44px;
             background: black;
         }
         .underNav ul.underTab{
@@ -842,7 +843,7 @@ div.is-open {
             /* flex-direction:row;
             justify-content: space-around; */
             width: 90%;
-            height: 100%;
+            /* height: 100%; */
             box-sizing: border-box;
             margin: 0 auto;
             list-style: none;
@@ -932,7 +933,7 @@ div.is-open {
             left:0px; */
             /* z-index: 0; */
             background: black;
-            top: -24px;
+            top: -22px;
             /* color:white;
             font-size: 15px; */
             left: 35%;
@@ -1052,7 +1053,6 @@ div.is-open {
                 .titleLogo{
                     font-family: 'Damion', cursive;
                     grid-area:title;
-                    margin-top: 15px;
                     justify-self: left;
                     align-self: center;
                     font-size: 110%;
@@ -1619,5 +1619,8 @@ div.is-open {
                 }
                 ul.followerFollowUl li.nameFollowFollower{
                     margin: 2px;
+                }
+                label.openUnderFollow{
+                    margin: 0;
                 }
             }
