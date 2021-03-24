@@ -15,6 +15,47 @@ body{
         "div    div"  1fr
         /1fr;
 }
+.hiddenSerch {
+    display: none;
+}
+.serchBox {
+    position: absolute;
+    top: 38px;
+    left: 32%;
+    z-index: 100;
+    background: rgba(var(--d87,255,255,255),1);
+    border-radius: 6px;
+    overflow: scroll;
+    width: 300px;
+    height: 300px;
+    overflow-x: hidden;
+}
+div.serchnameBox {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: 20%;
+    margin: 0 0 0 5px;
+}
+div.serchiconBox {
+    display: inline-block;
+}
+.iconNameBox {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+img.serchIconProfile {
+    object-fit: cover;
+    height: 35px;
+    width: 35px;
+    border-radius: 150%;
+}
+.aInner {
+    width: 100%;
+    display: block;
+    position: relative;
+}
 header li{
     list-style: none;
 }
@@ -28,6 +69,7 @@ header li{
     grid-area:nav;
     padding: 2px 0;
     border: solid #9E9E9E;
+    height: 30px;
     border-width: 0 0.5;
     border-width: 0px 0px 0.1px 0px;
     /* display: grid; */
@@ -40,9 +82,9 @@ header{
     grid-area: header;
     display: grid;
     grid-template:
-        "title    search upload login mypage" 50%
-        "subtitle search upload login mypage" 50%
-        /30%      1fr    5%    10% 10%;
+        "title    search upload login mypage" 25px
+        "subtitle search upload login mypage" 25px
+        /30%      1fr    5%     15%;
     margin: 0 5%;
 }
 header li a span.material-icons{
@@ -57,6 +99,7 @@ header li a span.material-icons{
 .header_font_border{
     color: #cccccc;
     /* margin: 0px 8%; */
+    display: grid;
 }
 .nav_font{
     /* color:#cccccc; */
@@ -80,7 +123,7 @@ header li a span.material-icons{
     text-decoration: none;
 }
 .material-icons{
-    margin: 10px auto auto 5px;
+    margin: 0 auto auto 5px;
     font-size: 30px;
 }
 .sub_title{
@@ -125,23 +168,22 @@ div ul.detailContentsList{
     padding: 0;
 }
 .underNav ul.underTab{
-    display:grid;
+    /* display:grid; */
     grid-template-columns: 1fr 1fr 1fr;
     /* flex-direction:row;
     justify-content: space-around; */
     /* width: 90%; */
-    height: 100%;
     box-sizing: border-box;
-    margin: 0 5%;
     list-style: none;
-    padding: 0;
     /* text-align: center; */
 }
 .underNav ul.underTab li{
     box-sizing: border-box;
     width: 100%;
-    /* margin: 3px 0; */
+    margin: 0;
     position: relative;
+    padding: 0;
+    height: %;
 }
 .underNav ul.underTab li a{
     text-decoration-line:none;
@@ -188,10 +230,16 @@ li.newFollow500{
         grid-area: header;
         display: grid;
         grid-template:
-            "title    search upload login " 50%
-            "subtitle search upload mypage" 50%
+            "title    search upload login " 25px
+            "subtitle search upload mypage" 25px
             /35%      1fr        10%;
         margin: 0 5%;
+    }
+    .serchBox{
+        width: 200px;
+        height: 200px;
+        left:36%;
+        top:48px;
     }
     .titleLogo{
         font-size: 20px;
@@ -236,6 +284,24 @@ li.newFollow500{
                 "title    search  hambarger " 100%
                 /35%      1fr       20%;
             margin: 0 5%;
+        }
+        .serchBox{
+            width: 200px;
+            height: 200px;
+            left:36%;
+            top:30px;
+        }
+        div.isOpenRankUnderTwo{
+            top:-40px;
+        }
+        ul.underTab div.accordion div.isOpenRankUnder{
+            top:-22px;
+        }
+        .underNav ul.underTab li.isOpenRankUnderThree{
+            top:-191px;
+        }
+        div.contents {
+            font-size: 14px;
         }
         .titleLogo{
             font-size: 110%;
@@ -317,9 +383,34 @@ li.newFollow500{
             display: none;
         }
         label span.material-icons{
-            margin-top: 4px;
+           
         }
         .btn-square-shadow {
             display: none;
+        }
+        @media (max-width: 385px){
+            ul.underTab div.accordion div.isOpenRankUnder{
+                font-size: 11px;
+                top:-17px;
+            }
+            div.isOpenRankUnderTwo{
+                font-size: 11px;
+                top:-33px;
+            }
+            .underNav ul.underTab li.isOpenRankUnderThree{
+                top: -154px;
+            }
+            .underNav ul.underTab li div.centerLine a {
+                font-size: 11px;
+            }
+            div .rankCenter{
+                font-size: 11px;
+            }
+            ul .detailContentsList li.detailContents {
+                font-size: 11px;
+            }
+            .underNav ul.underTab li a{
+                font-size: 12px;
+            }
         }
     }

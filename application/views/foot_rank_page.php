@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <link rel="stylesheet">
+<link rel="stylesheet">
     <?php echo link_tag("/style/css/rank_style.css"); ?>
+    <?php echo link_tag("/style/css/header.css"); ?>
+    <?php $this->load->view('/common/header'); ?>
 </head>
 <body>
     <nav class="underNav">
         <ul class="underTab">
-            <li class="new"><a href="#" class="a_new">新  着</a></li>
+        <li class="new"><div class="centerLine"><a href="#" class="a_new">新  着</a></div></li>
             <div class="accordion">
-                <li class="menu js-menu">ランキング</li>
+                <li class="menu js-menu"><div class="centerLine"><span class="rankCenter">ランキング</span></div></li>
                 <div class="contents"><form method="get" action="/kinsta/rank" name="rankButton"><a href="javascript:document.rankButton.submit()">総合ランキング</a></form></div>
                 <div class="contents detailMenu ">部位別ランキング</div>
                     <ul class="detailContentsList">
@@ -20,7 +22,7 @@
                         <li class="detailContents"><form method="get" action="/kinsta/footRank" name="footRankButton"><a href="javascript:document.footRankButton.submit()">足筋</a></form></li>
                     </ul>
                 </div>
-            <li class="select"><a href="#" class="a_select">セレクト</a></li>
+                <li class="select"><div class="centerLine"><a href="#" class="a_select">セレクト</a></div></li>
         </ul>
     </nav>
     <main>
@@ -46,9 +48,10 @@
             
             
             <?php if($favorite_foot_rank[0]['post_id'] == $value['post_id']):?></br>
-            
-            <?php echo $value['comment_user_name'].':'?>
-            <?php echo $value['text_group']?></br>
+                <?php if(!empty($value['comment_user_name'])):?>
+                    <?php echo $value['comment_user_name'] . ':' ?>
+                    <?php echo $value['text_group'] ?></br>
+                <?php endif ?>
             <?php endif ?>
         
             <?php endforeach;?>
@@ -105,5 +108,6 @@
         </ul>
     </main>
     <script type="text/javascript" src="<?php echo ("/style/js/rankpage.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo ("/style/js/header.js"); ?>"></script>
 </body>
 </html>

@@ -3,20 +3,16 @@
 
 <head>
     <link rel="stylesheet">
-<<<<<<< Updated upstream
-    <link rel="stylesheet" href="/style/css/rank_style.css">
-=======
     <?php echo link_tag("/style/css/rank_style.css"); ?>
+    <?php echo link_tag("/style/css/header.css"); ?>
     <?php $this->load->view('/common/header'); ?>
->>>>>>> Stashed changes
 </head>
-
 <body>
-    <!-- <nav class="underNav">
+    <nav class="underNav">
         <ul class="underTab">
-            <li class="new"><a href="#" class="a_new">新  着</a></li>
+            <li class="new"><div class="centerLine"><a href="#" class="a_new">新  着</a></div></li>
             <div class="accordion">
-                <li class="menu js-menu">ランキング</li>
+                <li class="menu js-menu"><div class="centerLine"><span class="rankCenter">ランキング</span></div></li>
                 <div class="contents"><a href="/kinsta/rank">総合ランキング</a></div>
                 <div class="contents detailMenu ">部位別ランキング</div>
                     <ul class="detailContentsList">
@@ -26,10 +22,10 @@
                         <li class="detailContents"><form method="get" action="/kinsta/absRank" name="absRankButton"><a href="javascript:document.absRankButton.submit()">腹筋</a></form></li>
                         <li class="detailContents"><form method="get" action="/kinsta/footRank" name="footRankButton"><a href="javascript:document.footRankButton.submit()">足筋</a></form></li>
                     </ul>
-                </div>
-            <li class="select"><a href="#" class="a_select">セレクト</a></li>
+            </div>
+            <li class="select"><div class="centerLine"><a href="#" class="a_select">セレクト</a></div></li>
         </ul>
-    </nav> -->
+    </nav>
     <main>
         <ul class="wrapper">
             <li class="weekTitle">今週の"素敵なゴリマッチョ"達</li>
@@ -53,9 +49,10 @@
 
 
                     <?php if ($favorite[0]['post_id'] == $value['post_id']) : ?></br>
-
+                        <?php if(!empty($value['comment_user_name'])):?>
                         <?php echo $value['comment_user_name'] . ':' ?>
                         <?php echo $value['text_group'] ?></br>
+                        <?php endif ?>
                     <?php endif ?>
 
                 <?php endforeach; ?>
@@ -112,6 +109,7 @@
         </ul>
     </main>
     <script type="text/javascript" src="<?php echo ("/style/js/rankpage.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo ("/style/js/header.js"); ?>"></script>
 </body>
 
 </html>

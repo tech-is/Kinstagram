@@ -16,17 +16,7 @@
 </head>
 
 <body class="body">
-    <header class="header_font_border">
-        <li class="titleLogo">
-            <a href="/kinsta/top" class="titleLogoReroad">Kinstagram</a>
-        </li>
-        <li class="sub_title">筋肉達との出会いがここに・・・</li>
-        <li class="search_window"><input type="text" class="window_color" placeholder="検索"></li>
-        <li class="uploadup">
-            <form action="/kinsta/add" method="post" enctype="multipart/form-data">
-                <a href="javascript:document.pcUploadButton.submit()" data-toggle="modal" data-target="#postModal">
-                    <span class="material-icons">cloud_upload</span>
-                </a>
+   
                 <!-- 投稿Modal -->
                 <form action="/kinsta/add" method="post" enctype="multipart/form-data">
                     <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
@@ -70,8 +60,7 @@
                     </div>
                 </form>
                 <!-- Modal -->
-            </form>
-        </li>
+           
 
         <div class="hambarger">
             <li class="menuIcon">
@@ -97,7 +86,7 @@
                 </nav>
             </li>
         </div>
-    </header>
+    
     <!-- ヘッダーここまで -->
     <div class="mainPhotflame">
         <form action="/Kinsta/mypage_update" method="post">
@@ -214,5 +203,6 @@
         </form>
     </div>
     <script type="text/javascript" src="<?php echo ("/style/js/onlymypage.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo ("/style/js/header.js"); ?>"></script>
 </body>
 </html>
