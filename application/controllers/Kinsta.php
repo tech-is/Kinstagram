@@ -418,6 +418,9 @@ class Kinsta extends CI_Controller
 	public function rank()
 	{
 		$this->load->model('Kinsta_model');
+		$email = ($_SESSION["E-mail"]);
+		$data = null;
+		$data['login_userid'] = $this->Kinsta_model->get_userid($email);
 		// $data['total_rank'] = $this->Kinsta_model->total_rank();
 		$data['message_rank'] = $this->Kinsta_model->message_rank();
 		$data['favorite'] = $this->Kinsta_model->favorite_rank();
@@ -441,7 +444,7 @@ class Kinsta extends CI_Controller
 	{
 		$this->load->model('Kinsta_model');
 		$data['favorite_shoulder_rank'] = $this->Kinsta_model->favorite_shoulder_rank();
-		var_dump($data['favorite_shoulder_rank']);
+		
 		if ($this->session->userdata("is_logged_in")) {
 			// $this->load->view('top_page', $data,);
 		} else {
@@ -454,7 +457,6 @@ class Kinsta extends CI_Controller
 	{
 		$this->load->model('Kinsta_model');
 		$data['favorite_arm_rank'] = $this->Kinsta_model->favorite_arm_rank();
-		var_dump($data['favorite_arm_rank']);
 		if ($this->session->userdata("is_logged_in")) {
 			// $this->load->view('top_page', $data,);
 		} else {

@@ -17,7 +17,10 @@
             <a href="/kinsta/top" class="titleLogoReroad">Kinstagram</a>
         </li>
         <li class="sub_title">筋肉達との出会いがここに・・・</li>
-        <li class="search_window"><input type="text" class="window_color" placeholder="検索"></li>
+        <li class="search_window">
+            <input id="keyword" type="text" value="" name="serchText" class="window_color" placeholder="検索" autocomplete="off">
+        </li>
+        <div id="serchResult" aria-hidden="true" class="serchBox hiddenSerch"></div>
         <li class="uploadup">
             <form action="/kinsta/add" method="post" enctype="multipart/form-data">
                 <a href="javascript:document.pcUploadButton.submit()" data-toggle="modal" data-target="#postModal">

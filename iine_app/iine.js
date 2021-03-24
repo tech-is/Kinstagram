@@ -15,7 +15,7 @@ $(function () {
   var iine = document.getElementById('iine');
   var iineWrap = document.getElementById('iine_wrap');
   var iineThanks = document.getElementById('iine_thanks');
-  var countNum = count.textContent;
+  // var countNum = count.textContent;
   var pathname = location.href;
 
   var ajaxPath = `${location.protocol}//${location.host}${folderpath}iine_app/_ajax.php`;
@@ -42,7 +42,7 @@ $(function () {
     }).fail(function () {
       alert('iine.jsのfolderpathの値を確認して下さい。');
     }).done(function (res) {
-      count.innerHTML = res;
+      // count.innerHTML = res;
     });
   });
 
