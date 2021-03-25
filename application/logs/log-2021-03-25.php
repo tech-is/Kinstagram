@@ -1225,3 +1225,98 @@ DEBUG - 2021-03-25 13:05:29 --> Session: "sess_save_path" is empty; using "sessi
 DEBUG - 2021-03-25 13:05:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-03-25 13:05:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-03-25 13:05:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:18 --> No URI present. Default controller set.
+ERROR - 2021-03-25 13:13:18 --> 404 Page Not Found: Kinsta/index
+DEBUG - 2021-03-25 13:13:22 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:26 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 13:13:26 --> Severity: Notice --> Undefined variable: array_user C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 237
+ERROR - 2021-03-25 13:13:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 237
+ERROR - 2021-03-25 13:13:26 --> Severity: Notice --> Undefined variable: array_post C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 258
+ERROR - 2021-03-25 13:13:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 258
+ERROR - 2021-03-25 13:13:26 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 13:13:26 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 13:13:26 --> Severity: Notice --> Undefined variable: array_user C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 237
+ERROR - 2021-03-25 13:13:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 237
+ERROR - 2021-03-25 13:13:26 --> Severity: Notice --> Undefined variable: array_post C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 258
+ERROR - 2021-03-25 13:13:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 258
+DEBUG - 2021-03-25 13:13:28 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:28 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:28 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:28 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:28 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:41 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:46 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 13:13:46 --> Severity: Notice --> Undefined variable: array_user C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 237
+ERROR - 2021-03-25 13:13:46 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 237
+ERROR - 2021-03-25 13:13:46 --> Severity: Notice --> Undefined variable: array_post C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 258
+ERROR - 2021-03-25 13:13:46 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 258
+ERROR - 2021-03-25 13:13:47 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 13:13:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:49 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:13:57 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:16:19 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:16:25 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 13:16:25 --> Severity: Notice --> Undefined variable: array_user C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 237
+ERROR - 2021-03-25 13:16:25 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 237
+ERROR - 2021-03-25 13:16:25 --> Severity: Notice --> Undefined variable: array_post C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 258
+ERROR - 2021-03-25 13:16:25 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 258
+ERROR - 2021-03-25 13:16:26 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 13:16:27 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:16:27 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:16:27 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:16:27 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:16:27 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:16:44 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 13:17:53 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:22:37 --> No URI present. Default controller set.
+ERROR - 2021-03-25 14:22:37 --> 404 Page Not Found: Kinsta/index
+ERROR - 2021-03-25 14:22:37 --> 404 Page Not Found: Faviconico/index
+DEBUG - 2021-03-25 14:22:40 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:22:44 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:22:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:22:48 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2021-03-25 14:22:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 14:22:48 --> Severity: Notice --> Undefined variable: array_user C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 237
+ERROR - 2021-03-25 14:22:48 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 237
+ERROR - 2021-03-25 14:22:48 --> Severity: Notice --> Undefined variable: array_post C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 258
+ERROR - 2021-03-25 14:22:48 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 258
+ERROR - 2021-03-25 14:22:49 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 14:22:49 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:22:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:22:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:22:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:22:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:22:56 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:23:00 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:23:05 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:23:09 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:26:00 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 14:26:00 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\arm_rank_page.php 53
+DEBUG - 2021-03-25 14:26:25 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 14:26:25 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\arm_rank_page.php 53
+DEBUG - 2021-03-25 14:36:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:49:16 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:49:47 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:52:39 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 14:52:39 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\shoulder_rank_page.php 53
+ERROR - 2021-03-25 14:52:39 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\shoulder_rank_page.php 96
+ERROR - 2021-03-25 14:52:39 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\shoulder_rank_page.php 117
+DEBUG - 2021-03-25 14:52:54 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:53:15 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 14:53:15 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\shoulder_rank_page.php 53
+ERROR - 2021-03-25 14:53:15 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\shoulder_rank_page.php 96
+ERROR - 2021-03-25 14:53:15 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\shoulder_rank_page.php 117
+DEBUG - 2021-03-25 14:53:21 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:54:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:54:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:54:40 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:54:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:54:53 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:55:01 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:55:52 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:56:49 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 14:56:59 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
