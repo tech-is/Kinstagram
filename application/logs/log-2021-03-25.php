@@ -1320,3 +1320,96 @@ DEBUG - 2021-03-25 14:55:01 --> Session: "sess_save_path" is empty; using "sessi
 DEBUG - 2021-03-25 14:55:52 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-03-25 14:56:49 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-03-25 14:56:59 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:02:55 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:03:02 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:05:52 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:05:56 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 15:05:57 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 15:05:57 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:05:57 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:05:57 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:05:57 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:05:57 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:06:06 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 15:06:07 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 15:06:07 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:06:07 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:06:07 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:06:07 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:06:07 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:05 --> No URI present. Default controller set.
+ERROR - 2021-03-25 15:11:05 --> 404 Page Not Found: Kinsta/index
+ERROR - 2021-03-25 15:11:11 --> 404 Page Not Found: Top/index
+DEBUG - 2021-03-25 15:11:16 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:18 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:19 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:20 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:20 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:20 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:20 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:20 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:28 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 15:11:29 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 15:11:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:11:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:20:58 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 15:20:59 --> Severity: error --> Exception: syntax error, unexpected end of file C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 372
+DEBUG - 2021-03-25 15:21:36 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 15:21:36 --> Severity: Notice --> Undefined variable: all_post C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 263
+ERROR - 2021-03-25 15:21:36 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 263
+ERROR - 2021-03-25 15:21:37 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 15:21:38 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:21:38 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:21:38 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:21:38 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:21:38 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:26:49 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 15:26:49 --> Severity: Notice --> Undefined variable: modal_post C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 263
+ERROR - 2021-03-25 15:26:49 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 263
+ERROR - 2021-03-25 15:26:50 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 15:26:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:26:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:26:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:26:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:26:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:26:59 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 15:26:59 --> Severity: Notice --> Undefined variable: modal_post C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 263
+ERROR - 2021-03-25 15:26:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\team333\Kinstagram\application\views\top_page.php 263
+ERROR - 2021-03-25 15:27:00 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 15:27:01 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:27:01 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:27:01 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:27:01 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:27:01 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:30:11 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 15:30:12 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 15:30:13 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:30:13 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:30:13 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:30:13 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:30:13 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:30:18 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:30:21 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 15:30:21 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\arm_rank_page.php 53
+ERROR - 2021-03-25 15:30:21 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\arm_rank_page.php 95
+ERROR - 2021-03-25 15:30:21 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\arm_rank_page.php 117
+DEBUG - 2021-03-25 15:30:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 15:30:29 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\arm_rank_page.php 53
+ERROR - 2021-03-25 15:30:29 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\arm_rank_page.php 95
+ERROR - 2021-03-25 15:30:29 --> Severity: Notice --> Undefined index: follower_number C:\xampp\htdocs\team333\Kinstagram\application\views\arm_rank_page.php 117
+DEBUG - 2021-03-25 15:31:16 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:31:20 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:31:36 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:32:39 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:32:42 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-25 15:32:43 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-03-25 15:32:43 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:32:43 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:32:43 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:32:43 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:32:43 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:32:47 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-25 15:35:11 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
