@@ -174,7 +174,7 @@ class Kinsta_model extends CI_Model
             ->join('users as comment_user', 'comments.comment_user_id=comment_user.user_id', 'left')
             // ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
             //             comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
-            ->select('test.user_name,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+            ->select('test.user_name,test.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
         comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
             ->get('favorites')
             ->result_array();
@@ -194,7 +194,7 @@ class Kinsta_model extends CI_Model
             ->join('users as comment_user', 'comments.comment_user_id=comment_user.user_id', 'left')
             // ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
             //             comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
-            ->select('test.user_name,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+            ->select('test.user_name,test.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
         comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
             ->get('favorites')
             ->result_array();
@@ -214,7 +214,7 @@ class Kinsta_model extends CI_Model
             ->join('users as comment_user', 'comments.comment_user_id=comment_user.user_id', 'left')
             // ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
             //             comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
-            ->select('test.user_name,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+            ->select('test.user_name,test.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
                     comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
             ->get('favorites')
             ->result_array();
@@ -234,7 +234,7 @@ class Kinsta_model extends CI_Model
             ->join('users as comment_user', 'comments.comment_user_id=comment_user.user_id', 'left')
             // ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
             //             comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
-            ->select('test.user_name,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+            ->select('test.user_name,test.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
                     comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
             ->get('favorites')
             ->result_array();
@@ -254,7 +254,7 @@ class Kinsta_model extends CI_Model
             ->join('users as comment_user', 'comments.comment_user_id=comment_user.user_id', 'left')
             // ->select('test.user_name,followers.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
             //             comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
-            ->select('test.user_name,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+            ->select('test.user_name,test.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
                     comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
             ->get('favorites')
             ->result_array();
