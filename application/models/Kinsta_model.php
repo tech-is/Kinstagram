@@ -60,7 +60,7 @@ class Kinsta_model extends CI_Model
     }
     public function all_post()
     {
-        return $this->db->query('SELECT user_id,list_image,updated_at FROM posts ORDER BY updated_at DESC')
+        return $this->db->query('SELECT user_id,list_image,post_message,mytraining,mymenu,updated_at FROM posts ORDER BY updated_at DESC')
             ->result_array();
     }
 
@@ -154,7 +154,7 @@ class Kinsta_model extends CI_Model
             // ->join('followers','followers.user_id=posts.user_id','left')
             ->join('comments', 'comments.post_id=posts.post_id ', 'left')
             ->join('users as comment_user', 'comments.comment_user_id=comment_user.user_id', 'left')
-            ->select('test.user_name,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
+            ->select('test.user_name,test.follower_number,posts.post_message,posts.post_id,COUNT(favorites.post_id) as count,comments.text_group,comments.
                     comment_user_id,posts.list_image,comment_user.user_name as comment_user_name,posts.mytraining,posts.mymenu')
             ->get('favorites')
             ->result_array();
