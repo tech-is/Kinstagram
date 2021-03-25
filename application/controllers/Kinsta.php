@@ -31,7 +31,7 @@ class Kinsta extends CI_Controller
 	// if ($this->session->userdata("is_logged_in")) {
 	// 	$this->load->view("あああ");
 	// } else {
-		// redirect("kinsta/lp");
+	// redirect("kinsta/lp");
 	// }
 
 
@@ -52,10 +52,10 @@ class Kinsta extends CI_Controller
 		$data = null;
 		// echo $email;
 		$this->load->model('Kinsta_model');
-		$data['login_userid']= $this->Kinsta_model->get_userid($email);
+		$data['login_userid'] = $this->Kinsta_model->get_userid($email);
 		$data['array_user'] = $this->Model_mypage->mypage_get();
 		$data['array_post'] = $this->Model_mypage->individual_get();
-		$this->load->view('Mypage',$data);
+		$this->load->view('Mypage', $data);
 	}
 
 	public function mypage_update()
@@ -89,7 +89,7 @@ class Kinsta extends CI_Controller
 		$my_category = $this->input->post('my_category');
 		$email = $this->input->post('E-mail');
 		$password = $this->input->post('password');
-				
+
 		//変数を配列に格納
 		$user = [
 			'profile_image' => $profile_image,
@@ -152,8 +152,7 @@ class Kinsta extends CI_Controller
 	public function individual()
 	{
 		$this->load->helper('files');
-		if(delete_files('post-img'))
-		{
+		if (delete_files('post-img')) {
 			//削除しました
 		}
 
@@ -299,7 +298,7 @@ class Kinsta extends CI_Controller
 	public function top()
 	{
 		$this->load->model('Kinsta_model');
-		
+
 		$email = ($_SESSION["E-mail"]);
 		$data = null;
 		$data['login_userid'] = $this->Kinsta_model->get_userid($email);
@@ -307,44 +306,46 @@ class Kinsta extends CI_Controller
 		$data['five_data'] = $this->Kinsta_model->random_member_five();
 		$data['all_posts'] = $this->Kinsta_model->all_post();
 		// if ($this->session->userdata("is_logged_in")) {
-			$this->load->view('top_page', $data,);
+		$this->load->view('top_page', $data,);
 		// } else {
 		// 		redirect("kinsta/lp");
 		// }
-		
+
 	}
 
 	public function serch()
 	{
-		
+
 		header("Content-Type: application/json; charset=utf-8");
-		
+
 		$keyword = $this->input->post('serchText', true);
 		// var_dump($keyword);
 		$this->load->model('Kinsta_model');
 		$data['match_data'] = $this->Kinsta_model->serch_for($keyword);
 		// var_dump($data);
-		
-		
+
+
 		echo json_encode(['message' => $data['match_data']]);
 		exit();
 		// var_dump($data['match_data'][0]['user_name']);
 		// echo json_encode(['message' => "$data['match_data'][0]['user_name']"]);
 	}
-	
-	
-	
+
+
+
 
 	public function addMember()
 	{
 		header("Content-Type: application/json; charset=UTF-8");
 		$data = file_get_contents('php://input');
-		$data =json_decode($data,true);
+		$data = json_decode($data, true);
 		$this->load->model('Kinsta_model');
-		if ($this->Kinsta_model->addMember($data)){
+		if ($this->Kinsta_model->addMember($data)) {
 			echo json_encode(['message' => "マッスルメンバー解除"], JSON_UNESCAPED_UNICODE);
+			$this->Kinsta_model->recount_follower($data);
 		} else {
 			echo json_encode(['message' => "マッスルメンバー追加"], JSON_UNESCAPED_UNICODE);
+			$this->Kinsta_model->recount_follower($data);
 		}
 		exit();
 	}
@@ -352,17 +353,19 @@ class Kinsta extends CI_Controller
 	public function addOrDelete()
 	{
 		header("Content-Type: application/json; charset=UTF-8");
-		
+
 		$data['memberUserId'] = $this->input->post('memberUserId', true);
 		$data['loginId'] = $this->input->post('loginId', true);
 		// var_dump($data);
 		// $data1 =json_decode($data,true);
 		// file_put_contents('data.txt',$data1);
 		$this->load->model('Kinsta_model');
-		if ($this->Kinsta_model->addOrDelete($data)){
+		if ($this->Kinsta_model->addOrDelete($data)) {
 			echo json_encode(['add' => "マッスルメンバー追加"], JSON_UNESCAPED_UNICODE);
+			$this->Kinsta_model->recount_follower($data);
 		} else {
 			echo json_encode(['alreadyAdd' => "マッスルメンバー解除"], JSON_UNESCAPED_UNICODE);
+			$this->Kinsta_model->recount_follower($data);
 		}
 		exit();
 	}
@@ -371,18 +374,17 @@ class Kinsta extends CI_Controller
 	{
 		header("Content-Type: application/json; charset=UTF-8");
 		$loginId = file_get_contents('php://input');
-		$data[] =json_decode($loginId,true);
+		$data[] = json_decode($loginId, true);
 		// var_dump($data);
 		$this->load->model('Kinsta_model');
-		$data['fiveChange']= $this->Kinsta_model->random_member_five();
+		$data['fiveChange'] = $this->Kinsta_model->random_member_five();
 		// var_dump($data);
 
-		for($i=0; $i<5; $i++){
+		for ($i = 0; $i < 5; $i++) {
 			$data[0]['memberUserId'] = $data['fiveChange'][$i]['user_id'];
 			// var_dump($data[0]['memberUserId']);
-			if ($this->Kinsta_model->addOrDelete($data)){
+			if ($this->Kinsta_model->addOrDelete($data)) {
 				$data['fiveChange'][$i]['mussleMemberAddOrDelete'] = 'マッスルメンバー追加';
-				
 			} else {
 				$data['fiveChange'][$i]['mussleMemberAddOrDelete'] = 'マッスルメンバー解除';
 			}
@@ -391,12 +393,12 @@ class Kinsta extends CI_Controller
 		exit();
 		// var_dump($data['fiveChange']);
 		// var_dump($data);
-			
+
 	}
 
 
 
-	
+
 	public function onlyMypage()
 	{
 		$id = $_GET['userId'] ?: null;
@@ -408,13 +410,13 @@ class Kinsta extends CI_Controller
 		} else {
 		}
 	}
-	
+
 	public function select()
 	{
 		$this->load->view('header_page');
 		// $this->load->view('select_page');
 	}
-	
+
 	public function rank()
 	{
 		$this->load->model('Kinsta_model');
@@ -424,10 +426,10 @@ class Kinsta extends CI_Controller
 		// $data['total_rank'] = $this->Kinsta_model->total_rank();
 		$data['message_rank'] = $this->Kinsta_model->message_rank();
 		$data['favorite'] = $this->Kinsta_model->favorite_rank();
-		
-		
+
+
 		// $data['follow_N'] = $this->Kinsta_model->follow_N();
-		
+
 		// print_r($data['favorite']);
 		// var_dump($data['get_image']);
 		// var_dump($data['total_rank']);
@@ -438,20 +440,20 @@ class Kinsta extends CI_Controller
 		// 		redirect("kinsta/lp");
 		// }
 		$this->load->view('header_page');
-		$this->load->view('rank_page',$data);
+		$this->load->view('rank_page', $data);
 	}
 	public function shoulderRank()
 	{
 		$this->load->model('Kinsta_model');
 		$data['favorite_shoulder_rank'] = $this->Kinsta_model->favorite_shoulder_rank();
-		
+
 		if ($this->session->userdata("is_logged_in")) {
 			// $this->load->view('top_page', $data,);
 		} else {
-				redirect("kinsta/lp");
+			redirect("kinsta/lp");
 		}
 		$this->load->view('header_page');
-		$this->load->view('shoulder_rank_page',$data);
+		$this->load->view('shoulder_rank_page', $data);
 	}
 	public function armRank()
 	{
@@ -460,10 +462,10 @@ class Kinsta extends CI_Controller
 		if ($this->session->userdata("is_logged_in")) {
 			// $this->load->view('top_page', $data,);
 		} else {
-				redirect("kinsta/lp");
+			redirect("kinsta/lp");
 		}
 		$this->load->view('header_page');
-		$this->load->view('arm_rank_page',$data);
+		$this->load->view('arm_rank_page', $data);
 	}
 	public function breastRank()
 	{
@@ -472,12 +474,12 @@ class Kinsta extends CI_Controller
 		if ($this->session->userdata("is_logged_in")) {
 			// $this->load->view('top_page', $data,);
 		} else {
-				redirect("kinsta/lp");
+			redirect("kinsta/lp");
 		}
 		$this->load->view('header_page');
-		$this->load->view('breast_rank_page',$data);
+		$this->load->view('breast_rank_page', $data);
 	}
-	
+
 	public function absRank()
 	{
 		$this->load->model('Kinsta_model');
@@ -485,10 +487,10 @@ class Kinsta extends CI_Controller
 		if ($this->session->userdata("is_logged_in")) {
 			// $this->load->view('top_page', $data,);
 		} else {
-				redirect("kinsta/lp");
+			redirect("kinsta/lp");
 		}
 		$this->load->view('header_page');
-		$this->load->view('abs_rank_page',$data);
+		$this->load->view('abs_rank_page', $data);
 	}
 	public function footRank()
 	{
@@ -497,10 +499,10 @@ class Kinsta extends CI_Controller
 		if ($this->session->userdata("is_logged_in")) {
 			// $this->load->view('top_page', $data,);
 		} else {
-				redirect("kinsta/lp");
+			redirect("kinsta/lp");
 		}
 		$this->load->view('header_page');
-		$this->load->view('foot_rank_page',$data);
+		$this->load->view('foot_rank_page', $data);
 	}
 }
 
