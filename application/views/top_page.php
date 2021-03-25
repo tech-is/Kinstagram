@@ -28,7 +28,7 @@
                 <span class="material-icons">cloud_upload</span>
             </a>
             <form action="/kinsta/add" method="post" enctype="multipart/form-data">
-            <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+                <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content  border border-gray">
                             <div class="modal-header bg-black">
@@ -228,8 +228,8 @@
         </aside>
     </div>
 
-<!-- 個別ページ用のモーダル -->
-<form action="/Kinsta/individual_top" method="get">
+    <!-- 個別ページ用のモーダル -->
+    <form action="/Kinsta/individual_top" method="get">
         <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-max" role="document">
                 <div class="modal-content border border-gray">
@@ -250,7 +250,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                <!-- JSでsrcのurlがセットされる -->
+                                    <!-- JSでsrcのurlがセットされる -->
                                     <img id="list-img" class='list-img' src="" alt="1">
                                 </div>
                                 <div class="col-md-6">
@@ -319,7 +319,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="<?php echo ("/style/js/toppage.js"); ?>"></script>
     <script>
-    // クリックで”フォロー”と”フォローする”のテキストが入れ替わる
+        // クリックで”フォロー”と”フォローする”のテキストが入れ替わる
         document.getElementById("follow").addEventListener(
             "click",
             function(event) {
@@ -357,4 +357,5 @@
     </script>
     <script src="/iine_app/iine.js"></script>
 </body>
+
 </html>
