@@ -76,8 +76,8 @@
         </li>
 
         <li class="login">
-            <form method="get" action="/kinsta/login">
-                <input type="submit" class="btn-square-shadow" value="ログイン">
+            <form method="get" action="/kinsta/logout">
+                <input type="submit" class="btn-square-shadow" value="ログアウト">
             </form>
             <form method="get" action="/kinsta/mypage">
                 <input type="submit" class="btn-square-shadow" value="マイページ">
