@@ -11,7 +11,11 @@
       rel="stylesheet">
 </head>
     <body>
-
+    <?php// if (!empty($success_message)) : ?>
+                <!-- <p class="success_message">
+                    <?= $success_message; ?>
+                </p> -->
+    <?php// endif; ?>
     <header class="header_font_border">
         <li class="titleLogo">
             <a href="/kinsta/top" class="titleLogoReroad">Kinstagram</a>
@@ -22,12 +26,13 @@
         </li>
         <div id="serchResult" aria-hidden="true" class="serchBox hiddenSerch"></div>
         <li class="uploadup">
-            <form action="/kinsta/add" method="post" enctype="multipart/form-data">
+        <!-- 消去他ページにも忘れず -->
+            <!-- <form action="/kinsta/addMessageMenuTraning" method="post" enctype="multipart/form-data"> -->
                 <a href="javascript:document.pcUploadButton.submit()" data-toggle="modal" data-target="#postModal">
-                    <span class="material-icons">cloud_upload</span>
+                    <span class="material-icons" id="uploadB">cloud_upload</span>
                 </a>
                 <!-- 投稿Modal -->
-                <form action="/kinsta/add" method="post" enctype="multipart/form-data">
+                <form action="/kinsta/addFileMesMenTra" method="post" enctype="multipart/form-data">
                     <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content  border border-gray">
@@ -45,20 +50,22 @@
                                         echo $error;
                                     }
                                     ?>
-                                    <input name="list_image" type="file" accept='image/*' onchange="previewImage(this);">
+                                    <input name="uploadFile" id="uploadFile" type="file" accept="image/*">
+                                    <!-- <input name="uploadListImage" id="uploadListImage" type="file" accept='image/*'> -->
 
                                     <div class="form-group">
-                                        <labelclass="control-label">メッセージ</label>
-                                            <textarea name="post_message" class="form-control bg-gray" cols="30" rows="5"></textarea>
+                                        <label class="control-label">メッセージ</label>
+                                            <textarea name="uploadPostMessage" id="uploadPostMessage" class="form-control bg-gray" cols="30" rows="5"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">マイメニュー</label>
-                                        <input name="mymenu" class="form-control bg-gray" type="text">
+                                        <input name="uploadMyMenu" id="uploadMyMenu" class="form-control bg-gray" type="text">
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">マイトレーニング</label>
-                                        <input name="mytraining" class="form-control bg-gray" type="text">
+                                        <input name="uploadMyTraining" id="uploadMyTraining" class="form-control bg-gray" type="text">
                                     </div>
+                                    <input type="hidden" name="token" value="<?php echo $token;?>">
                                 </div>
                                 <div class="modal-footer bg-black">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
@@ -69,7 +76,7 @@
                     </div>
                 </form>
                 <!-- Modal -->
-            </form>
+            <!-- </form> -->
         </li>
         <li class="login">
             <form method="get" action="/kinsta/logout">

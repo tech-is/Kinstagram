@@ -312,7 +312,41 @@ class Kinsta extends CI_Controller
 		// }
 
 	}
-
+	public function addFileMesMenTra()
+	{
+		$token = isset($_POST['token']) ? $_POST['token'] : '';
+		$session_token = isset($_SESSION['token']) ? $_SESSION['token'] : '';
+		unset($_SESSION["token"]);
+		
+		if($token != "" && $token == $session_token) {
+			
+			$this->load->model('Kinsta_model');
+			$data = null;
+			$data['uploadFile'] = $_FILES['uploadFile']['name'] ?: null;
+			$data['uploadPostMessage'] = $this->input->post('uploadPostMessage', true) ?: null;
+			$data['uploadMyMenu'] = $this->input->post('uploadMyMenu', true) ?: null;
+			$data['uploadMyTraining'] = $this->input->post('uploadMyTraining', true) ?: null;
+			$email = ($_SESSION["E-mail"]);
+			
+			$data['user_id'] = $this->Kinsta_model->get_userid_upload($email);
+			if($this->Kinsta_model->uploadPostMessageMenuTraning($data)){
+				$_SESSION['success_message'] = '投稿データを保存しました。';
+			} else {
+				$_SESSION['error_message'] = '保存に失敗しました。';
+			}
+				header('Location:/kinsta/rank');
+				exit();
+		  
+		} else {
+			// $data[]=$token;
+			// $data[]=$session_token;
+			
+			echo"ERROR：不正な登録処理です";
+			// $this->load->view('header_page',$data);
+			// 	exit();
+		}
+		
+	}
 	public function serch()
 	{
 
@@ -356,9 +390,7 @@ class Kinsta extends CI_Controller
 
 		$data['memberUserId'] = $this->input->post('memberUserId', true);
 		$data['loginId'] = $this->input->post('loginId', true);
-		// var_dump($data);
-		// $data1 =json_decode($data,true);
-		// file_put_contents('data.txt',$data1);
+		
 		$this->load->model('Kinsta_model');
 		if ($this->Kinsta_model->addOrDelete($data)) {
 			echo json_encode(['add' => "マッスルメンバー追加"], JSON_UNESCAPED_UNICODE);
@@ -423,24 +455,21 @@ class Kinsta extends CI_Controller
 		$email = ($_SESSION["E-mail"]);
 		$data = null;
 		$data['login_userid'] = $this->Kinsta_model->get_userid($email);
+
 		// $data['total_rank'] = $this->Kinsta_model->total_rank();
 		$data['message_rank'] = $this->Kinsta_model->message_rank();
 		$data['favorite'] = $this->Kinsta_model->favorite_rank();
+		
+		if(!isset($_SESSION)){
+			session_start();
+			}
+		
+		$token = uniqid('',true);
+		$data['token'] = $token;
+		$_SESSION['token'] = $token;
 
-
-		// $data['follow_N'] = $this->Kinsta_model->follow_N();
-
-		// print_r($data['favorite']);
-		// var_dump($data['get_image']);
-		// var_dump($data['total_rank']);
-		// var_dump($data['message_rank']);
-		// if ($this->session->userdata("is_logged_in")) {
-		// 	$this->load->view('rank_page', $data,);
-		// } else {
-		// 		redirect("kinsta/lp");
-		// }
-		$this->load->view('header_page');
-		$this->load->view('rank_page', $data);
+		$this->load->view('header_page',$data);
+		$this->load->view('rank_page',$data);
 	}
 	public function shoulderRank()
 	{
@@ -452,7 +481,16 @@ class Kinsta extends CI_Controller
 		} else {
 			redirect("kinsta/lp");
 		}
-		$this->load->view('header_page');
+
+		if(!isset($_SESSION)){
+			session_start();
+			}
+		
+		$token = uniqid('',true);
+		$data['token'] = $token;
+		$_SESSION['token'] = $token;
+
+		$this->load->view('header_page',$data);
 		$this->load->view('shoulder_rank_page', $data);
 	}
 	public function armRank()
@@ -464,7 +502,15 @@ class Kinsta extends CI_Controller
 		} else {
 			redirect("kinsta/lp");
 		}
-		$this->load->view('header_page');
+		if(!isset($_SESSION)){
+			session_start();
+			}
+		
+		$token = uniqid('',true);
+		$data['token'] = $token;
+		$_SESSION['token'] = $token;
+
+		$this->load->view('header_page',$data);
 		$this->load->view('arm_rank_page', $data);
 	}
 	public function breastRank()
@@ -476,7 +522,15 @@ class Kinsta extends CI_Controller
 		} else {
 			redirect("kinsta/lp");
 		}
-		$this->load->view('header_page');
+		if(!isset($_SESSION)){
+			session_start();
+			}
+		
+		$token = uniqid('',true);
+		$data['token'] = $token;
+		$_SESSION['token'] = $token;
+
+		$this->load->view('header_page',$data);
 		$this->load->view('breast_rank_page', $data);
 	}
 
@@ -489,7 +543,15 @@ class Kinsta extends CI_Controller
 		} else {
 			redirect("kinsta/lp");
 		}
-		$this->load->view('header_page');
+		if(!isset($_SESSION)){
+			session_start();
+			}
+		
+		$token = uniqid('',true);
+		$data['token'] = $token;
+		$_SESSION['token'] = $token;
+
+		$this->load->view('header_page',$data);
 		$this->load->view('abs_rank_page', $data);
 	}
 	public function footRank()
@@ -501,7 +563,15 @@ class Kinsta extends CI_Controller
 		} else {
 			redirect("kinsta/lp");
 		}
-		$this->load->view('header_page');
+		if(!isset($_SESSION)){
+			session_start();
+			}
+		
+		$token = uniqid('',true);
+		$data['token'] = $token;
+		$_SESSION['token'] = $token;
+
+		$this->load->view('header_page',$data);
 		$this->load->view('foot_rank_page', $data);
 	}
 }

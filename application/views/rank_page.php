@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <link rel="stylesheet">
     <?php echo link_tag("/style/css/rank_style.css"); ?>

@@ -21,11 +21,40 @@ class Kinsta_model extends CI_Model
     // }
     public function get_userid($email)
     {
+    return         $this->db
+                    ->where('users.E-mail',$email)
+                    ->select('users.user_id')
+                    ->get('users')
+                    ->result_array();
+    
+    
+    }
+    public function get_userid_upload($email)
+    {
+    $query = $this->db
+                    ->where('users.E-mail',$email)
+                    ->select('users.user_id')
+                    ->get('users')
+                    ->row_array();
+    
+    foreach($query as $row){
+        return $row;
+    }
+    }
+    public function uploadPostMessageMenuTraning($data)
+    {
+        var_dump($data);
+        $array = array(
+            'user_id' => $data['user_id'],
+            'post_message' => $data['uploadPostMessage'],
+            'mytraining' => $data['uploadMyTraining'],
+            'mymenu' => $data['uploadMyMenu'],
+            'list_image' => $data['uploadFile']
+        );
         return $this->db
-            ->where('users.E-mail', $email)
-            ->select('users.user_id')
-            ->get('users')
-            ->result_array();
+                    ->insert('posts',$array);
+                    return true;
+        //             ->
     }
     public function random_member_ten()
     {
