@@ -42,3 +42,43 @@ $("#keyword").on('keyup', () => {
                     alert('検索に失敗しました');
                 })
 });
+
+ //投稿用のモーダル
+ const uploadFile = document.getElementById('uploadFile');
+ uploadFile.addEventListener('change',(obj) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(obj.target.files[0]);
+    fileReader.onload = (function() {
+        const canvas = document.getElementById('preview');
+        const ctx = canvas.getContext('2d');
+        const image = new Image();
+        image.src = fileReader.result;
+        image.onload = (function() {
+            canvas.width = image.width;
+            canvas.height = image.height;
+            ctx.drawImage(image,0, 0);
+        });
+    });
+    
+    
+});
+
+
+// function previewImage(obj)
+// {
+// 	var fileReader = new FileReader();
+// 	fileReader.onload = (function() {
+// 		var canvas = document.getElementById('preview');
+// 		var ctx = canvas.getContext('2d');
+// 		var image = new Image();
+// 		image.src = fileReader.result;
+// 		image.onload = (function () {
+// 			canvas.width = image.width;
+// 			canvas.height = image.height;
+// 			ctx.drawImage(image, 0, 0);
+// 		});
+// 	});
+//     console.log(obj.files[0]);
+// 	fileReader.readAsDataURL(obj.files[0]);
+// }
+// console.log(obj.files[0].name);

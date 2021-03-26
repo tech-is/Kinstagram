@@ -1,7 +1,3 @@
-
-
-
-
 // navアコーディオン
 if(innerWidth <= 900){
     const menu = document.querySelectorAll(".menu");
@@ -75,3 +71,4 @@ if(innerWidth >= 900){
     detailMenu[0].addEventListener('click',toggle2);
 
 }
+
