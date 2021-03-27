@@ -37,13 +37,12 @@ class Kinsta_model extends CI_Model
                     ->get('users')
                     ->row_array();
     
-    foreach($query as $row){
-        return $row;
-    }
+        foreach($query as $row){
+            return $row;
+        }
     }
     public function uploadPostMessageMenuTraning($data)
     {
-        var_dump($data);
         $array = array(
             'user_id' => $data['user_id'],
             'post_message' => $data['uploadPostMessage'],
@@ -55,6 +54,14 @@ class Kinsta_model extends CI_Model
                     ->insert('posts',$array);
                     return true;
         //             ->
+    }
+    public function getMessageMenuTraning($data)
+    {
+        return $this->db
+            ->where('posts.list_image', $data['fName'])
+            ->select('posts.post_message,posts.mytraining,posts.mymenu')
+            ->get('posts')
+            ->row_array();
     }
     public function random_member_ten()
     {
@@ -159,7 +166,7 @@ class Kinsta_model extends CI_Model
         return $this->db
             ->where('users.user_id', $id)
             ->join('posts', 'posts.user_id=users.user_id', 'left')
-            ->select('users.profile_image,users.user_name,posts.list_image')
+            ->select('users.profile_image,users.user_name,users.introduction,users.my_category,users.E-mail,posts.list_image')
             ->get('users')
             ->result_array();
     }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html id="bodyScroll" lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,9 +76,7 @@
             </form>
         </li>
         <li class="mypage">
-            <form method="get" action="/kinsta/mypage">
-                <input type="submit" class="btn-square-shadow" value="マイページ">
-            </form>
+            <a href="/kinsta/mypage?userId=<?php echo $login_userid[0]['user_id'] ?>" class="btn-square-shadow">マイページ</a>
         </li>
         <div class="hambarger">
             <li class="menuIcon">
@@ -88,7 +85,8 @@
                 <label for="menu" class="back"></label>
                 <nav class="hambargerNav">
                     <ul class="hambargerUl">
-                        <li><a href="/kinsta/mypage" class="textNone">マイページ</a></li>
+                    
+                        <li><a href="/kinsta/mypage?userId=<?php echo $login_userid[0]['user_id'] ?>" class="textNone">マイページ</a></li>
                         <li><a href="/kinsta/post" class="textNone">アップロード</a></li>
                         <li><a href="/kinsta/login" class="textNone">ログイン</a></li>
                         <li><a href="/kinsta/logout" class="textNone">ログアウト</a></li>

@@ -119,12 +119,12 @@
                     <?php if (!empty($array_user)) : ?>
                         <?php foreach ($array_user as $value) : ?>
                             <div class="modal-content bg-black">
-                                <!-- <div class="modal-header"> -->
-                                    <!-- <h5 class="modal-title" id="exampleModalLabel">プロフィール編集</h5> -->
-                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">プロフィール編集</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
-                                    </button> -->
-                                <!-- </div> -->
+                                    </button>
+                                </div>
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label class="control-label">アイコン画像</label>

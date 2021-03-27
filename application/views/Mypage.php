@@ -110,16 +110,15 @@
     </header>
     <!-- ヘッダーここまで -->
 
-    <!-- <?php if (!empty($array_user)) : ?> -->
-    <?php foreach ($array_user as $value) : ?>
+    
         <div class="profile">
             <div class="profile-inline">
                 <div class="profile-img">
-                    <img src="/img/142135.png">
+                    <img src="/img/<?php echo $myData[0]['profile_image']?>">
                 </div>
                 <div>
                     <p class="user_name text-center" name="user_name">
-                        <?php echo $value['user_name']; ?>
+                        <?php echo $myData[0]['user_name']; ?>
                     </p>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn new-primary" name="profile_image" data-toggle="modal" data-target="#exampleModal">
@@ -128,15 +127,12 @@
                 </div>
             </div>
         </div>
-    <?php endforeach; ?>
-    <!-- <?php endif; ?> -->
+   
 
     <!-- マイページ編集用のModal -->
     <form action="/Kinsta/mypage_update" method="post">
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <?php if (!empty($array_user)) : ?>
-                    <?php foreach ($array_user as $value) : ?>
                         <div class="modal-content bg-black">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">プロフィール編集</h5>
@@ -156,18 +152,18 @@
                                     <input name="profile_image" type="file" accept='image/*' onchange="previewImage(this);">
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">肉ネーム</label>
+                                    <label class="control-label">ユーザーネーム</label>
                                     <?php echo form_error('username'); ?>
-                                    <input name="user_name" class="form-control  bg-gray" type="text" value="<?php echo $value['user_name']; ?>">
+                                    <input name="user_name" class="form-control  bg-gray" type="text" value="<?php echo $myData[0]['user_name']; ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">紹介文</label>
-                                    <input name="introduction" class="form-control  bg-gray" type="text" value="<?php echo $value['introduction']; ?>">
+                                    <label class="control-label">自己紹介</label>
+                                    <input name="introduction" class="form-control  bg-gray" type="text" value="<?php echo $myData[0]['introduction']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マッチョ区分</label>
                                     <div class="radio">
-                                        <?php $category = $value['my_category']; ?>
+                                        <?php $category = $myData[0]['my_category']; ?>
                                         <?php if ($category == 0) : ?>
                                             <label><input type="radio" name="radio" checked>細マッチョ</label>
                                             <label><input type="radio" name="radio">マッチョ</label>
@@ -186,7 +182,7 @@
                                 <div class="form-group">
                                     <label class="control-label">ID</label>
                                     <?php echo form_error('E-mail'); ?>
-                                    <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $value['E-mail']; ?>">
+                                    <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $myData[0]['E-mail']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">パスワード</label>
@@ -200,8 +196,6 @@
                             </div>
                         </div>
             </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
         </div>
     </form>
     <!-- Modal -->
@@ -210,19 +204,24 @@
     <div id="individual_img" class="img-list">
         <?php
         //ディレクトリを取得
-        $img_fld = '/img/list_img_userid_1/';  //後で$_REQUESTにする
+        // $img_fld = '/img/list_img_userid_1/';  //後で$_REQUESTにする
         //ディレクトリ内の一覧を取得する
-        $img_list = glob('.' . $img_fld . '*');
+        // $img_list = glob('.' . $img_fld . '*');
         // var_dump($img_list);
         //画像の枚数を取得
-        $count = count($img_list);
+        // $count = count($img_list);
         //  画像を表示
-        for ($i = 0; $i < $count; $i++) {
-            $file = pathinfo($img_list[$i]);
-            $file_name = $file["basename"];
-            echo '<img class="myImage" src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#individualModal">';
-        }
+        // for ($i = 0; $i < $count; $i++) {
+        //     $file = pathinfo($img_list[$i]);
+        //     $file_name = $file["basename"];
+        //     echo '<img class="myImage" src="' . $img_fld . $file_name . '" data-toggle="modal" data-target="#individualModal">';
+        // }
         ?>
+        <?php if (!empty($myData[0]["list_image"])) : ?>
+                    <?php for ($i = 0; $i < count($myData); $i++ ) : ?>
+                        <img class="myImageClass" id="myImage<?php echo $i ?>" src='/img/<?php echo $myData[$i]["list_image"]?>' data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?>>
+                    <?php endfor; ?>
+                <?php endif; ?>
     </div>
     <!-- 写真一覧 -->
 
@@ -232,12 +231,10 @@
             <div class="modal-dialog modal-max" role="document">
                 <div class="modal-content border border-gray">
                     <div class="modal-header bg-black">
-                        <?php foreach ($array_user as $value) : ?>
                             <img src="/img/142136.png">
                             <h5 class="modal-title bg-black" id="individualModalLabel">
-                                <?php echo $value['user_name']; ?>
+                                <?php echo $myData[0]['user_name']; ?>
                             </h5>
-                        <?php endforeach; ?>
 
                         <!-- <input type="button" id="follow" class="btn-gradient-radius" value="フォローする" onclick="change()"> -->
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -249,20 +246,31 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <!-- JSでsrcのurlがセットされる -->
-                                    <img id="post-img" class='post-img' src="" alt="1">
+
+                                    <?php// if (!empty($myData[0]["list_image"])) : ?>
+                                    <?php //for ($i = 0; $i < count($myData); $i++ ) : ?>
+                                        <img id="post-img" src=""
+                                        class='post-img' data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?> 
+                                        alt="<?php echo $i?>">
+                                    <?php //endfor; ?>
+                                    <?php //endif; ?>
+
+
+
+                                    <!-- <img id="post-img" class='post-img' src="" alt="1"> -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <?php foreach ($array_post as $value2) : ?>
+                                        
                                             <label class="control-label">メッセージ</label>
-                                            <textarea class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
+                                            <textarea id="messageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly></textarea>
 
                                             <label class="control-label">マイメニュー</label>
-                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu']; ?>" readonly>
+                                            <input id="menuData" class="form-control bg-gray" type="text" readonly>
 
                                             <label class="control-label">マイトレーニング</label>
-                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining']; ?>" readonly>
-                                        <?php endforeach; ?>
+                                            <input id="traningData" class="form-control bg-gray" type="text" value= "" readonly>
+                                      
 
                                         <!-- いいねボタン -->
                                         <!-- <div class="good-btn-container">
@@ -366,9 +374,9 @@
 
         //一覧画像をクリックするとモーダル表示
         //https://stackoverflow.com/questions/26377231/jquery-how-to-change-img-src-path-onclick
-        $('.myImage').on('click', function() {
-            $('#post-img').prop('src', this.src);
-        });
+        // $('#myImage').on('click', function() {
+        //     $('#myImage').prop('src', this.src);
+        // });
     </script>
     <script src="/iine_app/iine.js"></script>
 </body>

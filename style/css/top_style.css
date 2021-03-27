@@ -446,8 +446,7 @@ ul.memberPostFollowPicture li img.followMemberPicture21{
     text-decoration: none;
     background: #252727;
     color: #FFF;
-    border-bottom: solid 2px #919294;
-    border-right: solid 2px #919294;
+    border: solid 2px #919294;
     border-radius: 3px;
     font-size: 70%;
 }

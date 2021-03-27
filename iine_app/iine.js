@@ -1,3 +1,37 @@
+const myImageClass = document.querySelectorAll('.myImageClass');
+for(let i = 0; i < myImageClass.length; i++){
+  myImageClass[i].addEventListener('click',()=>{
+    const fhotoNo = myImageClass[i].getAttribute('data-no');
+    document.getElementById('post-img').setAttribute('data-no',fhotoNo);
+    document.getElementById('post-img').setAttribute('alt',fhotoNo);
+    const fhotoPass = document.getElementById(`myImage${i}`).getAttribute('src',);
+    document.getElementById('post-img').setAttribute('src',fhotoPass);
+    const fileName = fhotoPass.replace('/img/','');
+    const sendData = async(url='',data={}) => {
+      await fetch(url,{
+        method:'POST',
+        headers:{
+          'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body:JSON.stringify(data)
+      })
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        document.getElementById('messageData').innerHTML = data.message.post_message;
+        document.getElementById('menuData').setAttribute("value",data.message.mymenu);
+        document.getElementById('traningData').setAttribute("value",data.message.mytraining);
+      })
+      .catch(error => {
+        return null;
+      });
+    }
+    sendData('/kinsta/getMessageMenuTraning',{fName:fileName})
+  });
+}
+
+
 $(function () {
   'use strict';
 

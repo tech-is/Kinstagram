@@ -47,15 +47,25 @@ class Kinsta extends CI_Controller
 
 	public function mypage()
 	{
+		// var_dump($_GET['userId']);
+		$id = $_GET['userId'] ?: null;
+		if (!empty($id) && is_numeric($id)) {
+			$this->load->model('Kinsta_model');
+			$data['myData'] = $this->Kinsta_model->mydata_get($id);
+			// $this->load->view('header_page');
+			// $this->load->view('only_mypage', $data);
+			$this->load->view('Mypage', $data);
+		} else {
+		}
 
-		$email = ($_SESSION["E-mail"]);
-		$data = null;
-		// echo $email;
-		$this->load->model('Kinsta_model');
-		$data['login_userid'] = $this->Kinsta_model->get_userid($email);
-		$data['array_user'] = $this->Model_mypage->mypage_get();
-		$data['array_post'] = $this->Model_mypage->individual_get();
-		$this->load->view('Mypage', $data);
+
+
+	
+		// $this->load->model('Kinsta_model');
+		// $data['login_userid'] = $this->Kinsta_model->get_userid($email);
+		// $data['array_user'] = $this->Model_mypage->mypage_get();
+		// $data['array_post'] = $this->Model_mypage->individual_get();
+		// $this->load->view('Mypage', $data);
 	}
 
 	public function mypage_update()
@@ -365,7 +375,21 @@ class Kinsta extends CI_Controller
 		// var_dump($data['match_data'][0]['user_name']);
 		// echo json_encode(['message' => "$data['match_data'][0]['user_name']"]);
 	}
+	public function getMessageMenuTraning()
+	{
+		$this->load->model('Kinsta_model');
+		header("Content-Type: application/json; charset=UTF-8");
+		$data = file_get_contents('php://input');
+		$data = json_decode($data, true);
+		$data['mestraMen'] = $this->Kinsta_model->getMessageMenuTraning($data);
+		// var_dump($data['mestraMen']);
+		echo json_encode(['message' => $data['mestraMen']]);
+		// if(!empty($data['mestraMen'] = $this->Kinsta_model->getMessageMenuTraning($data))){
+			// exit();
+		// };
+		
 
+	}
 
 
 
