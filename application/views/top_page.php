@@ -177,11 +177,13 @@
         <main id="mainPicture">
             <!-- <ul class="scroll" data-max="29" data-lastnum="9"> -->
             <ul class="scroll">
+                <?php $i = 0 ?>
                 <?php if (!empty($all_posts)) : ?>
                     <?php foreach ($all_posts as $value) : ?>
                         <li class="sizePicture">
-                            <img class="listImage allPhotos" src="/img/<?php echo $value["list_image"] ?>" data-toggle="modal" data-target="#individualModal">
+                            <img class="listImage allPhotos" id="listImage<?php echo $i ?>" src="/img/<?php echo $value["list_image"] ?>" data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?>>
                         </li>
+                    <?php $i++ ?>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </ul>
@@ -250,19 +252,19 @@
                             <div class="row">
                                 <div class="col-md-6">
                                 <!-- JSでsrcのurlがセットされる -->
-                                    <img id="list-img" class='list-img' src="" alt="1" style=width:100%;>
+                                    <img id="list-img" class='list-img' src="" alt="<?php echo $i?>" style=width:100%; data-no=<?php echo $i ?>>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <?php foreach ($array_post as $value2) : ?>
                                             <label class="control-label">メッセージ</label>
-                                            <textarea class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
+                                            <textarea id="topMessageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
 
                                             <label class="control-label">マイメニュー</label>
-                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu']; ?>" readonly>
+                                            <input id="topMenuData" class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu']; ?>" readonly>
 
                                             <label class="control-label">マイトレーニング</label>
-                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining']; ?>" readonly>
+                                            <input id="topTraningData" class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining']; ?>" readonly>
                                         <?php endforeach; ?>
 
                                         <!-- いいねボタン -->

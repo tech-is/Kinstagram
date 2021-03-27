@@ -227,7 +227,38 @@ for(let i = 0; i < onMussleMember.length; i++){
 //     });
 // }
 
-
+const listImage = document.querySelectorAll('.listImage');
+for(let i = 0; i < listImage.length; i++){
+  listImage[i].addEventListener('click',()=>{
+    const fhotoNo = listImage[i].getAttribute('data-no');
+    document.getElementById('list-img').setAttribute('data-no',fhotoNo);
+    document.getElementById('list-img').setAttribute('alt',fhotoNo);
+    const fhotoPass = document.getElementById(`listImage${i}`).getAttribute('src',);
+    document.getElementById('list-img').setAttribute('src',fhotoPass);
+    const fileName = fhotoPass.replace('/img/','');
+    const sendData = async(url='',data={}) => {
+      await fetch(url,{
+        method:'POST',
+        headers:{
+          'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body:JSON.stringify(data)
+      })
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        document.getElementById('topMessageData').innerHTML = data.message.post_message;
+        document.getElementById('topMenuData').setAttribute("value",data.message.mymenu);
+        document.getElementById('topTraningData').setAttribute("value",data.message.mytraining);
+      })
+      .catch(error => {
+        return null;
+      });
+    }
+    sendData('/kinsta/getMessageMenuTraning',{fName:fileName})
+  });
+}
 
 
 
