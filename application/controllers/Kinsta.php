@@ -60,7 +60,7 @@ class Kinsta extends CI_Controller
 
 
 
-	
+
 		// $this->load->model('Kinsta_model');
 		// $data['login_userid'] = $this->Kinsta_model->get_userid($email);
 		// $data['array_user'] = $this->Model_mypage->mypage_get();
@@ -73,7 +73,7 @@ class Kinsta extends CI_Controller
 		//バリデーション
 		$this->form_validation->set_rules("E-mail", "メールアドレス", "required|trim|valid_email|is_unique[users.E-mail]");
 		$this->form_validation->set_rules("user_name", "ユーザ名", "required|trim");
-		$this->form_validation->set_rules("password", "パスワード", "required|trim|min_length[8]|max_length[16]");
+		$this->form_validation->set_rules("password", "パスワード", "required|trim|min_length[8]|max_length[16]|md5");
 
 		$this->load->model('Model_mypage');
 
@@ -98,7 +98,7 @@ class Kinsta extends CI_Controller
 		$introduction = $this->input->post('introduction');
 		$my_category = $this->input->post('my_category');
 		$email = $this->input->post('E-mail');
-		$password = $this->input->post('password');
+		$password = md5($this->input->post('password'));
 
 		//変数を配列に格納
 		$user = [
@@ -136,6 +136,14 @@ class Kinsta extends CI_Controller
 			//投稿が成功したら成功ページへ推移
 			$this->load->view('files/upload_result', $data);
 		}
+		//user_idの獲得処理
+		$this->load->model('Kinsta_model');
+
+		$email = null;
+		$email = ($_SESSION["E-mail"]);
+		$id = null;
+		$id = $this->Kinsta_model->get_userid($email);
+		$user_id = $id[0]["user_id"];
 
 		//Model_mypageのpost_addメソッドにアクセスしpost情報を渡す
 		// post情報を変数定義
@@ -145,6 +153,7 @@ class Kinsta extends CI_Controller
 		$mytraining = $this->input->post('mytraining');
 		//変数を配列に格納
 		$post = [
+			'user_id' => $user_id,
 			'list_image' => $list_image,
 			'post_message' => $post_message,
 			'mymenu' => $mymenu,
@@ -178,7 +187,7 @@ class Kinsta extends CI_Controller
 	{
 		$data = null;
 		$this->load->model('Model_mypage');
-		
+
 		$this->load->view('top_page', $data);
 	}
 	///// 藤田担当 ここまで ////////
@@ -328,9 +337,9 @@ class Kinsta extends CI_Controller
 		$token = isset($_POST['token']) ? $_POST['token'] : '';
 		$session_token = isset($_SESSION['token']) ? $_SESSION['token'] : '';
 		unset($_SESSION["token"]);
-		
-		if($token != "" && $token == $session_token) {
-			
+
+		if ($token != "" && $token == $session_token) {
+
 			$this->load->model('Kinsta_model');
 			$data = null;
 			$data['uploadFile'] = $_FILES['uploadFile']['name'] ?: null;
@@ -338,25 +347,23 @@ class Kinsta extends CI_Controller
 			$data['uploadMyMenu'] = $this->input->post('uploadMyMenu', true) ?: null;
 			$data['uploadMyTraining'] = $this->input->post('uploadMyTraining', true) ?: null;
 			$email = ($_SESSION["E-mail"]);
-			
+
 			$data['user_id'] = $this->Kinsta_model->get_userid_upload($email);
-			if($this->Kinsta_model->uploadPostMessageMenuTraning($data)){
+			if ($this->Kinsta_model->uploadPostMessageMenuTraning($data)) {
 				$_SESSION['success_message'] = '投稿データを保存しました。';
 			} else {
 				$_SESSION['error_message'] = '保存に失敗しました。';
 			}
-				header('Location:/kinsta/rank');
-				exit();
-		  
+			header('Location:/kinsta/rank');
+			exit();
 		} else {
 			// $data[]=$token;
 			// $data[]=$session_token;
-			
-			echo"ERROR：不正な登録処理です";
+
+			echo "ERROR：不正な登録処理です";
 			// $this->load->view('header_page',$data);
 			// 	exit();
 		}
-		
 	}
 	public function serch()
 	{
@@ -385,9 +392,9 @@ class Kinsta extends CI_Controller
 		// var_dump($data['mestraMen']);
 		echo json_encode(['message' => $data['mestraMen']]);
 		// if(!empty($data['mestraMen'] = $this->Kinsta_model->getMessageMenuTraning($data))){
-			// exit();
+		// exit();
 		// };
-		
+
 
 	}
 
@@ -415,7 +422,7 @@ class Kinsta extends CI_Controller
 
 		$data['memberUserId'] = $this->input->post('memberUserId', true);
 		$data['loginId'] = $this->input->post('loginId', true);
-		
+
 		$this->load->model('Kinsta_model');
 		if ($this->Kinsta_model->addOrDelete($data)) {
 			echo json_encode(['add' => "マッスルメンバー追加"], JSON_UNESCAPED_UNICODE);
@@ -484,17 +491,17 @@ class Kinsta extends CI_Controller
 		// $data['total_rank'] = $this->Kinsta_model->total_rank();
 		$data['message_rank'] = $this->Kinsta_model->message_rank();
 		$data['favorite'] = $this->Kinsta_model->favorite_rank();
-		
-		if(!isset($_SESSION)){
+
+		if (!isset($_SESSION)) {
 			session_start();
-			}
-		
-		$token = uniqid('',true);
+		}
+
+		$token = uniqid('', true);
 		$data['token'] = $token;
 		$_SESSION['token'] = $token;
 
-		$this->load->view('header_page',$data);
-		$this->load->view('rank_page',$data);
+		$this->load->view('header_page', $data);
+		$this->load->view('rank_page', $data);
 	}
 	public function shoulderRank()
 	{
@@ -507,15 +514,15 @@ class Kinsta extends CI_Controller
 			redirect("kinsta/lp");
 		}
 
-		if(!isset($_SESSION)){
+		if (!isset($_SESSION)) {
 			session_start();
-			}
-		
-		$token = uniqid('',true);
+		}
+
+		$token = uniqid('', true);
 		$data['token'] = $token;
 		$_SESSION['token'] = $token;
 
-		$this->load->view('header_page',$data);
+		$this->load->view('header_page', $data);
 		$this->load->view('shoulder_rank_page', $data);
 	}
 	public function armRank()
@@ -527,15 +534,15 @@ class Kinsta extends CI_Controller
 		} else {
 			redirect("kinsta/lp");
 		}
-		if(!isset($_SESSION)){
+		if (!isset($_SESSION)) {
 			session_start();
-			}
-		
-		$token = uniqid('',true);
+		}
+
+		$token = uniqid('', true);
 		$data['token'] = $token;
 		$_SESSION['token'] = $token;
 
-		$this->load->view('header_page',$data);
+		$this->load->view('header_page', $data);
 		$this->load->view('arm_rank_page', $data);
 	}
 	public function breastRank()
@@ -547,15 +554,15 @@ class Kinsta extends CI_Controller
 		} else {
 			redirect("kinsta/lp");
 		}
-		if(!isset($_SESSION)){
+		if (!isset($_SESSION)) {
 			session_start();
-			}
-		
-		$token = uniqid('',true);
+		}
+
+		$token = uniqid('', true);
 		$data['token'] = $token;
 		$_SESSION['token'] = $token;
 
-		$this->load->view('header_page',$data);
+		$this->load->view('header_page', $data);
 		$this->load->view('breast_rank_page', $data);
 	}
 
@@ -568,15 +575,15 @@ class Kinsta extends CI_Controller
 		} else {
 			redirect("kinsta/lp");
 		}
-		if(!isset($_SESSION)){
+		if (!isset($_SESSION)) {
 			session_start();
-			}
-		
-		$token = uniqid('',true);
+		}
+
+		$token = uniqid('', true);
 		$data['token'] = $token;
 		$_SESSION['token'] = $token;
 
-		$this->load->view('header_page',$data);
+		$this->load->view('header_page', $data);
 		$this->load->view('abs_rank_page', $data);
 	}
 	public function footRank()
@@ -588,15 +595,15 @@ class Kinsta extends CI_Controller
 		} else {
 			redirect("kinsta/lp");
 		}
-		if(!isset($_SESSION)){
+		if (!isset($_SESSION)) {
 			session_start();
-			}
-		
-		$token = uniqid('',true);
+		}
+
+		$token = uniqid('', true);
 		$data['token'] = $token;
 		$_SESSION['token'] = $token;
 
-		$this->load->view('header_page',$data);
+		$this->load->view('header_page', $data);
 		$this->load->view('foot_rank_page', $data);
 	}
 }

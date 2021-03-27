@@ -110,91 +110,91 @@
     </header>
     <!-- ヘッダーここまで -->
 
-    
-        <div class="profile">
-            <div class="profile-inline">
-                <div class="profile-img">
-                    <img src="/img/<?php echo $myData[0]['profile_image']?>">
-                </div>
-                <div>
-                    <p class="user_name text-center" name="user_name">
-                        <?php echo $myData[0]['user_name']; ?>
-                    </p>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn new-primary" name="profile_image" data-toggle="modal" data-target="#exampleModal">
-                        プロフィール編集
-                    </button>
-                </div>
+
+    <div class="profile">
+        <div class="profile-inline">
+            <div class="profile-img">
+                <img src="/img/<?php echo $myData[0]['profile_image'] ?>">
+            </div>
+            <div>
+                <p class="user_name text-center" name="user_name">
+                    <?php echo $myData[0]['user_name']; ?>
+                </p>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn new-primary" name="profile_image" data-toggle="modal" data-target="#exampleModal">
+                    プロフィール編集
+                </button>
             </div>
         </div>
-   
+    </div>
+
 
     <!-- マイページ編集用のModal -->
     <form action="/Kinsta/mypage_update" method="post">
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                        <div class="modal-content bg-black">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">プロフィール編集</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label class="control-label">アイコン画像</label>
-                                    <canvas id="preview" style="max-width:200px;"></canvas>
-                                    <?php
-                                    if (isset($error)) {
-                                        echo $error;
-                                    }
-                                    ?>
-                                    <input name="profile_image" type="file" accept='image/*' onchange="previewImage(this);">
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">ユーザーネーム</label>
-                                    <?php echo form_error('username'); ?>
-                                    <input name="user_name" class="form-control  bg-gray" type="text" value="<?php echo $myData[0]['user_name']; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">自己紹介</label>
-                                    <input name="introduction" class="form-control  bg-gray" type="text" value="<?php echo $myData[0]['introduction']; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">マッチョ区分</label>
-                                    <div class="radio">
-                                        <?php $category = $myData[0]['my_category']; ?>
-                                        <?php if ($category == 0) : ?>
-                                            <label><input type="radio" name="radio" checked>細マッチョ</label>
-                                            <label><input type="radio" name="radio">マッチョ</label>
-                                            <label><input type="radio" name="radio">ゴリマッチョ</label>
-                                        <?php elseif ($category == 1) : ?>
-                                            <label><input type="radio" name="radio">細マッチョ</label>
-                                            <label><input type="radio" name="radio" checked>マッチョ</label>
-                                            <label><input type="radio" name="radio">ゴリマッチョ</label>
-                                        <?php else : ?>
-                                            <label><input type="radio" name="radio">細マッチョ</label>
-                                            <label><input type="radio" name="radio" checked>マッチョ</label>
-                                            <label><input type="radio" name="radio">ゴリマッチョ</label>
-                                        <?php endif ?>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">ID</label>
-                                    <?php echo form_error('E-mail'); ?>
-                                    <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $myData[0]['E-mail']; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">パスワード</label>
-                                    <?php echo form_error('password'); ?>
-                                    <input type="password" name="password" class="form-control bg-gray" type="text">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                                <button type="submit" class="btn new-primary">保存</button>
+                <div class="modal-content bg-black">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">プロフィール編集</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label">アイコン画像</label>
+                            <canvas id="preview" style="max-width:200px;"></canvas>
+                            <?php
+                            if (isset($error)) {
+                                echo $error;
+                            }
+                            ?>
+                            <input name="profile_image" type="file" accept='image/*' onchange="previewImage(this);">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">ユーザーネーム</label>
+                            <?php echo form_error('username'); ?>
+                            <input name="user_name" class="form-control  bg-gray" type="text" value="<?php echo $myData[0]['user_name']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">自己紹介</label>
+                            <input name="introduction" class="form-control  bg-gray" type="text" value="<?php echo $myData[0]['introduction']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">マッチョ区分</label>
+                            <div class="radio">
+                                <?php $category = $myData[0]['my_category']; ?>
+                                <?php if ($category == 0) : ?>
+                                    <label><input type="radio" name="my_category" value="0" checked>細マッチョ</label>
+                                    <label><input type="radio" name="my_category" value="1">マッチョ</label>
+                                    <label><input type="radio" name="my_category" value="2">ゴリマッチョ</label>
+                                <?php elseif ($category == 1) : ?>
+                                    <label><input type="radio" name="my_category" value="0">細マッチョ</label>
+                                    <label><input type="radio" name="my_category" value="1" checked>マッチョ</label>
+                                    <label><input type="radio" name="my_category" value="2">ゴリマッチョ</label>
+                                <?php else : ?>
+                                    <label><input type="radio" name="my_category" value="0">細マッチョ</label>
+                                    <label><input type="radio" name="my_category" value="1">マッチョ</label>
+                                    <label><input type="radio" name="my_category" value="2" checked>ゴリマッチョ</label>
+                                <?php endif ?>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label">ID</label>
+                            <?php echo form_error('E-mail'); ?>
+                            <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $myData[0]['E-mail']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">パスワード</label>
+                            <?php echo form_error('password'); ?>
+                            <input type="password" name="password" class="form-control bg-gray" type="text">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                        <button type="submit" class="btn new-primary">保存</button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
@@ -218,10 +218,10 @@
         // }
         ?>
         <?php if (!empty($myData[0]["list_image"])) : ?>
-                    <?php for ($i = 0; $i < count($myData); $i++ ) : ?>
-                        <img class="myImageClass" id="myImage<?php echo $i ?>" src='/img/<?php echo $myData[$i]["list_image"]?>' data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?>>
-                    <?php endfor; ?>
-                <?php endif; ?>
+            <?php for ($i = 0; $i < count($myData); $i++) : ?>
+                <img class="myImageClass" id="myImage<?php echo $i ?>" src='/img/<?php echo $myData[$i]["list_image"] ?>' data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?>>
+            <?php endfor; ?>
+        <?php endif; ?>
     </div>
     <!-- 写真一覧 -->
 
@@ -231,10 +231,10 @@
             <div class="modal-dialog modal-max" role="document">
                 <div class="modal-content border border-gray">
                     <div class="modal-header bg-black">
-                            <img src="/img/142136.png">
-                            <h5 class="modal-title bg-black" id="individualModalLabel">
-                                <?php echo $myData[0]['user_name']; ?>
-                            </h5>
+                        <img src="/img/142136.png">
+                        <h5 class="modal-title bg-black" id="individualModalLabel">
+                            <?php echo $myData[0]['user_name']; ?>
+                        </h5>
 
                         <!-- <input type="button" id="follow" class="btn-gradient-radius" value="フォローする" onclick="change()"> -->
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -248,12 +248,13 @@
                                     <!-- JSでsrcのurlがセットされる -->
 
                                     <?php// if (!empty($myData[0]["list_image"])) : ?>
-                                    <?php //for ($i = 0; $i < count($myData); $i++ ) : ?>
-                                        <img id="post-img" src=""
-                                        class='post-img' data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?> 
-                                        alt="<?php echo $i?>">
-                                    <?php //endfor; ?>
-                                    <?php //endif; ?>
+                                    <?php //for ($i = 0; $i < count($myData); $i++ ) :
+                                    ?>
+                                    <img id="post-img" src="" class='post-img' data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?> alt="<?php echo $i ?>">
+                                    <?php //endfor;
+                                    ?>
+                                    <?php //endif;
+                                    ?>
 
 
 
@@ -261,16 +262,16 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        
-                                            <label class="control-label">メッセージ</label>
-                                            <textarea id="messageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly></textarea>
 
-                                            <label class="control-label">マイメニュー</label>
-                                            <input id="menuData" class="form-control bg-gray" type="text" readonly>
+                                        <label class="control-label">メッセージ</label>
+                                        <textarea id="messageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly></textarea>
 
-                                            <label class="control-label">マイトレーニング</label>
-                                            <input id="traningData" class="form-control bg-gray" type="text" value= "" readonly>
-                                      
+                                        <label class="control-label">マイメニュー</label>
+                                        <input id="menuData" class="form-control bg-gray" type="text" readonly>
+
+                                        <label class="control-label">マイトレーニング</label>
+                                        <input id="traningData" class="form-control bg-gray" type="text" value="" readonly>
+
 
                                         <!-- いいねボタン -->
                                         <!-- <div class="good-btn-container">
@@ -309,17 +310,17 @@
                                                     <iframe src="/iine/iine5.html" class="iineiframe"></iframe>
                                                 </div>
                                             </div> -->
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer bg-black">
-                            <button type="submit" class="btn btn-danger">画像削除</button>
-                        </div>
+                    </div>
+                    <div class="modal-footer bg-black">
+                        <button type="submit" class="btn btn-danger">画像削除</button>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- 写真モーダル -->
     </form>
