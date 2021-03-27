@@ -178,7 +178,6 @@
     <div class="divMainAsaid">
         <main id="mainPicture">
             <!-- <ul class="scroll" data-max="29" data-lastnum="9"> -->
-
             <ul class="scroll">
                 <?php if (!empty($all_posts)) : ?>
                     <?php foreach ($all_posts as $value) : ?>
@@ -230,21 +229,18 @@
         </aside>
     </div>
 
-    <!-- 個別ページ用のモーダル -->
-    <form action="/Kinsta/individual_top" method="post">
-
+<!-- 個別ページ用のモーダル -->
+<form action="/Kinsta/individual_top" method="post">
         <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-max" role="document" style="width:80%;max-width:inherit">
                 <div class="modal-content border border-gray">
                     <div class="modal-header bg-black">
-                        <?php //foreach ($array_user as $value) : 
-                        ?>
-                        <img src="/img/142136.png">
-                        <h5 class="modal-title bg-black" id="individualModalLabel">
-                            <?php echo $value['user_name']; ?>
-                        </h5>
-                        <?php //endforeach; 
-                        ?>
+                        <?php foreach ($array_user as $value) : ?>
+                            <img src="/img/142136.png">
+                            <h5 class="modal-title bg-black" id="individualModalLabel">
+                                <?php echo $value['user_name']; ?>
+                            </h5>
+                        <?php endforeach; ?>
 
                         <input type="button" id="follow" class="btn-gradient-radius" value="フォローする" onclick="change()">
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -255,26 +251,21 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <!-- JSでsrcのurlがセットされる -->
+                                <!-- JSでsrcのurlがセットされる -->
                                     <img id="list-img" class='list-img' src="" alt="1" style=width:100%;>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <?php //foreach ($array_post as $value2) : 
-                                        ?>
-                                        <label class="control-label">メッセージ</label>
-                                        <textarea class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php //echo $value2['post_message']; 
-                                                                                                                        ?></textarea>
+                                        <?php foreach ($array_post as $value2) : ?>
+                                            <label class="control-label">メッセージ</label>
+                                            <textarea class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
 
-                                        <label class="control-label">マイメニュー</label>
-                                        <input class="form-control bg-gray" type="text" value="<?php //echo $value2['mymenu']; 
-                                                                                                ?>" readonly>
+                                            <label class="control-label">マイメニュー</label>
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu']; ?>" readonly>
 
-                                        <label class="control-label">マイトレーニング</label>
-                                        <input class="form-control bg-gray" type="text" value="<?php //echo $value2['mytraining']; 
-                                                                                                ?>" readonly>
-                                        <?php //endforeach; 
-                                        ?>
+                                            <label class="control-label">マイトレーニング</label>
+                                            <input class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining']; ?>" readonly>
+                                        <?php endforeach; ?>
 
                                         <!-- いいねボタン -->
                                         <div class="good-btn-container">
