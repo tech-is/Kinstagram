@@ -239,7 +239,7 @@
                             </h5>
                         <?php endforeach; ?>
 
-                        <input type="button" id="follow" class="btn-gradient-radius" value="フォローする" onclick="change()">
+                        <!-- <input type="button" id="follow" class="btn-gradient-radius" value="フォローする" onclick="change()"> -->
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -265,7 +265,7 @@
                                         <?php endforeach; ?>
 
                                         <!-- いいねボタン -->
-                                        <div class="good-btn-container">
+                                        <!-- <div class="good-btn-container">
                                             <div class="good-btn-icon">
                                                 <image src="/img/button/ude.png" alt="腕">
                                                     <div class="good-btn-text">腕キレてるね</div>
@@ -300,7 +300,7 @@
                                                 <div class="iframe">
                                                     <iframe src="/iine/iine5.html" class="iineiframe"></iframe>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -335,17 +335,17 @@
         }
 
         // クリックで”フォロー”と”フォローする”のテキストが入れ替わる
-        document.getElementById("follow").addEventListener(
-            "click",
-            function(event) {
-                if (event.target.value === "フォロー中") {
-                    event.target.value = "フォローする";
-                } else {
-                    event.target.value = "フォロー中";
-                }
-            },
-            false
-        );
+        // document.getElementById("follow").addEventListener(
+        //     "click",
+        //     function(event) {
+        //         if (event.target.value === "フォロー中") {
+        //             event.target.value = "フォローする";
+        //         } else {
+        //             event.target.value = "フォロー中";
+        //         }
+        //     },
+        //     false
+        // );
 
         //投稿用のモーダル
         function previewImage(obj) {

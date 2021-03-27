@@ -168,8 +168,7 @@ class Kinsta extends CI_Controller
 	{
 		$data = null;
 		$this->load->model('Model_mypage');
-		$data['array_user'] = $this->Model_mypage->postUser_get();
-		$data['array_post'] = $this->Model_mypage->individual_get();
+		
 		$this->load->view('top_page', $data);
 	}
 	///// 藤田担当 ここまで ////////
@@ -305,6 +304,8 @@ class Kinsta extends CI_Controller
 		$data['ten_data'] = $this->Kinsta_model->random_member_ten();
 		$data['five_data'] = $this->Kinsta_model->random_member_five();
 		$data['all_posts'] = $this->Kinsta_model->all_post();
+		$data['array_user'] = $this->Model_mypage->postUser_get();
+		$data['array_post'] = $this->Model_mypage->individual_get();
 		// if ($this->session->userdata("is_logged_in")) {
 		$this->load->view('top_page', $data,);
 		// } else {
