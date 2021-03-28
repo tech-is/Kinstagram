@@ -47,8 +47,17 @@ class Kinsta extends CI_Controller
 
 	public function mypage()
 	{
+		//user_idの獲得処理
+		$this->load->model('Kinsta_model');
+
+		$email = null;
+		$email = ($_SESSION["E-mail"]);
+		$take_id = null;
+		$take_id = $this->Kinsta_model->get_userid($email);
+		$id = $take_id[0]["user_id"];
+
 		// var_dump($_GET['userId']);
-		$id = $_GET['userId'] ?: null;
+		// $id = $_GET['userId'] ?: null;
 		if (!empty($id) && is_numeric($id)) {
 			$this->load->model('Kinsta_model');
 			$data['myData'] = $this->Kinsta_model->mydata_get($id);
