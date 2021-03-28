@@ -276,3 +276,150 @@ DEBUG - 2021-03-27 11:39:31 --> Session: "sess_save_path" is empty; using "sessi
 ERROR - 2021-03-27 11:39:32 --> 404 Page Not Found: Img/nu006645.jpg
 ERROR - 2021-03-27 11:39:32 --> 404 Page Not Found: Img/nu00663.jpg
 ERROR - 2021-03-27 11:39:32 --> 404 Page Not Found: Img/1389433_s1.jpg
+DEBUG - 2021-03-27 11:48:37 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 11:48:38 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 11:48:38 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 11:48:38 --> 404 Page Not Found: Img/nu00663.jpg
+DEBUG - 2021-03-27 11:49:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:49:33 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 11:49:34 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 11:49:34 --> 404 Page Not Found: Img/3671456_s.jpg
+ERROR - 2021-03-27 11:49:34 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 11:49:34 --> 404 Page Not Found: Img/nu00663.jpg
+DEBUG - 2021-03-27 11:49:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:49:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:49:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:49:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:49:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:51:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 11:51:08 --> Severity: Notice --> Undefined variable: success_message C:\xampp\htdocs\team333\Kinstagram\application\views\header_page.php 16
+DEBUG - 2021-03-27 11:51:17 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:51:18 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 11:51:18 --> Severity: Notice --> Undefined variable: success_message C:\xampp\htdocs\team333\Kinstagram\application\views\header_page.php 16
+DEBUG - 2021-03-27 11:52:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:52:09 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 11:52:09 --> Severity: Notice --> Undefined variable: success_message C:\xampp\htdocs\team333\Kinstagram\application\views\header_page.php 16
+DEBUG - 2021-03-27 11:52:20 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 11:52:21 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 11:52:21 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 11:52:21 --> 404 Page Not Found: Img/3671456_s.jpg
+ERROR - 2021-03-27 11:52:21 --> 404 Page Not Found: Img/nu00663.jpg
+ERROR - 2021-03-27 11:52:21 --> 404 Page Not Found: Img/nu00664.jpg
+ERROR - 2021-03-27 11:52:21 --> 404 Page Not Found: Img/nu00659.jpg
+DEBUG - 2021-03-27 11:52:21 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:52:21 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:52:21 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:52:21 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:52:21 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:52:36 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:52:47 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 11:52:47 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 11:52:47 --> 404 Page Not Found: Img/3671456_s.jpg
+ERROR - 2021-03-27 11:52:47 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 11:52:47 --> 404 Page Not Found: Img/nu00663.jpg
+ERROR - 2021-03-27 11:52:47 --> 404 Page Not Found: Img/nu00664.jpg
+ERROR - 2021-03-27 11:52:47 --> 404 Page Not Found: Img/nu00659.jpg
+ERROR - 2021-03-27 11:52:47 --> 404 Page Not Found: Img/nu006646.jpg
+DEBUG - 2021-03-27 11:52:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:52:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:52:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:52:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:52:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:58:57 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:59:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 11:59:10 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 11:59:10 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 11:59:10 --> 404 Page Not Found: Img/3671456_s.jpg
+ERROR - 2021-03-27 11:59:10 --> 404 Page Not Found: Img/nu00659.jpg
+ERROR - 2021-03-27 11:59:10 --> 404 Page Not Found: Img/nu00664.jpg
+ERROR - 2021-03-27 11:59:10 --> 404 Page Not Found: Img/nu00663.jpg
+ERROR - 2021-03-27 11:59:11 --> 404 Page Not Found: Img/nu006591.jpg
+ERROR - 2021-03-27 11:59:11 --> 404 Page Not Found: Img/nu006646.jpg
+DEBUG - 2021-03-27 11:59:11 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:59:11 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:59:11 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:59:11 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 11:59:11 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:00:44 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 12:00:44 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 12:00:44 --> 404 Page Not Found: Img/nu00663.jpg
+ERROR - 2021-03-27 12:00:44 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 12:00:44 --> 404 Page Not Found: Img/nu00664.jpg
+ERROR - 2021-03-27 12:00:45 --> 404 Page Not Found: Img/nu006646.jpg
+ERROR - 2021-03-27 12:00:45 --> 404 Page Not Found: Img/nu006591.jpg
+ERROR - 2021-03-27 12:00:45 --> 404 Page Not Found: Img/nu00659.jpg
+ERROR - 2021-03-27 12:05:10 --> 404 Page Not Found: Img/1389433_s1.jpg
+DEBUG - 2021-03-27 12:05:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 12:05:14 --> 404 Page Not Found: Img/nu006645.jpg
+DEBUG - 2021-03-27 12:05:14 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:06:57 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:06:57 --> You did not select a file to upload.
+ERROR - 2021-03-27 12:07:09 --> 404 Page Not Found: Kinsta/index
+DEBUG - 2021-03-27 12:07:15 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 12:07:16 --> 404 Page Not Found: Img/3671456_s.jpg
+ERROR - 2021-03-27 12:07:16 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 12:07:16 --> 404 Page Not Found: Img/nu00663.jpg
+ERROR - 2021-03-27 12:07:16 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 12:07:16 --> 404 Page Not Found: Img/nu00659.jpg
+ERROR - 2021-03-27 12:07:16 --> 404 Page Not Found: Img/nu00664.jpg
+ERROR - 2021-03-27 12:07:16 --> 404 Page Not Found: Img/nu006646.jpg
+DEBUG - 2021-03-27 12:07:16 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 12:07:16 --> 404 Page Not Found: Img/nu006591.jpg
+DEBUG - 2021-03-27 12:07:18 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:07:18 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:07:18 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:07:18 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:07:18 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:07:22 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 12:07:22 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 12:07:22 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 12:07:22 --> 404 Page Not Found: Img/nu00663.jpg
+ERROR - 2021-03-27 12:07:22 --> 404 Page Not Found: Img/nu00664.jpg
+ERROR - 2021-03-27 12:07:23 --> 404 Page Not Found: Img/nu00659.jpg
+ERROR - 2021-03-27 12:07:23 --> 404 Page Not Found: Img/nu006591.jpg
+ERROR - 2021-03-27 12:07:23 --> 404 Page Not Found: Img/nu006646.jpg
+DEBUG - 2021-03-27 12:07:25 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:20:17 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 12:20:18 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 12:20:18 --> 404 Page Not Found: Img/nu00663.jpg
+ERROR - 2021-03-27 12:20:18 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 12:20:18 --> 404 Page Not Found: Img/nu00664.jpg
+ERROR - 2021-03-27 12:20:18 --> 404 Page Not Found: Img/nu00659.jpg
+ERROR - 2021-03-27 12:20:18 --> 404 Page Not Found: Img/nu006646.jpg
+ERROR - 2021-03-27 12:20:18 --> 404 Page Not Found: Img/nu006591.jpg
+DEBUG - 2021-03-27 12:20:53 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:20:53 --> You did not select a file to upload.
+DEBUG - 2021-03-27 12:20:53 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 12:20:53 --> Severity: Notice --> Undefined index: userId C:\xampp\htdocs\team333\Kinstagram\application\controllers\Kinsta.php 51
+DEBUG - 2021-03-27 12:24:06 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 12:24:06 --> 404 Page Not Found: Img/3671456_s.jpg
+ERROR - 2021-03-27 12:24:06 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 12:24:06 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 12:24:06 --> 404 Page Not Found: Img/nu00663.jpg
+ERROR - 2021-03-27 12:24:07 --> 404 Page Not Found: Img/nu00659.jpg
+ERROR - 2021-03-27 12:24:07 --> 404 Page Not Found: Img/nu00664.jpg
+ERROR - 2021-03-27 12:24:07 --> 404 Page Not Found: Img/nu006646.jpg
+ERROR - 2021-03-27 12:24:07 --> 404 Page Not Found: Img/nu006591.jpg
+DEBUG - 2021-03-27 12:24:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:24:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:24:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:24:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:24:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:24:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 12:24:09 --> 404 Page Not Found: Img/nu00663.jpg
+ERROR - 2021-03-27 12:24:09 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 12:24:09 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 12:24:09 --> 404 Page Not Found: Img/nu00664.jpg
+ERROR - 2021-03-27 12:24:09 --> 404 Page Not Found: Img/nu00659.jpg
+ERROR - 2021-03-27 12:24:09 --> 404 Page Not Found: Img/nu006646.jpg
+ERROR - 2021-03-27 12:24:09 --> 404 Page Not Found: Img/nu006591.jpg
+DEBUG - 2021-03-27 12:24:42 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-03-27 12:24:42 --> You did not select a file to upload.
+DEBUG - 2021-03-27 12:24:42 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-03-27 12:24:43 --> 404 Page Not Found: Img/1389433_s1.jpg
+ERROR - 2021-03-27 12:24:43 --> 404 Page Not Found: Img/nu006645.jpg
+ERROR - 2021-03-27 12:24:43 --> 404 Page Not Found: Img/nu00663.jpg
+ERROR - 2021-03-27 12:24:43 --> 404 Page Not Found: Img/nu00664.jpg
+ERROR - 2021-03-27 12:24:43 --> 404 Page Not Found: Img/nu00659.jpg
+ERROR - 2021-03-27 12:24:43 --> 404 Page Not Found: Img/nu006646.jpg
+ERROR - 2021-03-27 12:24:43 --> 404 Page Not Found: Img/nu006591.jpg

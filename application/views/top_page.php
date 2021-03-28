@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html id="bodyScroll" lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,6 +40,7 @@
                             </div>
                             <div class="modal-body bg-black">
                                 <!-- 参考URLhttps://blog.ver001.com/javascript_preview_canvas/ -->
+                                <label class="control-label">アイコン画像</label>
                                 <canvas id="preview" style="max-width:200px;"></canvas>
                                 <?php
                                 if (isset($error)) {
@@ -48,8 +50,8 @@
                                 <input name="list_image" type="file" accept='image/*' onchange="previewImage(this);">
 
                                 <div class="form-group">
-                                    <labelclass="control-label">メッセージ</label>
-                                        <textarea name="post_message" class="form-control bg-gray" cols="30" rows="5"></textarea>
+                                    <label class="control-label">メッセージ</label>
+                                    <textarea name="post_message" class="form-control bg-gray" cols="30" rows="5"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マイメニュー</label>
@@ -85,7 +87,7 @@
                 <label for="menu" class="back"></label>
                 <nav class="hambargerNav">
                     <ul class="hambargerUl">
-                    
+
                         <li><a href="/kinsta/mypage?userId=<?php echo $login_userid[0]['user_id'] ?>" class="textNone">マイページ</a></li>
                         <li><a href="/kinsta/post" class="textNone">アップロード</a></li>
                         <li><a href="/kinsta/login" class="textNone">ログイン</a></li>
@@ -183,7 +185,7 @@
                         <li class="sizePicture">
                             <img class="listImage allPhotos" id="listImage<?php echo $i ?>" src="/img/<?php echo $value["list_image"] ?>" data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?>>
                         </li>
-                    <?php $i++ ?>
+                        <?php $i++ ?>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </ul>
@@ -229,8 +231,8 @@
         </aside>
     </div>
 
-<!-- 個別ページ用のモーダル -->
-<form action="/Kinsta/individual_top" method="post">
+    <!-- 個別ページ用のモーダル -->
+    <form action="/Kinsta/individual_top" method="post">
         <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-max" role="document" style="width:80%;max-width:inherit">
                 <div class="modal-content border border-gray">
@@ -251,8 +253,8 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                <!-- JSでsrcのurlがセットされる -->
-                                    <img id="list-img" class='list-img' src="" alt="<?php echo $i?>" style=width:100%; data-no=<?php echo $i ?>>
+                                    <!-- JSでsrcのurlがセットされる -->
+                                    <img id="list-img" class='list-img' src="" alt="<?php echo $i ?>" style=width:100%; data-no=<?php echo $i ?>>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
