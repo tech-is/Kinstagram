@@ -35,7 +35,7 @@ class Kinsta extends CI_Controller
 	// }
 
 
-	////藤田担当　マイページ,マイページ編集ページ,投稿ページ/////
+	////藤田担当 マイページ,マイページ編集ページ,投稿ページ/////
 	public function __construct()
 	{
 		parent::__construct();
@@ -61,6 +61,7 @@ class Kinsta extends CI_Controller
 		if (!empty($id) && is_numeric($id)) {
 			$this->load->model('Kinsta_model');
 			$data['myData'] = $this->Kinsta_model->mydata_get($id);
+			//$data['all_posts'] = $this->Kinsta_model->all_post();
 			// $this->load->view('header_page');
 			// $this->load->view('only_mypage', $data);
 			$this->load->view('Mypage', $data);
@@ -87,17 +88,15 @@ class Kinsta extends CI_Controller
 		$this->load->model('Model_mypage');
 
 		//アイコン画像を変更する
-		$config['upload_path'] = './img/profile_img_userid_1';
+		$config['upload_path'] = './img';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size'] = 2000;
 		$config['max_width'] = 1500;
 		$config['max_hight'] = 1500;
 
 		$this->load->library('upload', $config);
-
-		//プロフィール画像の更新とpathのdb保存が出来ていない
-		if ($this->upload->do_upload('profile_image')) {
-			array('image_metadata' => $this->upload->data());
+		if($this->upload->do_upload()) {
+			$file_info = $this->upload->data();
 		}
 
 		//Model_mypageのmypage_updateメソッドにアクセスし更新情報を渡す
@@ -129,7 +128,7 @@ class Kinsta extends CI_Controller
 		$this->load->model('Model_mypage');
 
 		//画像を投稿する
-		$config['upload_path'] = './img/list_img_userid_1';
+		$config['upload_path'] = './img';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size'] = 2000;
 		$config['max_width'] = 1500;

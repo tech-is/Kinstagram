@@ -57,11 +57,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マイメニュー</label>
-                                    <input name="mymenu" class="form-control bg-gray" type="text">
+                                    <textarea name="mymenu" class="form-control bg-gray" cols="30" rows="5"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マイトレーニング</label>
-                                    <input name="mytraining" class="form-control bg-gray" type="text">
+                                    <textarea name="mytraining" class="form-control bg-gray" cols="30" rows="5"></textarea>
                                 </div>
                             </div>
                             <div class="modal-footer bg-black">
@@ -79,9 +79,9 @@
             <form method="get" action="/kinsta/logout">
                 <input type="submit" class="btn-square-shadow" value="ログアウト">
             </form>
-            <form method="get" action="/kinsta/mypage">
+            <!-- <form method="get" action="/kinsta/mypage">
                 <input type="submit" class="btn-square-shadow" value="マイページ">
-            </form>
+            </form> -->
         </li>
         <div class="hambarger">
             <li class="menuIcon">
@@ -114,7 +114,7 @@
     <div class="profile">
         <div class="profile-inline">
             <div class="profile-img">
-                <img src="/img/<?php echo $myData[0]['profile_image'] ?>">
+                <img src="/img/142136.png<?php //echo $myData[0]['profile_image'] ?>">
             </div>
             <div>
                 <p class="user_name text-center" name="user_name">
@@ -143,13 +143,13 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label class="control-label">アイコン画像</label>
-                            <canvas id="preview" style="max-width:200px;"></canvas>
+                            <canvas id="pre-view" style="max-width:200px;"></canvas>
                             <?php
                             if (isset($error)) {
                                 echo $error;
                             }
                             ?>
-                            <input name="profile_image" type="file" accept='image/*' onchange="previewImage(this);">
+                            <input name="profile_image" type="file" accept='image/*' onchange="pre-viewImage(this);">
                         </div>
                         <div class="form-group">
                             <label class="control-label">ユーザーネーム</label>
@@ -180,7 +180,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">ID</label>
+                            <label class="control-label">ID(e-mail)</label>
                             <?php echo form_error('E-mail'); ?>
                             <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $myData[0]['E-mail']; ?>">
                         </div>
@@ -262,16 +262,18 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-
+                                    <?php //foreach ($array_post as $value2) : ?>
                                         <label class="control-label">メッセージ</label>
                                         <textarea id="messageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly></textarea>
 
                                         <label class="control-label">マイメニュー</label>
+                                        <!-- <textarea id="menuData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly></textarea> -->
                                         <input id="menuData" class="form-control bg-gray" type="text" readonly>
 
                                         <label class="control-label">マイトレーニング</label>
+                                        <!-- <textarea id="traningData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly></textarea> -->
                                         <input id="traningData" class="form-control bg-gray" type="text" value="" readonly>
-
+                                    <?php //endforeach; ?>
 
                                         <!-- いいねボタン -->
                                         <!-- <div class="good-btn-container">
@@ -316,7 +318,7 @@
                         </div>
                     </div>
                     <div class="modal-footer bg-black">
-                        <button type="submit" class="btn btn-danger">画像削除</button>
+                        <button type="btn" class="btn btn-danger">画像削除</button>
                     </div>
                 </div>
             </div>
@@ -330,7 +332,7 @@
         function previewImage(obj) {
             var fileReader = new FileReader();
             fileReader.onload = (function() {
-                var canvas = document.getElementById('preview');
+                var canvas = document.getElementById('pre-view');
                 var ctx = canvas.getContext('2d');
                 var image = new Image();
                 image.src = fileReader.result;
