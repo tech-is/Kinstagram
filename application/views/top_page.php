@@ -53,11 +53,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マイメニュー</label>
-                                    <input name="mymenu" class="form-control bg-gray" type="text">
+                                    <textarea name="mymenu" class="form-control bg-gray" cols="30" rows="5"></textarea>
+                                    <!-- <input name="mymenu" class="form-control bg-gray" type="text"> -->
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">マイトレーニング</label>
-                                    <input name="mytraining" class="form-control bg-gray" type="text">
+                                    <textarea name="mytraining" class="form-control bg-gray" cols="30" rows="5"></textarea>
+                                    <!-- <input name="mytraining" class="form-control bg-gray" type="text"> -->
                                 </div>
                             </div>
                             <div class="modal-footer bg-black">
@@ -258,13 +260,11 @@
                                     <div class="form-group">
                                         <?php foreach ($array_post as $value2) : ?>
                                             <label class="control-label">メッセージ</label>
-                                            <textarea id="topMessageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
-
+                                                <textarea id="topMessageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
                                             <label class="control-label">マイメニュー</label>
-                                            <input id="topMenuData" class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu']; ?>" readonly>
-
+                                                <textarea id="topMenuData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['mymenu']; ?></textarea>
                                             <label class="control-label">マイトレーニング</label>
-                                            <input id="topTraningData" class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining']; ?>" readonly>
+                                                <textarea id="topTraningData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['mytraining']; ?></textarea>
                                         <?php endforeach; ?>
 
                                         <!-- いいねボタン -->
