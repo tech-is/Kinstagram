@@ -262,18 +262,18 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                    <?php //foreach ($array_post as $value2) : ?>
+                                    <?php foreach ($array_post as $value2) : ?>
                                         <label class="control-label">メッセージ</label>
-                                        <textarea id="messageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly></textarea>
+                                        <textarea class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
 
                                         <label class="control-label">マイメニュー</label>
-                                        <!-- <textarea id="menuData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly></textarea> -->
-                                        <input id="menuData" class="form-control bg-gray" type="text" readonly>
+                                        <textarea class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['mymenu']; ?></textarea>
+                                        <!-- <input id="menuData" class="form-control bg-gray" type="text" readonly> -->
 
                                         <label class="control-label">マイトレーニング</label>
-                                        <!-- <textarea id="traningData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly></textarea> -->
-                                        <input id="traningData" class="form-control bg-gray" type="text" value="" readonly>
-                                    <?php //endforeach; ?>
+                                        <textarea class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['mytraining']; ?></textarea>
+                                        <!-- <input id="traningData" class="form-control bg-gray" type="text" value="" readonly> -->
+                                    <?php endforeach; ?>
 
                                         <!-- いいねボタン -->
                                         <!-- <div class="good-btn-container">

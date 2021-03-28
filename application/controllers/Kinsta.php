@@ -47,11 +47,17 @@ class Kinsta extends CI_Controller
 
 	public function mypage()
 	{
+		
+
 		// var_dump($_GET['userId']);
 		$id = $_GET['userId'] ?: null;
 		if (!empty($id) && is_numeric($id)) {
 			$this->load->model('Kinsta_model');
 			$data['myData'] = $this->Kinsta_model->mydata_get($id);
+			$this->load->model('Model_mypage');
+			$data['array_post'] = $this->Model_mypage->individual_get();
+			// var_dump($data['array_post']);
+			// exit;
 			//$data['all_posts'] = $this->Kinsta_model->all_post();
 			// $this->load->view('header_page');
 			// $this->load->view('only_mypage', $data);
@@ -310,7 +316,7 @@ class Kinsta extends CI_Controller
 		$data['post_id'] = $this->input->post('post_id');
 		$data['favorite_pattern'] = $this->input->post('favorite_pattern');
 	}
-	///// 山下担当　ここまで ////////
+	///// 山下担当 ここまで ////////
 	/////////////////////////////////////////二宮//////////////////////////////////////////////////////
 	public function top()
 	{
