@@ -61,6 +61,8 @@ class Kinsta extends CI_Controller
 		if (!empty($id) && is_numeric($id)) {
 			$this->load->model('Kinsta_model');
 			$data['myData'] = $this->Kinsta_model->mydata_get($id);
+			$this->load->model('Model_mypage');
+			$data['array_post'] = $this->Model_mypage->individual_get();
 			//$data['all_posts'] = $this->Kinsta_model->all_post();
 			// $this->load->view('header_page');
 			// $this->load->view('only_mypage', $data);
