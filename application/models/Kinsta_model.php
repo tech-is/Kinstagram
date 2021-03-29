@@ -59,10 +59,12 @@ class Kinsta_model extends CI_Model
     {
         return $this->db
             ->where('posts.list_image', $data['fName'])
-            ->select('posts.post_message,posts.mytraining,posts.mymenu')
+            ->join('users', 'users.user_id = posts.user_id', 'left')
+            ->select('users.user_id,users.user_name,posts.post_message,posts.mytraining,posts.mymenu,posts.post_id')
             ->get('posts')
             ->row_array();
     }
+    
     public function random_member_ten()
     {
         return $this->db
@@ -118,7 +120,7 @@ class Kinsta_model extends CI_Model
 
         $this->db->where("users.user_id", $member_id)->update("users", $array);
     }
-    //マッスルメンバー追加/解除
+    //マッスルメンバー追加/解除処理
     public function addMember($data)
     {
         $array = array(
@@ -136,7 +138,7 @@ class Kinsta_model extends CI_Model
             ->insert('followers', $array);
         return true;
     }
-    //解除/追加
+    //表示処理マッスルメンバー解除/追加
     public function addOrDelete($data)
     {
         if (!empty($data['loginId']) && ($data['memberUserId'])) {
@@ -160,6 +162,80 @@ class Kinsta_model extends CI_Model
         }
         return true;
     }
+
+
+
+    public function kiretemasuClick($data)
+    {
+        $array = array(
+            'user_id' => $data['loginUserId'],
+            'post_id' => $data['postId'],
+            'favorite_pattern' => $data['kireType']
+        );
+        
+        if(is_null($this->db->get_where("favorites", $array)->row_array())) {
+            $this->db->insert('favorites', $array);
+            return $this->db
+                    ->order_by('count', 'DESC')
+                     ->group_by('favorite_pattern')
+                     ->where('favorites.post_id', $data['postId'])
+                     ->select('favorites.user_id,favorites.post_id,favorites.favorite_pattern,COUNT(favorites.favorite_pattern) as count')
+                    ->get('favorites')
+            ->result_array();
+        }else{
+            $matchFavorite=$this->db->get_where("favorites", $array)->row_array();
+            // var_dump($matchFavorite);
+            $countData=$this->db
+                    ->order_by('count', 'DESC')
+                     ->group_by('favorite_pattern')
+                     ->where('favorites.post_id', $data['postId'])
+                     ->select('favorites.user_id,favorites.post_id,favorites.favorite_pattern,COUNT(favorites.favorite_pattern) as count')
+                    ->get('favorites')
+            ->result_array();
+            $deleteTorF = "";
+            for($i=0; $i < count($countData); $i++){
+                if($matchFavorite['favorite_pattern'] == $countData[$i]['favorite_pattern'] && $countData[$i]['count'] ==1 ){
+                    $deleteTorF = $this->db->delete('favorites',$array);
+                    $countData[$i]['count'] = "0";
+                    return $countData;
+                }
+            }
+            if($deleteTorF==""){
+            $this->db->delete('favorites',$array);
+            return $this->db
+                    ->order_by('count', 'DESC')
+                     ->group_by('favorite_pattern')
+                     ->where('favorites.post_id', $data['postId'])
+                     ->select('favorites.user_id,favorites.post_id,favorites.favorite_pattern,COUNT(favorites.favorite_pattern) as count')
+                    ->get('favorites')
+            ->result_array();
+            }
+        }
+    }
+    public function kiretemasuFirst($data)
+    {
+        $postIdGet=$this->db
+                        ->where('posts.list_image', $data['fileName'])
+                        ->join('users', 'users.user_id = posts.user_id', 'left')
+                        ->select('posts.post_id')
+                        ->get('posts')
+                        ->row_array();
+            
+            return $this->db
+                    ->order_by('count', 'DESC')
+                    ->group_by('favorite_pattern')
+                    ->where('favorites.post_id', $postIdGet['post_id'])
+                    ->select('favorites.user_id,favorites.post_id,favorites.favorite_pattern,COUNT(favorites.favorite_pattern) as count')
+                    ->get('favorites')
+                    ->result_array();
+            
+
+            
+        
+    }
+
+
+
 
     public function mydata_get($id)
     {
