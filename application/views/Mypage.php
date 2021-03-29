@@ -114,7 +114,7 @@
     <div class="profile">
         <div class="profile-inline">
             <div class="profile-img">
-                <img src="/img/142136.png<?php //echo $myData[0]['profile_image'] ?>">
+                <img src="/img/<?php echo $myData[0]['profile_image'] ?>"> <!--/img/142136.png-->
             </div>
             <div>
                 <p class="user_name text-center" name="user_name">
@@ -130,7 +130,7 @@
 
 
     <!-- マイページ編集用のModal -->
-    <form action="/Kinsta/mypage_update" method="post">
+    <form action="/Kinsta/mypage_update" method="post" enctype="multipart/form-data">
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content bg-black">
@@ -329,17 +329,17 @@
 
     <script>
         // プロフィール画像変更時にイメージを表示する
-        function previewImage(obj) {
-            var fileReader = new FileReader();
+        function pre-viewImage(obj) {
+            var fileReader1 = new FileReader();
             fileReader.onload = (function() {
-                var canvas = document.getElementById('pre-view');
-                var ctx = canvas.getContext('2d');
-                var image = new Image();
-                image.src = fileReader.result;
-                image.onload = (function() {
-                    canvas.width = image.width;
-                    canvas.height = image.height;
-                    ctx.drawImage(image, 0, 0);
+                var canvas1 = document.getElementById('pre-view');
+                var ctx1 = canvas1.getContext('2d');
+                var image1 = new Image();
+                image1.src = fileReader.result;
+                image1.onload = (function() {
+                    canvas1.width = image1.width;
+                    canvas1.height = image1.height;
+                    ctx1.drawImage(image1, 0, 0);
                 });
             });
             fileReader.readAsDataURL(obj.files[0]);
