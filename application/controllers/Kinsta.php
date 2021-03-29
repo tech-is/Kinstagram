@@ -97,13 +97,13 @@ class Kinsta extends CI_Controller
 		$config['max_hight'] = 1500;
 
 		$this->load->library('upload', $config);
-		if($this->upload->do_upload()) {
-			$file_info = $this->upload->data();
+		if($this->upload->do_upload('profile_image')) {
+			$file_info = $this->upload->data('file_name');
 		}
 
 		//Model_mypageのmypage_updateメソッドにアクセスし更新情報を渡す
 		// 更新情報を変数定義
-		$profile_image = $this->upload->data('file_name');
+		$profile_image = $file_info;
 		$user_name = $this->input->post('user_name');
 		$introduction = $this->input->post('introduction');
 		$my_category = $this->input->post('my_category');
@@ -119,6 +119,7 @@ class Kinsta extends CI_Controller
 			'E-mail' => $email,
 			'password' => $password,
 		];
+
 		//Model_mypageに送る
 		$this->Model_mypage->mypage_update($user);
 		//  $dataを第二引数に入れてviewに送る
