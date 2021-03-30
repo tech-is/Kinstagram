@@ -2,6 +2,7 @@
 
 
 //検索
+//検索
 $("#keyword").on('keyup', () => {
     let input = $("#keyword").val();
     $.ajax({
@@ -227,13 +228,14 @@ for(let i = 0; i < onMussleMember.length; i++){
 //     });
 // }
 
+//メッセージ、メニュー、トレーニングをモーダルに表示
 const listImage = document.querySelectorAll('.listImage');
 for(let i = 0; i < listImage.length; i++){
   listImage[i].addEventListener('click',()=>{
     const fhotoNo = listImage[i].getAttribute('data-no');
     document.getElementById('list-img').setAttribute('data-no',fhotoNo);
     document.getElementById('list-img').setAttribute('alt',fhotoNo);
-    const fhotoPass = document.getElementById(`listImage${i}`).getAttribute('src',);
+    const fhotoPass = document.getElementById(`listImage${i}`).getAttribute('src');
     document.getElementById('list-img').setAttribute('src',fhotoPass);
     const fileName = fhotoPass.replace('/img/','');
     const sendData = async(url='',data={}) => {
@@ -247,10 +249,13 @@ for(let i = 0; i < listImage.length; i++){
       .then(response => {
         return response.json()
       })
-      .then(data => {
+      .then(data => {   
+        document.getElementById('postNameData').innerHTML = data.message.user_name;
         document.getElementById('topMessageData').innerHTML = data.message.post_message;
         document.getElementById('topMenuData').setAttribute("value",data.message.mymenu);
         document.getElementById('topTraningData').setAttribute("value",data.message.mytraining);
+        document.getElementById('topPostUserId').setAttribute("data-userId",data.message.user_id);
+        document.getElementById('list-img').setAttribute("data-postid",data.message.post_id);
       })
       .catch(error => {
         return null;
@@ -260,7 +265,133 @@ for(let i = 0; i < listImage.length; i++){
   });
 }
 
+// let utisoto=document.getElementsByClassName('header_font_border');
+// if (utisoto[0].closest('.header_font_border').length) {
+//     alert('外側');
+//   }else{
+//     alert('内側');
+//   }
 
+//キレてます表示した時
+const listImage2 = document.querySelectorAll('.listImage');
+for(let i = 0; i < listImage2.length; i++){
+    listImage2[i].addEventListener('click',(e) => {
+        
+            // if(e.target.closest('.modal'))
+            // {
+                
+            // }
+            // if ($(e.target).closest('.listImage').length) {
+            //     alert('ok')
+            //   }
+            document.getElementById('countBox1').innerHTML = 0;
+            document.getElementById('countBox2').innerHTML = 0;
+            document.getElementById('countBox3').innerHTML = 0;
+            document.getElementById('countBox4').innerHTML = 0;
+            document.getElementById('countBox5').innerHTML = 0;
+            document.getElementById('countBox6').innerHTML = 0;
+        
+            const fhotoPass = document.getElementById(`listImage${i}`).getAttribute('src');
+            const fileName = fhotoPass.replace('/img/','');
+            console.log(fileName);
+                const postData = async(url='',data={}) => {
+                    await fetch(url,{
+                        method:'POST',
+                        headers:{
+                            'Content-Type': 'application/json; charset=UTF-8'
+                        },
+                        body: JSON.stringify(data)
+                    })
+                    .then(response => {
+                        return response.json()
+                    })
+                    .then(data =>{
+                        // console.log(data.message);
+                        // console.log(data.message.length);
+                    
+                        for(let n = 0; n < 6; n++){
+
+                            if(data.message[n].favorite_pattern == 1){
+                                console.log(data.message[n].count+'です。');
+                                document.getElementById('countBox1').innerHTML = data.message[n].count;
+                            }else if(data.message[n].favorite_pattern == 2){
+                                document.getElementById('countBox2').innerHTML = data.message[n].count;
+                            }else if(data.message[n].favorite_pattern == 3){
+                                document.getElementById('countBox3').innerHTML = data.message[n].count;
+                            }else if(data.message[n].favorite_pattern == 4){
+                                document.getElementById('countBox4').innerHTML = data.message[n].count;
+                            }else if(data.message[n].favorite_pattern == 5){
+                                document.getElementById('countBox5').innerHTML = data.message[n].count;
+                            }else if(data.message[n].favorite_pattern == 6){
+                                document.getElementById('countBox6').innerHTML = data.message[n].count;
+                            }
+                            console.log(n+'回目');
+                        }
+                    })
+                    .catch(error => {
+                        return null
+                    });
+                }
+                postData('/kinsta/kiretemasuFirst',{fileName:fileName});
+            });
+}
+
+
+
+
+
+
+//キレてます押した時
+const goodBtn = document.querySelectorAll('.good-btn-icon');
+for(let i = 0; i < goodBtn.length; i++){
+    goodBtn[i].addEventListener('click',()=>{
+        const kireType = goodBtn[i].getAttribute('data-value');
+        const loginUserId = goodBtn[i].getAttribute('data-loginUserId');
+        const postId = document.getElementById('list-img').getAttribute('data-postid');
+        const postData = async(url='',data={}) => {
+            await fetch(url,{
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json; charset=UTF-8'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                return response.json()
+            })
+            .then(data =>{
+                console.log(data.message);
+                for(let n = 0; n < data.message.length; n++){
+                    // console.log(typeof(data.message[n].favorite_pattern));
+                    // console.log(data.message[n].count);
+                    // console.log(data.message[n].favorite_pattern);
+                    if(data.message[n].favorite_pattern == 1){
+                        // console.log(data.message[n].count);
+                        document.getElementById('countBox1').innerHTML = data.message[n].count;
+                    }else if(data.message[n].favorite_pattern == 2){
+                        console.log(data.message[n].count);
+                        document.getElementById('countBox2').innerHTML = data.message[n].count;
+                    }else if(data.message[n].favorite_pattern == 3){
+                        document.getElementById('countBox3').innerHTML = data.message[n].count;
+                    }else if(data.message[n].favorite_pattern == 4){
+                        document.getElementById('countBox4').innerHTML = data.message[n].count;
+                    }else if(data.message[n].favorite_pattern == 5){
+                        document.getElementById('countBox5').innerHTML = data.message[n].count;
+                    }else if(data.message[n].favorite_pattern == 6){
+                        document.getElementById('countBox6').innerHTML = data.message[n].count;
+                    }
+                }
+                // console.log(data.message);
+            })
+            .catch(error => {
+                // console.log('Error:', error);
+                return null
+            });
+            // console.log(json);
+        }
+        postData('/kinsta/kiretemasuClick',{loginUserId:loginUserId,postId:postId,kireType:kireType});
+    });
+}
 
 
 //６００以上の時モーダル
@@ -436,7 +567,6 @@ if(innerWidth <= 500){
         if(lastList.classList.contains("newFollow500")){
             lastLastList.remove();
             lastList.remove();
-            console.log(lastList);
         }
     }
 
@@ -514,7 +644,6 @@ if(innerWidth <= 500){
                             .done(
                             function(data) {
                             if(data.alreadyAdd){
-                                console.log(data.alreadyAdd);
                                 document.getElementById(`openMember${i}`).innerHTML = data.alreadyAdd;
                             }else{
                                 document.getElementById(`openMember${i}`).innerHTML = data.add;

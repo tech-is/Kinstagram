@@ -382,16 +382,10 @@ class Kinsta extends CI_Controller
 		header("Content-Type: application/json; charset=utf-8");
 
 		$keyword = $this->input->post('serchText', true);
-		// var_dump($keyword);
 		$this->load->model('Kinsta_model');
 		$data['match_data'] = $this->Kinsta_model->serch_for($keyword);
-		// var_dump($data);
-
-
 		echo json_encode(['message' => $data['match_data']]);
 		exit();
-		// var_dump($data['match_data'][0]['user_name']);
-		// echo json_encode(['message' => "$data['match_data'][0]['user_name']"]);
 	}
 	public function getMessageMenuTraning()
 	{
@@ -400,16 +394,33 @@ class Kinsta extends CI_Controller
 		$data = file_get_contents('php://input');
 		$data = json_decode($data, true);
 		$data['mestraMen'] = $this->Kinsta_model->getMessageMenuTraning($data);
-		// var_dump($data['mestraMen']);
 		echo json_encode(['message' => $data['mestraMen']]);
+
 		// if(!empty($data['mestraMen'] = $this->Kinsta_model->getMessageMenuTraning($data))){
 		// exit();
 		// };
 
-
 	}
-
-
+	public function kiretemasuClick()
+	{
+		header("Content-Type: application/json; charset=UTF-8");
+		$data = file_get_contents('php://input');
+		$data = json_decode($data, true);
+		$this->load->model('Kinsta_model');
+		$data['countKiretemasu'] = $this->Kinsta_model->kiretemasuClick($data);
+		// var_dump($data['countKiretemasu']);
+		echo json_encode(['message' => $data['countKiretemasu']]);
+	}
+	public function kiretemasuFirst()
+	{
+		header("Content-Type: application/json; charset=UTF-8");
+		$data = file_get_contents('php://input');
+		$data = json_decode($data, true);
+		$this->load->model('Kinsta_model');
+		$data['countKiretemasuFirst'] = $this->Kinsta_model->kiretemasuFirst($data);
+		// var_dump($data['countKiretemasuFirst']);
+		echo json_encode(['message' => $data['countKiretemasuFirst']]);
+	}
 
 	public function addMember()
 	{
@@ -450,14 +461,11 @@ class Kinsta extends CI_Controller
 		header("Content-Type: application/json; charset=UTF-8");
 		$loginId = file_get_contents('php://input');
 		$data[] = json_decode($loginId, true);
-		// var_dump($data);
 		$this->load->model('Kinsta_model');
 		$data['fiveChange'] = $this->Kinsta_model->random_member_five();
-		// var_dump($data);
 
 		for ($i = 0; $i < 5; $i++) {
 			$data[0]['memberUserId'] = $data['fiveChange'][$i]['user_id'];
-			// var_dump($data[0]['memberUserId']);
 			if ($this->Kinsta_model->addOrDelete($data)) {
 				$data['fiveChange'][$i]['mussleMemberAddOrDelete'] = 'マッスルメンバー追加';
 			} else {
@@ -466,9 +474,6 @@ class Kinsta extends CI_Controller
 		}
 		echo json_encode(['message' => $data['fiveChange']]);
 		exit();
-		// var_dump($data['fiveChange']);
-		// var_dump($data);
-
 	}
 
 

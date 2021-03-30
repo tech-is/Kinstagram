@@ -241,11 +241,8 @@
                     <div class="modal-header bg-black">
                         <?php foreach ($array_user as $value) : ?>
                             <img src="/img/142136.png">
-                            <h5 class="modal-title bg-black" id="individualModalLabel">
-                                <?php echo $value['user_name']; ?>
-                            </h5>
+                            <h5 class="modal-title bg-black" id="postNameData"></h5>
                         <?php endforeach; ?>
-
                         <input type="button" id="follow" class="btn-gradient-radius" value="フォローする" onclick="change()">
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -266,46 +263,65 @@
                                             <label class="control-label">マイメニュー</label>
                                                 <textarea id="topMenuData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['mymenu']; ?></textarea>
                                             <label class="control-label">マイトレーニング</label>
+
                                                 <textarea id="topTraningData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['mytraining']; ?></textarea>
                                         <?php endforeach; ?>
+                                        
 
                                         <!-- いいねボタン -->
                                         <div class="good-btn-container">
-                                            <div class="good-btn-icon">
-                                                <image src="/img/button/ude.png" alt="腕">
-                                                    <div class="good-btn-text">腕キレてるね</div>
-                                                    <div class="iframe">
-                                                        <iframe src="/iine/iine1.html" class="iineiframe"></iframe>
-                                                    </div>
-                                            </div>
-                                            <div class="good-btn-icon">
-                                                <img src="/img/button/mune.jpg" alt="胸">
-                                                <div class="good-btn-text">胸キレてるね</div>
-                                                <div class="iframe">
-                                                    <iframe src="/iine/iine2.html" class="iineiframe"></iframe>
-                                                </div>
-                                            </div>
-                                            <div class="good-btn-icon">
-                                                <img src="/img/button/kata.png" alt="肩">
-                                                <div class="good-btn-text">肩キレてるね</div>
-                                                <div class="iframe">
-                                                    <iframe src="/iine/iine3.html" class="iineiframe"></iframe>
-                                                </div>
-                                            </div>
-                                            <div class="good-btn-icon">
-                                                <img src="/img/button/hara.png" alt="腹">
-                                                <div class="good-btn-text">腹キレてるね</div>
-                                                <div class="iframe">
-                                                    <iframe src="/iine/iine4.html" class="iineiframe"></iframe>
-                                                </div>
-                                            </div>
-                                            <div class="good-btn-icon">
-                                                <img src="/img/button/ashi.png" alt="足">
-                                                <div class="good-btn-text">足キレてるね</div>
-                                                <div class="iframe">
-                                                    <iframe src="/iine/iine5.html" class="iineiframe"></iframe>
-                                                </div>
-                                            </div>
+                                            <?php for($i = 1;$i <= 6; $i++):?>
+                                                <div class="good-btn-icon" id="goodBtnIconTest" data-loginUserId ="<?php echo $login_userid[0]['user_id'] ?>" data-value="<?php echo $i ?>">
+                                                <?php switch($i){
+                                                    case 1 :?>
+                                                            <img src="/img/button/sougou.png" alt="総合" data-value="<?php echo $i ?>">
+                                                                <div class="good-btn-text">全身キレキレ</div>
+                                                                <div id="countBox1">0</div>
+                                                                
+                                                        </div>
+                                                    <?php break;?>
+                                             <?php case 2 :?>
+                                                        <!-- <div class="good-btn-icon" data-loginuserId=""> -->
+                                                            <img src="/img/button/ude.png" alt="腕" data-value="<?php echo $i ?>">
+                                                                <div class="good-btn-text" >腕キレてるね</div>
+                                                                <div id="countBox2">0</div>
+                                                                
+                                                        </div>
+                                            <?php break;?>
+                                            <?php case 3 :?>
+                                                        <!-- <div class="good-btn-icon" data-userId=""> -->
+                                                            <img src="/img/button/kata.png" alt="肩" data-value="<?php echo $i ?>">
+                                                            <div class="good-btn-text">肩キレてるね</div>
+                                                            <div id="countBox3">0</div>
+                                                            
+                                                        </div>
+                                            <?php break;?>
+                                            <?php case 4 :?>
+                                                        <!-- <div class="good-btn-icon"> -->
+                                                            <img src="/img/button/mune.jpg" alt="胸" data-value="<?php echo $i ?>">
+                                                            <div class="good-btn-text">胸キレてるね</div>
+                                                            <div id="countBox4">0</div>
+                                                            
+                                                        </div>
+                                            <?php break;?>
+                                            <?php case 5 :?>
+                                                        <!-- <div class="good-btn-icon"> -->
+                                                            <img src="/img/button/hara.png" alt="腹" data-value="<?php echo $i ?>">
+                                                            <div class="good-btn-text">腹キレてるね</div>
+                                                            <div id="countBox5">0</div>
+                                                            
+                                                        </div>
+                                            <?php break;?>
+                                            <?php case 6 :?>
+                                                        <!-- <div class="good-btn-icon"> -->
+                                                            <img src="/img/button/ashi.png" alt="足" data-value="<?php echo $i ?>">
+                                                            <div class="good-btn-text">足キレてるね</div>
+                                                            <div id="countBox6">0</div>
+                                                            <!-- <div class="iframe"><iframe src="/iine/iine5.html" class="iineiframe"></iframe></div> -->
+                                                        </div>
+                                            <?php break;?>
+                                                <?php } ?>
+                                            <?php endfor; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -323,17 +339,17 @@
     <script type="text/javascript" src="<?php echo ("/style/js/toppage.js"); ?>"></script>
     <script>
         // クリックで”フォロー”と”フォローする”のテキストが入れ替わる
-        document.getElementById("follow").addEventListener(
-            "click",
-            function(event) {
-                if (event.target.value === "フォロー中") {
-                    event.target.value = "フォローする";
-                } else {
-                    event.target.value = "フォロー中";
-                }
-            },
-            false
-        );
+        // document.getElementById("follow").addEventListener(
+        //     "click",
+        //     function(event) {
+        //         if (event.target.value === "フォロー中") {
+        //             event.target.value = "フォローする";
+        //         } else {
+        //             event.target.value = "フォロー中";
+        //         }
+        //     },
+        //     false
+        // );
 
         //投稿用のモーダル
         function previewImage(obj) {
@@ -354,9 +370,7 @@
 
         //一覧画像をクリックするとモーダル表示
         //https://stackoverflow.com/questions/26377231/jquery-how-to-change-img-src-path-onclick
-        $('.listImage').on('click', function() {
-            $('#list-img').prop('src', this.src);
-        });
+       
     </script>
     <script src="/iine_app/iine.js"></script>
 </body>
