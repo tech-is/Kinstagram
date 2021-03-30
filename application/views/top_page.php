@@ -267,7 +267,7 @@
                                             <textarea id="topMenuData" rows="3" class="form-control bg-gray" type="text" readonly><?php echo $value2['mymenu']; ?></textarea>
                                             <label class="control-label">マイトレーニング</label>
                                             <textarea id="topTraningData" class="form-control bg-gray" type="text" rows="5" readonly><?php echo $value2['mytraining']; ?></textarea>
-
+                                            <input id="topPostUserId" type="hidden" data-userId="">
                                         <?php endforeach; ?>
                                         
 
