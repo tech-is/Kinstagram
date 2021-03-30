@@ -2,7 +2,6 @@
 
 
 //検索
-//検索
 $("#keyword").on('keyup', () => {
     let input = $("#keyword").val();
     $.ajax({

@@ -533,7 +533,7 @@ ul.memberPostFollowPicture li img.followMemberPicture21{
     display: none;
 }
 div.contents{
-    opacity: 0;
+    top: -150px;
 }
 .underNav ul.underTab div div a{
     color: #cccccc;
@@ -557,7 +557,7 @@ div.contents{
 div.is-open {
     line-height: normal;
     height: auto;
-    opacity: 1;
+    top: 0;
     position: relative;
     z-index: 100;
     background: black;
@@ -879,9 +879,9 @@ div.is-open {
         .detailMenu.is-active {
             /* background: none; */
         }
-        .contents {
+        div.contents {
             /* display: none; */
-            /* top: 100px; */
+            top: 100px;
             position: absolute;
         }
             
