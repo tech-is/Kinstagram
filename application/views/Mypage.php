@@ -266,10 +266,10 @@
                                             <textarea id="messageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly></textarea>
 
                                             <label class="control-label">マイメニュー</label>
-                                            <input id="menuData" class="form-control bg-gray" type="text" readonly>
+                                            <textarea id="menuData" rows="3" class="form-control bg-gray" type="text" readonly></textarea>
 
                                             <label class="control-label">マイトレーニング</label>
-                                            <input id="traningData" class="form-control bg-gray" type="text" value= "" readonly>
+                                            <textarea id="traningData" class="form-control bg-gray" rows="5" type="text" value= "" readonly></textarea>
                                       
 
                                         <!-- いいねボタン -->

@@ -252,8 +252,8 @@ for(let i = 0; i < listImage.length; i++){
       .then(data => {   
         document.getElementById('postNameData').innerHTML = data.message.user_name;
         document.getElementById('topMessageData').innerHTML = data.message.post_message;
-        document.getElementById('topMenuData').setAttribute("value",data.message.mymenu);
-        document.getElementById('topTraningData').setAttribute("value",data.message.mytraining);
+        document.getElementById('topMenuData').innerHTML = data.message.mymenu;
+        document.getElementById('topTraningData').innerHTML = data.message.mytraining;
         document.getElementById('topPostUserId').setAttribute("data-userId",data.message.user_id);
         document.getElementById('list-img').setAttribute("data-postid",data.message.post_id);
       })

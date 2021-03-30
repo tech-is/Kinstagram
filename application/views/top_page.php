@@ -249,20 +249,17 @@
                             <div class="row">
                                 <div class="col-md-6">
                                 <!-- JSでsrcのurlがセットされる -->
-                                    <img id="list-img" data-postid="" class='list-imgClass'  src="" alt="<?php echo $i?>" style=width:100%; data-no=<?php echo $i ?>>
+                                    <img id="list-img" class='list-img' src="" alt="<?php echo $i ?>" style=width:100%; data-no=<?php echo $i ?>>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <?php foreach ($array_post as $value2) : ?>
                                             <label class="control-label">メッセージ</label>
                                             <textarea id="topMessageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
-
                                             <label class="control-label">マイメニュー</label>
-                                            <input id="topMenuData" class="form-control bg-gray" type="text" value="<?php echo $value2['mymenu']; ?>" readonly>
-
+                                            <textarea id="topMenuData" rows="3" class="form-control bg-gray" type="text" readonly><?php echo $value2['mymenu']; ?></textarea>
                                             <label class="control-label">マイトレーニング</label>
-                                            <input id="topTraningData" class="form-control bg-gray" type="text" value="<?php echo $value2['mytraining']; ?>" readonly>
-                                            <input id="topPostUserId" type="" data-userId="">
+                                            <textarea id="topTraningData" class="form-control bg-gray" type="text" rows="5" readonly><?php echo $value2['mytraining']; ?></textarea>
                                         <?php endforeach; ?>
                                         
 
