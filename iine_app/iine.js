@@ -1,5 +1,5 @@
 // マイページのモーダル内メッセージ、トレーニング、メニュー表示
-onst myImageClass = document.querySelectorAll('.myImageClass');
+const myImageClass = document.querySelectorAll('.myImageClass');
 for(let i = 0; i < myImageClass.length; i++){
   myImageClass[i].addEventListener('click',()=>{
     const fhotoNo = myImageClass[i].getAttribute('data-no');
