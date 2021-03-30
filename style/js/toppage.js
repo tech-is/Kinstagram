@@ -41,7 +41,6 @@ $("#keyword").on('keyup', () => {
 document.getElementById('otherMemberChange').addEventListener('click',()=>{
     const onMussleMember = document.querySelectorAll('.addMassuleMember');
     let loginUserId = onMussleMember[0].getAttribute('data-myid');
-    console.log(loginUserId);
         const postData = async(url='',data={}) => {
             await fetch(url,{
                 method:'POST',
@@ -54,7 +53,6 @@ document.getElementById('otherMemberChange').addEventListener('click',()=>{
                 return response.json()
             })
             .then(data =>{
-                    console.log(data.message);
                 let dome = "/img/"
                 for(let i = 0; i < 5; i++ ){
                    
@@ -89,13 +87,10 @@ for(let i = 0; i < onMussleMember.length; i++){
             })
             .then(data =>{
                 document.getElementById(`openMember${i}`).innerHTML =  data.message;
-                console.log(data.message);
             })
             .catch(error => {
-                // console.log('Error:', error);
                 return null
             });
-            // console.log(json);
         }
         postData('/kinsta/addMember',{memberUserId:userId,loginId:loginUserId});
     });
@@ -148,7 +143,6 @@ for(let i = 0; i < listImage2.length; i++){
             document.getElementById('countBox6').innerHTML = 0;
             const fhotoPass = document.getElementById(`listImage${i}`).getAttribute('src');
             const fileName = fhotoPass.replace('/img/','');
-            console.log(fileName);
                 const postData = async(url='',data={}) => {
                     await fetch(url,{
                         method:'POST',
@@ -163,7 +157,6 @@ for(let i = 0; i < listImage2.length; i++){
                     .then(data =>{
                         for(let n = 0; n < 6; n++){
                             if(data.message[n].favorite_pattern == 1){
-                                console.log(data.message[n].count+'です。');
                                 document.getElementById('countBox1').innerHTML = data.message[n].count;
                             }else if(data.message[n].favorite_pattern == 2){
                                 document.getElementById('countBox2').innerHTML = data.message[n].count;
@@ -204,12 +197,10 @@ for(let i = 0; i < goodBtn.length; i++){
                 return response.json()
             })
             .then(data =>{
-                console.log(data.message);
                 for(let n = 0; n < data.message.length; n++){
                     if(data.message[n].favorite_pattern == 1){
                         document.getElementById('countBox1').innerHTML = data.message[n].count;
                     }else if(data.message[n].favorite_pattern == 2){
-                        console.log(data.message[n].count);
                         document.getElementById('countBox2').innerHTML = data.message[n].count;
                     }else if(data.message[n].favorite_pattern == 3){
                         document.getElementById('countBox3').innerHTML = data.message[n].count;
@@ -231,7 +222,6 @@ for(let i = 0; i < goodBtn.length; i++){
 }
 //下タブにおすすめトレーニー作成
 if(innerWidth <= 500){
-    console.log("ロード500");
     const underTab = document.getElementsByClassName("underTab");
     let lastList = underTab[0].lastElementChild;
     if(!lastList.classList.contains("newFollow500")){
@@ -261,7 +251,6 @@ if(innerWidth <= 500){
         let divList ="";
         const followToreni500 = document.getElementsByClassName('followToreni500');
         function toggle3(){
-            console.log("無し");
                 if(!document.getElementsByClassName("followToreniOpen")[0]){
                 const asideUl = document.getElementsByClassName('asideUl');
                 const headerList = document.getElementsByTagName('header');
@@ -271,7 +260,6 @@ if(innerWidth <= 500){
                 divList.classList.toggle("followToreniOpen");
                 }else{
                     divList.classList.toggle("followToreniOpen");
-                    console.log("あり");
                 }
         }
     }
@@ -364,7 +352,6 @@ if(innerWidth <= 500){
             content[1].classList.toggle('isOpenRankUnderTwo');
             const detailContent = document.getElementsByClassName("detailContents");
             if(detailContent[0].classList.contains('isOpenRankUnderThree')){
-                console.log(detailContent[0].classList.contains('isOpenRankUnderThree'));
                 for(let i = 0; i<detailContent.length; i++){
                 detailContent[i].classList.toggle('isOpenRankUnderThree');
                 }
