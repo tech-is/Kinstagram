@@ -91,7 +91,9 @@
                     <ul class="hambargerUl">
 
                         <li><a href="/kinsta/mypage?userId=<?php echo $login_userid[0]['user_id'] ?>" class="textNone">マイページ</a></li>
-                        <li><a href="/kinsta/post" class="textNone">アップロード</a></li>
+                        <li>
+                            <a href="javascript:document.pcUploadButton.submit()" data-toggle="modal" data-target="#postModal">アップロード</a>
+                        </li>
                         <li><a href="/kinsta/login" class="textNone">ログイン</a></li>
                         <li><a href="/kinsta/logout" class="textNone">ログアウト</a></li>
                         <li class="cancelButton"><label for="menu" class="close">×</label></li>
@@ -227,7 +229,7 @@
 
                 <hr class="other_border">
                 <li class="otherMember">
-                    <a href="#" class="aOtherMember" id="otherMemberChange">その他のメンバーを見る</a>
+                    <a href="#" class="aOtherMember" id="otherMemberChange">その他のメンバー</a>
                 </li>
             </ul>
         </aside>
@@ -267,7 +269,7 @@
                                             <textarea id="topMenuData" rows="3" class="form-control bg-gray" type="text" readonly><?php echo $value2['mymenu']; ?></textarea>
                                             <label class="control-label">マイトレーニング</label>
                                             <textarea id="topTraningData" class="form-control bg-gray" type="text" rows="5" readonly><?php echo $value2['mytraining']; ?></textarea>
-
+                                            <input id="topPostUserId" type="hidden" data-userId="">
                                         <?php endforeach; ?>
                                         
 

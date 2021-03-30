@@ -1,5 +1,5 @@
 // マイページのモーダル内メッセージ、トレーニング、メニュー表示
-onst myImageClass = document.querySelectorAll('.myImageClass');
+const myImageClass = document.querySelectorAll('.myImageClass');
 for(let i = 0; i < myImageClass.length; i++){
   myImageClass[i].addEventListener('click',()=>{
     const fhotoNo = myImageClass[i].getAttribute('data-no');
@@ -21,8 +21,8 @@ for(let i = 0; i < myImageClass.length; i++){
       })
       .then(data => {
         document.getElementById('messageData').innerHTML = data.message.post_message;
-        document.getElementById('menuData').setAttribute("value",data.message.mymenu);
-        document.getElementById('traningData').setAttribute("value",data.message.mytraining);
+        document.getElementById('menuData').innerHTML = data.message.mymenu;
+        document.getElementById('traningData').innerHTML = data.message.mytraining;
       })
       .catch(error => {
         return null;
