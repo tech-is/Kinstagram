@@ -252,19 +252,22 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <!-- JSでsrcのurlがセットされる -->
+
+                                <!-- JSでsrcのurlがセットされる -->
+
                                     <img id="list-img" class='list-img' src="" alt="<?php echo $i ?>" style=width:100%; data-no=<?php echo $i ?>>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <?php foreach ($array_post as $value2) : ?>
                                             <label class="control-label">メッセージ</label>
-                                                <textarea id="topMessageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
-                                            <label class="control-label">マイメニュー</label>
-                                                <textarea id="topMenuData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['mymenu']; ?></textarea>
-                                            <label class="control-label">マイトレーニング</label>
 
-                                                <textarea id="topTraningData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['mytraining']; ?></textarea>
+                                            <textarea id="topMessageData" class="form-control bg-gray" type="text" cols="30" rows="5" readonly><?php echo $value2['post_message']; ?></textarea>
+                                            <label class="control-label">マイメニュー</label>
+                                            <textarea id="topMenuData" rows="3" class="form-control bg-gray" type="text" readonly><?php echo $value2['mymenu']; ?></textarea>
+                                            <label class="control-label">マイトレーニング</label>
+                                            <textarea id="topTraningData" class="form-control bg-gray" type="text" rows="5" readonly><?php echo $value2['mytraining']; ?></textarea>
+
                                         <?php endforeach; ?>
                                         
 
