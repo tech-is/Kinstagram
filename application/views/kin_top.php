@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
     <?php echo validation_errors(); ?>
     <header>
         <div class="header-in">
-            <img src="<?php echo base_url(); ?>img/kinstalogo.png" height="80" width="300">
+            <img src="<?php echo base_url(); ?>img/kinstalogo.png">
         </div>
     </header>
     <div class="kinsta-top">
@@ -23,7 +24,7 @@
         </div>
         <div class="top-explanation">
             <div class="top-since">
-                <p>SINCE 2020</p>
+                <p>SINCE 2021</p>
                 <b>ALL is an<br>Expert</b>
             </div>
             <div class="top-life">
@@ -33,11 +34,11 @@
         <div class="top-form">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
-                新規会員登録はこちらから
+                <p>新規会員登録はこちらから</p>
             </button>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
-                すでに会員登録済みの方はこちら
+                <p>すでに会員登録済みの方はこちらから</p>
             </button>
         </div>
         <div class="top-support">
@@ -98,7 +99,7 @@
     </div>
 
     <footer>
-        <div class="footer-menu">
+        <!-- <div class="footer-menu">
             <p>アクセス</p>
             <a href="#">トップ</a>
             <a href="#">新着</a>
@@ -107,7 +108,7 @@
             <a href="#">お気に入り</a><br>
             <a href="#">セレクト</a>
             <a href="#">投稿する</a>
-        </div>
+        </div> -->
         <div class="footer-menu">
             <p>information</p>
             <a href="#">ニュース</a>
