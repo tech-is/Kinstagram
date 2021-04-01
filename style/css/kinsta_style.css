@@ -1,3 +1,4 @@
+/* 共通の設定*/
 p{
     margin:0;
     display:inline-block;
@@ -14,6 +15,12 @@ b{
     margin:5% 0 0 5%;
 }
 
+img{
+    display: block;
+    margin: 0 auto 0 auto;
+}
+
+/* モーダルの設定 */
 .modal-header{
     background-color: #AD9DA5;
     color: black;
@@ -25,23 +32,28 @@ b{
     background-color: #AD9DA5;
 }
 
+/* headerの設定 */
 header{
     height:80px;
     width:auto;
     background-color: black;
+    position: relative;
 }
 
-img{
-    display: block;
-    margin: 0 auto 0 auto;
+header img{
+    height:80px;
+    width:300px;
 }
 
+/* ALL is an Expartのところ */
 .kinsta-top{
     height:1032px;
     background-image: url('/img/LP-top2.jpg');
     background-size: cover;
+    position: relative;
 }
 
+/* アイコンのとこ */
 .top-icon{
     height:100px;
     margin-bottom: 150px;
@@ -54,6 +66,7 @@ img{
     display: flex;
 }
 
+/* 以下。SINCEのとこの文字設定関係 */
 .top-since{
     height:100%;
     width:50%;
@@ -71,6 +84,7 @@ img{
     font-family: serif;
 }
 
+/* 以下、Life isのとこの設定 */
 .top-life{
     height:100%;
     width:50%;
@@ -85,6 +99,7 @@ img{
     font-family: fantasy;
 }
 
+/* 会員登録と、ログインフォームの部分 */
 .top-form{
     height:130px;
     width:80%;
@@ -97,10 +112,13 @@ img{
     width :50%;
 }
 
+/* サポート部分 */
 .top-support{
     width: 80%;
     height:36px;
     margin:0 auto 0 auto;
+    position: absolute;
+    bottom: 20px;
 }
 
 .top-support a{
@@ -108,18 +126,27 @@ img{
     color:white;
 }
 
+/* 画像3つ並んでるところ */
 .introduction123{
     display:flex;
     background-color: violet;
     height:365px;
     width:100%;
 }
+
+.intro-text{
+    margin:98px 20% 0px 20%;
+}
+
+/* その１ */
 .introduction1{
     width:33%;
     height:100%;
     background-image: url('/img/intro1.jpg');
     background-size: auto;
 }
+
+/* その２ */
 .introduction2{
     width:33%;
     height:100%;
@@ -127,6 +154,8 @@ img{
     background-image: url('/img/intro2.jpg');
     background-size: auto;
 }
+
+/* その３ */
 .introduction3{
     width:34%;
     height:100%;
@@ -134,26 +163,27 @@ img{
     background-image: url('/img/intro3.jpg');
     background-size: auto;
 }
-.intro-text{
-    margin:98px 20% 0px 20%;
-}
+
+/* 下の会員登録とログインフォーム */
 .selection{
     height:350px;
     background-color: black;
     display: flex;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
 }
 .select1{
     height:100%;
     width:49.5%;
     margin-right: 0.5%;
     background-color: #5B5BDC;
+    position: relative;
 }
 .select2{
     height:100%;
     width:49.5%;
     margin-left: 0.5%;
     background-color: #5B5BDC;
+    position: relative;
 }
 .select-text{
     font-size: 3.5vw;
@@ -166,23 +196,29 @@ img{
     height:70px;
     width:40%;
     margin:0 25% 0 25%;
+    position: absolute;
+    bottom:20px;
 }
 .select-login{
     background-color: #5B5BDC;
     height:70px;
     width:40%;
     margin:0 30% 0 30%;
+    position: absolute;
+    bottom:20px;
 }
 
+/* select上のボタン設定 */
 .btn2{
     height:100%;
     width:100%;
     border: solid white 8px;
 }
 
+/* フッターの設定 */
 footer{
     background-color: #2F2E2E;
-    height:145px;
+    height:105px;
     display: flex;
 }
 footer p{
@@ -194,8 +230,10 @@ footer a{
     margin-right: 8px;
 }
 .footer-menu{
-    width:33.3%
+    width:50%
 }
+
+/* 仮会員登録時のpopupのCSS */
 .popup {
   position: fixed;
   left: 0;
@@ -248,4 +286,167 @@ footer a{
   background-color: rgba(0,0,0,.8);
   z-index: 1;
   cursor: pointer;
+}
+
+
+/* 0~768pxでのレスポンシブ */
+@media screen and (max-width: 768px){
+    /* 会員登録と、ログインフォームの部分 */
+/* headerの設定 */
+header{
+    height:40px;
+}
+
+header img{
+    height:40px;
+    width:150px;
+}
+
+/* ALL is an Expartのところ */
+.kinsta-top{
+    height:600px;
+    background-size: auto 600px;
+}
+
+/* アイコンのとこ */
+.top-icon{
+    height:100px;
+    margin-bottom: 20px;
+}
+.top-icon img{
+    height:60px;
+}
+
+.top-explanation{
+    height:150px;
+}
+
+/* 以下。SINCEのとこの文字設定関係 */
+.top-since{
+    height:100px;
+    width:50%;
+}
+
+.top-since p{
+    font-size: 10px;
+}
+
+.top-since b{
+    font-size: 7.5vw;
+}
+
+/* 以下、Life isのとこの設定 */
+.top-life{
+    height:150px;
+}
+.top-life p{
+    font-size: 12px;
+    margin-top:20px;
+}
+
+/* 会員登録と、ログインフォームの部分 */
+.top-form{
+    height:80px;
+    margin:80px auto 0 auto;
+    display :block;
+}
+
+.top-form p{
+    font-size: 12px;
+}
+
+/* サポート部分 */
+.top-support{
+    display: none;
+}
+
+/* 画像3つ並んでるところ */
+.introduction123{
+    display:block;
+    height:600px;
+}
+.introduction123 p{
+    font-size: 12px;
+}
+
+.intro-text{
+    margin-top:0px;
+    position: absolute;
+    top:40px;
+}
+
+/* その１ */
+.introduction1{
+    width:100%;
+    height:33%;
+    position: relative;
+    border-top: solid 5px #5989cf;
+}
+
+/* その２ */
+.introduction2{
+    width:100%;
+    height:33%;
+    position: relative;
+    border-top: solid 5px #5989cf;
+}
+
+/* その３ */
+.introduction3{
+    width:100%;
+    height:34%;
+    position: relative;
+    border-top: solid 5px #5989cf;
+    border-bottom: solid 5px #5989cf;
+}
+
+/* 下の会員登録とログインフォーム */
+.selection{
+    height:350px;
+    background-color: black;
+    display: block;
+    padding-bottom: 0px;
+}
+.select1{
+    height:50%;
+    width:100%;
+    margin-right: 0%;
+    background-color: #5B5BDC;
+    position: relative;
+}
+.select2{
+    height:50%;
+    width:100%;
+    margin-left: 0%;
+    background-color: #5B5BDC;
+    position: relative;
+    border-top: solid 5px #5989cf;
+}
+.select-text{
+    font-size: 3.5vw;
+    font-weight:600;
+    margin:0% 10% 10% 10%;
+    font-family: serif;
+    position: absolute;
+    top:10%;
+}
+.select-registration{
+    margin:0 30% 0 30%;
+    bottom:30px;
+}
+.select-login{
+    margin:0 30% 0 30%;
+    bottom:30px;
+}
+
+/* フッターの設定 */
+footer{
+    background-color: #2F2E2E;
+    height:80px;
+    display: flex;
+}
+footer a{
+    margin-right: 4px;
+    font-size: 12px;
+}
 }
