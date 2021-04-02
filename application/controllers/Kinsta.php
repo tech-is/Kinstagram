@@ -102,7 +102,7 @@ class Kinsta extends CI_Controller
 		}
 
 		//Model_mypageのmypage_updateメソッドにアクセスし更新情報を渡す
-		// 更新情報を変数定義
+		// 更新情報を変数定義する
 		$profile_image = $file_info;
 		$user_name = $this->input->post('user_name');
 		$introduction = $this->input->post('introduction');
