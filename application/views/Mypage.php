@@ -126,7 +126,7 @@
             </div>
         </div>
     <!-- マイページ編集用のModal -->
-    <form action="/Kinsta/mypage_update" method="post">
+    <form action="/Kinsta/mypage_update" method="post" enctype="multipart/form-data">
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                         <div class="modal-content bg-black">
@@ -176,7 +176,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">ID</label>
+                                    <label class="control-label">ID(E-mail)</label>
                                     <?php echo form_error('E-mail'); ?>
                                     <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $myData[0]['E-mail']; ?>">
                                 </div>
@@ -206,7 +206,7 @@
     </div>
     <!-- 写真一覧 -->
 
-    <!-- 個別ページ用のモーダル -->
+    <!-- 個別画像表示用のモーダル -->
     <form action="/Kinsta/individual" method="post">
         <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-max" role="document">
