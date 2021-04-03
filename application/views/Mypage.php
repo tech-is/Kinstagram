@@ -244,7 +244,8 @@
                             </div>
                         </div>
                         <div class="modal-footer bg-black">
-                            <button type="submit" class="btn btn-danger">画像削除</button>
+                            作成中→
+                            <button type="button" class="btn btn-danger">画像削除</button>
                         </div>
                     </div>
                 </div>
