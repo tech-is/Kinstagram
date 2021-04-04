@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '/';
+$config['base_url'] = 'http://localhost2/';
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +66,7 @@ $config['uri_protocol']    = 'REQUEST_URI';
 |
 | Note: This option is ignored for CLI requests.
 */
-$config['url_suffix'] = 'html';
+$config['url_suffix'] = '';
 
 /*
 |--------------------------------------------------------------------------
