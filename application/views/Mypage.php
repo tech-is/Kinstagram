@@ -43,13 +43,13 @@
                             </div>
                             <div class="modal-body bg-black">
                                 <!-- 参考URLhttps://blog.ver001.com/javascript_preview_canvas/ -->
-                                <canvas id="preview" style="max-width:200px;"></canvas>
+                                <canvas id="previewPost" style="max-width:200px;"></canvas>
                                 <?php
                                 if (isset($error)) {
                                     echo $error;
                                 }
                                 ?>
-                                <input name="list_image" type="file" accept='image/*' onchange="previewImage(this);">
+                                <input name="list_image" type="file" accept='image/*' onchange="previewPostImage(this);">
 
                                 <div class="form-group">
                                     <labelclass="control-label">メッセージ</label>
@@ -139,13 +139,13 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label class="control-label">アイコン画像</label>
-                                    <canvas id="preview" style="max-width:200px;"></canvas>
+                                    <canvas id="previewMypage" style="max-width:200px;"></canvas>
                                     <?php
                                     if (isset($error)) {
                                         echo $error;
                                     }
                                     ?>
-                                    <input name="profile_image" type="file" accept='image/*' onchange="previewImage(this);">
+                                    <input name="profile_image" type="file" accept='image/*' onchange="previewMypageImage(this);">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">ユーザーネーム</label>
@@ -256,20 +256,20 @@
 
     <script>
         // プロフィール画像変更時にイメージを表示する
-        function previewImage(obj) {
-            var fileReader = new FileReader();
-            fileReader.onload = (function() {
-                var canvas = document.getElementById('preview');
-                var ctx = canvas.getContext('2d');
-                var image = new Image();
-                image.src = fileReader.result;
-                image.onload = (function() {
-                    canvas.width = image.width;
-                    canvas.height = image.height;
-                    ctx.drawImage(image, 0, 0);
+        function previewMypageImage(obj) {
+            var fileReader1 = new FileReader();
+            fileReader1.onload = (function() {
+                var canvas1 = document.getElementById('previewMypage');
+                var ctx1 = canvas1.getContext('2d');
+                var image1 = new Image();
+                image1.src = fileReader1.result;
+                image1.onload = (function() {
+                    canvas1.width = image1.width;
+                    canvas1.height = image1.height;
+                    ctx1.drawImage(image1, 0, 0);
                 });
             });
-            fileReader.readAsDataURL(obj.files[0]);
+            fileReader1.readAsDataURL(obj.files[0]);
         }
 
         // クリックで”フォロー”と”フォローする”のテキストが入れ替わる
@@ -286,10 +286,10 @@
         // );
 
         //投稿用のモーダル
-        function previewImage(obj) {
+        function previewPostImage(obj) {
             var fileReader = new FileReader();
             fileReader.onload = (function() {
-                var canvas = document.getElementById('preview');
+                var canvas = document.getElementById('previewPost');
                 var ctx = canvas.getContext('2d');
                 var image = new Image();
                 image.src = fileReader.result;

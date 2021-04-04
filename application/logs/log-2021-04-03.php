@@ -33,3 +33,33 @@ DEBUG - 2021-04-03 06:30:25 --> Session: "sess_save_path" is empty; using "sessi
 DEBUG - 2021-04-03 06:30:44 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-04-03 06:30:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 DEBUG - 2021-04-03 06:30:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-04-03 23:54:46 --> Severity: error --> Exception: syntax error, unexpected token "/" C:\xampp\htdocs\Kinstagram\application\controllers\Kinsta.php 185
+ERROR - 2021-04-03 23:54:47 --> 404 Page Not Found: Faviconico/index
+DEBUG - 2021-04-03 23:55:32 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-04-03 23:55:33 --> 404 Page Not Found: Faviconico/index
+DEBUG - 2021-04-03 23:56:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:10 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2021-04-03 23:56:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+ERROR - 2021-04-03 23:56:10 --> 404 Page Not Found: Img/3671456_s.jpg
+DEBUG - 2021-04-03 23:56:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:13 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:13 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:17 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:17 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:20 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:20 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:25 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:25 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:38 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:43 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:56:52 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:57:01 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:57:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+DEBUG - 2021-04-03 23:57:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.

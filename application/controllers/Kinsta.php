@@ -182,7 +182,7 @@ class Kinsta extends CI_Controller
 	public function individual()
 	{
 		$this->load->helper('files');
-		if (delete_files('post-img')) {
+		if (delete_files('/img/'.'post-img')) {
 			//削除しました
 		}
 
