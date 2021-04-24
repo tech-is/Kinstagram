@@ -49,4 +49,10 @@ class Model_mypage extends CI_Model
         //配列に入れる
         return $query->result_array();
     }
+
+    public function individual_delete($post_id)
+    {
+        $this->db->where('post_id',$post_id);
+        $this->db->update('posts',array('delete_flag'=>1));
+    }
 }

@@ -56,11 +56,17 @@ class Kinsta extends CI_Controller
 		$take_id = $this->Kinsta_model->get_userid($email);
 		$id = $take_id[0]["user_id"];
 
+		// $id2 = null;
+		// $id2 = $this->Kinsta_model->kiretemasuFirst($postIdGet);
+		// $post_id = $id2[0]["post_id"];
+
 		// var_dump($_GET['userId']);
 		// $id = $_GET['userId'] ?: null;
 		if (!empty($id) && is_numeric($id)) {
 			$this->load->model('Kinsta_model');
 			$data['myData'] = $this->Kinsta_model->mydata_get($id);
+			// var_dump($data['myData']);
+			// exit;
 			$this->load->model('Model_mypage');
 			$data['array_post'] = $this->Model_mypage->individual_get();
 			//$data['all_posts'] = $this->Kinsta_model->all_post();
@@ -69,15 +75,6 @@ class Kinsta extends CI_Controller
 			$this->load->view('Mypage', $data);
 		} else {
 		}
-
-
-
-
-		// $this->load->model('Kinsta_model');
-		// $data['login_userid'] = $this->Kinsta_model->get_userid($email);
-		// $data['array_user'] = $this->Model_mypage->mypage_get();
-		// $data['array_post'] = $this->Model_mypage->individual_get();
-		// $this->load->view('Mypage', $data);
 	}
 
 	public function mypage_update()
@@ -108,7 +105,9 @@ class Kinsta extends CI_Controller
 		$introduction = $this->input->post('introduction');
 		$my_category = $this->input->post('my_category');
 		$email = $this->input->post('E-mail');
-		$password = md5($this->input->post('password'));
+		// if(!($this->input->post('password') == NULL) {
+			$password = md5($this->input->post('password'));
+		// }
 
 		//変数を配列に格納
 		$user = [
@@ -162,6 +161,13 @@ class Kinsta extends CI_Controller
 		$post_message = $this->input->post('post_message');
 		$mymenu = $this->input->post('mymenu');
 		$mytraining = $this->input->post('mytraining');
+
+		//XSS フィルタリング
+		$post_message = $this->security->xss_clean($post_message);
+        $mymenu = $this->security->xss_clean($mymenu);
+		$mytraining = $this->security->xss_clean($mytraining);
+
+
 		//変数を配列に格納
 		$post = [
 			'user_id' => $user_id,
@@ -181,17 +187,26 @@ class Kinsta extends CI_Controller
 
 	public function individual()
 	{
-		$this->load->helper('files');
-		if (delete_files('/img/'.'post-img')) {
-			//削除しました
-		}
-
 		$post_data = null;
 		$this->load->model('Model_mypage');
 		$post_data['array_post'] = $this->Model_mypage->individual_get();
 		$post_data['array_user'] = $this->Model_mypage->mypage_get();
 		//  $dataを第二引数に入れてviewに送る
 		$this->load->view('Mypage', $post_data);
+	}
+
+	public function delete()
+	{	
+		$this->load->model('Kinsta_model');
+
+		$post_id = $_GET['num'];
+		//$post_id = $this->input->post("delete");
+		//var_dump($_GET);
+		//var_dump($_POST);
+		//var_dump($_SESSION);
+		//exit;
+		$this->Model_mypage->individual_delete($post_id);
+		redirect('Kinsta/Mypage');
 	}
 
 	public function individual_top()
