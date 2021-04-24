@@ -241,8 +241,9 @@ class Kinsta_model extends CI_Model
     {
         return $this->db
             ->where('users.user_id', $id)
+            ->where('delete_flag', 0)
             ->join('posts', 'posts.user_id=users.user_id', 'left')
-            ->select('users.profile_image,users.user_name,users.introduction,users.my_category,users.E-mail,posts.list_image')
+            ->select('users.profile_image,users.user_name,users.introduction,users.my_category,users.E-mail,posts.list_image,posts.post_id')
             ->get('users')
             ->result_array();
     }

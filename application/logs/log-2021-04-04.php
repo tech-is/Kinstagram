@@ -289,3 +289,12 @@ ERROR - 2021-04-04 08:04:57 --> 404 Page Not Found: Img/3671456_s.jpg
 DEBUG - 2021-04-04 08:05:40 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
 ERROR - 2021-04-04 08:05:40 --> 404 Page Not Found: Img/3671456_s.jpg
 ERROR - 2021-04-04 08:05:40 --> 404 Page Not Found: Faviconico/index
+ERROR - 2021-04-04 08:31:57 --> 404 Page Not Found: IPC%24/index
+ERROR - 2021-04-04 09:03:36 --> Severity: error --> Exception: syntax error, unexpected token "{" C:\xampp\htdocs\Kinstagram\application\controllers\Kinsta.php 111
+ERROR - 2021-04-04 09:03:37 --> 404 Page Not Found: Faviconico/index
+ERROR - 2021-04-04 09:07:09 --> Severity: error --> Exception: syntax error, unexpected token "if", expecting "]" C:\xampp\htdocs\Kinstagram\application\controllers\Kinsta.php 119
+ERROR - 2021-04-04 09:07:26 --> Severity: error --> Exception: syntax error, unexpected token "if", expecting "]" C:\xampp\htdocs\Kinstagram\application\controllers\Kinsta.php 119
+ERROR - 2021-04-04 09:08:04 --> Severity: error --> Exception: syntax error, unexpected token "if", expecting "]" C:\xampp\htdocs\Kinstagram\application\controllers\Kinsta.php 119
+ERROR - 2021-04-04 09:08:10 --> Severity: error --> Exception: syntax error, unexpected token "if", expecting "]" C:\xampp\htdocs\Kinstagram\application\controllers\Kinsta.php 119
+ERROR - 2021-04-04 09:08:10 --> 404 Page Not Found: Faviconico/index
+DEBUG - 2021-04-04 09:09:07 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
