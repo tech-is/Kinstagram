@@ -13,19 +13,23 @@ function phpmailer_send($to_mail, $from_name, $from_mail, $subject, $body)
 
   try {
     //Gmail 認証情報
-    $host = 'smtp.gmail.com';
-    $username = 'kinstagram111@gmail.com'; // example@gmail.com
-    $password = 'cYyHtQgo';
+    // $host = 'smtp.gmail.com';
+    // $username = 'kinstagram111@gmail.com'; // example@gmail.com
+    // $password = 'cYyHtQgo';
+    // $password = 'ojtvxrefdpebsukx';
+    $host = 'localhost';
+
 
     //メール設定
     $mail->SMTPDebug = 0; //デバッグ用
     $mail->isSMTP();
-    $mail->SMTPAuth = true;
+    // $mail->SMTPAuth = true;
     $mail->Host = $host;
-    $mail->Username = $username;
-    $mail->Password = $password;
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
+    // $mail->Username = $username;
+    // $mail->Password = $password;
+    // $mail->SMTPSecure = 'tls';
+    // $mail->Port = 587;
+    $mail->Port = 25;
     $mail->CharSet = "utf-8";
     $mail->Encoding = "base64";
     $mail->setFrom($from_mail, $from_name);

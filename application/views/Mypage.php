@@ -200,7 +200,8 @@
     <div id="individual_img" class="img-list">
         <?php if (!empty($myData[0]["list_image"])) : ?>
                     <?php for ($i = 0; $i < count($myData); $i++ ) : ?>
-                        <img class="myImageClass" id="myImage<?php echo $i ?>" src='/img/<?php echo $myData[$i]["list_image"]?>' data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?>>
+                        <img class="myImageClass" id="myImage<?php echo $i ?>" src='/img/<?php echo $myData[$i]["list_image"]?>' 
+                        data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?> data-postid=<?php echo $myData[$i]["post_id"]?>>
                     <?php endfor; ?>
                 <?php endif; ?>
     </div>

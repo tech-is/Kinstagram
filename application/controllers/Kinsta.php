@@ -230,27 +230,31 @@ class Kinsta extends CI_Controller
 			//ランダムキーを生成する
 			$key = md5(uniqid());
 
-			$this->load->model("model_users");
+			$this->load->model("Model_users");
 			$this->load->helper('phpmailer');
 
 			//メッセージの本文
-			$message = "会員登録ありがとうございます。\n\n http://localhost2/kinsta/resister_user/$key";
+			$message = "会員登録ありがとうございます。\n\n https://www.kinstagram.tk/kinsta/resister_user/$key";
 
 			//各ユーザーにランダムキーをパーマリンクに含むURLを送信する
 			$message .= "\nこちらをクリックして、会員登録を完了してください。\n あなたに、素晴らしい筋肉たちとの出会いがあらんことを...!\n\n 注意:\n\n※本メールは送信専用です。ご返信いただいてもお答えできませんのでご了承ください。\n※本メールは、Kinstagramの会員登録に入力いただいたメールアドレス宛に送信しております。\nメールにお心当たりがない場合は、当サービス、サポート窓口までご連絡をお願いいたします。
 			";
 
-			$result = phpmailer_send(
-				$this->input->post('E-mail'),
-				'Kinstagram',
-				'kinstagram111@gmail.com',
-				'Welcome to Muscle World!!!',
-				"$message"
-			);
+			try {
+				$result = phpmailer_send(
+					$this->input->post('E-mail'),
+					'Kinstagram',
+					'kinstagram111@gmail.com',
+					'Welcome to Muscle World!!!',
+					"$message"
+				);
+			} catch (Exception $e) {
+				var_dump($e);
+			}
 
 			//ユーザーに確認メールを送信できた場合、ユーザーを temp_users DBに追加する
 			if ($result) {
-				if ($this->model_users->add_temp_users($key)) {
+				if ($this->Model_users->add_temp_users($key)) {
 					$this->load->view('kin_top2');
 				} else {
 					echo "会員登録に失敗しました。（データベースエラー）";
@@ -284,9 +288,9 @@ class Kinsta extends CI_Controller
 
 	public function validate_credentials()
 	{		//Email情報がPOSTされたときに呼び出されるコールバック機能
-		$this->load->model("model_users");
+		$this->load->model("Model_users");
 
-		if ($this->model_users->can_log_in()) {	//ユーザーがログインできたあとに実行する処理
+		if ($this->Model_users->can_log_in()) {	//ユーザーがログインできたあとに実行する処理
 			return true;
 		} else {					//ユーザーがログインできなかったときに実行する処理
 			$this->form_validation->set_message("validate_credentials", "ユーザー名かパスワードが異なります。");
@@ -303,13 +307,13 @@ class Kinsta extends CI_Controller
 	public function resister_user($key)
 	{
 		//add_temp_usersモデルが書かれている、model_uses.phpをロードする
-		$this->load->model("model_users");
+		$this->load->model("Model_users");
 
-		if ($this->model_users->is_valid_key($key)) {	//キーが正しい場合は、以下を実行
-			if ($this->model_users->add_user($key)) {	//add_usersがTrueを返したら以下を実行
+		if ($this->Model_users->is_valid_key($key)) {	//キーが正しい場合は、以下を実行
+			if ($this->Model_users->add_user($key)) {	//add_usersがTrueを返したら以下を実行
 				// echo "新規会員登録に成功しました。下記フォームよりログインしてください。";
 				// $this->load->view('kin_top');
-				$session_data = $this->model_users->temp_login($key);
+				$session_data = $this->Model_users->temp_login($key);
 				$this->session->set_userdata($session_data);
 				redirect("kinsta/top");
 			} else echo "fail to add user. please try again";
