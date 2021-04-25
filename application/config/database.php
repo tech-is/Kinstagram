@@ -71,7 +71,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | the query builder class.
 */
 $user = 'root';
-$pass = '';
+$pass = 'm=k+o.c.b.v-p8S3S';
 
 $dbh = new PDO('mysql:host=localhost; dbname=k-instagram', $user, $pass);
 
@@ -82,7 +82,7 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => '',
+	'password' => 'm=k+o.c.b.v-p8S3S',
 	'database' => 'k-instagram',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

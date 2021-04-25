@@ -180,11 +180,11 @@
                                     <?php echo form_error('E-mail'); ?>
                                     <input name="E-mail" class="form-control bg-gray" type="text" value="<?php echo $myData[0]['E-mail']; ?>">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="control-label">パスワード</label>
-                                    <?php echo form_error('password'); ?>
+                                    <?php //echo form_error('password'); ?>
                                     <input type="password" name="password" class="form-control bg-gray" type="text">
-                                </div>
+                                </div> -->
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
@@ -200,20 +200,19 @@
     <div id="individual_img" class="img-list">
         <?php if (!empty($myData[0]["list_image"])) : ?>
                     <?php for ($i = 0; $i < count($myData); $i++ ) : ?>
-                        <img class="myImageClass" id="myImage<?php echo $i ?>" src='/img/<?php echo $myData[$i]["list_image"]?>' 
-                        data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?> data-postid=<?php echo $myData[$i]["post_id"]?>>
+                        <img class="myImageClass" id="myImage<?php echo $i ?>" src='/img/<?php echo $myData[$i]["list_image"]?>' data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?> data-postid=<?php echo $myData[$i]["post_id"]?>>
                     <?php endfor; ?>
-                <?php endif; ?>
+        <?php endif; ?>
     </div>
     <!-- 写真一覧 -->
 
     <!-- 個別画像表示用のモーダル -->
-    <form action="/Kinsta/individual" method="post">
+    <form action="/Kinsta/delete" method="post">
         <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-max" role="document">
                 <div class="modal-content border border-gray">
                     <div class="modal-header bg-black">
-                            <img src="/img/142136.png">
+                            <img src="/img/<?php echo $myData[0]['profile_image']; ?>">
                             <h5 class="modal-title bg-black" id="individualModalLabel">
                                 <?php echo $myData[0]['user_name']; ?>
                             </h5>
@@ -244,16 +243,37 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer bg-black">
-                            作成中→
-                            <button type="button" class="btn btn-danger">画像削除</button>
+                        <div class="modal-footer bg-black user_delete">
+                            <?php //if (!empty($myData[0]["post_id"])) : ?>
+                                <?php //echo $i; ?>
+                                <?php //for ($i = 0; $i < count($myData); $i++ ) : ?>
+                                <input name="delete" type="button" id="delete" class="btn btn-danger" onclick="click_delete('<?php echo $myData[0]['post_id']?>');" value="削除">
+                                <!-- <input type="hidden" name="delete" value=" -->
+                                <?php //endfor; ?>
+                            <?php //endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <!-- 写真モーダル -->
     </form>
+
+    <!-- 画像削除用のJS -->
+    <script type="text/javascript" id="delete" data-baseurl="<?= base_url(); ?>">
+            function click_delete(data) {
+                if (window.confirm('本当に削除されますか？')) {
+                    var id = data;
+                    var element = document.getElementById('delete');
+                    //alert(element.dataset.baseurl);
+                    //element.dataset.baseurlでbase_url()を取得
+                    location.href = 'delete?num=' + id;
+                } else {
+                    window.alert('キャンセルされました');
+                }
+            }
+    </script>
 
     <script>
         // プロフィール画像変更時にイメージを表示する
@@ -273,18 +293,7 @@
             fileReader1.readAsDataURL(obj.files[0]);
         }
 
-        // クリックで”フォロー”と”フォローする”のテキストが入れ替わる
-        // document.getElementById("follow").addEventListener(
-        //     "click",
-        //     function(event) {
-        //         if (event.target.value === "フォロー中") {
-        //             event.target.value = "フォローする";
-        //         } else {
-        //             event.target.value = "フォロー中";
-        //         }
-        //     },
-        //     false
-        // );
+        
 
         //投稿用のモーダル
         function previewPostImage(obj) {
