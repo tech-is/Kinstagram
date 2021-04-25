@@ -1045,7 +1045,6 @@ div.is-open {
                 .header_font_border{
                     box-sizing: border-box;
                     width:100%;
-                    z-index: 10;
                     background: black;
                 }
                 .titleLogo{
