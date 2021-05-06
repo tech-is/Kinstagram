@@ -200,7 +200,7 @@
     <div id="individual_img" class="img-list">
         <?php if (!empty($myData[0]["list_image"])) : ?>
                     <?php for ($i = 0; $i < count($myData); $i++ ) : ?>
-                        <img class="myImageClass" id="myImage<?php echo $i ?>" src='/img/<?php echo $myData[$i]["list_image"]?>' data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?> data-postid=<?php echo $myData[$i]["post_id"]?>>
+                        <img class="myImageClass" id="myImage<?php echo $i ?>" src='/img/<?php echo $myData[$i]["list_image"]?>' data-toggle="modal" data-target="#individualModal" alt = <?php echo $i ?> data-no=<?php echo $i ?> data-postid=<?php echo $myData[$i]["post_id"]?>>
                     <?php endfor; ?>
         <?php endif; ?>
     </div>
@@ -226,7 +226,7 @@
                                 <div class="col-md-6">
                                         <img id="post-img" src=""
                                         class='post-img' data-toggle="modal" data-target="#individualModal" data-no=<?php echo $i ?> 
-                                        alt="<?php echo $i?>">
+                                        alt=<?php echo $i?>>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -246,7 +246,7 @@
                         <div class="modal-footer bg-black user_delete">
                             <?php //if (!empty($myData[0]["post_id"])) : ?>
                                 <?php //for ($i = 0; $i < count($myData); $i++ ) : ?>
-                                <input name="delete" type="button" id="delete" class="btn btn-danger" onclick="click_delete('');" value="削除">
+                                <input name="delete" type="button" id="delete" class="btn btn-danger" onclick="click_delete();" value="削除">
                                 <!-- <input type="hidden" name="delete" value=" -->
                                 <?php //endfor; ?>
                             <?php //endif; ?>
@@ -261,21 +261,20 @@
 
     <!-- 画像削除用のJS -->
     <script type="text/javascript" id="delete" data-baseurl="<?= base_url(); ?>">
-            function click_delete(data) {
+            function click_delete(){
                 if (window.confirm('本当に削除されますか？')) {
-                    var id = data;
-                    var element = document.getElementById('delete');
-                    //alert(element.dataset.baseurl);
-                    //element.dataset.baseurlでbase_url()を取得
-                    location.href = 'delete?num=' + id;
-                } else {
+                var mm = document.getElementById('post-img');
+                var id = mm.getAttribute('alt');
+                var img = document.getElementById('myImage'+id);
+                var dd = img.getAttribute('alt');
+                if(dd == id){
+                    var kk = img.dataset.postid
+                    console.log(kk);
+                }
+                location.href = 'delete?num=' + kk;
+            } else {
                     window.alert('キャンセルされました');
                 }
-            }
-            function click_delete(){
-                var mm = document.getElementById('post-img');
-                var alt = mm.getAttribute('alt');
-                console.log(alt);
             }
 
     </script>

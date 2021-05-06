@@ -199,12 +199,7 @@ class Kinsta extends CI_Controller
 	{	
 		$this->load->model('Kinsta_model');
 
-		$post_id = $_GET['num'];
-		//$post_id = $this->input->post("delete");
-		//var_dump($_GET);
-		//var_dump($_POST);
-		//var_dump($_SESSION);
-		//exit;
+		$post_id = (int)$_GET['num'];
 		$this->Model_mypage->individual_delete($post_id);
 		redirect('Kinsta/Mypage');
 	}
