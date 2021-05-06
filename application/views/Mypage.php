@@ -245,9 +245,8 @@
                         </div>
                         <div class="modal-footer bg-black user_delete">
                             <?php //if (!empty($myData[0]["post_id"])) : ?>
-                                <?php //echo $i; ?>
                                 <?php //for ($i = 0; $i < count($myData); $i++ ) : ?>
-                                <input name="delete" type="button" id="delete" class="btn btn-danger" onclick="click_delete('<?php echo $myData[0]['post_id']?>');" value="削除">
+                                <input name="delete" type="button" id="delete" class="btn btn-danger" onclick="click_delete('');" value="削除">
                                 <!-- <input type="hidden" name="delete" value=" -->
                                 <?php //endfor; ?>
                             <?php //endif; ?>
@@ -273,6 +272,12 @@
                     window.alert('キャンセルされました');
                 }
             }
+            function click_delete(){
+                var mm = document.getElementById('post-img');
+                var alt = mm.getAttribute('alt');
+                console.log(alt);
+            }
+
     </script>
 
     <script>
@@ -293,8 +298,6 @@
             fileReader1.readAsDataURL(obj.files[0]);
         }
 
-        
-
         //投稿用のモーダル
         function previewPostImage(obj) {
             var fileReader = new FileReader();
@@ -312,11 +315,6 @@
             fileReader.readAsDataURL(obj.files[0]);
         }
 
-        //一覧画像をクリックするとモーダル表示
-        //https://stackoverflow.com/questions/26377231/jquery-how-to-change-img-src-path-onclick
-        // $('#myImage').on('click', function() {
-        //     $('#myImage').prop('src', this.src);
-        // });
     </script>
     <script src="/iine_app/iine.js"></script>
 </body>
